@@ -1,0 +1,258 @@
+type GlobalVariable @entity {
+    "global variable id"
+    id: ID!
+    "total WooPP traders"
+    totalTraders: BigInt!
+    "total WooPP tx count"
+    totalTxCount: BigInt!
+    "total WooPP volume USD, not include routeToDODOVolumeUSD"
+    totalVolumeUSD: BigInt!
+    "total volume USD from WooRouter"
+    totalVolumeUSDFromWooRouter: BigInt!
+    "total volume USD from 1inch"
+    totalVolumeUSDFromOneInch: BigInt!
+    "total volume USD from DODO"
+    totalVolumeUSDFromDODO: BigInt!
+    "total volume USD from OpenOcean"
+    totalVolumeUSDFromOpenOcean: BigInt!
+    "total volume USD from Other Dex"
+    totalVolumeUSDFromOther: BigInt!
+    "route to WooPP volume USD"
+    routeToWooPPVolumeUSD: BigInt!
+    "route to DODO volume USD, not include in totalVolumeUSD"
+    routeToDODOVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type WooSwapHash @entity {
+    "WooSwap hash"
+    id: ID!
+    "tx count for other entity"
+    txSynced: Boolean!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type OrderHistoryVariable @entity {
+    "order history variable id"
+    id: ID!
+    "order history tx count"
+    txCount: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type OrderHistory @entity {
+    "order history id"
+    id: ID!
+    "source (from : woo、dodo)"
+    source: Int!
+    "transaction hash"
+    hash: Bytes!
+    "block"
+    block: BigInt!
+    "timestamp of this transaction"
+    timestamp: BigInt!
+    "tx.origin"
+    sender: Bytes!
+    "tx from address(msg.sender)"
+    from: Bytes!
+    "traded this hour"
+    tradedByOtherDex: Boolean!
+    "to address"
+    to: Bytes!
+    "from token"
+    fromToken: Bytes!
+    "to token"
+    toToken: Bytes!
+    "from token amount"
+    fromAmount: BigInt!
+    "to token amount"
+    toAmount: BigInt!
+    "order history count"
+    txCount: BigInt!
+}
+
+type HourToken @entity {
+    "hour token id"
+    id: ID!
+    "uinx timestamp(start of hour)"
+    timestamp: BigInt!
+    "token tx count in an hour"
+    txCount: BigInt!
+    "hour traded volume USD"
+    volumeUSD: BigInt!
+    "route to WooPP tx count"
+    routeToWooPPTxCount: BigInt!
+    "route to DODO tx count"
+    routeToDODOTxCount: BigInt!
+    "route to WooPP volume USD"
+    routeToWooPPVolumeUSD: BigInt!
+    "route to DODO volume USD"
+    routeToDODOVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type Token @entity {
+    "token address"
+    id: ID!
+    "last trade price (quote/base)"
+    lastTradePrice: BigInt!
+    "total traded volume USD of token"
+    volumeUSD: BigInt!
+    "route to WooPP volume USD"
+    routeToWooPPVolumeUSD: BigInt!
+    "route to DODO volume USD"
+    routeToDODOVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type HourData @entity {
+    "hour data id"
+    id: ID!
+    "uinx timestamp(start of hour)"
+    timestamp: BigInt!
+    "hour traders"
+    traders: BigInt!
+    "hour tx count"
+    txCount: BigInt!
+    "volume USD"
+    volumeUSD: BigInt!
+    "volume USD from WooRouter"
+    volumeUSDFromWooRouter: BigInt!
+    "volume USD from 1inch"
+    volumeUSDFromOneInch: BigInt!
+    "volume USD from DODO"
+    volumeUSDFromDODO: BigInt!
+    "volume USD from OpenOcean"
+    volumeUSDFromOpenOcean: BigInt!
+    "volume USD from Other Dex"
+    volumeUSDFromOther: BigInt!
+    "route to WooPP tx count"
+    routeToWooPPTxCount: BigInt!
+    "route to DODO tx count"
+    routeToDODOTxCount: BigInt!
+    "route to WooPP volume USD"
+    routeToWooPPVolumeUSD: BigInt!
+    "route to DODO volume USD"
+    routeToDODOVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type DayData @entity {
+    "day data id"
+    id: ID!
+    "uinx timestamp(start of day)"
+    timestamp: BigInt!
+    "daily traders"
+    traders: BigInt!
+    "daily tx count"
+    txCount: BigInt!
+    "volume USD"
+    volumeUSD: BigInt!
+    "volume USD from WooRouter"
+    volumeUSDFromWooRouter: BigInt!
+    "volume USD from 1inch"
+    volumeUSDFromOneInch: BigInt!
+    "volume USD from DODO"
+    volumeUSDFromDODO: BigInt!
+    "volume USD from OpenOcean"
+    volumeUSDFromOpenOcean: BigInt!
+    "volume USD from Other Dex"
+    volumeUSDFromOther: BigInt!
+    "route to WooPP tx count"
+    routeToWooPPTxCount: BigInt!
+    "route to DODO tx count"
+    routeToDODOTxCount: BigInt!
+    "route to WooPP volume USD"
+    routeToWooPPVolumeUSD: BigInt!
+    "route to DODO volume USD"
+    routeToDODOVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type HourTrader @entity {
+    "hour trader id"
+    id: ID!
+    "traded this hour"
+    tradedThisHour: Boolean!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type DayTrader @entity {
+    "day trader id"
+    id: ID!
+    "traded today"
+    tradedToday: Boolean!
+    "uinx timestamp(start of day)"
+    timestamp: BigInt!
+    "user address"
+    address: Bytes!
+    "volume USD"
+    volumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type Trader @entity {
+    "trader address"
+    id: ID!
+    "traded before"
+    tradedBefore: Boolean!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type HourOrderSource @entity {
+    "order source id"
+    id: ID!
+    "uinx timestamp(start of hour)"
+    timestamp: BigInt!
+    "volume USD"
+    volumeUSD: BigInt!
+    "order source tx count"
+    txCount: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type DayOrderSource @entity {
+    "order source id"
+    id: ID!
+    "uinx timestamp(start of day)"
+    timestamp: BigInt!
+    "volume USD"
+    volumeUSD: BigInt!
+    "order source tx count"
+    txCount: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type OrderSource @entity {
+    "order source id"
+    id: ID!
+    "volume USD"
+    volumeUSD: BigInt!
+    "order source tx count"
+    txCount: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type UnknownOrderSource @entity {
+    "order source address"
+    id: ID!
+    "volume USD"
+    volumeUSD: BigInt!
+    "order source tx count"
+    txCount: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}

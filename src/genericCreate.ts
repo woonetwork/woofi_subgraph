@@ -24,6 +24,7 @@ export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
         globalVariable.totalVolumeUSDFromOneInch = ZERO_BI;
         globalVariable.totalVolumeUSDFromDODO = ZERO_BI;
         globalVariable.totalVolumeUSDFromOpenOcean = ZERO_BI;
+        globalVariable.totalVolumeUSDFromMetaMask = ZERO_BI;
         globalVariable.totalVolumeUSDFromOther = ZERO_BI;
         globalVariable.routeToWooPPVolumeUSD = ZERO_BI;
         globalVariable.routeToDODOVolumeUSD = ZERO_BI;
@@ -107,6 +108,7 @@ export function createHourData(event: ethereum.Event): HourData {
         hourData.volumeUSDFromOneInch = ZERO_BI;
         hourData.volumeUSDFromDODO = ZERO_BI;
         hourData.volumeUSDFromOpenOcean = ZERO_BI;
+        hourData.volumeUSDFromMetaMask = ZERO_BI;
         hourData.volumeUSDFromOther = ZERO_BI;
         hourData.routeToWooPPTxCount = ZERO_BI;
         hourData.routeToDODOTxCount = ZERO_BI;
@@ -136,6 +138,7 @@ export function createDayData(event: ethereum.Event): DayData {
         dayData.volumeUSDFromOneInch = ZERO_BI;
         dayData.volumeUSDFromDODO = ZERO_BI;
         dayData.volumeUSDFromOpenOcean = ZERO_BI;
+        dayData.volumeUSDFromMetaMask = ZERO_BI;
         dayData.volumeUSDFromOther = ZERO_BI;
         dayData.routeToWooPPTxCount = ZERO_BI;
         dayData.routeToDODOTxCount = ZERO_BI;

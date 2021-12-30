@@ -27,19 +27,20 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x2a71693a4d88b4f6ae6697a87b3524c04b92ab38",  // Exchange Governance
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
     "0xbaf9a5d4b0052359326a6cdab54babaa3a3a9643",  // Aggregation Executor
-    "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // Metamask
-]
+];
 export const DODO_ORDER_SOURCES: string[] = [
     "0x6b3d817814eabc984d51896b1015c0b89e9737ca",  // DODO Proxy 01
     "0x8f8dd7db1bda5ed3da8c9daf3bfa471c12d58486",  // DODO Proxy 02
     "0xbce44767af0a53a108b3b7ba4f740e03d228ec0a",  // WooAdapter
     "0xa128ba44b2738a558a1fdc06d6303d52d3cef8c1",  // Approve
-]
-
+];
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6dd434082eab5cd134b33719ec1ff05fe985b97b",  // OpenOcean Pool(Maybe)
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
-]
+];
+export const METAMASK_SOURCES: string[] = [
+    "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // MetaMask
+];
 
 export const GLOBAL_VARIABLE_ID = '0';
 export const ORDER_HISTORY_VARIABLE_ID = '0';
@@ -47,5 +48,6 @@ export const ORDER_HISTORY_VARIABLE_ID = '0';
 export const WOO_ROUTER_ORDER_SOURCE_ID = '0';
 export const ONE_INCH_ORDER_SOURCE_ID = '1';
 export const DODO_ORDER_SOURCE_ID = '2';
-export const OPEN_OCEAN_SOURCE_ID = '3';
+export const OPEN_OCEAN_ORDER_SOURCE_ID = '3';
+export const METAMASK_ORDER_SOURCE_ID = '4';
 export const OTHER_ORDER_SOURCE_ID = '99';

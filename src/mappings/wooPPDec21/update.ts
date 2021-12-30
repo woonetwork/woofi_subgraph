@@ -22,8 +22,9 @@ import {
     WOO_ROUTER_ORDER_SOURCE_ID,
     ONE_INCH_ORDER_SOURCE_ID,
     DODO_ORDER_SOURCE_ID,
-    OPEN_OCEAN_SOURCE_ID,
-    OTHER_ORDER_SOURCE_ID
+    OPEN_OCEAN_ORDER_SOURCE_ID,
+    METAMASK_ORDER_SOURCE_ID,
+    OTHER_ORDER_SOURCE_ID,
 } from "../../constants";
 import {getOrderSourceIDForWooPP} from "../../utils";
 
@@ -46,8 +47,10 @@ export function updateGlobalVariable(event: WooSwap, traderAddress: Bytes, volum
         globalVariable.totalVolumeUSDFromOneInch = globalVariable.totalVolumeUSDFromOneInch.plus(volumeUSD);
     } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
         globalVariable.totalVolumeUSDFromDODO = globalVariable.totalVolumeUSDFromDODO.plus(volumeUSD);
-    } else if (orderSourceID == OPEN_OCEAN_SOURCE_ID) {
+    } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
         globalVariable.totalVolumeUSDFromOpenOcean = globalVariable.totalVolumeUSDFromOpenOcean.plus(volumeUSD);
+    } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
+        globalVariable.totalVolumeUSDFromMetaMask = globalVariable.totalVolumeUSDFromMetaMask.plus(volumeUSD);
     } else {
         globalVariable.totalVolumeUSDFromOther = globalVariable.totalVolumeUSDFromOther.plus(volumeUSD);
     }
@@ -105,8 +108,10 @@ export function updateHourData(event: WooSwap, traderAddress: Bytes, volumeUSD: 
         hourData.volumeUSDFromOneInch = hourData.volumeUSDFromOneInch.plus(volumeUSD);
     } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
         hourData.volumeUSDFromDODO = hourData.volumeUSDFromDODO.plus(volumeUSD);
-    } else if (orderSourceID == OPEN_OCEAN_SOURCE_ID) {
+    } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
         hourData.volumeUSDFromOpenOcean = hourData.volumeUSDFromOpenOcean.plus(volumeUSD);
+    } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
+        hourData.volumeUSDFromMetaMask = hourData.volumeUSDFromMetaMask.plus(volumeUSD);
     } else {
         hourData.volumeUSDFromOther = hourData.volumeUSDFromOther.plus(volumeUSD);
     }
@@ -136,8 +141,10 @@ export function updateDayData(event: WooSwap, traderAddress: Bytes, volumeUSD: B
         dayData.volumeUSDFromOneInch = dayData.volumeUSDFromOneInch.plus(volumeUSD);
     } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
         dayData.volumeUSDFromDODO = dayData.volumeUSDFromDODO.plus(volumeUSD);
-    } else if (orderSourceID == OPEN_OCEAN_SOURCE_ID) {
+    } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
         dayData.volumeUSDFromOpenOcean = dayData.volumeUSDFromOpenOcean.plus(volumeUSD);
+    } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
+        dayData.volumeUSDFromMetaMask = dayData.volumeUSDFromMetaMask.plus(volumeUSD);
     } else {
         dayData.volumeUSDFromOther = dayData.volumeUSDFromOther.plus(volumeUSD);
     }

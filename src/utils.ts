@@ -9,8 +9,10 @@ import {
     DODO_ORDER_SOURCES,
     DODO_ORDER_SOURCE_ID,
     OPEN_OCEAN_SOURCES,
-    OPEN_OCEAN_SOURCE_ID,
-    OTHER_ORDER_SOURCE_ID
+    OPEN_OCEAN_ORDER_SOURCE_ID,
+    METAMASK_SOURCES,
+    METAMASK_ORDER_SOURCE_ID,
+    OTHER_ORDER_SOURCE_ID,
 } from "./constants";
 
 export function exponentToBigInt(decimals: BigInt): BigInt {
@@ -37,7 +39,9 @@ export function getOrderSourceIDForWooPP(transactionTo: string): string {
     } else if (DODO_ORDER_SOURCES.indexOf(transactionTo) != -1) {
         orderSourceID = DODO_ORDER_SOURCE_ID;
     } else if (OPEN_OCEAN_SOURCES.indexOf(transactionTo) != -1) {
-        orderSourceID = OPEN_OCEAN_SOURCE_ID;
+        orderSourceID = OPEN_OCEAN_ORDER_SOURCE_ID;
+    } else if (METAMASK_SOURCES.indexOf(transactionTo) != -1) {
+        orderSourceID = METAMASK_ORDER_SOURCE_ID;
     } else {
         orderSourceID = OTHER_ORDER_SOURCE_ID;
     }
@@ -53,7 +57,9 @@ export function getOrderSourceIDForWooRouter(msgSender: string): string {
     } else if (DODO_ORDER_SOURCES.indexOf(msgSender) != -1) {
         orderSourceID = DODO_ORDER_SOURCE_ID;
     } else if (OPEN_OCEAN_SOURCES.indexOf(msgSender) != -1) {
-        orderSourceID = OPEN_OCEAN_SOURCE_ID;
+        orderSourceID = OPEN_OCEAN_ORDER_SOURCE_ID;
+    } else if (METAMASK_SOURCES.indexOf(msgSender) != -1) {
+        orderSourceID = METAMASK_ORDER_SOURCE_ID;
     } else {
         orderSourceID = WOO_ROUTER_ORDER_SOURCE_ID;
     }

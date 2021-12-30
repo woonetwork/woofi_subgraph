@@ -15,6 +15,8 @@ type GlobalVariable @entity {
     totalVolumeUSDFromDODO: BigInt!
     "total volume USD from OpenOcean"
     totalVolumeUSDFromOpenOcean: BigInt!
+    "total volume USD from MetaMask"
+    totalVolumeUSDFromMetaMask: BigInt!
     "total volume USD from Other Dex"
     totalVolumeUSDFromOther: BigInt!
     "route to WooPP volume USD"
@@ -129,6 +131,8 @@ type HourData @entity {
     volumeUSDFromDODO: BigInt!
     "volume USD from OpenOcean"
     volumeUSDFromOpenOcean: BigInt!
+    "volume USD from MetaMask"
+    volumeUSDFromMetaMask: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "route to WooPP tx count"
@@ -162,6 +166,8 @@ type DayData @entity {
     volumeUSDFromDODO: BigInt!
     "volume USD from OpenOcean"
     volumeUSDFromOpenOcean: BigInt!
+    "volume USD from MetaMask"
+    volumeUSDFromMetaMask: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "route to WooPP tx count"

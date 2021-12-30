@@ -28,7 +28,6 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
     "0xbaf9a5d4b0052359326a6cdab54babaa3a3a9643",  // Aggregation Executor
     "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // Metamask
-    "0xbcfc5ff82fd9269817ae7b773eeef02edd652ebb",  // Other
 ]
 export const DODO_ORDER_SOURCES: string[] = [
     "0x6b3d817814eabc984d51896b1015c0b89e9737ca",  // DODO Proxy 01

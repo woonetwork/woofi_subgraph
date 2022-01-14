@@ -3,6 +3,8 @@ import {BigDecimal, BigInt} from "@graphprotocol/graph-ts/index";
 export let ZERO_BI = BigInt.fromI32(0);
 export let ONE_BI = BigInt.fromI32(1);
 export let TWO_BI = BigInt.fromI32(2);
+export let BI_6 = BigInt.fromI32(6);
+export let BI_8 = BigInt.fromI32(8);
 export let BI_18 = BigInt.fromI32(18);
 
 export let ZERO_BD = BigDecimal.fromString('0');
@@ -11,6 +13,8 @@ export let ONE_BD = BigDecimal.fromString('1');
 // Address Must Be Lower Case!!!
 export const BNB = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
 export const WBNB = '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c';
+export const ALICE = '0xac51066d7bec65dc4589368da368b212745d63e8';  // decimals 6
+export const DOGE = '0xba2ae424d960c26247dd6c32edc70b295c744c43';  // decimals 8
 
 export const BSC_STABLE_TOKENS: string[] = [
     "0xe9e7cea3dedca5984780bafc599bd69add087d56",  // BUSD

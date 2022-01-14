@@ -34,7 +34,6 @@ export function calVolumeUSD(event: WooRouterSwap): BigInt {
             volumeUSD = fromAmount.times(fromToken.lastTradePrice).div(BI_1e18);
         }
     } else {
-        volumeUSD = toAmount.times(toToken.lastTradePrice).div(BI_1e18);
         if (fromTokenAddress.toHexString() == ALICE) {
             volumeUSD = toAmount.times(toToken.lastTradePrice).div(BI_1e6);
         } else if (fromTokenAddress.toHexString() == DOGE) {

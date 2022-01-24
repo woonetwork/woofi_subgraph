@@ -16,9 +16,9 @@ import {
     createOrderSource,
     createUnknownOrderSource,
     createWooSwapHash
-} from "../../genericCreate";
+} from "../../create";
 import {
-    ONE_BI,
+    BI_1,
     WOO_ROUTER_ORDER_SOURCE_ID,
     ONE_INCH_ORDER_SOURCE_ID,
     DODO_ORDER_SOURCE_ID,
@@ -32,11 +32,11 @@ export function updateGlobalVariable(event: WooSwap, traderAddress: Bytes, volum
     let globalVariable = createGlobalVariable(event);
     let trader = createTrader(event, traderAddress);
     if (trader.tradedBefore == false) {
-        globalVariable.totalTraders = globalVariable.totalTraders.plus(ONE_BI);
+        globalVariable.totalTraders = globalVariable.totalTraders.plus(BI_1);
         updateTrader(event, traderAddress);
     }
     if (wooSwapHash.txSynced == false) {
-        globalVariable.totalTxCount = globalVariable.totalTxCount.plus(ONE_BI);
+        globalVariable.totalTxCount = globalVariable.totalTxCount.plus(BI_1);
     }
     globalVariable.totalVolumeUSD = globalVariable.totalVolumeUSD.plus(volumeUSD);
 
@@ -64,12 +64,12 @@ export function updateHourToken(event: WooSwap, volumeUSD: BigInt): void {
     let fromHourToken = createHourToken(event, event.params.fromToken);
     let toHourToken = createHourToken(event, event.params.toToken);
 
-    fromHourToken.txCount = fromHourToken.txCount.plus(ONE_BI);
+    fromHourToken.txCount = fromHourToken.txCount.plus(BI_1);
     fromHourToken.volumeUSD = fromHourToken.volumeUSD.plus(volumeUSD);
     fromHourToken.updatedAt = event.block.timestamp;
     fromHourToken.save();
 
-    toHourToken.txCount = toHourToken.txCount.plus(ONE_BI);
+    toHourToken.txCount = toHourToken.txCount.plus(BI_1);
     toHourToken.volumeUSD = toHourToken.volumeUSD.plus(volumeUSD);
     toHourToken.updatedAt = event.block.timestamp;
     toHourToken.save();
@@ -93,11 +93,11 @@ export function updateHourData(event: WooSwap, traderAddress: Bytes, volumeUSD: 
 
     let hourTrader = createHourTrader(event, traderAddress);
     if (hourTrader.tradedThisHour == false) {
-        hourData.traders = hourData.traders.plus(ONE_BI);
+        hourData.traders = hourData.traders.plus(BI_1);
         updateHourTrader(event, traderAddress);
     }
     if (wooSwapHash.txSynced == false) {
-        hourData.txCount = hourData.txCount.plus(ONE_BI);
+        hourData.txCount = hourData.txCount.plus(BI_1);
     }
     hourData.volumeUSD = hourData.volumeUSD.plus(volumeUSD);
 
@@ -125,12 +125,12 @@ export function updateDayData(event: WooSwap, traderAddress: Bytes, volumeUSD: B
 
     let dayTrader = createDayTrader(event, traderAddress);
     if (dayTrader.tradedToday == false) {
-        dayData.traders = dayData.traders.plus(ONE_BI);
+        dayData.traders = dayData.traders.plus(BI_1);
     }
     // 注意顺序, 需要先检查dayTrader.tradedToday后再更新dayTrader
     updateDayTrader(event, traderAddress, volumeUSD);
     if (wooSwapHash.txSynced == false) {
-        dayData.txCount = dayData.txCount.plus(ONE_BI);
+        dayData.txCount = dayData.txCount.plus(BI_1);
     }
     dayData.volumeUSD = dayData.volumeUSD.plus(volumeUSD);
 
@@ -186,7 +186,7 @@ export function updateHourOrderSource(event: WooSwap, volumeUSD: BigInt, wooSwap
     let hourOrderSource = createHourOrderSource(event, orderSourceID);
     hourOrderSource.volumeUSD = hourOrderSource.volumeUSD.plus(volumeUSD);
     if (wooSwapHash.txSynced == false) {
-        hourOrderSource.txCount = hourOrderSource.txCount.plus(ONE_BI);
+        hourOrderSource.txCount = hourOrderSource.txCount.plus(BI_1);
     }
     hourOrderSource.updatedAt = event.block.timestamp;
     hourOrderSource.save();
@@ -197,7 +197,7 @@ export function updateDayOrderSource(event: WooSwap, volumeUSD: BigInt, wooSwapH
     let dayOrderSource = createDayOrderSource(event, orderSourceID);
     dayOrderSource.volumeUSD = dayOrderSource.volumeUSD.plus(volumeUSD);
     if (wooSwapHash.txSynced == false) {
-        dayOrderSource.txCount = dayOrderSource.txCount.plus(ONE_BI);
+        dayOrderSource.txCount = dayOrderSource.txCount.plus(BI_1);
     }
     dayOrderSource.updatedAt = event.block.timestamp;
     dayOrderSource.save();
@@ -212,7 +212,7 @@ export function updateOrderSource(event: WooSwap, volumeUSD: BigInt, wooSwapHash
 
     orderSource.volumeUSD = orderSource.volumeUSD.plus(volumeUSD);
     if (wooSwapHash.txSynced == false) {
-        orderSource.txCount = orderSource.txCount.plus(ONE_BI);
+        orderSource.txCount = orderSource.txCount.plus(BI_1);
     }
     orderSource.updatedAt = event.block.timestamp;
     orderSource.save();
@@ -223,7 +223,7 @@ export function updateUnknownOrderSource(event: WooSwap, volumeUSD: BigInt, wooS
 
     unknownOrderSource.volumeUSD = unknownOrderSource.volumeUSD.plus(volumeUSD);
     if (wooSwapHash.txSynced == false) {
-        unknownOrderSource.txCount = unknownOrderSource.txCount.plus(ONE_BI);
+        unknownOrderSource.txCount = unknownOrderSource.txCount.plus(BI_1);
     }
     unknownOrderSource.updatedAt = event.block.timestamp;
     unknownOrderSource.save();

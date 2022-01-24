@@ -1,7 +1,7 @@
 import {BigDecimal, BigInt} from "@graphprotocol/graph-ts/index";
 import {
-    ONE_BI,
-    ZERO_BI,
+    BI_1,
+    BI_0,
     WOO_ROUTER,
     WOO_ROUTER_ORDER_SOURCE_ID,
     ONE_INCH_ORDER_SOURCES,
@@ -17,7 +17,7 @@ import {
 
 export function exponentToBigInt(decimals: BigInt): BigInt {
     let bi = BigInt.fromString('1');
-    for (let i = ZERO_BI; i.lt(decimals as BigInt); i = i.plus(ONE_BI)) {
+    for (let i = BI_0; i.lt(decimals as BigInt); i = i.plus(BI_1)) {
         bi = bi.times(BigInt.fromString('10'));
     }
     return bi;
@@ -44,24 +44,6 @@ export function getOrderSourceIDForWooPP(transactionTo: string): string {
         orderSourceID = METAMASK_ORDER_SOURCE_ID;
     } else {
         orderSourceID = OTHER_ORDER_SOURCE_ID;
-    }
-
-    return orderSourceID;
-}
-
-export function getOrderSourceIDForWooRouter(msgSender: string): string {
-    let orderSourceID: string;
-
-    if (ONE_INCH_ORDER_SOURCES.indexOf(msgSender) != -1) {
-        orderSourceID = ONE_INCH_ORDER_SOURCE_ID;
-    } else if (DODO_ORDER_SOURCES.indexOf(msgSender) != -1) {
-        orderSourceID = DODO_ORDER_SOURCE_ID;
-    } else if (OPEN_OCEAN_SOURCES.indexOf(msgSender) != -1) {
-        orderSourceID = OPEN_OCEAN_ORDER_SOURCE_ID;
-    } else if (METAMASK_SOURCES.indexOf(msgSender) != -1) {
-        orderSourceID = METAMASK_ORDER_SOURCE_ID;
-    } else {
-        orderSourceID = WOO_ROUTER_ORDER_SOURCE_ID;
     }
 
     return orderSourceID;

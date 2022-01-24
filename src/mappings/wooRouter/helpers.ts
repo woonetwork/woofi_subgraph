@@ -2,20 +2,14 @@ import {BigInt} from "@graphprotocol/graph-ts"
 import {WooRouterSwap} from "../../../generated/WooRouter/WooRouter";
 import {exponentToBigInt} from "../../utils";
 import {
-    ZERO_BI,
-    TWO_BI,
-    BI_6,
-    BI_8,
+    BI_0,
+    BI_2,
     BI_18,
-    ALICE,
-    DOGE,
-    BSC_STABLE_TOKENS,
+    STABLE_TOKENS,
 } from "../../constants";
-import {createToken} from "../../genericCreate";
+import {createToken} from "../../create";
 
 export function calVolumeUSD(event: WooRouterSwap): BigInt {
-    let BI_1e6 = exponentToBigInt(BI_6);
-    let BI_1e8 = exponentToBigInt(BI_8);
     let BI_1e18 = exponentToBigInt(BI_18);
     let fromTokenAddress = event.params.fromToken;
     let toTokenAddress = event.params.toToken;
@@ -25,28 +19,27 @@ export function calVolumeUSD(event: WooRouterSwap): BigInt {
     let toToken = createToken(event, toTokenAddress);
 
     let volumeUSD: BigInt
-    if (fromToken.lastTradePrice != ZERO_BI) {
-        if (fromTokenAddress.toHexString() == ALICE) {
-            volumeUSD = fromAmount.times(fromToken.lastTradePrice).div(BI_1e6);
-        } else if (fromTokenAddress.toHexString() == DOGE) {
-            volumeUSD = fromAmount.times(fromToken.lastTradePrice).div(BI_1e8);
+    if (fromToken.lastTradePrice != BI_0) {
+        if (fromToken.decimals != BI_18) {
+            let BI_1eDoubleDecimals = exponentToBigInt(fromToken.decimals.times(BI_2))
+            volumeUSD = fromAmount.times(BI_1e18).div(BI_1eDoubleDecimals).times(fromToken.lastTradePrice)
         } else {
             volumeUSD = fromAmount.times(fromToken.lastTradePrice).div(BI_1e18);
         }
     } else {
-        volumeUSD = toAmount.times(toToken.lastTradePrice).div(BI_1e18);
-        if (toTokenAddress.toHexString() == ALICE) {
-            volumeUSD = volumeUSD.times(BI_1e6).div(BI_1e18)
-        } else if (toTokenAddress.toHexString() == DOGE) {
-            volumeUSD = volumeUSD.times(BI_1e8).div(BI_1e18)
+        if (toToken.decimals != BI_18) {
+            let BI_1eDoubleDecimals = exponentToBigInt(toToken.decimals.times(BI_2))
+            volumeUSD = toAmount.times(BI_1e18).div(BI_1eDoubleDecimals).times(toToken.lastTradePrice)
+        } else {
+            volumeUSD = toAmount.times(toToken.lastTradePrice).div(BI_1e18);
         }
     }
 
     if (
-      BSC_STABLE_TOKENS[1] != fromTokenAddress.toHexString() && BSC_STABLE_TOKENS[1] != toTokenAddress.toHexString()
+      STABLE_TOKENS[1] != fromTokenAddress.toHexString() && STABLE_TOKENS[1] != toTokenAddress.toHexString()
       && event.params.swapType == 0
     ) {
-        volumeUSD = volumeUSD.times(TWO_BI);
+        volumeUSD = volumeUSD.times(BI_2);
     }
 
     return volumeUSD;

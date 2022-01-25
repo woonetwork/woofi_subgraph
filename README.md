@@ -3,14 +3,14 @@ WOOFi Subgraph
 
 ### Dependencies install
 ```shell
-yarn install
+npm install
 ```
 
 ### Deploy
 ```shell
 graph auth --product hosted-service <Access Token>
-graph codegen
-graph deploy --product hosted-service <Github Username>/<Subgraph Name>
+npm run codegen_bsc
+npm run deploy_bsc_production
 ```
 
 ### Endpoints

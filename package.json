@@ -2,14 +2,19 @@
   "name": "woofi_subgraph",
   "license": "MIT",
   "scripts": {
-    "codegen": "graph codegen",
+    "codegen_bsc": "graph codegen ./bsc.yaml",
+    "codegen_avax": "graph codegen ./avax.yaml",
     "build": "graph build",
-    "deploy_bsc_production": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen subgraphs/bsc.yaml && graph deploy --product hosted-service woonetwork/woofi",
-    "deploy_bsc_staging": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen subgraphs/bsc.yaml && graph deploy --product hosted-service merlincdj/woofi-staging",
-    "deploy_bsc_testing": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen subgraphs/bsc.yaml && graph deploy --product hosted-service merlincdj/woofi-testing"
+    "deploy_bsc_production": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi ./bsc.yaml",
+    "deploy_bsc_staging": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-bsc-staging ./bsc.yaml",
+    "deploy_bsc_testing": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-bsc-testing ./bsc.yaml",
+    "deploy_avax_testing": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-avax-testing ./avax.yaml"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-ts": "^0.20.0",
+    "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.21.1",
-    "@graphprotocol/graph-ts": "0.20.0"
+    "@graphprotocol/graph-cli": "^0.21.0"
   }
 }

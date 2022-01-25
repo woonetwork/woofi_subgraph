@@ -17,13 +17,13 @@ dataSources:
         - WooRouterSwap
       abis:
         - name: WooRouter
-          file: ../abis/WooRouter.json
+          file: ./abis/WooRouter.json
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
       eventHandlers:
         - event: WooRouterSwap(uint8,address,address,uint256,uint256,address,address)
           handler: handleWooRouterSwap
-      file: ../src/mappings/wooRouter/wooRouter.ts
+      file: ./src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
     name: WooPP
     network: bsc
@@ -39,10 +39,10 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPP
-          file: ../abis/WooPP.json
+          file: ./abis/WooPP.json
         - name: ERC20
-          file: ../abis/ERC20.json
+          file: ./abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address)
           handler: handleWooSwap
-      file: ../src/mappings/wooPP/wooPP.ts
+      file: ./src/mappings/wooPP/wooPP.ts

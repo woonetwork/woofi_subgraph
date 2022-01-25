@@ -14,7 +14,7 @@ import {
     updateOrderSource,
     updateWooSwapHash
 } from "./update";
-import {createWooSwapHash} from "../../genericCreate";
+import {createWooSwapHash} from "../../create";
 
 export function handleWooSwap(event: WooSwap): void {
     // update token price always been first

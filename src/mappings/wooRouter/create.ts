@@ -2,7 +2,7 @@ import {WooRouterSwap} from "../../../generated/WooRouter/WooRouter";
 import {
     OrderHistory
 } from "../../../generated/schema";
-import {createOrderHistoryVariable} from "../../genericCreate";
+import {createOrderHistoryVariable} from "../../create";
 
 export function createOrderHistory(event: WooRouterSwap): OrderHistory {
     let orderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());

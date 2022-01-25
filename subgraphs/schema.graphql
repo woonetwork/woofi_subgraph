@@ -100,6 +100,14 @@ type HourToken @entity {
 type Token @entity {
     "token address"
     id: ID!
+    "symbol"
+    symbol: String!
+    "name"
+    name: String!
+    "totalSupply"
+    totalSupply: BigInt!
+    "decimals"
+    decimals: BigInt!
     "last trade price (quote/base)"
     lastTradePrice: BigInt!
     "total traded volume USD of token"

@@ -1,6 +1,6 @@
 import {ERC20} from "../generated/WooPP/ERC20";
 import {Address, BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts";
-import {BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS} from "./constants";
+import {BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS} from "./constants";
 import {createToken} from "./create";
 import {exponentToBigInt} from "./utils";
 
@@ -83,10 +83,12 @@ export function updateTokenPrice(event: ethereum.Event, fromTokenAddress: Bytes,
 
     let BI_1e18 = exponentToBigInt(BI_18);
     if (STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) != -1) {  // fromToken is Stable Coin
-        toToken.lastTradePrice = fromAmount.times(BI_1e18).div(toAmount);
+        toToken.lastTradePrice = fromAmount.times(exponentToBigInt(toToken.decimals.times(BI_2)))
+          .div(exponentToBigInt(fromToken.decimals)).div(toAmount);
         toToken.save();
     } else if (STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) != -1) {  // toToken is Stable Coin
-        fromToken.lastTradePrice = toAmount.times(BI_1e18).div(fromAmount);
+        fromToken.lastTradePrice = toAmount.times(exponentToBigInt(fromToken.decimals.times(BI_2)))
+          .div(exponentToBigInt(toToken.decimals)).div(fromAmount);
         fromToken.save();
     }
 }

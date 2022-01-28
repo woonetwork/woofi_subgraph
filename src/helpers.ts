@@ -81,7 +81,6 @@ export function updateTokenPrice(event: ethereum.Event, fromTokenAddress: Bytes,
     let fromToken = createToken(event, fromTokenAddress);
     let toToken = createToken(event, toTokenAddress);
 
-    let BI_1e18 = exponentToBigInt(BI_18);
     if (STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) != -1) {  // fromToken is Stable Coin
         toToken.lastTradePrice = fromAmount.times(exponentToBigInt(toToken.decimals.times(BI_2)))
           .div(exponentToBigInt(fromToken.decimals)).div(toAmount);

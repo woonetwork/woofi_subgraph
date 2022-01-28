@@ -1,6 +1,15 @@
-import {Bytes} from "@graphprotocol/graph-ts/index";
-import {BigInt, ethereum} from "@graphprotocol/graph-ts";
+import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
 import {WooSwapHash} from "../generated/schema";
+import {
+    BI_1,
+    WOO_ROUTER_ORDER_SOURCE_ID,
+    ONE_INCH_ORDER_SOURCE_ID,
+    DODO_ORDER_SOURCE_ID,
+    OPEN_OCEAN_ORDER_SOURCE_ID,
+    METAMASK_ORDER_SOURCE_ID,
+    OTHER_ORDER_SOURCE_ID,
+} from "./constants";
+import {getOrderSourceIDForWooPP} from "./utils";
 import {
     createGlobalVariable,
     createHourToken,
@@ -16,16 +25,6 @@ import {
     createUnknownOrderSource,
     createWooSwapHash
 } from "./create";
-import {
-    BI_1,
-    WOO_ROUTER_ORDER_SOURCE_ID,
-    ONE_INCH_ORDER_SOURCE_ID,
-    DODO_ORDER_SOURCE_ID,
-    OPEN_OCEAN_ORDER_SOURCE_ID,
-    METAMASK_ORDER_SOURCE_ID,
-    OTHER_ORDER_SOURCE_ID,
-} from "./constants";
-import {getOrderSourceIDForWooPP} from "./utils";
 
 export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapHash: WooSwapHash): void {
     let globalVariable = createGlobalVariable(event);

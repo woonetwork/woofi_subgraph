@@ -14,6 +14,7 @@ import {
     Trader,
     WooSwapHash,
     OrderHistoryVariable,
+    OrderHistory,
 } from "../generated/schema";
 import {BI_18, STABLE_TOKENS, GLOBAL_VARIABLE_ID, ORDER_HISTORY_VARIABLE_ID, BI_0} from "./constants";
 import {exponentToBigInt} from "./utils";
@@ -39,18 +40,6 @@ export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
     }
 
     return globalVariable as GlobalVariable;
-}
-
-export function createOrderHistoryVariable(event: ethereum.Event): OrderHistoryVariable {
-    let orderHistoryVariable = OrderHistoryVariable.load(ORDER_HISTORY_VARIABLE_ID);
-    if (orderHistoryVariable == null) {
-        orderHistoryVariable = new OrderHistoryVariable(ORDER_HISTORY_VARIABLE_ID);
-        orderHistoryVariable.txCount = BI_0;
-        orderHistoryVariable.updatedAt = event.block.timestamp;
-        orderHistoryVariable.save();
-    }
-
-    return orderHistoryVariable as OrderHistoryVariable;
 }
 
 export function createHourToken(event: ethereum.Event, tokenAddress: Bytes): HourToken {
@@ -285,4 +274,53 @@ export function createWooSwapHash(event: ethereum.Event): WooSwapHash {
     }
 
     return wooSwapHash as WooSwapHash;
+}
+
+export function createOrderHistoryVariable(event: ethereum.Event): OrderHistoryVariable {
+    let orderHistoryVariable = OrderHistoryVariable.load(ORDER_HISTORY_VARIABLE_ID);
+    if (orderHistoryVariable == null) {
+        orderHistoryVariable = new OrderHistoryVariable(ORDER_HISTORY_VARIABLE_ID);
+        orderHistoryVariable.txCount = BI_0;
+        orderHistoryVariable.updatedAt = event.block.timestamp;
+        orderHistoryVariable.save();
+    }
+
+    return orderHistoryVariable as OrderHistoryVariable;
+}
+
+// Only Create by WooRouter
+export function createOrderHistory(
+    event: ethereum.Event,
+    swapType: i32,
+    fromAddress: Bytes,
+    toAddress: Bytes,
+    fromTokenAddress: Bytes,
+    fromAmount: BigInt,
+    toTokenAddress: Bytes,
+    toAmount: BigInt
+): OrderHistory {
+    let orderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
+    let orderHistory = OrderHistory.load(orderHistoryID);
+    if (orderHistory == null) {
+        orderHistory = new OrderHistory(orderHistoryID);
+        orderHistory.source = swapType;
+        orderHistory.hash = event.transaction.hash;
+        orderHistory.block = event.block.number;
+        orderHistory.timestamp = event.block.timestamp;
+        orderHistory.sender = event.transaction.from;
+        orderHistory.from = fromAddress;
+        orderHistory.tradedByOtherDex = event.transaction.from != fromAddress;
+        orderHistory.to = toAddress;
+        orderHistory.fromToken = fromTokenAddress;
+        orderHistory.fromAmount = fromAmount;
+        orderHistory.toToken = toTokenAddress;
+        orderHistory.toAmount = toAmount;
+
+        let orderHistoryVariable = createOrderHistoryVariable(event);
+        orderHistory.txCount = orderHistoryVariable.txCount;
+
+        orderHistory.save();
+    }
+
+    return orderHistory as OrderHistory;
 }

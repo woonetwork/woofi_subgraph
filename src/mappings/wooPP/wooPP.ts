@@ -1,8 +1,8 @@
-import {BigInt, Bytes} from "@graphprotocol/graph-ts/index";
+import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
 import {WooSwapHash} from "../../../generated/schema";
-import {WooSwap as WooSwap2021Oct22} from "../../../generated/WooPP2021Oct22/WooPP"
-import {WooSwap as WooSwap2021Oct26} from "../../../generated/WooPP2021Oct26/WooPP"
-import {WooSwap as WooSwap2021Dec21} from "../../../generated/WooPP2021Dec21/WooPP"
+import {WooSwap as WooPPV1} from "../../../generated/WooPPV1/WooPP"
+import {WooSwap as WooPPV2} from "../../../generated/WooPPV2/WooPP"
+import {WooSwap as WooPPV3} from "../../../generated/WooPPV3/WooPP"
 
 import {updateTokenPrice, calVolumeUSDForWooPP} from '../../helpers'
 import {
@@ -17,17 +17,16 @@ import {
     updateWooSwapHash
 } from "../../updateForWooPP";
 import {createWooSwapHash} from "../../create";
-import {ethereum} from "@graphprotocol/graph-ts";
 
-export function handleWooSwap2021Dec21(event: WooSwap2021Dec21): void {
+export function handleWooSwapV3(event: WooPPV3): void {
     handleWooSwap(event, event.params.fromToken, event.params.fromAmount, event.params.toToken, event.params.toAmount);
 }
 
-export function handleWooSwap2021Oct26(event: WooSwap2021Oct26): void {
+export function handleWooSwapV2(event: WooPPV2): void {
     handleWooSwap(event, event.params.fromToken, event.params.fromAmount, event.params.toToken, event.params.toAmount);
 }
 
-export function handleWooSwap2021Oct22(event: WooSwap2021Oct22): void {
+export function handleWooSwapV1(event: WooPPV1): void {
     // TODO write same logic as handleWooSwap2021Oct26
     // only for WooRouter history swap in the beginning
     let fromTokenAddress = event.params.fromToken;

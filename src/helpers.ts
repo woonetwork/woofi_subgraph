@@ -1,8 +1,8 @@
-import {ERC20} from "../generated/WooPP/ERC20";
 import {Address, BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts";
-import {BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS} from "./constants";
-import {createToken} from "./create";
+import {ERC20} from "../generated/WooRouter/ERC20";
+import {BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS} from "./constants";
 import {exponentToBigInt} from "./utils";
+import {createToken} from "./create";
 
 export function fetchTokenSymbol(tokenAddress: Bytes): string {
     if (tokenAddress.toHexString() == ETHER) {
@@ -106,4 +106,44 @@ export function calVolumeUSDForWooPP(event: ethereum.Event, fromTokenAddress: By
         }
         return toAmount;
     }
+}
+
+export function calVolumeUSDForWooRouter(
+    event: ethereum.Event,
+    swapType: i32,
+    fromTokenAddress: Bytes,
+    fromAmount: BigInt,
+    toTokenAddress: Bytes,
+    toAmount: BigInt
+): BigInt {
+    let BI_1e18 = exponentToBigInt(BI_18);
+    let fromToken = createToken(event, fromTokenAddress);
+    let toToken = createToken(event, toTokenAddress);
+
+    let volumeUSD: BigInt
+    if (fromToken.lastTradePrice != BI_0) {
+        if (fromToken.decimals != BI_18) {
+            let BI_1eDoubleDecimals = exponentToBigInt(fromToken.decimals.times(BI_2))
+            volumeUSD = fromAmount.times(BI_1e18).div(BI_1eDoubleDecimals).times(fromToken.lastTradePrice)
+        } else {
+            volumeUSD = fromAmount.times(fromToken.lastTradePrice).div(BI_1e18);
+        }
+    } else {
+        if (toToken.decimals != BI_18) {
+            let BI_1eDoubleDecimals = exponentToBigInt(toToken.decimals.times(BI_2))
+            volumeUSD = toAmount.times(BI_1e18).div(BI_1eDoubleDecimals).times(toToken.lastTradePrice)
+        } else {
+            volumeUSD = toAmount.times(toToken.lastTradePrice).div(BI_1e18);
+        }
+    }
+
+    if (
+      STABLE_TOKENS[1] != fromTokenAddress.toHexString()
+      && STABLE_TOKENS[1] != toTokenAddress.toHexString()
+      && swapType == 0
+    ) {
+        volumeUSD = volumeUSD.times(BI_2);
+    }
+
+    return volumeUSD;
 }

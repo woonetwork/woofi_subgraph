@@ -1,37 +1,72 @@
+import {BigInt, Bytes} from "@graphprotocol/graph-ts/index";
 import {WooRouterSwap} from "../../../generated/WooRouter/WooRouter"
 
+import {calVolumeUSDForWooRouter} from "../../helpers";
 import {
     updateDayData,
     updateGlobalVariable,
     updateHourData,
     updateHourToken,
     updateOrderHistoryVariable,
-    updateOrderHistory,
     updateToken,
-} from "./update";
-import {calVolumeUSD} from "./helpers";
-import {BigInt} from "@graphprotocol/graph-ts/index";
+} from "../../updateForWooRouter";
+import {createOrderHistory} from "../../create";
 
 export function handleWooRouterSwap(event: WooRouterSwap): void {
-    let volumeUSD = calVolumeUSD(event);
+    let volumeUSD = calVolumeUSDForWooRouter(
+        event,
+        event.params.swapType,
+        event.params.fromToken,
+        event.params.fromAmount,
+        event.params.toToken,
+        event.params.toAmount
+    );
 
-    updateHourStatistics(event, volumeUSD);
-    updateDayStatistics(event, volumeUSD);
-    updateStatistic(event, volumeUSD);
+    updateHourStatistics(event, volumeUSD, event.params.swapType, event.params.from, event.params.to);
+    updateDayStatistics(event, volumeUSD, event.params.swapType, event.params.from, event.params.to);
+    updateStatistic(event, volumeUSD, event.params.swapType, event.params.from, event.params.to);
+
+    createOrderHistory(
+      event,
+      event.params.swapType,
+      event.params.from,
+      event.params.to,
+      event.params.fromToken,
+      event.params.fromAmount,
+      event.params.toToken,
+      event.params.toAmount
+    )
 }
 
-function updateHourStatistics(event: WooRouterSwap, volumeUSD: BigInt): void {
-    updateHourToken(event, volumeUSD);
-    updateHourData(event, volumeUSD);
+function updateHourStatistics(
+    event: WooRouterSwap,
+    volumeUSD: BigInt,
+    swapType: i32,
+    fromTokenAddress: Bytes,
+    toTokenAddress: Bytes
+): void {
+    updateHourToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
+    updateHourData(event, volumeUSD, swapType);
 }
 
-function updateDayStatistics(event: WooRouterSwap, volumeUSD: BigInt): void {
-    updateDayData(event, volumeUSD);
+function updateDayStatistics(
+    event: WooRouterSwap,
+    volumeUSD: BigInt,
+    swapType: i32,
+    fromTokenAddress: Bytes,
+    toTokenAddress: Bytes
+): void {
+    updateDayData(event, volumeUSD, swapType);
 }
 
-function updateStatistic(event: WooRouterSwap, volumeUSD: BigInt): void {
-    updateGlobalVariable(event, volumeUSD);
-    updateToken(event, volumeUSD);
+function updateStatistic(
+    event: WooRouterSwap,
+    volumeUSD: BigInt,
+    swapType: i32,
+    fromTokenAddress: Bytes,
+    toTokenAddress: Bytes
+): void {
+    updateGlobalVariable(event, volumeUSD, swapType);
+    updateToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
     updateOrderHistoryVariable(event);
-    updateOrderHistory(event);
 }

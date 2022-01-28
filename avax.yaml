@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: WooRouter
-    network: bsc
+    network: avalanche
     source:
-      address: "0x114f84658c99aa6EA62e3160a87A16dEaF7EFe83"
+      address: "0xf551010868773e66C9A235dC92F148464680af34"
       abi: WooRouter
-      startBlock: 11983352
+      startBlock: 9713598
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -25,12 +25,12 @@ dataSources:
           handler: handleWooRouterSwap
       file: ./src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
-    name: WooPP
-    network: bsc
+    name: WooPPV2
+    network: avalanche
     source:
-      address: "0x8489d142Da126F4Ea01750e80ccAa12FD1642988"
+      address: "0xF8cE0D043891b62c55380fB1EFBfB4F186153D96"
       abi: WooPP
-      startBlock: 12094867
+      startBlock: 9713408
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -39,10 +39,10 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPP
-          file: ./abis/WooPP.json
+          file: ./abis/WooPPV3.json
         - name: ERC20
           file: ./abis/ERC20.json
       eventHandlers:
-        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address)
-          handler: handleWooSwap
+        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
+          handler: handleWooSwapV2
       file: ./src/mappings/wooPP/wooPP.ts

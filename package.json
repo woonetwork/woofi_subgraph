@@ -4,7 +4,8 @@
   "scripts": {
     "codegen_bsc": "graph codegen ./bsc.yaml",
     "codegen_avax": "graph codegen ./avax.yaml",
-    "build": "graph build",
+    "build_bsc": "graph build ./bsc.yaml",
+    "build_avax": "graph build ./avax.yaml",
     "deploy_bsc_production": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi ./bsc.yaml",
     "deploy_bsc_staging": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-bsc-staging ./bsc.yaml",
     "deploy_bsc_testing": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-bsc-testing ./bsc.yaml",

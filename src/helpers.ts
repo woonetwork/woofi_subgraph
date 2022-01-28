@@ -1,6 +1,8 @@
 import {ERC20} from "../generated/WooPP/ERC20";
-import {Address, BigInt, Bytes} from "@graphprotocol/graph-ts";
-import {ETHER, ETHER_NAME, ETHER_SYMBOL} from "./constants";
+import {Address, BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts";
+import {BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS} from "./constants";
+import {createToken} from "./create";
+import {exponentToBigInt} from "./utils";
 
 export function fetchTokenSymbol(tokenAddress: Bytes): string {
     if (tokenAddress.toHexString() == ETHER) {
@@ -70,4 +72,37 @@ export function fetchTokenBalance(tokenAddress: Bytes, user: Bytes): BigInt {
     }
 
     return balanceResult.value;
+}
+
+export function updateTokenPrice(event: ethereum.Event, fromTokenAddress: Bytes, fromAmount: BigInt, toTokenAddress: Bytes, toAmount: BigInt): void {
+    if (fromTokenAddress.toHexString() == WRAPPED) {
+        fromTokenAddress = Address.fromString(ETHER);
+    }
+    let fromToken = createToken(event, fromTokenAddress);
+    let toToken = createToken(event, toTokenAddress);
+
+    let BI_1e18 = exponentToBigInt(BI_18);
+    if (STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) != -1) {  // fromToken is Stable Coin
+        toToken.lastTradePrice = fromAmount.times(BI_1e18).div(toAmount);
+        toToken.save();
+    } else if (STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) != -1) {  // toToken is Stable Coin
+        fromToken.lastTradePrice = toAmount.times(BI_1e18).div(fromAmount);
+        fromToken.save();
+    }
+}
+
+export function calVolumeUSDForWooPP(event: ethereum.Event, fromTokenAddress: Bytes, fromAmount: BigInt, toTokenAddress: Bytes, toAmount: BigInt): BigInt {
+    if (STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) != -1) {  // fromToken is Stable Coin
+        let fromToken = createToken(event, fromTokenAddress);
+        if (fromToken.decimals != BI_18) {
+            return fromAmount.times(exponentToBigInt(BI_18)).div(exponentToBigInt(fromToken.decimals));
+        }
+        return fromAmount;
+    } else {  // toToken is Stable Coin
+        let toToken = createToken(event, toTokenAddress);
+        if (toToken.decimals != BI_18) {
+            return fromAmount.times(exponentToBigInt(BI_18)).div(exponentToBigInt(toToken.decimals));
+        }
+        return toAmount;
+    }
 }

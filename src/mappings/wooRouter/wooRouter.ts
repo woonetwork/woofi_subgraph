@@ -22,9 +22,9 @@ export function handleWooRouterSwap(event: WooRouterSwap): void {
         event.params.toAmount
     );
 
-    updateHourStatistics(event, volumeUSD, event.params.swapType, event.params.from, event.params.to);
-    updateDayStatistics(event, volumeUSD, event.params.swapType, event.params.from, event.params.to);
-    updateStatistic(event, volumeUSD, event.params.swapType, event.params.from, event.params.to);
+    updateHourStatistics(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
+    updateDayStatistics(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
+    updateStatistic(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
 
     createOrderHistory(
       event,

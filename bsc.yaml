@@ -25,7 +25,7 @@ dataSources:
           handler: handleWooRouterSwap
       file: ./src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
-    name: WooPPDec21
+    name: WooPPV3
     network: bsc
     source:
       address: "0xbf365Ce9cFcb2d5855521985E351bA3bcf77FD3F"
@@ -39,15 +39,15 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPP
-          file: ./abis/WooPPDec21.json
+          file: ./abis/WooPPV3.json
         - name: ERC20
           file: ./abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
-          handler: handleWooSwap
-      file: ./src/mappings/wooPPDec21/wooPP.ts
+          handler: handleWooSwapV3
+      file: ./src/mappings/wooPP/wooPP.ts
   - kind: ethereum/contract
-    name: WooPP
+    name: WooPPV2
     network: bsc
     source:
       address: "0x8489d142Da126F4Ea01750e80ccAa12FD1642988"
@@ -61,15 +61,15 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPP
-          file: ./abis/WooPP.json
+          file: ./abis/WooPPV2.json
         - name: ERC20
           file: ./abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address)
-          handler: handleWooSwap
+          handler: handleWooSwapV2
       file: ./src/mappings/wooPP/wooPP.ts
   - kind: ethereum/contract
-    name: OldWooPP
+    name: WooPPV1
     network: bsc
     source:
       address: "0x10C24658815585851a8888f059Cb4338790023F1"
@@ -83,10 +83,10 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPP
-          file: ./abis/WooPP.json
+          file: ./abis/WooPPV2.json
         - name: ERC20
           file: ./abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address)
-          handler: handleOldWooSwap
+          handler: handleWooSwapV1
       file: ./src/mappings/wooPP/wooPP.ts

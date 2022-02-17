@@ -6,9 +6,9 @@ dataSources:
     name: WooRouter
     network: avalanche
     source:
-      address: "0xf551010868773e66C9A235dC92F148464680af34"
+      address: "0xA4B13EBd7BB26A09408630524F8fFD901aee8025"
       abi: WooRouter
-      startBlock: 9713598
+      startBlock: 10857815
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

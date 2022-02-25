@@ -17,11 +17,11 @@ dataSources:
         - WooRouterSwap
       abis:
         - name: WooRouter
-          file: ./abis/WooRouter.json
+          file: ./abis/WooRouterV2.json
         - name: ERC20
           file: ./abis/ERC20.json
       eventHandlers:
-        - event: WooRouterSwap(uint8,address,address,uint256,uint256,address,address)
+        - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooRouterSwap
       file: ./src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract

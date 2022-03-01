@@ -102,7 +102,7 @@ export function calVolumeUSDForWooPP(event: ethereum.Event, fromTokenAddress: By
     } else {  // toToken is Stable Coin
         let toToken = createToken(event, toTokenAddress);
         if (toToken.decimals != BI_18) {
-            return fromAmount.times(exponentToBigInt(BI_18)).div(exponentToBigInt(toToken.decimals));
+            return toAmount.times(exponentToBigInt(BI_18)).div(exponentToBigInt(toToken.decimals));
         }
         return toAmount;
     }

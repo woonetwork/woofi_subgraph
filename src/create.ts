@@ -74,9 +74,10 @@ export function createToken(event: ethereum.Event, tokenAddress: Bytes): Token {
         token.symbol = fetchTokenSymbol(tokenAddress);
         token.name = fetchTokenName(tokenAddress);
         token.totalSupply = fetchTokenTotalSupply(tokenAddress);
-        token.decimals = fetchTokenDecimals(tokenAddress);
+        let decimals = fetchTokenDecimals(tokenAddress);
+        token.decimals = decimals;
         if (STABLE_TOKENS.indexOf(tokenID) != -1) {
-            token.lastTradePrice = exponentToBigInt(BI_18);
+            token.lastTradePrice = exponentToBigInt(decimals);
         } else {
             token.lastTradePrice = BI_0;
         }

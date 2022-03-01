@@ -3,6 +3,7 @@ import {
     BI_1,
     BI_0,
     WOO_ROUTER,
+    WOO_PP,
     WOO_ROUTER_ORDER_SOURCE_ID,
     ONE_INCH_ORDER_SOURCES,
     ONE_INCH_ORDER_SOURCE_ID,
@@ -32,7 +33,7 @@ export function exponentToBigDecimal(decimals: BigInt): BigDecimal {
 export function getOrderSourceIDForWooPP(transactionTo: string): string {
     let orderSourceID: string;
 
-    if (transactionTo == WOO_ROUTER) {
+    if (transactionTo == WOO_ROUTER || transactionTo == WOO_PP) {
         orderSourceID = WOO_ROUTER_ORDER_SOURCE_ID;
     } else if (ONE_INCH_ORDER_SOURCES.indexOf(transactionTo) != -1) {
         orderSourceID = ONE_INCH_ORDER_SOURCE_ID;

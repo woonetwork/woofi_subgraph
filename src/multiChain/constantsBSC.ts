@@ -26,6 +26,7 @@ export const STABLE_TOKENS: string[] = [
 
 // Contract Name as Variable Name
 export const WOO_ROUTER = '0x114f84658c99aa6ea62e3160a87a16deaf7efe83';
+export const WOO_PP = '0xbf365ce9cfcb2d5855521985e351ba3bcf77fd3f';
 export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x3790c9b5a9b9d9aa1c69140a5f01a57c9b868e1e",  // Aggregation Executor for V4

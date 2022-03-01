@@ -26,7 +26,7 @@ export const STABLE_TOKENS: string[] = [
 ];
 
 // Contract Name as Variable Name
-export const WOO_ROUTER = '0xf551010868773e66c9a235dc92f148464680af34';
+export const WOO_ROUTER = '0xa4b13ebd7bb26a09408630524f8ffd901aee8025';
 export const ONE_INCH_ORDER_SOURCES: string[] = [
 ];
 export const DODO_ORDER_SOURCES: string[] = [

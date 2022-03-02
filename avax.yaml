@@ -6,7 +6,7 @@ dataSources:
     name: WooRouter
     network: avalanche
     source:
-      address: "0xA4B13EBd7BB26A09408630524F8fFD901aee8025"
+      address: "0x160020B09DeD3d862f7f851B5c50632BcF2062FF"
       abi: WooRouter
       startBlock: 10857815
     mapping:

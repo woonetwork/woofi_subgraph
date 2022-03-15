@@ -13,6 +13,8 @@ import {
     OPEN_OCEAN_ORDER_SOURCE_ID,
     METAMASK_SOURCES,
     METAMASK_ORDER_SOURCE_ID,
+    YIELD_YAK_SOURCES,
+    YIELD_YAK_ORDER_SOURCE_ID,
     OTHER_ORDER_SOURCE_ID,
 } from "./constants";
 
@@ -43,6 +45,8 @@ export function getOrderSourceIDForWooPP(transactionTo: string): string {
         orderSourceID = OPEN_OCEAN_ORDER_SOURCE_ID;
     } else if (METAMASK_SOURCES.indexOf(transactionTo) != -1) {
         orderSourceID = METAMASK_ORDER_SOURCE_ID;
+    } else if (YIELD_YAK_SOURCES.indexOf(transactionTo) != -1) {
+        orderSourceID = YIELD_YAK_ORDER_SOURCE_ID;
     } else {
         orderSourceID = OTHER_ORDER_SOURCE_ID;
     }

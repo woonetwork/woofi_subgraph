@@ -47,6 +47,8 @@ export const OPEN_OCEAN_SOURCES: string[] = [
 export const METAMASK_SOURCES: string[] = [
     "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // MetaMask
 ];
+export const YIELD_YAK_SOURCES: string[] = [
+];
 
 export const GLOBAL_VARIABLE_ID = '0';
 export const ORDER_HISTORY_VARIABLE_ID = '0';
@@ -56,4 +58,5 @@ export const ONE_INCH_ORDER_SOURCE_ID = '1';
 export const DODO_ORDER_SOURCE_ID = '2';
 export const OPEN_OCEAN_ORDER_SOURCE_ID = '3';
 export const METAMASK_ORDER_SOURCE_ID = '4';
+export const YIELD_YAK_ORDER_SOURCE_ID = '5';
 export const OTHER_ORDER_SOURCE_ID = '99';

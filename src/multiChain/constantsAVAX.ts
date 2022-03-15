@@ -36,6 +36,9 @@ export const OPEN_OCEAN_SOURCES: string[] = [
 ];
 export const METAMASK_SOURCES: string[] = [
 ];
+export const YIELD_YAK_SOURCES: string[] = [
+    "0xc4729e56b831d74bbc18797e0e17a295fa77488c",  // YakRouter
+];
 
 export const GLOBAL_VARIABLE_ID = '0';
 export const ORDER_HISTORY_VARIABLE_ID = '0';
@@ -45,4 +48,5 @@ export const ONE_INCH_ORDER_SOURCE_ID = '1';
 export const DODO_ORDER_SOURCE_ID = '2';
 export const OPEN_OCEAN_ORDER_SOURCE_ID = '3';
 export const METAMASK_ORDER_SOURCE_ID = '4';
+export const YIELD_YAK_ORDER_SOURCE_ID = '5';
 export const OTHER_ORDER_SOURCE_ID = '99';

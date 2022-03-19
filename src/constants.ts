@@ -29,12 +29,16 @@ export const STABLE_TOKENS: string[] = [
 export const WOO_ROUTER = '0x160020b09ded3d862f7f851b5c50632bcf2062ff';
 export const WOO_PP = '0xf8ce0d043891b62c55380fb1efbfb4f186153d96';
 export const ONE_INCH_ORDER_SOURCES: string[] = [
+    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // AggregationRouterV4
 ];
 export const DODO_ORDER_SOURCES: string[] = [
+    "0x0000000000000000000000000000000000000000",  // To be replaced in the future
 ];
 export const OPEN_OCEAN_SOURCES: string[] = [
+    "0x0000000000000000000000000000000000000000",  // To be replaced in the future
 ];
 export const METAMASK_SOURCES: string[] = [
+    "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",
 ];
 export const YIELD_YAK_SOURCES: string[] = [
     "0xc4729e56b831d74bbc18797e0e17a295fa77488c",  // YakRouter

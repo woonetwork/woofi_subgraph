@@ -27,6 +27,7 @@ export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
         globalVariable.totalTraders = BI_0;
         globalVariable.totalTxCount = BI_0;
         globalVariable.totalVolumeUSD = BI_0;
+        globalVariable.wooBuybackVolume = BI_0;
         globalVariable.totalVolumeUSDFromWooRouter = BI_0;
         globalVariable.totalVolumeUSDFromOneInch = BI_0;
         globalVariable.totalVolumeUSDFromDODO = BI_0;

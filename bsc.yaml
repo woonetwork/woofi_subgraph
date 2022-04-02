@@ -3,6 +3,28 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
+    name: WooVaultManager
+    network: bsc
+    source:
+      address: "0xf704eaf4A68Ac424C809f7c4595451b9414d2b76"
+      abi: WooVaultManager
+      startBlock: 13663003
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - RewardDistributed
+      abis:
+        - name: WooVaultManager
+          file: ./abis/WooVaultManager.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: RewardDistributed(indexed address,uint256)
+          handler: handleRewardDistributed
+      file: ./src/mappings/wooVaultManager/wooVaultManager.ts
+  - kind: ethereum/contract
     name: WooRouter
     network: bsc
     source:

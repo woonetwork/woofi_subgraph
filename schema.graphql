@@ -7,6 +7,8 @@ type GlobalVariable @entity {
     totalTxCount: BigInt!
     "total WooPP volume USD, not include routeToDODOVolumeUSD"
     totalVolumeUSD: BigInt!
+    "WOO buyback volume"
+    wooBuybackVolume: BigInt!
     "total volume USD from WooRouter"
     totalVolumeUSDFromWooRouter: BigInt!
     "total volume USD from 1inch"

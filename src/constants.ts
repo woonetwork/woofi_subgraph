@@ -32,10 +32,10 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // AggregationRouterV4
 ];
 export const DODO_ORDER_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // To be replaced in the future
+    "0x409e377a7affb1fd3369cfc24880ad58895d1dd9",
 ];
 export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // To be replaced in the future
+    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",
 ];
 export const METAMASK_SOURCES: string[] = [
     "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",

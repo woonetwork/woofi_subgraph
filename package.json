@@ -4,6 +4,7 @@
   "scripts": {
     "codegen_bsc": "graph codegen ./bsc.yaml",
     "codegen_avax": "graph codegen ./avax.yaml",
+    "codegen_fantom": "graph codegen ./fantom.yaml",
     "build_bsc": "graph build ./bsc.yaml",
     "build_avax": "graph build ./avax.yaml",
     "deploy_bsc_production": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi ./bsc.yaml",
@@ -11,7 +12,8 @@
     "deploy_bsc_testing": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-bsc-testing ./bsc.yaml",
     "deploy_avax_production": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-avax ./avax.yaml",
     "deploy_avax_staging": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-avax-staging ./avax.yaml",
-    "deploy_avax_testing": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-avax-testing ./avax.yaml"
+    "deploy_avax_testing": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph deploy --product hosted-service woonetwork/woofi-avax-testing ./avax.yaml",
+    "deploy_fantom_production": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom ./fantom.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.20.0",

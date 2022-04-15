@@ -8,6 +8,7 @@ import {
     OPEN_OCEAN_ORDER_SOURCE_ID,
     METAMASK_ORDER_SOURCE_ID,
     YIELD_YAK_ORDER_SOURCE_ID,
+    FIRE_BIRD_ORDER_SOURCE_ID,
     OTHER_ORDER_SOURCE_ID,
 } from "./constants";
 import {getOrderSourceIDForWooPP} from "./utils";
@@ -52,6 +53,8 @@ export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes
         globalVariable.totalVolumeUSDFromMetaMask = globalVariable.totalVolumeUSDFromMetaMask.plus(volumeUSD);
     } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
         globalVariable.totalVolumeUSDFromYieldYak = globalVariable.totalVolumeUSDFromYieldYak.plus(volumeUSD);
+    } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
+        globalVariable.totalVolumeUSDFromFireBird = globalVariable.totalVolumeUSDFromFireBird.plus(volumeUSD);
     } else {
         globalVariable.totalVolumeUSDFromOther = globalVariable.totalVolumeUSDFromOther.plus(volumeUSD);
     }
@@ -115,6 +118,8 @@ export function updateHourData(event: ethereum.Event, traderAddress: Bytes, volu
         hourData.volumeUSDFromMetaMask = hourData.volumeUSDFromMetaMask.plus(volumeUSD);
     } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
         hourData.volumeUSDFromYieldYak = hourData.volumeUSDFromYieldYak.plus(volumeUSD);
+    } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
+        hourData.volumeUSDFromFireBird = hourData.volumeUSDFromFireBird.plus(volumeUSD);
     } else {
         hourData.volumeUSDFromOther = hourData.volumeUSDFromOther.plus(volumeUSD);
     }
@@ -150,6 +155,8 @@ export function updateDayData(event: ethereum.Event, traderAddress: Bytes, volum
         dayData.volumeUSDFromMetaMask = dayData.volumeUSDFromMetaMask.plus(volumeUSD);
     } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
         dayData.volumeUSDFromYieldYak = dayData.volumeUSDFromYieldYak.plus(volumeUSD);
+    } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
+        dayData.volumeUSDFromFireBird = dayData.volumeUSDFromFireBird.plus(volumeUSD);
     } else {
         dayData.volumeUSDFromOther = dayData.volumeUSDFromOther.plus(volumeUSD);
     }

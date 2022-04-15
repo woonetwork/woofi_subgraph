@@ -15,6 +15,8 @@ import {
     METAMASK_ORDER_SOURCE_ID,
     YIELD_YAK_SOURCES,
     YIELD_YAK_ORDER_SOURCE_ID,
+    FIRE_BIRD_SOURCES,
+    FIRE_BIRD_ORDER_SOURCE_ID,
     OTHER_ORDER_SOURCE_ID,
 } from "./constants";
 
@@ -47,6 +49,8 @@ export function getOrderSourceIDForWooPP(transactionTo: string): string {
         orderSourceID = METAMASK_ORDER_SOURCE_ID;
     } else if (YIELD_YAK_SOURCES.indexOf(transactionTo) != -1) {
         orderSourceID = YIELD_YAK_ORDER_SOURCE_ID;
+    } else if (FIRE_BIRD_SOURCES.indexOf(transactionTo) != -1) {
+        orderSourceID = FIRE_BIRD_ORDER_SOURCE_ID;
     } else {
         orderSourceID = OTHER_ORDER_SOURCE_ID;
     }

@@ -41,6 +41,10 @@ export const YIELD_YAK_SOURCES: string[] = [
     "0x0000000000000000000000000000000000000000",  // TODO replace it
 ];
 
+export const FIRE_BIRD_SOURCES: string[] = [
+    "0xe0c38b2a8d09aad53f1c67734b9a95e43d5981c0",  // FireBirdRouter
+]
+
 export const GLOBAL_VARIABLE_ID = '0';
 export const ORDER_HISTORY_VARIABLE_ID = '0';
 
@@ -50,4 +54,5 @@ export const DODO_ORDER_SOURCE_ID = '2';
 export const OPEN_OCEAN_ORDER_SOURCE_ID = '3';
 export const METAMASK_ORDER_SOURCE_ID = '4';
 export const YIELD_YAK_ORDER_SOURCE_ID = '5';
+export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
 export const OTHER_ORDER_SOURCE_ID = '99';

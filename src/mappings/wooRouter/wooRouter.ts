@@ -1,5 +1,6 @@
-import {BigInt, Bytes} from "@graphprotocol/graph-ts/index";
+import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
 import {WooRouterSwap} from "../../../generated/WooRouter/WooRouter"
+import {WooRouterSwap as WooRouterSwapV2} from "../../../generated/WooRouterV2/WooRouter"
 
 import {calVolumeUSDForWooRouter} from "../../helpers";
 import {
@@ -11,6 +12,32 @@ import {
     updateToken,
 } from "../../updateForWooRouter";
 import {createOrderHistory} from "../../create";
+
+export function handleWooRouterSwapV2(event: WooRouterSwapV2): void {
+    let volumeUSD = calVolumeUSDForWooRouter(
+        event,
+        event.params.swapType,
+        event.params.fromToken,
+        event.params.fromAmount,
+        event.params.toToken,
+        event.params.toAmount
+    );
+
+    updateHourStatistics(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
+    updateDayStatistics(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
+    updateStatistic(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
+
+    createOrderHistory(
+      event,
+      event.params.swapType,
+      event.params.from,
+      event.params.to,
+      event.params.fromToken,
+      event.params.fromAmount,
+      event.params.toToken,
+      event.params.toAmount
+    )
+}
 
 export function handleWooRouterSwap(event: WooRouterSwap): void {
     let volumeUSD = calVolumeUSDForWooRouter(
@@ -39,7 +66,7 @@ export function handleWooRouterSwap(event: WooRouterSwap): void {
 }
 
 function updateHourStatistics(
-    event: WooRouterSwap,
+    event: ethereum.Event,
     volumeUSD: BigInt,
     swapType: i32,
     fromTokenAddress: Bytes,
@@ -50,7 +77,7 @@ function updateHourStatistics(
 }
 
 function updateDayStatistics(
-    event: WooRouterSwap,
+    event: ethereum.Event,
     volumeUSD: BigInt,
     swapType: i32,
     fromTokenAddress: Bytes,
@@ -60,7 +87,7 @@ function updateDayStatistics(
 }
 
 function updateStatistic(
-    event: WooRouterSwap,
+    event: ethereum.Event,
     volumeUSD: BigInt,
     swapType: i32,
     fromTokenAddress: Bytes,

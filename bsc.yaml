@@ -25,6 +25,28 @@ dataSources:
           handler: handleRewardDistributed
       file: ./src/mappings/wooVaultManager/wooVaultManager.ts
   - kind: ethereum/contract
+    name: WooRouterV2
+    network: bsc
+    source:
+      address: "0xcEf5BE73ae943B77f9Bc08859367D923C030a269"
+      abi: WooRouter
+      startBlock: 17015221
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooRouterSwap
+      abis:
+        - name: WooRouter
+          file: ./abis/WooRouter.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: WooRouterSwap(uint8,address,address,uint256,uint256,address,address)
+          handler: handleWooRouterSwapV2
+      file: ./src/mappings/wooRouter/wooRouter.ts
+  - kind: ethereum/contract
     name: WooRouter
     network: bsc
     source:

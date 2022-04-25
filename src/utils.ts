@@ -17,6 +17,8 @@ import {
     YIELD_YAK_ORDER_SOURCE_ID,
     FIRE_BIRD_SOURCES,
     FIRE_BIRD_ORDER_SOURCE_ID,
+    BIT_KEEP_SOURCES,
+    BIT_KEEP_ORDER_SOURCE_ID,
     OTHER_ORDER_SOURCE_ID,
 } from "./constants";
 
@@ -51,6 +53,8 @@ export function getOrderSourceIDForWooPP(transactionTo: string): string {
         orderSourceID = YIELD_YAK_ORDER_SOURCE_ID;
     } else if (FIRE_BIRD_SOURCES.indexOf(transactionTo) != -1) {
         orderSourceID = FIRE_BIRD_ORDER_SOURCE_ID;
+    } else if (BIT_KEEP_SOURCES.indexOf(transactionTo) != -1) {
+        orderSourceID = BIT_KEEP_ORDER_SOURCE_ID;
     } else {
         orderSourceID = OTHER_ORDER_SOURCE_ID;
     }

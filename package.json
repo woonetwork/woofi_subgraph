@@ -7,6 +7,7 @@
     "codegen_fantom": "graph codegen ./fantom.yaml",
     "build_bsc": "graph build ./bsc.yaml",
     "build_avax": "graph build ./avax.yaml",
+    "build_fantom": "graph build ./fantom.yaml",
     "deploy_bsc_production": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen ./bsc.yaml && graph deploy --product hosted-service woonetwork/woofi ./bsc.yaml",
     "deploy_bsc_staging": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen ./bsc.yaml && graph deploy --product hosted-service woonetwork/woofi-bsc-staging ./bsc.yaml",
     "deploy_bsc_testing": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen ./bsc.yaml && graph deploy --product hosted-service woonetwork/woofi-bsc-testing ./bsc.yaml",

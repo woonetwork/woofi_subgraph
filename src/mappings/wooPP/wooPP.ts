@@ -27,7 +27,6 @@ export function handleWooSwapV2(event: WooPPV2): void {
 }
 
 export function handleWooSwapV1(event: WooPPV1): void {
-    // TODO write same logic as handleWooSwap2021Oct26
     // only for WooRouter history swap in the beginning
     let fromTokenAddress = event.params.fromToken;
     let fromAmount = event.params.fromAmount;

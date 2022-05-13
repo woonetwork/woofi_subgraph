@@ -8,13 +8,15 @@
     "build_bsc": "graph build ./bsc.yaml",
     "build_avax": "graph build ./avax.yaml",
     "build_fantom": "graph build ./fantom.yaml",
-    "deploy_bsc_production": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen ./bsc.yaml && graph deploy --product hosted-service woonetwork/woofi ./bsc.yaml",
+    "deploy_bsc_production": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen ./bsc.yaml && graph deploy --product hosted-service woonetwork/woofi-bsc ./bsc.yaml",
     "deploy_bsc_staging": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen ./bsc.yaml && graph deploy --product hosted-service woonetwork/woofi-bsc-staging ./bsc.yaml",
     "deploy_bsc_testing": "cp ./src/multiChain/constantsBSC.ts ./src/constants.ts && graph codegen ./bsc.yaml && graph deploy --product hosted-service woonetwork/woofi-bsc-testing ./bsc.yaml",
     "deploy_avax_production": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph codegen ./avax.yaml && graph deploy --product hosted-service woonetwork/woofi-avax ./avax.yaml",
     "deploy_avax_staging": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph codegen ./avax.yaml && graph deploy --product hosted-service woonetwork/woofi-avax-staging ./avax.yaml",
     "deploy_avax_testing": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph codegen ./avax.yaml && graph deploy --product hosted-service woonetwork/woofi-avax-testing ./avax.yaml",
-    "deploy_fantom_production": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom ./fantom.yaml"
+    "deploy_fantom_production": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom ./fantom.yaml",
+    "deploy_fantom_staging": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom-staging ./fantom.yaml",
+    "deploy_fantom_testing": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom-testing ./fantom.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.20.0",

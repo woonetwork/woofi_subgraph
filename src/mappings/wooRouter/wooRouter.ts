@@ -1,6 +1,7 @@
 import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {WooRouterSwap} from "../../../generated/WooRouter/WooRouter"
+import {WooRouterSwap as WooRouterSwapV1} from "../../../generated/WooRouterV1/WooRouter"
 import {WooRouterSwap as WooRouterSwapV2} from "../../../generated/WooRouterV2/WooRouter"
+import {WooRouterSwap as WooRouterSwapV3} from "../../../generated/WooRouterV3/WooRouter"
 
 import {calVolumeUSDForWooRouter} from "../../helpers";
 import {
@@ -13,55 +14,77 @@ import {
 } from "../../updateForWooRouter";
 import {createOrderHistory} from "../../create";
 
-export function handleWooRouterSwapV2(event: WooRouterSwapV2): void {
-    let volumeUSD = calVolumeUSDForWooRouter(
+export function handleWooRouterSwapV3(event: WooRouterSwapV3): void {
+    handleWooRouterSwap(
         event,
         event.params.swapType,
+        event.params.from,
+        event.params.to,
         event.params.fromToken,
         event.params.fromAmount,
         event.params.toToken,
         event.params.toAmount
-    );
-
-    updateHourStatistics(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
-    updateDayStatistics(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
-    updateStatistic(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
-
-    createOrderHistory(
-      event,
-      event.params.swapType,
-      event.params.from,
-      event.params.to,
-      event.params.fromToken,
-      event.params.fromAmount,
-      event.params.toToken,
-      event.params.toAmount
     )
 }
 
-export function handleWooRouterSwap(event: WooRouterSwap): void {
-    let volumeUSD = calVolumeUSDForWooRouter(
+export function handleWooRouterSwapV2(event: WooRouterSwapV2): void {
+    handleWooRouterSwap(
         event,
         event.params.swapType,
+        event.params.from,
+        event.params.to,
         event.params.fromToken,
         event.params.fromAmount,
         event.params.toToken,
         event.params.toAmount
+    )
+}
+
+export function handleWooRouterSwapV1(event: WooRouterSwapV1): void {
+    handleWooRouterSwap(
+        event,
+        event.params.swapType,
+        event.params.from,
+        event.params.to,
+        event.params.fromToken,
+        event.params.fromAmount,
+        event.params.toToken,
+        event.params.toAmount
+    )
+}
+
+export function handleWooRouterSwap(
+    event: ethereum.Event,
+    swapType: i32,
+    fromAddress: Bytes,
+    toAddress: Bytes,
+    fromTokenAddress: Bytes,
+    fromAmount: BigInt,
+    toTokenAddress: Bytes,
+    toAmount: BigInt
+): void {
+    let volumeUSD = calVolumeUSDForWooRouter(
+        event,
+        swapType,
+        fromTokenAddress,
+        fromAmount,
+        toTokenAddress,
+        toAmount
     );
 
-    updateHourStatistics(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
-    updateDayStatistics(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
-    updateStatistic(event, volumeUSD, event.params.swapType, event.params.fromToken, event.params.toToken);
+    updateHourStatistics(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
+    updateDayStatistics(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
+    updateStatistic(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
 
     createOrderHistory(
       event,
-      event.params.swapType,
-      event.params.from,
-      event.params.to,
-      event.params.fromToken,
-      event.params.fromAmount,
-      event.params.toToken,
-      event.params.toAmount
+      swapType,
+      fromAddress,
+      toAddress,
+      fromTokenAddress,
+      fromAmount,
+      toTokenAddress,
+      toAmount
     )
 }
 

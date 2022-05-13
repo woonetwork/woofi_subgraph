@@ -3,7 +3,7 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: WooVaultManager
+    name: WooVaultManagerV1
     network: fantom
     source:
       address: "0x58C73F7E102BC6BCdC6b092EF0399B3E06d6b3E3"
@@ -22,10 +22,10 @@ dataSources:
           file: ./abis/ERC20.json
       eventHandlers:
         - event: RewardDistributed(indexed address,uint256)
-          handler: handleRewardDistributed
+          handler: handleRewardDistributedV1
       file: ./src/mappings/wooVaultManager/wooVaultManager.ts
   - kind: ethereum/contract
-    name: WooRouter
+    name: WooRouterV1
     network: fantom
     source:
       address: "0x37B5a5A730dAD670874f26Cc5507bb1b9705e447"
@@ -44,7 +44,7 @@ dataSources:
           file: ./abis/ERC20.json
       eventHandlers:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
-          handler: handleWooRouterSwap
+          handler: handleWooRouterSwapV1
       file: ./src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
     name: WooPPV2

@@ -52,6 +52,10 @@ export const BIT_KEEP_SOURCES: string[] = [
     "0x0000000000000000000000000000000000000000",
 ];
 
+export const PARA_SWAP_SOURCES: string[] = [
+    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57"
+];
+
 export const GLOBAL_VARIABLE_ID = '0';
 export const ORDER_HISTORY_VARIABLE_ID = '0';
 
@@ -63,4 +67,5 @@ export const METAMASK_ORDER_SOURCE_ID = '4';
 export const YIELD_YAK_ORDER_SOURCE_ID = '5';
 export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
 export const BIT_KEEP_ORDER_SOURCE_ID = '7';
+export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const OTHER_ORDER_SOURCE_ID = '99';

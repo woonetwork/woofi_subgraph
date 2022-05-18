@@ -25,6 +25,8 @@ type GlobalVariable @entity {
     totalVolumeUSDFromFireBird: BigInt!
     "total volume USD from BitKeep"
     totalVolumeUSDFromBitKeep: BigInt!
+    "total volume USD from ParaSwap"
+    totalVolumeUSDFromParaSwap: BigInt!
     "total volume USD from Other Dex"
     totalVolumeUSDFromOther: BigInt!
     "route to WooPP volume USD"
@@ -155,6 +157,8 @@ type HourData @entity {
     volumeUSDFromFireBird: BigInt!
     "volume USD from BitKeep"
     volumeUSDFromBitKeep: BigInt!
+    "volume USD from ParaSwap"
+    volumeUSDFromParaSwap: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "route to WooPP tx count"
@@ -196,6 +200,8 @@ type DayData @entity {
     volumeUSDFromFireBird: BigInt!
     "volume USD from BitKeep"
     volumeUSDFromBitKeep: BigInt!
+    "volume USD from ParaSwap"
+    volumeUSDFromParaSwap: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "route to WooPP tx count"

@@ -2,8 +2,9 @@ import {BigDecimal, BigInt} from "@graphprotocol/graph-ts/index";
 import {
     BI_1,
     BI_0,
-    WOO_ROUTER,
-    WOO_PP,
+    WOO_ROUTER_SOURCES,
+    WOO_PP_SOURCES,
+    WOO_VAULT_MANAGER_SOURCES,
     WOO_ROUTER_ORDER_SOURCE_ID,
     ONE_INCH_ORDER_SOURCES,
     ONE_INCH_ORDER_SOURCE_ID,
@@ -21,6 +22,8 @@ import {
     BIT_KEEP_ORDER_SOURCE_ID,
     PARA_SWAP_SOURCES,
     PARA_SWAP_ORDER_SOURCE_ID,
+    BEETHOVEN_X_SOURCES,
+    BEETHOVEN_X_ORDER_SOURCE_ID,
     OTHER_ORDER_SOURCE_ID,
 } from "./constants";
 
@@ -41,7 +44,11 @@ export function exponentToBigDecimal(decimals: BigInt): BigDecimal {
 export function getOrderSourceIDForWooPP(transactionTo: string): string {
     let orderSourceID: string;
 
-    if (transactionTo == WOO_ROUTER || transactionTo == WOO_PP) {
+    if (
+      WOO_ROUTER_SOURCES.indexOf(transactionTo) != -1 ||
+      WOO_PP_SOURCES.indexOf(transactionTo) != -1 ||
+      WOO_VAULT_MANAGER_SOURCES.indexOf(transactionTo) != -1
+    ) {
         orderSourceID = WOO_ROUTER_ORDER_SOURCE_ID;
     } else if (ONE_INCH_ORDER_SOURCES.indexOf(transactionTo) != -1) {
         orderSourceID = ONE_INCH_ORDER_SOURCE_ID;
@@ -59,6 +66,8 @@ export function getOrderSourceIDForWooPP(transactionTo: string): string {
         orderSourceID = BIT_KEEP_ORDER_SOURCE_ID;
     } else if (PARA_SWAP_SOURCES.indexOf(transactionTo) != -1) {
         orderSourceID = PARA_SWAP_ORDER_SOURCE_ID;
+    } else if (BEETHOVEN_X_SOURCES.indexOf(transactionTo) != -1) {
+        orderSourceID = BEETHOVEN_X_ORDER_SOURCE_ID;
     } else {
         orderSourceID = OTHER_ORDER_SOURCE_ID;
     }

@@ -25,8 +25,21 @@ export const STABLE_TOKENS: string[] = [
 ];
 
 // Contract Name as Variable Name
-export const WOO_ROUTER = '0x114f84658c99aa6ea62e3160a87a16deaf7efe83';
-export const WOO_PP = '0xbf365ce9cfcb2d5855521985e351ba3bcf77fd3f';
+export const WOO_ROUTER_SOURCES: string[] = [
+    "0xcef5be73ae943b77f9bc08859367d923c030a269",
+    "0x114f84658c99aa6ea62e3160a87a16deaf7efe83"
+];
+
+export const WOO_PP_SOURCES: string[] = [
+    "0xbf365ce9cfcb2d5855521985e351ba3bcf77fd3f",
+    "0x8489d142da126f4ea01750e80ccaa12fd1642988",
+    "0x10c24658815585851a8888f059cb4338790023f1",
+];
+
+export const WOO_VAULT_MANAGER_SOURCES: string[] = [
+    "0xf704eaf4a68ac424c809f7c4595451b9414d2b76",
+];
+
 export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x3790c9b5a9b9d9aa1c69140a5f01a57c9b868e1e",  // Aggregation Executor for V4
@@ -34,19 +47,24 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
     "0xbaf9a5d4b0052359326a6cdab54babaa3a3a9643",  // Aggregation Executor
 ];
+
 export const DODO_ORDER_SOURCES: string[] = [
     "0x6b3d817814eabc984d51896b1015c0b89e9737ca",  // DODO Proxy 01
     "0x8f8dd7db1bda5ed3da8c9daf3bfa471c12d58486",  // DODO Proxy 02
     "0xbce44767af0a53a108b3b7ba4f740e03d228ec0a",  // WooAdapter
     "0xa128ba44b2738a558a1fdc06d6303d52d3cef8c1",  // Approve
+    "0x187da347debf4221b861eeafc9808d8cf89cf5fe",  // DODOLimitOrderBot
 ];
+
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6dd434082eab5cd134b33719ec1ff05fe985b97b",  // OpenOcean Pool(Maybe)
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
 ];
+
 export const METAMASK_SOURCES: string[] = [
     "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // MetaMask
 ];
+
 export const YIELD_YAK_SOURCES: string[] = [
     "0x0000000000000000000000000000000000000000",
 ];
@@ -60,7 +78,11 @@ export const BIT_KEEP_SOURCES: string[] = [
 ];
 
 export const PARA_SWAP_SOURCES: string[] = [
-    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57"
+    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",  // AugustusSwapper
+];
+
+export const BEETHOVEN_X_SOURCES: string[] = [
+    "0x0000000000000000000000000000000000000000",
 ];
 
 export const GLOBAL_VARIABLE_ID = '0';
@@ -75,4 +97,5 @@ export const YIELD_YAK_ORDER_SOURCE_ID = '5';
 export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
 export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
+export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const OTHER_ORDER_SOURCE_ID = '99';

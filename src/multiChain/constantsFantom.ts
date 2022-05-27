@@ -23,22 +23,36 @@ export const STABLE_TOKENS: string[] = [
 ];
 
 // Contract Name as Variable Name
-export const WOO_ROUTER = '0x37b5a5a730dad670874f26cc5507bb1b9705e447';
-export const WOO_PP = '0x9503e7517d3c5bc4f9e4a1c6ae4f8b33ac2546f2';
+export const WOO_ROUTER_SOURCES: string[] = [
+    "0x37b5a5a730dad670874f26cc5507bb1b9705e447",
+];
+
+export const WOO_PP_SOURCES: string[] = [
+    "0x9503e7517d3c5bc4f9e4a1c6ae4f8b33ac2546f2",
+];
+
+export const WOO_VAULT_MANAGER_SOURCES: string[] = [
+    "0x58c73f7e102bc6bcdc6b092ef0399b3e06d6b3e3",
+];
+
 export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // AggregationRouterV4
 ];
+
 export const DODO_ORDER_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // TODO replace it
+    "0x0000000000000000000000000000000000000000",
 ];
+
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",
 ];
+
 export const METAMASK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // TODO replace it
+    "0x0000000000000000000000000000000000000000",
 ];
+
 export const YIELD_YAK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // TODO replace it
+    "0x0000000000000000000000000000000000000000",
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
@@ -53,6 +67,10 @@ export const PARA_SWAP_SOURCES: string[] = [
     "0xdef171fe48cf0115b1d80b88dc8eab59176fee57"
 ];
 
+export const BEETHOVEN_X_SOURCES: string[] = [
+    "0x20dd72ed959b6147912c2e529f0a0c651c33c9ce",  // Vault
+];
+
 export const GLOBAL_VARIABLE_ID = '0';
 export const ORDER_HISTORY_VARIABLE_ID = '0';
 
@@ -65,4 +83,5 @@ export const YIELD_YAK_ORDER_SOURCE_ID = '5';
 export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
 export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
+export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const OTHER_ORDER_SOURCE_ID = '99';

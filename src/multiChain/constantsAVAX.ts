@@ -28,20 +28,37 @@ export const STABLE_TOKENS: string[] = [
 ];
 
 // Contract Name as Variable Name
-export const WOO_ROUTER = '0x160020b09ded3d862f7f851b5c50632bcf2062ff';
-export const WOO_PP = '0xf8ce0d043891b62c55380fb1efbfb4f186153d96';
+export const WOO_ROUTER_SOURCES: string[] = [
+    "0x5aa6a4e96a9129562e2fc06660d07feddaaf7854",
+    "0x3e0da0a9e4139b32b37710784b8dca643c152001",
+    "0x160020b09ded3d862f7f851b5c50632bcf2062ff",
+];
+
+export const WOO_PP_SOURCES: string[] = [
+    "0x1df3009c57a8b143c6246149f00b090bce3b8f88",
+    "0xf8ce0d043891b62c55380fb1efbfb4f186153d96",
+];
+
+export const WOO_VAULT_MANAGER_SOURCES: string[] = [
+    "0x48419c93d0d3b2428cd02bbcdeabd3aafc107f85",
+];
+
 export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // AggregationRouterV4
 ];
+
 export const DODO_ORDER_SOURCES: string[] = [
     "0x409e377a7affb1fd3369cfc24880ad58895d1dd9",
 ];
+
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",
 ];
+
 export const METAMASK_SOURCES: string[] = [
     "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",
 ];
+
 export const YIELD_YAK_SOURCES: string[] = [
     "0xc4729e56b831d74bbc18797e0e17a295fa77488c",  // YakRouter
 ];
@@ -55,7 +72,12 @@ export const BIT_KEEP_SOURCES: string[] = [
 ];
 
 export const PARA_SWAP_SOURCES: string[] = [
-    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57"
+    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",  // AugustusSwapper
+    "0xae02eca9445ec43b53118dd41658db17eab55987",  // ParaSwapLiquiditySwapAdapter
+];
+
+export const BEETHOVEN_X_SOURCES: string[] = [
+    "0x0000000000000000000000000000000000000000",
 ];
 
 export const GLOBAL_VARIABLE_ID = '0';
@@ -70,4 +92,5 @@ export const YIELD_YAK_ORDER_SOURCE_ID = '5';
 export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
 export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
+export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const OTHER_ORDER_SOURCE_ID = '99';

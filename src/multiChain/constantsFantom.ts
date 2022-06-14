@@ -73,6 +73,8 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 
 export const GLOBAL_VARIABLE_ID = '0';
 export const ORDER_HISTORY_VARIABLE_ID = '0';
+export const CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID = '1';
+export const CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID = '2';
 
 export const WOO_ROUTER_ORDER_SOURCE_ID = '0';
 export const ONE_INCH_ORDER_SOURCE_ID = '1';

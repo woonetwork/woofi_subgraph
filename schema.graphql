@@ -60,7 +60,7 @@ type OrderHistoryVariable @entity {
 type OrderHistory @entity {
     "order history id"
     id: ID!
-    "source (from : woo、dodo)"
+    "source (from : woofi、dodo)"
     source: Int!
     "transaction hash"
     hash: Bytes!
@@ -301,4 +301,62 @@ type UnknownOrderSource @entity {
     txCount: BigInt!
     "updated at"
     updatedAt: BigInt
+}
+
+type CrossChainSrcOrderHistory @entity {
+    "cross chain src order history id"
+    id: ID!
+    "transaction hash"
+    hash: Bytes!
+    "block"
+    block: BigInt!
+    "timestamp of this transaction"
+    timestamp: BigInt!
+    "ref id(it's a uuid)"
+    refId: BigInt!
+    "msg.sender that crossSwap() been executed"
+    sender: Bytes!
+    "to address"
+    to: Bytes!
+    "from token"
+    fromToken: Bytes!
+    "from token amount"
+    fromAmount: BigInt!
+    "min quote amount"
+    minQuoteAmount: BigInt!
+    "actual quote amount on src chain"
+    realQuoteAmount: BigInt!
+    "order history count"
+    txCount: BigInt!
+}
+
+type CrossChainDstOrderHistory @entity {
+    "cross chain src order history id"
+    id: ID!
+    "transaction hash"
+    hash: Bytes!
+    "block"
+    block: BigInt!
+    "timestamp of this transaction"
+    timestamp: BigInt!
+    "ref id(it's a uuid)"
+    refId: BigInt!
+    "msg.sender that crossSwap() been executed"
+    sender: Bytes!
+    "to address"
+    to: Bytes!
+    "bridged token"
+    bridgedToken: Bytes!
+    "bridged token amount"
+    bridgedAmount: BigInt!
+    "to token"
+    toToken: Bytes!
+    "actual token that send to address `to`"
+    realToToken: Bytes!
+    "min to token amount"
+    minToAmount: BigInt!
+    "actual `realToToken` amount that send to address `to`"
+    realToAmount: BigInt!
+    "order history count"
+    txCount: BigInt!
 }

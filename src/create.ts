@@ -15,8 +15,18 @@ import {
     WooSwapHash,
     OrderHistoryVariable,
     OrderHistory,
+    CrossChainSrcOrderHistory,
+    CrossChainDstOrderHistory,
 } from "../generated/schema";
-import {BI_18, STABLE_TOKENS, GLOBAL_VARIABLE_ID, ORDER_HISTORY_VARIABLE_ID, BI_0} from "./constants";
+import {
+    BI_0,
+    BI_18,
+    STABLE_TOKENS,
+    GLOBAL_VARIABLE_ID,
+    ORDER_HISTORY_VARIABLE_ID,
+    CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID,
+    CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID,
+} from "./constants";
 import {exponentToBigInt} from "./utils";
 import {fetchTokenDecimals, fetchTokenName, fetchTokenSymbol, fetchTokenTotalSupply} from "./helpers";
 
@@ -340,4 +350,102 @@ export function createOrderHistory(
     }
 
     return orderHistory as OrderHistory;
+}
+
+export function createCrossChainSrcOrderHistoryVariable(event: ethereum.Event): OrderHistoryVariable {
+    let orderHistoryVariable = OrderHistoryVariable.load(CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID);
+    if (orderHistoryVariable == null) {
+        orderHistoryVariable = new OrderHistoryVariable(CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID);
+        orderHistoryVariable.txCount = BI_0;
+        orderHistoryVariable.updatedAt = event.block.timestamp;
+        orderHistoryVariable.save();
+    }
+
+    return orderHistoryVariable as OrderHistoryVariable;
+}
+
+// Only Create by WooCrossChainRouter
+export function createCrossChainSrcOrderHistory(
+    event: ethereum.Event,
+    refId: BigInt,
+    sender: Bytes,
+    toAddress: Bytes,
+    fromTokenAddress: Bytes,
+    fromAmount: BigInt,
+    minQuoteAmount: BigInt,
+    realQuoteAmount: BigInt
+): CrossChainSrcOrderHistory {
+    let crossChainSrcOrderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
+    let crossChainSrcOrderHistory = CrossChainSrcOrderHistory.load(crossChainSrcOrderHistoryID);
+    if (crossChainSrcOrderHistory == null) {
+        crossChainSrcOrderHistory = new CrossChainSrcOrderHistory(crossChainSrcOrderHistoryID);
+        crossChainSrcOrderHistory.hash = event.transaction.hash;
+        crossChainSrcOrderHistory.block = event.block.number;
+        crossChainSrcOrderHistory.timestamp = event.block.timestamp;
+        crossChainSrcOrderHistory.refId = refId;
+        crossChainSrcOrderHistory.sender = sender;
+        crossChainSrcOrderHistory.to = toAddress;
+        crossChainSrcOrderHistory.fromToken = fromTokenAddress;
+        crossChainSrcOrderHistory.fromAmount = fromAmount;
+        crossChainSrcOrderHistory.minQuoteAmount = minQuoteAmount;
+        crossChainSrcOrderHistory.realQuoteAmount = realQuoteAmount;
+
+        let crossChainSrcOrderHistoryVariable = createCrossChainSrcOrderHistoryVariable(event);
+        crossChainSrcOrderHistory.txCount = crossChainSrcOrderHistoryVariable.txCount;
+
+        crossChainSrcOrderHistory.save();
+    }
+
+    return crossChainSrcOrderHistory as CrossChainSrcOrderHistory;
+}
+
+export function createCrossChainDstOrderHistoryVariable(event: ethereum.Event): OrderHistoryVariable {
+    let orderHistoryVariable = OrderHistoryVariable.load(CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID);
+    if (orderHistoryVariable == null) {
+        orderHistoryVariable = new OrderHistoryVariable(CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID);
+        orderHistoryVariable.txCount = BI_0;
+        orderHistoryVariable.updatedAt = event.block.timestamp;
+        orderHistoryVariable.save();
+    }
+
+    return orderHistoryVariable as OrderHistoryVariable;
+}
+
+// Only Create by WooCrossChainRouter
+export function createCrossChainDstOrderHistory(
+    event: ethereum.Event,
+    refId: BigInt,
+    sender: Bytes,
+    toAddress: Bytes,
+    bridgedTokenAddress: Bytes,
+    bridgedAmount: BigInt,
+    toTokenAddress: Bytes,
+    realToToken: Bytes,
+    minToAmount: BigInt,
+    realToAmount: BigInt
+): CrossChainDstOrderHistory {
+    let crossChainDstOrderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
+    let crossChainDstOrderHistory = CrossChainDstOrderHistory.load(crossChainDstOrderHistoryID);
+    if (crossChainDstOrderHistory == null) {
+        crossChainDstOrderHistory = new CrossChainDstOrderHistory(crossChainDstOrderHistoryID);
+        crossChainDstOrderHistory.hash = event.transaction.hash;
+        crossChainDstOrderHistory.block = event.block.number;
+        crossChainDstOrderHistory.timestamp = event.block.timestamp;
+        crossChainDstOrderHistory.refId = refId;
+        crossChainDstOrderHistory.sender = sender;
+        crossChainDstOrderHistory.to = toAddress;
+        crossChainDstOrderHistory.bridgedToken = bridgedTokenAddress;
+        crossChainDstOrderHistory.bridgedAmount = bridgedAmount;
+        crossChainDstOrderHistory.toToken = toTokenAddress;
+        crossChainDstOrderHistory.realToToken = realToToken;
+        crossChainDstOrderHistory.minToAmount = minToAmount;
+        crossChainDstOrderHistory.realToAmount = realToAmount;
+
+        let crossChainDstOrderHistoryVariable = createCrossChainDstOrderHistoryVariable(event);
+        crossChainDstOrderHistory.txCount = crossChainDstOrderHistoryVariable.txCount;
+
+        crossChainDstOrderHistory.save();
+    }
+
+    return crossChainDstOrderHistory as CrossChainDstOrderHistory;
 }

@@ -69,6 +69,7 @@ export function createHourToken(event: ethereum.Event, tokenAddress: Bytes): Hou
         hourToken = new HourToken(hourTokenID);
         hourToken.timestamp = BigInt.fromI32(hourStartTimestamp);
         hourToken.txCount = BI_0;
+        hourToken.volume = BI_0;
         hourToken.volumeUSD = BI_0;
         hourToken.routeToWooPPTxCount = BI_0;
         hourToken.routeToDODOTxCount = BI_0;

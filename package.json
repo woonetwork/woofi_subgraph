@@ -17,7 +17,10 @@
     "deploy_avax_testing": "cp ./src/multiChain/constantsAVAX.ts ./src/constants.ts && graph codegen ./avax.yaml && graph deploy --product hosted-service woonetwork/woofi-avax-testing ./avax.yaml",
     "deploy_fantom_production": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom ./fantom.yaml",
     "deploy_fantom_staging": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom-staging ./fantom.yaml",
-    "deploy_fantom_testing": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom-testing ./fantom.yaml"
+    "deploy_fantom_testing": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom-testing ./fantom.yaml",
+    "deploy_polygon_production": "cp ./src/multiChain/constantsPolygon.ts ./src/constants.ts && graph codegen ./polygon.yaml && graph deploy --product hosted-service woonetwork/woofi-polygon ./polygon.yaml",
+    "deploy_polygon_staging": "cp ./src/multiChain/constantsPolygon.ts ./src/constants.ts && graph codegen ./polygon.yaml && graph deploy --product hosted-service woonetwork/woofi-polygon-staging ./polygon.yaml",
+    "deploy_polygon_testing": "cp ./src/multiChain/constantsPolygon.ts ./src/constants.ts && graph codegen ./polygon.yaml && graph deploy --product hosted-service woonetwork/woofi-polygon-testing ./polygon.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.20.0",

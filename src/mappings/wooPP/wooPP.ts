@@ -51,7 +51,7 @@ function handleWooSwap(
     // it's possible to has two WooSwap events in one tx, will be checked when entity has txCount
     let wooSwapHash = createWooSwapHash(event);
 
-    updateHourStatistics(event, traderAddress, volumeUSD, fromTokenAddress, toTokenAddress, wooSwapHash);
+    updateHourStatistics(event, traderAddress, volumeUSD, fromTokenAddress, fromAmount, toTokenAddress, toAmount, wooSwapHash);
     updateDayStatistics(event, traderAddress, volumeUSD, fromTokenAddress, toTokenAddress, wooSwapHash);
     updateStatistics(event, traderAddress, volumeUSD, fromTokenAddress, toTokenAddress, wooSwapHash);
 
@@ -66,11 +66,13 @@ function updateHourStatistics(
     traderAddress: Bytes,
     volumeUSD: BigInt,
     fromTokenAddress: Bytes,
+    fromAmount: BigInt,
     toTokenAddress: Bytes,
+    toAmount: BigInt,
     wooSwapHash: WooSwapHash
 ): void {
     updateHourData(event, traderAddress, volumeUSD, wooSwapHash);
-    updateHourToken(event, volumeUSD, fromTokenAddress, toTokenAddress);
+    updateHourToken(event, volumeUSD, fromTokenAddress, fromAmount, toTokenAddress, toAmount);
     updateHourOrderSource(event, volumeUSD, wooSwapHash);
 }
 

@@ -95,6 +95,8 @@ type HourToken @entity {
     timestamp: BigInt!
     "token tx count in an hour"
     txCount: BigInt!
+    "hour traded token volume"
+    volume: BigInt!
     "hour traded volume USD"
     volumeUSD: BigInt!
     "route to WooPP tx count"

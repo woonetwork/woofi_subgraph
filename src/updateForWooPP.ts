@@ -73,16 +73,25 @@ export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes
     globalVariable.save();
 }
 
-export function updateHourToken(event: ethereum.Event, volumeUSD: BigInt, fromTokenAddress: Bytes, toTokenAddress: Bytes): void {
+export function updateHourToken(
+    event: ethereum.Event,
+    volumeUSD: BigInt,
+    fromTokenAddress: Bytes,
+    fromAmount: BigInt,
+    toTokenAddress: Bytes,
+    toAmount: BigInt
+): void {
     let fromHourToken = createHourToken(event, fromTokenAddress);
     let toHourToken = createHourToken(event, toTokenAddress);
 
     fromHourToken.txCount = fromHourToken.txCount.plus(BI_1);
+    fromHourToken.volume = fromHourToken.volume.plus(fromAmount);
     fromHourToken.volumeUSD = fromHourToken.volumeUSD.plus(volumeUSD);
     fromHourToken.updatedAt = event.block.timestamp;
     fromHourToken.save();
 
     toHourToken.txCount = toHourToken.txCount.plus(BI_1);
+    toHourToken.volume = toHourToken.volume.plus(toAmount);
     toHourToken.volumeUSD = toHourToken.volumeUSD.plus(volumeUSD);
     toHourToken.updatedAt = event.block.timestamp;
     toHourToken.save();

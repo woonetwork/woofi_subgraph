@@ -190,6 +190,8 @@ type DayData @entity {
     txCount: BigInt!
     "volume USD"
     volumeUSD: BigInt!
+    "WOO buyback volume"
+    wooBuybackVolume: BigInt!
     "volume USD from WooRouter"
     volumeUSDFromWooRouter: BigInt!
     "volume USD from 1inch"

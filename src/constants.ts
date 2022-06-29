@@ -15,25 +15,27 @@ export const ETHER = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
 export const ETHER_SYMBOL = 'MATIC';
 export const ETHER_NAME = 'matic';
 
-export const WRAPPED = '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270';
+export const WRAPPED = '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270';
 
 export const STABLE_TOKENS: string[] = [
-    "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",  // USDT
-    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",  // USDC
-    "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",  // DAI
+    "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",  // USDT
+    "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",  // USDC
+    "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",  // DAI
 ];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x9D1A92e601db0901e69bd810029F2C14bCCA3128",
+    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooRouter
+    "0x376d567c5794cfc64c74852a9db2105e0b5b482c",  // WooCrossChainRouter
+    "0xfe7c30860d01e28371d40434806f4a8fcdd3a098",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0x7400B665C8f4f3a951a99f1ee9872efb8778723d",
+    "0x7400b665c8f4f3a951a99f1ee9872efb8778723d",
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
-    "0x2e668Bb88287675e34c8dF82686dfd0b7F0c0383",
+    "0x2e668bb88287675e34c8df82686dfd0b7f0c0383",
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [

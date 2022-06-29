@@ -156,6 +156,7 @@ export function createDayData(event: ethereum.Event): DayData {
         dayData.traders = BI_0;
         dayData.txCount = BI_0;
         dayData.volumeUSD = BI_0;
+        dayData.wooBuybackVolume = BI_0;
         dayData.volumeUSDFromWooRouter = BI_0;
         dayData.volumeUSDFromOneInch = BI_0;
         dayData.volumeUSDFromDODO = BI_0;

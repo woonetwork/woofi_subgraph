@@ -2,7 +2,7 @@ import {BigInt, Bytes} from "@graphprotocol/graph-ts/index";
 import {RewardDistributed as RewardDistributedV1} from "../../../generated/WooVaultManagerV1/WooVaultManager"
 import {RewardDistributed as RewardDistributedV2} from "../../../generated/WooVaultManagerV1/WooVaultManager"
 
-import {createGlobalVariable} from "../../create";
+import {createDayData, createGlobalVariable} from "../../create";
 import {ethereum} from "@graphprotocol/graph-ts";
 
 export function handleRewardDistributedV2(event: RewardDistributedV2): void {
@@ -19,4 +19,10 @@ export function handleRewardDistributed(event: ethereum.Event, buybackVolume: Bi
     globalVariable.updatedAt = event.block.timestamp;
 
     globalVariable.save();
+
+    let dayData = createDayData(event);
+    dayData.wooBuybackVolume = dayData.wooBuybackVolume.plus(buybackVolume);
+    dayData.updatedAt = event.block.timestamp;
+
+    dayData.save();
 }

@@ -49,6 +49,7 @@ export const DODO_ORDER_SOURCES: string[] = [
 
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
+    "0x703855c7be44426f4c1c70976979f1ef3a6e58e6",  // OpenOcean Unverified Contract(assume as Adapter)
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -91,3 +92,5 @@ export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const OTHER_ORDER_SOURCE_ID = '99';
+
+export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

@@ -39,6 +39,7 @@ export const WOO_VAULT_MANAGER_SOURCES: string[] = [
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // AggregationRouterV4
+    "0x73f0a6927a3c04e679074e70dfb9105f453e799d",  // 1inch Unverified Contract
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
@@ -46,7 +47,8 @@ export const DODO_ORDER_SOURCES: string[] = [
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",
+    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOceanExchangeProxy
+    "0xba6c1933235feca781fe896562895adb59dedb8c",  // OpenOcean Unverified Contract
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -59,6 +61,7 @@ export const YIELD_YAK_SOURCES: string[] = [
 
 export const FIRE_BIRD_SOURCES: string[] = [
     "0xe0c38b2a8d09aad53f1c67734b9a95e43d5981c0",  // FireBirdRouter
+    "0x601664a40468c3fdfe23a9daab8e7918c2923f00",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
@@ -71,6 +74,7 @@ export const PARA_SWAP_SOURCES: string[] = [
 
 export const BEETHOVEN_X_SOURCES: string[] = [
     "0x20dd72ed959b6147912c2e529f0a0c651c33c9ce",  // Vault
+    "0x73f0a6927a3c04e679074e70dfb9105f453e799d",  // BeethovenX Unverified Contract(assume as Adapter)
 ];
 
 export const GLOBAL_VARIABLE_ID = '0';
@@ -89,3 +93,5 @@ export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const OTHER_ORDER_SOURCE_ID = '99';
+
+export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

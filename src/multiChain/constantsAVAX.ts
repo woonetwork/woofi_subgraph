@@ -47,14 +47,22 @@ export const WOO_VAULT_MANAGER_SOURCES: string[] = [
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // AggregationRouterV4
+    "0x7d18d5ba1fa30da1ad757c57eb643564ca02922d",  // 1inch Unverified Contract
+    "0x73f0a6927a3c04e679074e70dfb9105f453e799d",  // 1inch Unverified Contract
+
+    "0x2b42affd4b7c14d9b7c2579229495c052672ccd3",  // Socket: Registry
+    "0xbdf50eae568ecef74796ed6022a0d453e8432410",  // Socket: One Inch Swap Implementation
+    "0x4e66794586cc9c53a8c604d77b4ce3d39b1cff7c",  // 1inch Unverified Contract
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
-    "0x409e377a7affb1fd3369cfc24880ad58895d1dd9",
+    "0x409e377a7affb1fd3369cfc24880ad58895d1dd9",  // DODORouteProxy
+    "0xc9143e54021f4a6d33b9b89dbb9f458aaedd56fb",  // WooAdapter
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",
+    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean: Exchange V2
+    "0x12cfe671e9b186f21d9852d69bdbfe3f8ac9ecb1",  // OpenOcean Unverified Contract
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -63,6 +71,7 @@ export const METAMASK_SOURCES: string[] = [
 
 export const YIELD_YAK_SOURCES: string[] = [
     "0xc4729e56b831d74bbc18797e0e17a295fa77488c",  // YakRouter
+    "0xe5a6a4279d1517231a84fae629e433b312fe89d7",  // WoofiAdapter
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
@@ -98,3 +107,5 @@ export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const OTHER_ORDER_SOURCE_ID = '99';
+
+export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

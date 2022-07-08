@@ -44,6 +44,10 @@ type WooSwapHash @entity {
     id: ID!
     "tx count for other entity"
     txSynced: Boolean!
+    "volume USD"
+    volumeUSD: BigInt!
+    "get the order source by WooRouterSwap from parameter"
+    getOrderSourceByWooRouterSwapFrom: Boolean!
     "updated at"
     updatedAt: BigInt
 }

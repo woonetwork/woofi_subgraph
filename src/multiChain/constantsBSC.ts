@@ -72,11 +72,13 @@ export const YIELD_YAK_SOURCES: string[] = [
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x92e4f29be975c1b1eb72e77de24dccf11432a5bd",  // FireBirdRouter
+    "0xb97922afa65c46a1babbf70031f7224bd3449c8e",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
     "0x0c9adcfc5fc5c34074bd67e402c5f9cb14ba2920",  // BitKeepRouter
+    "0x22fefbe577a4dbc083bee213e546ac69aedc2c56",  // BitKeep Unverified Contract(assume as Adapter)
 ];
 
 export const PARA_SWAP_SOURCES: string[] = [
@@ -103,3 +105,5 @@ export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const OTHER_ORDER_SOURCE_ID = '99';
+
+export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

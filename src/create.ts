@@ -298,6 +298,8 @@ export function createWooSwapHash(event: ethereum.Event): WooSwapHash {
     if (wooSwapHash == null) {
         wooSwapHash = new WooSwapHash(wooSwapHashID);
         wooSwapHash.txSynced = false;
+        wooSwapHash.volumeUSD = BI_0;
+        wooSwapHash.getOrderSourceByWooRouterSwapFrom = false;
         wooSwapHash.updatedAt = event.block.timestamp;
         wooSwapHash.save();
     }

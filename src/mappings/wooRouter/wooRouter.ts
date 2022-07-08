@@ -5,12 +5,15 @@ import {WooRouterSwap as WooRouterSwapV3} from "../../../generated/WooRouterV3/W
 
 import {calVolumeUSDForWooRouter} from "../../helpers";
 import {
-    updateDayData,
     updateGlobalVariable,
     updateHourData,
     updateHourToken,
-    updateOrderHistoryVariable,
+    updateHourOrderSource,
+    updateDayData,
+    updateDayOrderSource,
     updateToken,
+    updateOrderSource,
+    updateOrderHistoryVariable,
 } from "../../updateForWooRouter";
 import {createOrderHistory} from "../../create";
 
@@ -72,9 +75,9 @@ export function handleWooRouterSwap(
         toAmount
     );
 
-    updateHourStatistics(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
-    updateDayStatistics(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
-    updateStatistic(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
+    updateHourStatistics(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress);
+    updateDayStatistics(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress);
+    updateStatistic(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress);
 
     createOrderHistory(
       event,
@@ -92,31 +95,37 @@ function updateHourStatistics(
     event: ethereum.Event,
     volumeUSD: BigInt,
     swapType: i32,
+    fromAddress: Bytes,
     fromTokenAddress: Bytes,
     toTokenAddress: Bytes
 ): void {
+    updateHourData(event, volumeUSD, swapType, fromAddress);
     updateHourToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
-    updateHourData(event, volumeUSD, swapType);
+    updateHourOrderSource(event, fromAddress);
 }
 
 function updateDayStatistics(
     event: ethereum.Event,
     volumeUSD: BigInt,
     swapType: i32,
+    fromAddress: Bytes,
     fromTokenAddress: Bytes,
     toTokenAddress: Bytes
 ): void {
-    updateDayData(event, volumeUSD, swapType);
+    updateDayData(event, volumeUSD, swapType, fromAddress);
+    updateDayOrderSource(event, fromAddress);
 }
 
 function updateStatistic(
     event: ethereum.Event,
     volumeUSD: BigInt,
     swapType: i32,
+    fromAddress: Bytes,
     fromTokenAddress: Bytes,
     toTokenAddress: Bytes
 ): void {
-    updateGlobalVariable(event, volumeUSD, swapType);
+    updateGlobalVariable(event, volumeUSD, swapType, fromAddress);
     updateToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
+    updateOrderSource(event, fromAddress);
     updateOrderHistoryVariable(event);
 }

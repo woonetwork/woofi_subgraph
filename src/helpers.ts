@@ -74,24 +74,6 @@ export function fetchTokenBalance(tokenAddress: Bytes, user: Bytes): BigInt {
     return balanceResult.value;
 }
 
-export function updateTokenPrice(event: ethereum.Event, fromTokenAddress: Bytes, fromAmount: BigInt, toTokenAddress: Bytes, toAmount: BigInt): void {
-    if (fromTokenAddress.toHexString() == WRAPPED) {
-        fromTokenAddress = Address.fromString(ETHER);
-    }
-    let fromToken = createToken(event, fromTokenAddress);
-    let toToken = createToken(event, toTokenAddress);
-
-    if (STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) != -1) {  // fromToken is Stable Coin
-        toToken.lastTradePrice = fromAmount.times(exponentToBigInt(toToken.decimals.times(BI_2)))
-          .div(exponentToBigInt(fromToken.decimals)).div(toAmount);
-        toToken.save();
-    } else if (STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) != -1) {  // toToken is Stable Coin
-        fromToken.lastTradePrice = toAmount.times(exponentToBigInt(fromToken.decimals.times(BI_2)))
-          .div(exponentToBigInt(toToken.decimals)).div(fromAmount);
-        fromToken.save();
-    }
-}
-
 export function calVolumeUSDForWooPP(event: ethereum.Event, fromTokenAddress: Bytes, fromAmount: BigInt, toTokenAddress: Bytes, toAmount: BigInt): BigInt {
     if (STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) != -1) {  // fromToken is Stable Coin
         let fromToken = createToken(event, fromTokenAddress);

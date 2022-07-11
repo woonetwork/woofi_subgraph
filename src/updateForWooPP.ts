@@ -234,12 +234,12 @@ export function updateUnknownOrderSource(event: ethereum.Event, volumeUSD: BigIn
 export function updateWooSwapHash(event: ethereum.Event, volumeUSD: BigInt, wooSwapFrom: Bytes): void {
     let wooSwapHash = createWooSwapHash(event);
     wooSwapHash.txSynced = true;
-    wooSwapHash.updatedAt = event.block.timestamp;
     wooSwapHash.volumeUSD = wooSwapHash.volumeUSD.plus(volumeUSD);
     let orderSourceID = getOrderSourceIDForWooPP(event.transaction.to.toHexString(), wooSwapFrom.toHexString());
     if (orderSourceID == GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
         wooSwapHash.getOrderSourceByWooRouterSwapFrom = true;
     }
+    wooSwapHash.updatedAt = event.block.timestamp;
 
     wooSwapHash.save();
 }

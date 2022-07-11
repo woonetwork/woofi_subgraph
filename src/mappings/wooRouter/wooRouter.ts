@@ -14,8 +14,10 @@ import {
     updateToken,
     updateOrderSource,
     updateOrderHistoryVariable,
+    updateWooRouterSwapHash,
 } from "../../updateForWooRouter";
-import {createOrderHistory} from "../../create";
+import {createOrderHistory, createWooSwapHash, createWooRouterSwapHash} from "../../create";
+import {WooSwapHash} from "../../../generated/schema";
 
 export function handleWooRouterSwapV3(event: WooRouterSwapV3): void {
     handleWooRouterSwap(
@@ -75,19 +77,26 @@ export function handleWooRouterSwap(
         toAmount
     );
 
-    updateHourStatistics(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress);
-    updateDayStatistics(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress);
-    updateStatistic(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress);
+    // Transaction may exist two WooRouterSwap
+    let wooSwapHash = createWooSwapHash(event);
+    let wooRouterSwapHash = createWooRouterSwapHash(event);
+    let addOrderSourceVolumeUSD = wooSwapHash.volumeUSD.minus(wooRouterSwapHash.previousVolumeUSD);
+
+    updateHourStatistics(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    updateDayStatistics(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    updateStatistic(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress, addOrderSourceVolumeUSD, wooSwapHash);
+
+    updateWooRouterSwapHash(event, wooSwapHash.volumeUSD);
 
     createOrderHistory(
-      event,
-      swapType,
-      fromAddress,
-      toAddress,
-      fromTokenAddress,
-      fromAmount,
-      toTokenAddress,
-      toAmount
+        event,
+        swapType,
+        fromAddress,
+        toAddress,
+        fromTokenAddress,
+        fromAmount,
+        toTokenAddress,
+        toAmount
     )
 }
 
@@ -97,11 +106,13 @@ function updateHourStatistics(
     swapType: i32,
     fromAddress: Bytes,
     fromTokenAddress: Bytes,
-    toTokenAddress: Bytes
+    toTokenAddress: Bytes,
+    addOrderSourceVolumeUSD: BigInt,
+    wooSwapHash: WooSwapHash
 ): void {
-    updateHourData(event, volumeUSD, swapType, fromAddress);
+    updateHourData(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
     updateHourToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
-    updateHourOrderSource(event, fromAddress);
+    updateHourOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
 }
 
 function updateDayStatistics(
@@ -110,10 +121,12 @@ function updateDayStatistics(
     swapType: i32,
     fromAddress: Bytes,
     fromTokenAddress: Bytes,
-    toTokenAddress: Bytes
+    toTokenAddress: Bytes,
+    addOrderSourceVolumeUSD: BigInt,
+    wooSwapHash: WooSwapHash
 ): void {
-    updateDayData(event, volumeUSD, swapType, fromAddress);
-    updateDayOrderSource(event, fromAddress);
+    updateDayData(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    updateDayOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
 }
 
 function updateStatistic(
@@ -122,10 +135,12 @@ function updateStatistic(
     swapType: i32,
     fromAddress: Bytes,
     fromTokenAddress: Bytes,
-    toTokenAddress: Bytes
+    toTokenAddress: Bytes,
+    addOrderSourceVolumeUSD: BigInt,
+    wooSwapHash: WooSwapHash
 ): void {
-    updateGlobalVariable(event, volumeUSD, swapType, fromAddress);
+    updateGlobalVariable(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
     updateToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
-    updateOrderSource(event, fromAddress);
+    updateOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
     updateOrderHistoryVariable(event);
 }

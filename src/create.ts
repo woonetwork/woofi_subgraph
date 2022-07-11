@@ -13,6 +13,7 @@ import {
     DayTrader,
     Trader,
     WooSwapHash,
+    WooRouterSwapHash,
     OrderHistoryVariable,
     OrderHistory,
     CrossChainSrcOrderHistory,
@@ -305,6 +306,19 @@ export function createWooSwapHash(event: ethereum.Event): WooSwapHash {
     }
 
     return wooSwapHash as WooSwapHash;
+}
+
+export function createWooRouterSwapHash(event: ethereum.Event): WooRouterSwapHash {
+    let wooRouterSwapHashID = event.transaction.hash.toHexString();
+    let wooRouterSwapHash = WooRouterSwapHash.load(wooRouterSwapHashID);
+    if (wooRouterSwapHash == null) {
+        wooRouterSwapHash = new WooRouterSwapHash(wooRouterSwapHashID);
+        wooRouterSwapHash.previousVolumeUSD = BI_0;
+        wooRouterSwapHash.updatedAt = event.block.timestamp;
+        wooRouterSwapHash.save();
+    }
+
+    return wooRouterSwapHash as WooRouterSwapHash;
 }
 
 export function createOrderHistoryVariable(event: ethereum.Event): OrderHistoryVariable {

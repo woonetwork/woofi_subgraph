@@ -52,6 +52,15 @@ type WooSwapHash @entity {
     updatedAt: BigInt
 }
 
+type WooRouterSwapHash @entity {
+    "WooRouterSwap hash"
+    id: ID!
+    "previous Volume USD in update"
+    previousVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
 type OrderHistoryVariable @entity {
     "order history variable id"
     id: ID!

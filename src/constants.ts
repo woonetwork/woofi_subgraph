@@ -12,52 +12,66 @@ export let BD_1 = BigDecimal.fromString('1');
 
 // Address Must Be Lower Case!!!
 export const ETHER = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
-export const ETHER_SYMBOL = 'MATIC';
-export const ETHER_NAME = 'matic';
+export const ETHER_SYMBOL = 'AVAX';
+export const ETHER_NAME = 'avax';
 
-export const WRAPPED = '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270';
+export const WRAPPED = '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7';
 
 export const STABLE_TOKENS: string[] = [
-    "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",  // USDT
-    "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",  // USDC
-    "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",  // DAI
+    "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",  // BUSD
+    "0xc7198437980c041c805a1edcba50c1ce5db95118",  // USDT.e
+    "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",  // USDC.e
+    "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",  // DAI.e
+    "0x1c20e891bab6b1727d14da358fae2984ed9b59eb",  // TUSD
+    "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",  // USDT
+    "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",  // USDC
 ];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooRouter
-    "0x376d567c5794cfc64c74852a9db2105e0b5b482c",  // WooCrossChainRouter
-    "0xfe7c30860d01e28371d40434806f4a8fcdd3a098",  // Relayer
+    "0x5aa6a4e96a9129562e2fc06660d07feddaaf7854",  // WooRouter
+    "0x3e0da0a9e4139b32b37710784b8dca643c152001",  // WooRouter
+    "0x160020b09ded3d862f7f851b5c50632bcf2062ff",  // WooRouter
+    "0xdf37f7a85d4563f39a78494568824b4df8669b7a",  // WooCrossChainRouter
+    "0x6f475642a6e85809b1c36fa62763669b1b48dd5b",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0x7400b665c8f4f3a951a99f1ee9872efb8778723d",
+    "0x1df3009c57a8b143c6246149f00b090bce3b8f88",
+    "0xf8ce0d043891b62c55380fb1efbfb4f186153d96",
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
-    "0x2e668bb88287675e34c8df82686dfd0b7f0c0383",
+    "0x48419c93d0d3b2428cd02bbcdeabd3aafc107f85",
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
-    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
-    "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
+    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // AggregationRouterV4
+    "0x7d18d5ba1fa30da1ad757c57eb643564ca02922d",  // 1inch Unverified Contract
+    "0x73f0a6927a3c04e679074e70dfb9105f453e799d",  // 1inch Unverified Contract
+
+    "0x2b42affd4b7c14d9b7c2579229495c052672ccd3",  // Socket: Registry
+    "0xbdf50eae568ecef74796ed6022a0d453e8432410",  // Socket: One Inch Swap Implementation
+    "0x4e66794586cc9c53a8c604d77b4ce3d39b1cff7c",  // 1inch Unverified Contract
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x409e377a7affb1fd3369cfc24880ad58895d1dd9",  // DODORouteProxy
+    "0xc9143e54021f4a6d33b9b89dbb9f458aaedd56fb",  // WooAdapter
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
-    "0x703855c7be44426f4c1c70976979f1ef3a6e58e6",  // OpenOcean Unverified Contract(assume as Adapter)
+    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean: Exchange V2
+    "0x12cfe671e9b186f21d9852d69bdbfe3f8ac9ecb1",  // OpenOcean Unverified Contract
 ];
 
 export const METAMASK_SOURCES: string[] = [
-    "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // MetaMask
+    "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",
 ];
 
 export const YIELD_YAK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0xc4729e56b831d74bbc18797e0e17a295fa77488c",  // YakRouter
+    "0xe5a6a4279d1517231a84fae629e433b312fe89d7",  // WoofiAdapter
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
@@ -70,6 +84,7 @@ export const BIT_KEEP_SOURCES: string[] = [
 
 export const PARA_SWAP_SOURCES: string[] = [
     "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",  // AugustusSwapper
+    "0xae02eca9445ec43b53118dd41658db17eab55987",  // ParaSwapLiquiditySwapAdapter
 ];
 
 export const BEETHOVEN_X_SOURCES: string[] = [

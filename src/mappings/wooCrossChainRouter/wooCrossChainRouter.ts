@@ -2,7 +2,7 @@ import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
 import {
     WooCrossSwapOnSrcChain as WooCrossSwapOnSrcChainV1,
     WooCrossSwapOnDstChain as WooCrossSwapOnDstChainV1
-} from "../../../generated/WooCrossChainRouterV1/WooCrossChainRouter"
+} from "../../../generated/WooCrossChainRouterV1/WooCrossChainRouter";
 
 import {
     createCrossChainSrcOrderHistory,
@@ -23,7 +23,7 @@ export function handleWooCrossSwapOnSrcChainV1(event: WooCrossSwapOnSrcChainV1):
         event.params.fromAmount,
         event.params.minQuoteAmount,
         event.params.realQuoteAmount
-    )
+    );
 }
 
 export function handleWooCrossSwapOnDstChainV1(event: WooCrossSwapOnDstChainV1): void {
@@ -38,7 +38,7 @@ export function handleWooCrossSwapOnDstChainV1(event: WooCrossSwapOnDstChainV1):
         event.params.realToToken,
         event.params.minToAmount,
         event.params.realToAmount
-    )
+    );
 }
 
 export function handleWooCrossSwapOnSrcChain(
@@ -51,7 +51,7 @@ export function handleWooCrossSwapOnSrcChain(
     minQuoteAmount: BigInt,
     realQuoteAmount: BigInt
 ): void {
-    updateCrossChainSrcOrderHistoryVariable(event)
+    updateCrossChainSrcOrderHistoryVariable(event);
 
     createCrossChainSrcOrderHistory(
           event,
@@ -62,7 +62,7 @@ export function handleWooCrossSwapOnSrcChain(
           fromAmount,
           minQuoteAmount,
           realQuoteAmount
-    )
+    );
 }
 
 export function handleWooCrossSwapOnDstChain(
@@ -77,7 +77,7 @@ export function handleWooCrossSwapOnDstChain(
     minToAmount: BigInt,
     realToAmount: BigInt
 ): void {
-    updateCrossChainDstOrderHistoryVariable(event)
+    updateCrossChainDstOrderHistoryVariable(event);
 
     createCrossChainDstOrderHistory(
         event,
@@ -90,5 +90,5 @@ export function handleWooCrossSwapOnDstChain(
         realToToken,
         minToAmount,
         realToAmount
-    )
+    );
 }

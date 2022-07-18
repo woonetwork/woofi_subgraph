@@ -49,6 +49,7 @@ export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
         globalVariable.totalVolumeUSDFromBitKeep = BI_0;
         globalVariable.totalVolumeUSDFromParaSwap = BI_0;
         globalVariable.totalVolumeUSDFromBeethovenX = BI_0;
+        globalVariable.totalVolumeUSDFromTransitSwap = BI_0;
         globalVariable.totalVolumeUSDFromOther = BI_0;
         globalVariable.routeToWooPPVolumeUSD = BI_0;
         globalVariable.routeToDODOVolumeUSD = BI_0;
@@ -132,6 +133,7 @@ export function createHourData(event: ethereum.Event): HourData {
         hourData.volumeUSDFromBitKeep = BI_0;
         hourData.volumeUSDFromParaSwap = BI_0;
         hourData.volumeUSDFromBeethovenX = BI_0;
+        hourData.volumeUSDFromTransitSwap = BI_0;
         hourData.volumeUSDFromOther = BI_0;
         hourData.routeToWooPPTxCount = BI_0;
         hourData.routeToDODOTxCount = BI_0;
@@ -168,6 +170,7 @@ export function createDayData(event: ethereum.Event): DayData {
         dayData.volumeUSDFromBitKeep = BI_0;
         dayData.volumeUSDFromParaSwap = BI_0;
         dayData.volumeUSDFromBeethovenX = BI_0;
+        dayData.volumeUSDFromTransitSwap = BI_0;
         dayData.volumeUSDFromOther = BI_0;
         dayData.routeToWooPPTxCount = BI_0;
         dayData.routeToDODOTxCount = BI_0;

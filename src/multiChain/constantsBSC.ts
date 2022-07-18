@@ -48,6 +48,9 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x2a71693a4d88b4f6ae6697a87b3524c04b92ab38",  // Exchange Governance
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
     "0xbaf9a5d4b0052359326a6cdab54babaa3a3a9643",  // Aggregation Executor
+    "0x9c4350f527ff7f96b650ee894ae9103bdfec0432",
+    "0x05ad60d9a2f1aa30ba0cdbaf1e0a0a145fbea16f",
+    "0x2ed740c6e3aaf5987c7f5a4fa13b90fcc47febd7",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
@@ -59,8 +62,9 @@ export const DODO_ORDER_SOURCES: string[] = [
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x6dd434082eab5cd134b33719ec1ff05fe985b97b",  // OpenOcean Pool(Maybe)
+    "0x6dd434082eab5cd134b33719ec1ff05fe985b97b",  // OpenOcean Pool
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
+    "0x170100a288dc3d7e83fea20441f98166b15b6df0",
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -79,6 +83,8 @@ export const FIRE_BIRD_SOURCES: string[] = [
 export const BIT_KEEP_SOURCES: string[] = [
     "0x0c9adcfc5fc5c34074bd67e402c5f9cb14ba2920",  // BitKeepRouter
     "0x22fefbe577a4dbc083bee213e546ac69aedc2c56",  // BitKeep Unverified Contract(assume as Adapter)
+    "0x2a07cb9e1236a31c6e4cfd7dfd39cf1e0c5687d6",
+    "0xb64d61fa39a7343a3d85e20da612e08dc7500af0",
 ];
 
 export const PARA_SWAP_SOURCES: string[] = [
@@ -87,6 +93,25 @@ export const PARA_SWAP_SOURCES: string[] = [
 
 export const BEETHOVEN_X_SOURCES: string[] = [
     "0x0000000000000000000000000000000000000000",
+];
+
+export const TRANSIT_SWAP_SOURCES: string[] = [
+    "0x638f32fe09baec1fdc54f962e3e8e5f2b286aa70",  // Transit: Swap Router
+    "0x09c0fa8e2cd5fb18a9cb41c8daa951d9a4b09d7a",  // Adapter
+];
+
+export let ADDRESS_SOURCES: string[][] = [
+    WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
+    ONE_INCH_ORDER_SOURCES,  // 1: 1inch
+    DODO_ORDER_SOURCES,  // 2: DODO
+    OPEN_OCEAN_SOURCES,  // 3: OpenOcean
+    METAMASK_SOURCES,  // 4: MetaMask
+    YIELD_YAK_SOURCES,  // 5: YieldYak
+    FIRE_BIRD_SOURCES,  // 6: FireBird
+    BIT_KEEP_SOURCES,  // 7: BitKeep
+    PARA_SWAP_SOURCES,  // 8: ParaSwap
+    BEETHOVEN_X_SOURCES,  // 9: BeethovenX
+    TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
 ];
 
 export const GLOBAL_VARIABLE_ID = '0';
@@ -104,6 +129,7 @@ export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
 export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
+export const TRANSIT_SWAP_ORDER_SOURCE_ID = '10';
 export const OTHER_ORDER_SOURCE_ID = '99';
 
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

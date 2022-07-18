@@ -63,6 +63,7 @@ export const DODO_ORDER_SOURCES: string[] = [
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean: Exchange V2
     "0x12cfe671e9b186f21d9852d69bdbfe3f8ac9ecb1",  // OpenOcean Unverified Contract
+    "0x8d2b7e5501eb6d92f8e349f2febe785dd070be74",  // OpenOcean Unverified Contract
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -72,6 +73,7 @@ export const METAMASK_SOURCES: string[] = [
 export const YIELD_YAK_SOURCES: string[] = [
     "0xc4729e56b831d74bbc18797e0e17a295fa77488c",  // YakRouter
     "0xe5a6a4279d1517231a84fae629e433b312fe89d7",  // WoofiAdapter
+    "0xa64c5c58fc1510de3ff2ee644e030d666b660ea6",  // WoofiAdapter
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
@@ -91,6 +93,24 @@ export const BEETHOVEN_X_SOURCES: string[] = [
     "0x0000000000000000000000000000000000000000",
 ];
 
+export const TRANSIT_SWAP_SOURCES: string[] = [
+    "0x0000000000000000000000000000000000000000",
+];
+
+export let ADDRESS_SOURCES: string[][] = [
+    WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
+    ONE_INCH_ORDER_SOURCES,  // 1: 1inch
+    DODO_ORDER_SOURCES,  // 2: DODO
+    OPEN_OCEAN_SOURCES,  // 3: OpenOcean
+    METAMASK_SOURCES,  // 4: MetaMask
+    YIELD_YAK_SOURCES,  // 5: YieldYak
+    FIRE_BIRD_SOURCES,  // 6: FireBird
+    BIT_KEEP_SOURCES,  // 7: BitKeep
+    PARA_SWAP_SOURCES,  // 8: ParaSwap
+    BEETHOVEN_X_SOURCES,  // 9: BeethovenX
+    TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
+];
+
 export const GLOBAL_VARIABLE_ID = '0';
 export const ORDER_HISTORY_VARIABLE_ID = '0';
 export const CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID = '1';
@@ -106,6 +126,7 @@ export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
 export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
+export const TRANSIT_SWAP_ORDER_SOURCE_ID = '10';
 export const OTHER_ORDER_SOURCE_ID = '99';
 
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

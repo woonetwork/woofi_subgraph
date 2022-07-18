@@ -61,7 +61,7 @@ export const YIELD_YAK_SOURCES: string[] = [
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x3560a99b96b7fc8b516dbe1015b1a7821eb63b7a",  // FireBird: UpgradableProxy
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
@@ -74,6 +74,24 @@ export const PARA_SWAP_SOURCES: string[] = [
 
 export const BEETHOVEN_X_SOURCES: string[] = [
     "0x0000000000000000000000000000000000000000",
+];
+
+export const TRANSIT_SWAP_SOURCES: string[] = [
+    "0x0000000000000000000000000000000000000000",
+];
+
+export let ADDRESS_SOURCES: string[][] = [
+    WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
+    ONE_INCH_ORDER_SOURCES,  // 1: 1inch
+    DODO_ORDER_SOURCES,  // 2: DODO
+    OPEN_OCEAN_SOURCES,  // 3: OpenOcean
+    METAMASK_SOURCES,  // 4: MetaMask
+    YIELD_YAK_SOURCES,  // 5: YieldYak
+    FIRE_BIRD_SOURCES,  // 6: FireBird
+    BIT_KEEP_SOURCES,  // 7: BitKeep
+    PARA_SWAP_SOURCES,  // 8: ParaSwap
+    BEETHOVEN_X_SOURCES,  // 9: BeethovenX
+    TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
 ];
 
 export const GLOBAL_VARIABLE_ID = '0';
@@ -91,6 +109,7 @@ export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
 export const BIT_KEEP_ORDER_SOURCE_ID = '7';
 export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
+export const TRANSIT_SWAP_ORDER_SOURCE_ID = '10';
 export const OTHER_ORDER_SOURCE_ID = '99';
 
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

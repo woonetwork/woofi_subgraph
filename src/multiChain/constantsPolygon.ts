@@ -44,7 +44,8 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x2fa4334cfd7c56a0e7ca02bd81455205fcbdc5e9",  // DODO: Router
+    "0x6e59a9d2b86d004ce8d67da19fc0ee24e2417d9d",  // WooAdapter
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [

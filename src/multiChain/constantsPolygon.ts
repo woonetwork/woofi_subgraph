@@ -62,7 +62,8 @@ export const YIELD_YAK_SOURCES: string[] = [
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
-    "0x3560a99b96b7fc8b516dbe1015b1a7821eb63b7a",  // FireBird: UpgradableProxy
+    "0xb31d1b1ea48ce4bf10ed697d44b747287e785ad4",  // FireBirdRouter
+    "0xe6862672bb084cd2f0a98725142950ddbcba7d97",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
@@ -78,7 +79,8 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 ];
 
 export const TRANSIT_SWAP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x8b48715c5d6d1645663a4c460ea85ce846b8580e",
+    "0x1c64a6a28a4e789e65b22715a751249f2aa6e1d2",
 ];
 
 export let ADDRESS_SOURCES: string[][] = [

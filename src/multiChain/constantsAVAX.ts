@@ -94,7 +94,8 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 ];
 
 export const TRANSIT_SWAP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x57a8aa38d670f025385c5eb2eed47b96a1dbdf94",
+    "0xc8d7899f22bc4995c8176e3f2a5ba3f5e87d95e5",
 ];
 
 export let ADDRESS_SOURCES: string[][] = [

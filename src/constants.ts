@@ -41,6 +41,7 @@ export const WOO_VAULT_MANAGER_SOURCES: string[] = [
 export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
+    "0x13927a60c7bf4d3d00e3c1593e0ec713e35d2106",  // 1inch Unverified Contract(assume as Adapter)
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [

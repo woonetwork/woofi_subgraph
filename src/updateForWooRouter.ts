@@ -12,6 +12,7 @@ import {
     createHourOrderSource,
     createDayOrderSource,
     createOrderSource,
+    createUnknownDayOrderSource,
     createUnknownOrderSource,
 } from "./create";
 import {getOrderSourceIDForWooRouter} from "./utils";
@@ -197,6 +198,7 @@ export function updateOrderSource(
         let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
         let orderSource = createOrderSource(event, orderSourceID);
         if (orderSource.id == OTHER_ORDER_SOURCE_ID) {
+            updateUnknownDayOrderSource(event, addOrderSourceVolumeUSD, fromAddress);
             updateUnknownOrderSource(event, addOrderSourceVolumeUSD, fromAddress);
         }
 
@@ -206,6 +208,16 @@ export function updateOrderSource(
 
         orderSource.save();
     }
+}
+
+export function updateUnknownDayOrderSource(event: ethereum.Event, volumeUSD: BigInt, fromAddress: Bytes): void {
+    let unknownDayOrderSource = createUnknownDayOrderSource(event, fromAddress.toHexString());
+
+    unknownDayOrderSource.volumeUSD = unknownDayOrderSource.volumeUSD.plus(volumeUSD);
+    unknownDayOrderSource.txCount = unknownDayOrderSource.txCount.plus(BI_1);
+    unknownDayOrderSource.updatedAt = event.block.timestamp;
+
+    unknownDayOrderSource.save();
 }
 
 export function updateUnknownOrderSource(event: ethereum.Event, volumeUSD: BigInt, fromAddress: Bytes): void {

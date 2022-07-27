@@ -106,7 +106,7 @@ type OrderHistory @entity {
 type HourToken @entity {
     "hour token id"
     id: ID!
-    "uinx timestamp(start of hour)"
+    "timestamp(start of hour)"
     timestamp: BigInt!
     "token tx count in an hour"
     txCount: BigInt!
@@ -152,7 +152,7 @@ type Token @entity {
 type HourData @entity {
     "hour data id"
     id: ID!
-    "uinx timestamp(start of hour)"
+    "timestamp(start of hour)"
     timestamp: BigInt!
     "hour traders"
     traders: BigInt!
@@ -199,7 +199,7 @@ type HourData @entity {
 type DayData @entity {
     "day data id"
     id: ID!
-    "uinx timestamp(start of day)"
+    "timestamp(start of day)"
     timestamp: BigInt!
     "daily traders"
     traders: BigInt!
@@ -259,7 +259,7 @@ type DayTrader @entity {
     id: ID!
     "traded today"
     tradedToday: Boolean!
-    "uinx timestamp(start of day)"
+    "timestamp(start of day)"
     timestamp: BigInt!
     "user address"
     address: Bytes!
@@ -281,7 +281,7 @@ type Trader @entity {
 type HourOrderSource @entity {
     "order source id"
     id: ID!
-    "uinx timestamp(start of hour)"
+    "timestamp(start of hour)"
     timestamp: BigInt!
     "volume USD"
     volumeUSD: BigInt!
@@ -294,7 +294,7 @@ type HourOrderSource @entity {
 type DayOrderSource @entity {
     "order source id"
     id: ID!
-    "uinx timestamp(start of day)"
+    "timestamp(start of day)"
     timestamp: BigInt!
     "volume USD"
     volumeUSD: BigInt!
@@ -307,6 +307,19 @@ type DayOrderSource @entity {
 type OrderSource @entity {
     "order source id"
     id: ID!
+    "volume USD"
+    volumeUSD: BigInt!
+    "order source tx count"
+    txCount: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type UnknownDayOrderSource @entity {
+    "order source address"
+    id: ID!
+    "timestamp(start of day)"
+    timestamp: BigInt!
     "volume USD"
     volumeUSD: BigInt!
     "order source tx count"

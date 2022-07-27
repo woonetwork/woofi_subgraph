@@ -8,6 +8,7 @@ import {
     HourOrderSource,
     DayOrderSource,
     OrderSource,
+    UnknownDayOrderSource,
     UnknownOrderSource,
     HourTrader,
     DayTrader,
@@ -281,6 +282,25 @@ export function createOrderSource(event: ethereum.Event, orderSourceID: string):
     }
 
     return orderSource as OrderSource;
+}
+
+export function createUnknownDayOrderSource(event: ethereum.Event, msgSender: string): UnknownDayOrderSource {
+    let timestamp = event.block.timestamp.toI32();
+    let dayID = timestamp / 86400;
+    let dayStartTimestamp = dayID * 86400;
+
+    let unknownDayOrderSourceID = msgSender.concat("-").concat(BigInt.fromI32(dayID).toString());
+    let unknownDayOrderSource = UnknownDayOrderSource.load(unknownDayOrderSourceID);
+    if (unknownDayOrderSource == null) {
+        unknownDayOrderSource = new UnknownDayOrderSource(unknownDayOrderSourceID);
+        unknownDayOrderSource.timestamp = BigInt.fromI32(dayStartTimestamp);
+        unknownDayOrderSource.volumeUSD = BI_0;
+        unknownDayOrderSource.txCount = BI_0;
+        unknownDayOrderSource.updatedAt = event.block.timestamp;
+        unknownDayOrderSource.save();
+    }
+
+    return unknownDayOrderSource as UnknownDayOrderSource;
 }
 
 export function createUnknownOrderSource(event: ethereum.Event, msgSender: string): UnknownOrderSource {

@@ -28,6 +28,7 @@ import {
     createHourOrderSource,
     createDayOrderSource,
     createOrderSource,
+    createUnknownDayOrderSource,
     createUnknownOrderSource,
     createWooSwapHash
 } from "./create";
@@ -206,7 +207,8 @@ export function updateOrderSource(event: ethereum.Event, volumeUSD: BigInt, wooS
     if (orderSourceID != GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
         let orderSource = createOrderSource(event, orderSourceID);
         if (orderSource.id == OTHER_ORDER_SOURCE_ID) {
-            updateUnknownOrderSource(event, volumeUSD, wooSwapHash);
+            updateUnknownDayOrderSource(event, volumeUSD, wooSwapFrom, wooSwapHash);
+            updateUnknownOrderSource(event, volumeUSD, wooSwapFrom, wooSwapHash);
         }
 
         orderSource.volumeUSD = orderSource.volumeUSD.plus(volumeUSD);
@@ -219,8 +221,20 @@ export function updateOrderSource(event: ethereum.Event, volumeUSD: BigInt, wooS
     }
 }
 
-export function updateUnknownOrderSource(event: ethereum.Event, volumeUSD: BigInt, wooSwapHash: WooSwapHash): void {
-    let unknownOrderSource = createUnknownOrderSource(event, event.transaction.to.toHexString());
+export function updateUnknownDayOrderSource(event: ethereum.Event, volumeUSD: BigInt, wooSwapFrom: Bytes, wooSwapHash: WooSwapHash): void {
+    let unknownDayOrderSource = createUnknownDayOrderSource(event, wooSwapFrom.toHexString());
+
+    unknownDayOrderSource.volumeUSD = unknownDayOrderSource.volumeUSD.plus(volumeUSD);
+    if (wooSwapHash.txSynced == false) {
+        unknownDayOrderSource.txCount = unknownDayOrderSource.txCount.plus(BI_1);
+    }
+    unknownDayOrderSource.updatedAt = event.block.timestamp;
+
+    unknownDayOrderSource.save();
+}
+
+export function updateUnknownOrderSource(event: ethereum.Event, volumeUSD: BigInt, wooSwapFrom: Bytes, wooSwapHash: WooSwapHash): void {
+    let unknownOrderSource = createUnknownOrderSource(event, wooSwapFrom.toHexString());
 
     unknownOrderSource.volumeUSD = unknownOrderSource.volumeUSD.plus(volumeUSD);
     if (wooSwapHash.txSynced == false) {

@@ -97,7 +97,7 @@ export function handleWooRouterSwap(
         fromAmount,
         toTokenAddress,
         toAmount
-    )
+    );
 }
 
 function updateHourStatistics(

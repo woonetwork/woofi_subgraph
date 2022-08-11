@@ -31,6 +31,8 @@ type GlobalVariable @entity {
     totalVolumeUSDFromBeethovenX: BigInt!
     "total volume USD from TransitSwap"
     totalVolumeUSDFromTransitSwap: BigInt!
+    "total volume USD from 0x"
+    totalVolumeUSDFromZeroX: BigInt!
     "total volume USD from Other Dex"
     totalVolumeUSDFromOther: BigInt!
     "route to WooPP volume USD"
@@ -182,6 +184,8 @@ type HourData @entity {
     volumeUSDFromBeethovenX: BigInt!
     "volume USD from TransitSwap"
     volumeUSDFromTransitSwap: BigInt!
+    "volume USD from 0x"
+    volumeUSDFromZeroX: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "route to WooPP tx count"
@@ -231,6 +235,8 @@ type DayData @entity {
     volumeUSDFromBeethovenX: BigInt!
     "volume USD from TransitSwap"
     volumeUSDFromTransitSwap: BigInt!
+    "volume USD from 0x"
+    volumeUSDFromZeroX: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "route to WooPP tx count"

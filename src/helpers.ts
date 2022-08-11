@@ -1,5 +1,5 @@
 import {Address, BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts";
-import {ERC20} from "../generated/WooRouter/ERC20";
+import {ERC20} from "../generated/WooRouterV1/ERC20";
 import {BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS} from "./constants";
 import {exponentToBigInt} from "./utils";
 import {createToken} from "./create";

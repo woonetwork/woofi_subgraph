@@ -65,6 +65,7 @@ export const FIRE_BIRD_SOURCES: string[] = [
     "0x601664a40468c3fdfe23a9daab8e7918c2923f00",  // FireBird Unverified Contract(assume as Adapter)
     "0xb090ca435661c56e2c8c9a6c33bac1e4b4e05054",  // FireBird Unverified Contract(assume as Adapter)
     "0x4f3bc6db734d36fd9cde3ef54a0b36b7dce308f0",  // FireBird Unverified Contract(assume as Adapter)
+    "0x97d73d3dddd68fcd16b344093592ade819d46dcf",  // Adapter
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

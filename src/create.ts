@@ -105,6 +105,19 @@ export function createToken(event: ethereum.Event, tokenAddress: Bytes): Token {
         token.volumeUSD = BI_0;
         token.routeToWooPPVolumeUSD = BI_0;
         token.routeToDODOVolumeUSD = BI_0;
+        token.volumeUSDFromWooRouter = BI_0;
+        token.volumeUSDFromOneInch = BI_0;
+        token.volumeUSDFromDODO = BI_0;
+        token.volumeUSDFromOpenOcean = BI_0;
+        token.volumeUSDFromMetaMask = BI_0;
+        token.volumeUSDFromYieldYak = BI_0;
+        token.volumeUSDFromFireBird = BI_0;
+        token.volumeUSDFromBitKeep = BI_0;
+        token.volumeUSDFromParaSwap = BI_0;
+        token.volumeUSDFromBeethovenX = BI_0;
+        token.volumeUSDFromTransitSwap = BI_0;
+        token.volumeUSDFromZeroX = BI_0;
+        token.volumeUSDFromOther = BI_0;
         token.updatedAt = event.block.timestamp;
         token.save();
     }

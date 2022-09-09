@@ -99,6 +99,6 @@ function updateStatistics(
     wooSwapHash: WooSwapHash
 ): void {
     updateGlobalVariable(event, traderAddress, volumeUSD, wooSwapFrom, wooSwapHash);
-    updateToken(event, volumeUSD, fromTokenAddress, toTokenAddress);
+    updateToken(event, volumeUSD, fromTokenAddress, toTokenAddress, wooSwapFrom);
     updateOrderSource(event, volumeUSD, wooSwapFrom, wooSwapHash);
 }

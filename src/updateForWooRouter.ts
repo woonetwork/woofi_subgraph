@@ -1,5 +1,5 @@
 import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {BI_1, OTHER_ORDER_SOURCE_ID} from "./constants";
+import {BI_1, BI_2, STABLE_TOKENS, QUOTE_TOKEN, OTHER_ORDER_SOURCE_ID} from "./constants";
 import {
     createGlobalVariable,
     createOrderHistoryVariable,
@@ -20,6 +20,7 @@ import {
     updateGlobalVariableOrderSourceVolumeUSD,
     updateHourDataOrderSourceVolumeUSD,
     updateDayDataOrderSourceVolumeUSD,
+    updateTokenOrderSourceVolumeUSD,
 } from "./update";
 import {WooSwapHash} from "../generated/schema";
 
@@ -82,7 +83,10 @@ export function updateToken(
     volumeUSD: BigInt,
     swapType: i32,
     fromTokenAddress: Bytes,
-    toTokenAddress: Bytes
+    toTokenAddress: Bytes,
+    fromAddress: Bytes,
+    addOrderSourceVolumeUSD: BigInt,
+    wooSwapHash: WooSwapHash
 ): void {
     let fromToken = createToken(event, fromTokenAddress);
     let toToken = createToken(event, toTokenAddress);
@@ -100,6 +104,22 @@ export function updateToken(
         toToken.routeToDODOVolumeUSD = toToken.routeToDODOVolumeUSD.plus(volumeUSD);
     }
     toToken.save();
+
+    if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
+        let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
+        let realAddOrderSourceVolumeUSD = addOrderSourceVolumeUSD;
+        if (
+            STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) == -1 &&
+            STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) == -1
+        ) {
+            let bytesQuoteToken = Bytes.fromHexString(QUOTE_TOKEN) as Bytes;
+            updateTokenOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID, bytesQuoteToken);
+            realAddOrderSourceVolumeUSD = realAddOrderSourceVolumeUSD.div(BI_2);
+        }
+
+        updateTokenOrderSourceVolumeUSD(event, realAddOrderSourceVolumeUSD, orderSourceID, fromTokenAddress);
+        updateTokenOrderSourceVolumeUSD(event, realAddOrderSourceVolumeUSD, orderSourceID, toTokenAddress);
+    }
 }
 
 export function updateHourData(

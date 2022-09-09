@@ -141,3 +141,37 @@ export function updateDayDataOrderSourceVolumeUSD(event: ethereum.Event, volumeU
 
     dayData.save();
 }
+
+export function updateTokenOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string, tokenAddress: Bytes): void {
+    let token = createToken(event, tokenAddress);
+    if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
+        token.volumeUSDFromWooRouter = token.volumeUSDFromWooRouter.plus(volumeUSD);
+    } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
+        token.volumeUSDFromOneInch = token.volumeUSDFromOneInch.plus(volumeUSD);
+    } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
+        token.volumeUSDFromDODO = token.volumeUSDFromDODO.plus(volumeUSD);
+    } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
+        token.volumeUSDFromOpenOcean = token.volumeUSDFromOpenOcean.plus(volumeUSD);
+    } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
+        token.volumeUSDFromMetaMask = token.volumeUSDFromMetaMask.plus(volumeUSD);
+    } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
+        token.volumeUSDFromYieldYak = token.volumeUSDFromYieldYak.plus(volumeUSD);
+    } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
+        token.volumeUSDFromFireBird = token.volumeUSDFromFireBird.plus(volumeUSD);
+    } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
+        token.volumeUSDFromBitKeep = token.volumeUSDFromBitKeep.plus(volumeUSD);
+    } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
+        token.volumeUSDFromParaSwap = token.volumeUSDFromParaSwap.plus(volumeUSD);
+    } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
+        token.volumeUSDFromBeethovenX = token.volumeUSDFromBeethovenX.plus(volumeUSD);
+    } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
+        token.volumeUSDFromTransitSwap = token.volumeUSDFromTransitSwap.plus(volumeUSD);
+    } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
+        token.volumeUSDFromZeroX = token.volumeUSDFromZeroX.plus(volumeUSD);
+    } else {
+        token.volumeUSDFromOther = token.volumeUSDFromOther.plus(volumeUSD);
+    }
+    token.updatedAt = event.block.timestamp;
+
+    token.save();
+}

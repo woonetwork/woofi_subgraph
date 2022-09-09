@@ -24,6 +24,8 @@ export const STABLE_TOKENS: string[] = [
     "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",  // DAI
 ];
 
+export const QUOTE_TOKEN = '0x55d398326f99059ff775485246999027b3197955';
+
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
     "0xcef5be73ae943b77f9bc08859367d923c030a269",  // WooRouter

@@ -140,7 +140,7 @@ function updateStatistic(
     wooSwapHash: WooSwapHash
 ): void {
     updateGlobalVariable(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
-    updateToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
+    updateToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
     updateOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
     updateOrderHistoryVariable(event);
 }

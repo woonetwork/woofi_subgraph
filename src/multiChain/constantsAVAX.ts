@@ -27,6 +27,8 @@ export const STABLE_TOKENS: string[] = [
     "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",  // USDC
 ];
 
+export const QUOTE_TOKEN = '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e';
+
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
     "0x5aa6a4e96a9129562e2fc06660d07feddaaf7854",  // WooRouter

@@ -22,6 +22,7 @@ import {
 } from "../generated/schema";
 import {
     BI_0,
+    BD_0,
     BI_18,
     STABLE_TOKENS,
     GLOBAL_VARIABLE_ID,
@@ -39,6 +40,7 @@ export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
         globalVariable.totalTraders = BI_0;
         globalVariable.totalTxCount = BI_0;
         globalVariable.totalVolumeUSD = BI_0;
+        globalVariable.realTotalVolumeUSD = BD_0;
         globalVariable.wooBuybackVolume = BI_0;
         globalVariable.totalVolumeUSDFromWooRouter = BI_0;
         globalVariable.totalVolumeUSDFromOneInch = BI_0;
@@ -135,9 +137,11 @@ export function createHourData(event: ethereum.Event): HourData {
     if (hourData == null) {
         hourData = new HourData(hourDataID);
         hourData.timestamp = BigInt.fromI32(hourStartTimestamp);
+        hourData.hour = hourStartTimestamp;
         hourData.traders = BI_0;
         hourData.txCount = BI_0;
         hourData.volumeUSD = BI_0;
+        hourData.realVolumeUSD = BD_0;
         hourData.volumeUSDFromWooRouter = BI_0;
         hourData.volumeUSDFromOneInch = BI_0;
         hourData.volumeUSDFromDODO = BI_0;
@@ -172,9 +176,11 @@ export function createDayData(event: ethereum.Event): DayData {
     if (dayData == null) {
         dayData = new DayData(dayDataID);
         dayData.timestamp = BigInt.fromI32(dayStartTimestamp);
+        dayData.date = dayStartTimestamp;
         dayData.traders = BI_0;
         dayData.txCount = BI_0;
         dayData.volumeUSD = BI_0;
+        dayData.realVolumeUSD = BD_0;
         dayData.wooBuybackVolume = BI_0;
         dayData.volumeUSDFromWooRouter = BI_0;
         dayData.volumeUSDFromOneInch = BI_0;

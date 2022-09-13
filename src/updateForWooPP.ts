@@ -2,6 +2,7 @@ import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
 import {WooSwapHash} from "../generated/schema";
 import {
     BI_1,
+    BI_18,
     WOO_ROUTER_ORDER_SOURCE_ID,
     ONE_INCH_ORDER_SOURCE_ID,
     DODO_ORDER_SOURCE_ID,
@@ -15,7 +16,7 @@ import {
     OTHER_ORDER_SOURCE_ID,
     GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID,
 } from "./constants";
-import {getOrderSourceIDForWooPP} from "./utils";
+import {exponentToBigDecimal, getOrderSourceIDForWooPP} from "./utils";
 import {
     createGlobalVariable,
     createHourToken,
@@ -38,6 +39,7 @@ import {
     updateDayDataOrderSourceVolumeUSD,
     updateTokenOrderSourceVolumeUSD,
 } from "./update";
+import {BigDecimal} from "@graphprotocol/graph-ts";
 
 export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapFrom: Bytes, wooSwapHash: WooSwapHash): void {
     let globalVariable = createGlobalVariable(event);
@@ -50,6 +52,8 @@ export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes
         globalVariable.totalTxCount = globalVariable.totalTxCount.plus(BI_1);
     }
     globalVariable.totalVolumeUSD = globalVariable.totalVolumeUSD.plus(volumeUSD);
+    let bdTotalVolumeUSD = new BigDecimal(globalVariable.totalVolumeUSD);
+    globalVariable.realTotalVolumeUSD = bdTotalVolumeUSD.div(exponentToBigDecimal(BI_18));
     globalVariable.updatedAt = event.block.timestamp;
 
     globalVariable.save();
@@ -119,6 +123,8 @@ export function updateHourData(event: ethereum.Event, traderAddress: Bytes, volu
         hourData.txCount = hourData.txCount.plus(BI_1);
     }
     hourData.volumeUSD = hourData.volumeUSD.plus(volumeUSD);
+    let bdVolumeUSD = new BigDecimal(hourData.volumeUSD);
+    hourData.realVolumeUSD = bdVolumeUSD.div(exponentToBigDecimal(BI_18));
     hourData.updatedAt = event.block.timestamp;
 
     hourData.save();
@@ -142,6 +148,8 @@ export function updateDayData(event: ethereum.Event, traderAddress: Bytes, volum
         dayData.txCount = dayData.txCount.plus(BI_1);
     }
     dayData.volumeUSD = dayData.volumeUSD.plus(volumeUSD);
+    let bdVolumeUSD = new BigDecimal(dayData.volumeUSD);
+    dayData.realVolumeUSD = bdVolumeUSD.div(exponentToBigDecimal(BI_18));
     dayData.updatedAt = event.block.timestamp;
 
     dayData.save();

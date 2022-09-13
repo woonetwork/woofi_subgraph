@@ -7,6 +7,8 @@ type GlobalVariable @entity {
     totalTxCount: BigInt!
     "total WooPP volume USD, not include routeToDODOVolumeUSD"
     totalVolumeUSD: BigInt!
+    "real total WooPP volume USD, not include routeToDODOVolumeUSD"
+    realTotalVolumeUSD: BigDecimal!
     "WOO buyback volume"
     wooBuybackVolume: BigInt!
     "total volume USD from WooRouter"
@@ -182,12 +184,16 @@ type HourData @entity {
     id: ID!
     "timestamp(start of hour)"
     timestamp: BigInt!
+    "timestamp(start of hour)"
+    hour: Int!
     "hour traders"
     traders: BigInt!
     "hour tx count"
     txCount: BigInt!
     "volume USD"
     volumeUSD: BigInt!
+    "real volume USD"
+    realVolumeUSD: BigDecimal!
     "volume USD from WooRouter"
     volumeUSDFromWooRouter: BigInt!
     "volume USD from 1inch"
@@ -231,12 +237,16 @@ type DayData @entity {
     id: ID!
     "timestamp(start of day)"
     timestamp: BigInt!
+    "timestamp(start of day)"
+    date: Int!
     "daily traders"
     traders: BigInt!
     "daily tx count"
     txCount: BigInt!
     "volume USD"
     volumeUSD: BigInt!
+    "real volume USD"
+    realVolumeUSD: BigDecimal!
     "WOO buyback volume"
     wooBuybackVolume: BigInt!
     "volume USD from WooRouter"

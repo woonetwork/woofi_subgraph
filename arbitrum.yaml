@@ -1,0 +1,48 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: WooRouterV1
+    network: arbitrum-one
+    source:
+      address: "0xb130a49065178465931d4f887056328CeA5D723f"
+      abi: WooRouter
+      startBlock: 27394780
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooRouterSwap
+      abis:
+        - name: WooRouter
+          file: ./abis/WooRouterV2.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
+          handler: handleWooRouterSwapV1
+      file: ./src/mappings/wooRouter/wooRouter.ts
+  - kind: ethereum/contract
+    name: WooPPV2
+    network: arbitrum-one
+    source:
+      address: "0xc04362CF21E6285E295240E30c056511DF224Cf4"
+      abi: WooPP
+      startBlock: 25461863
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooSwap
+      abis:
+        - name: WooPP
+          file: ./abis/WooPPV3.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
+          handler: handleWooSwapV2
+      file: ./src/mappings/wooPP/wooPP.ts

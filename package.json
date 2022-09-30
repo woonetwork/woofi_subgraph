@@ -21,7 +21,10 @@
     "deploy_fantom_testing": "cp ./src/multiChain/constantsFantom.ts ./src/constants.ts && graph codegen ./fantom.yaml && graph deploy --product hosted-service woonetwork/woofi-fantom-testing ./fantom.yaml",
     "deploy_polygon_production": "cp ./src/multiChain/constantsPolygon.ts ./src/constants.ts && graph codegen ./polygon.yaml && graph deploy --product hosted-service woonetwork/woofi-polygon ./polygon.yaml",
     "deploy_polygon_staging": "cp ./src/multiChain/constantsPolygon.ts ./src/constants.ts && graph codegen ./polygon.yaml && graph deploy --product hosted-service woonetwork/woofi-polygon-staging ./polygon.yaml",
-    "deploy_polygon_testing": "cp ./src/multiChain/constantsPolygon.ts ./src/constants.ts && graph codegen ./polygon.yaml && graph deploy --product hosted-service woonetwork/woofi-polygon-testing ./polygon.yaml"
+    "deploy_polygon_testing": "cp ./src/multiChain/constantsPolygon.ts ./src/constants.ts && graph codegen ./polygon.yaml && graph deploy --product hosted-service woonetwork/woofi-polygon-testing ./polygon.yaml",
+    "deploy_arbitrum_production": "cp ./src/multiChain/constantsArbitrum.ts ./src/constants.ts && graph codegen ./arbitrum.yaml && graph deploy --product hosted-service woonetwork/woofi-arbitrum ./arbitrum.yaml",
+    "deploy_arbitrum_staging": "cp ./src/multiChain/constantsArbitrum.ts ./src/constants.ts && graph codegen ./arbitrum.yaml && graph deploy --product hosted-service woonetwork/woofi-arbitrum-staging ./arbitrum.yaml",
+    "deploy_arbitrum_testing": "cp ./src/multiChain/constantsArbitrum.ts ./src/constants.ts && graph codegen ./arbitrum.yaml && graph deploy --product hosted-service woonetwork/woofi-arbitrum-testing ./arbitrum.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.20.0",

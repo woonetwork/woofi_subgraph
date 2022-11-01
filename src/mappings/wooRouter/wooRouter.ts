@@ -1,7 +1,8 @@
 import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {WooRouterSwap as WooRouterSwapV1} from "../../../generated/WooRouterV1/WooRouter"
-import {WooRouterSwap as WooRouterSwapV2} from "../../../generated/WooRouterV2/WooRouter"
-import {WooRouterSwap as WooRouterSwapV3} from "../../../generated/WooRouterV3/WooRouter"
+import {WooRouterSwap as WooRouterV1WooRouterSwap_1} from "../../../generated/WooRouterV1_1/WooRouterV1"
+import {WooRouterSwap as WooRouterV1WooRouterSwap_2} from "../../../generated/WooRouterV1_2/WooRouterV1"
+import {WooRouterSwap as WooRouterV1WooRouterSwap_3} from "../../../generated/WooRouterV1_3/WooRouterV1"
+import {WooRouterSwap as WooRouterV2WooRouterSwap_1} from "../../../generated/WooRouterV2_1/WooRouterV2"
 
 import {calVolumeUSDForWooRouter} from "../../helpers";
 import {
@@ -19,7 +20,15 @@ import {
 import {createOrderHistory, createWooSwapHash, createWooRouterSwapHash} from "../../create";
 import {WooSwapHash} from "../../../generated/schema";
 
-export function handleWooRouterSwapV3(event: WooRouterSwapV3): void {
+export function handleWooRouterV2WooRouterSwap_1(event: WooRouterV2WooRouterSwap_1): void {
+    handleWooRouterSwap(
+        event, event.params.swapType, event.params.from, event.params.to,
+        event.params.fromToken, event.params.fromAmount,
+        event.params.toToken, event.params.toAmount, false
+    );
+}
+
+export function handleWooRouterV1WooRouterSwap_3(event: WooRouterV1WooRouterSwap_3): void {
     handleWooRouterSwap(
         event,
         event.params.swapType,
@@ -28,11 +37,26 @@ export function handleWooRouterSwapV3(event: WooRouterSwapV3): void {
         event.params.fromToken,
         event.params.fromAmount,
         event.params.toToken,
-        event.params.toAmount
+        event.params.toAmount,
+        true
+    );
+}
+
+export function handleWooRouterV1WooRouterSwap_2(event: WooRouterV1WooRouterSwap_2): void {
+    handleWooRouterSwap(
+        event,
+        event.params.swapType,
+        event.params.from,
+        event.params.to,
+        event.params.fromToken,
+        event.params.fromAmount,
+        event.params.toToken,
+        event.params.toAmount,
+        true
     )
 }
 
-export function handleWooRouterSwapV2(event: WooRouterSwapV2): void {
+export function handleWooRouterV1WooRouterSwap_1(event: WooRouterV1WooRouterSwap_1): void {
     handleWooRouterSwap(
         event,
         event.params.swapType,
@@ -41,20 +65,8 @@ export function handleWooRouterSwapV2(event: WooRouterSwapV2): void {
         event.params.fromToken,
         event.params.fromAmount,
         event.params.toToken,
-        event.params.toAmount
-    )
-}
-
-export function handleWooRouterSwapV1(event: WooRouterSwapV1): void {
-    handleWooRouterSwap(
-        event,
-        event.params.swapType,
-        event.params.from,
-        event.params.to,
-        event.params.fromToken,
-        event.params.fromAmount,
-        event.params.toToken,
-        event.params.toAmount
+        event.params.toAmount,
+        true
     )
 }
 
@@ -66,7 +78,8 @@ export function handleWooRouterSwap(
     fromTokenAddress: Bytes,
     fromAmount: BigInt,
     toTokenAddress: Bytes,
-    toAmount: BigInt
+    toAmount: BigInt,
+    isV1: boolean
 ): void {
     let volumeUSD = calVolumeUSDForWooRouter(
         event,
@@ -74,7 +87,8 @@ export function handleWooRouterSwap(
         fromTokenAddress,
         fromAmount,
         toTokenAddress,
-        toAmount
+        toAmount,
+        isV1
     );
 
     // Transaction may exist two WooRouterSwap

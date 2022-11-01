@@ -1,6 +1,6 @@
 import {Address, BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts";
-import {ERC20} from "../generated/WooRouterV1/ERC20";
-import {BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS} from "./constants";
+import {ERC20} from "../generated/WooRouterV1_1/ERC20";
+import {BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS, QUOTE_TOKEN} from "./constants";
 import {exponentToBigInt} from "./utils";
 import {createToken} from "./create";
 
@@ -96,33 +96,35 @@ export function calVolumeUSDForWooRouter(
     fromTokenAddress: Bytes,
     fromAmount: BigInt,
     toTokenAddress: Bytes,
-    toAmount: BigInt
+    toAmount: BigInt,
+    isV1: boolean
 ): BigInt {
     let BI_1e18 = exponentToBigInt(BI_18);
     let fromToken = createToken(event, fromTokenAddress);
     let toToken = createToken(event, toTokenAddress);
 
-    let volumeUSD: BigInt
+    let volumeUSD: BigInt;
     if (fromToken.lastTradePrice != BI_0) {
         if (fromToken.decimals != BI_18) {
-            let BI_1eDoubleDecimals = exponentToBigInt(fromToken.decimals.times(BI_2))
-            volumeUSD = fromAmount.times(BI_1e18).div(BI_1eDoubleDecimals).times(fromToken.lastTradePrice)
+            let BI_1eDoubleDecimals = exponentToBigInt(fromToken.decimals.times(BI_2));
+            volumeUSD = fromAmount.times(BI_1e18).div(BI_1eDoubleDecimals).times(fromToken.lastTradePrice);
         } else {
             volumeUSD = fromAmount.times(fromToken.lastTradePrice).div(BI_1e18);
         }
     } else {
         if (toToken.decimals != BI_18) {
-            let BI_1eDoubleDecimals = exponentToBigInt(toToken.decimals.times(BI_2))
-            volumeUSD = toAmount.times(BI_1e18).div(BI_1eDoubleDecimals).times(toToken.lastTradePrice)
+            let BI_1eDoubleDecimals = exponentToBigInt(toToken.decimals.times(BI_2));
+            volumeUSD = toAmount.times(BI_1e18).div(BI_1eDoubleDecimals).times(toToken.lastTradePrice);
         } else {
             volumeUSD = toAmount.times(toToken.lastTradePrice).div(BI_1e18);
         }
     }
 
     if (
-      STABLE_TOKENS[1] != fromTokenAddress.toHexString()
-      && STABLE_TOKENS[1] != toTokenAddress.toHexString()
-      && swapType == 0
+        isV1 == true
+        && fromTokenAddress.toHexString() != QUOTE_TOKEN
+        && toTokenAddress.toHexString() != QUOTE_TOKEN
+        && swapType == 0
     ) {
         volumeUSD = volumeUSD.times(BI_2);
     }

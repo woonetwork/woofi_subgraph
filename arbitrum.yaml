@@ -3,12 +3,12 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: WooRouterV1
+    name: WooRouterV2_1
     network: arbitrum-one
     source:
-      address: "0xb130a49065178465931d4f887056328CeA5D723f"
-      abi: WooRouter
-      startBlock: 27394780
+      address: "0xCdFd61a8303beB5C8dd2a6d02DF8D228Ce15B9f3"
+      abi: WooRouterV2
+      startBlock: 34403377
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -16,21 +16,21 @@ dataSources:
       entities:
         - WooRouterSwap
       abis:
-        - name: WooRouter
-          file: ./abis/WooRouterV2.json
+        - name: WooRouterV2
+          file: ./abis/WooRouterV2_1.json
         - name: ERC20
           file: ./abis/ERC20.json
       eventHandlers:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
-          handler: handleWooRouterSwapV1
+          handler: handleWooRouterV2WooRouterSwap_1
       file: ./src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
-    name: WooPPV2
+    name: WooPPV2_1
     network: arbitrum-one
     source:
-      address: "0xc04362CF21E6285E295240E30c056511DF224Cf4"
-      abi: WooPP
-      startBlock: 25461863
+      address: "0xB89a33227876AEf02A7ebd594aF9973aEce2F521"
+      abi: WooPPV2
+      startBlock: 34402296
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -38,11 +38,11 @@ dataSources:
       entities:
         - WooSwap
       abis:
-        - name: WooPP
-          file: ./abis/WooPPV3.json
+        - name: WooPPV2
+          file: ./abis/WooPPV2_1.json
         - name: ERC20
           file: ./abis/ERC20.json
       eventHandlers:
-        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
-          handler: handleWooSwapV2
+        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
+          handler: handleWooPPV2WooSwap_1
       file: ./src/mappings/wooPP/wooPP.ts

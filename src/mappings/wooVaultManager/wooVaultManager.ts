@@ -1,15 +1,15 @@
 import {BigInt, Bytes} from "@graphprotocol/graph-ts/index";
-import {RewardDistributed as RewardDistributedV1} from "../../../generated/WooVaultManagerV1/WooVaultManager"
-import {RewardDistributed as RewardDistributedV2} from "../../../generated/WooVaultManagerV1/WooVaultManager"
+import {RewardDistributed as WooVaultManagerV1RewardDistributed_1} from "../../../generated/WooVaultManagerV1_1/WooVaultManagerV1"
+import {RewardDistributed as WooVaultManagerV1RewardDistributed_2} from "../../../generated/WooVaultManagerV1_2/WooVaultManagerV1"
 
 import {createDayData, createGlobalVariable} from "../../create";
 import {ethereum} from "@graphprotocol/graph-ts";
 
-export function handleRewardDistributedV2(event: RewardDistributedV2): void {
+export function handleWooVaultManagerV1RewardDistributed_2(event: WooVaultManagerV1RewardDistributed_2): void {
     handleRewardDistributed(event, event.params.amount);
 }
 
-export function handleRewardDistributedV1(event: RewardDistributedV1): void {
+export function handleWooVaultManagerV1RewardDistributed_1(event: WooVaultManagerV1RewardDistributed_1): void {
     handleRewardDistributed(event, event.params.amount);
 }
 

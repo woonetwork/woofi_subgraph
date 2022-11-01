@@ -1,9 +1,8 @@
 import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
 import {
-    WooCrossSwapOnSrcChain as WooCrossSwapOnSrcChainV1,
-    WooCrossSwapOnDstChain as WooCrossSwapOnDstChainV1
-} from "../../../generated/WooCrossChainRouterV1/WooCrossChainRouter";
-
+    WooCrossSwapOnSrcChain as WooCCRouterV1WooCrossSwapOnSrcChain_1,
+    WooCrossSwapOnDstChain as WooCCRouterV1WooCrossSwapOnDstChain_1
+} from "../../../generated/WooCrossChainRouterV1_1/WooCrossChainRouterV1";
 import {
     createCrossChainSrcOrderHistory,
     createCrossChainDstOrderHistory
@@ -13,7 +12,7 @@ import {
     updateCrossChainDstOrderHistoryVariable,
 } from "../../updateForWooCrossChainRouter";
 
-export function handleWooCrossSwapOnSrcChainV1(event: WooCrossSwapOnSrcChainV1): void {
+export function handleWooCCRouterV1WooCrossSwapOnSrcChain_1(event: WooCCRouterV1WooCrossSwapOnSrcChain_1): void {
     handleWooCrossSwapOnSrcChain(
         event,
         event.params.refId,
@@ -26,7 +25,7 @@ export function handleWooCrossSwapOnSrcChainV1(event: WooCrossSwapOnSrcChainV1):
     );
 }
 
-export function handleWooCrossSwapOnDstChainV1(event: WooCrossSwapOnDstChainV1): void {
+export function handleWooCCRouterV1WooCrossSwapOnDstChain_1(event: WooCCRouterV1WooCrossSwapOnDstChain_1): void {
     handleWooCrossSwapOnDstChain(
         event,
         event.params.refId,

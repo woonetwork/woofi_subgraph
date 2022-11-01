@@ -15,25 +15,25 @@ export const ETHER = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
 export const ETHER_SYMBOL = 'ETH';
 export const ETHER_NAME = 'eth';
 
-export const WRAPPED = '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1';
+export const WRAPPED = '0x82af49447d8a07e3bd95bd0d56f35241523fbab1';
 
 export const STABLE_TOKENS: string[] = [
-    "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",  // USDT
-    "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",  // USDC
-    "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",  // DAI
+    "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",  // USDT
+    "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",  // USDC
+    "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",  // DAI
 ];
 
-export const QUOTE_TOKEN = '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8';
+export const QUOTE_TOKEN = '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8';
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0xb130a49065178465931d4f887056328CeA5D723f",  // WooRouter
+    "0xcdfd61a8303beb5c8dd2a6d02df8d228ce15b9f3",  // WooRouter
     // "",  // WooCrossChainRouter
     // "",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0xc04362CF21E6285E295240E30c056511DF224Cf4",
+    "0xb89a33227876aef02a7ebd594af9973aece2f521",
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [

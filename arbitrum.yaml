@@ -3,12 +3,59 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
+    name: WooCrossChainRouterV1_1
+    network: arbitrum-one
+    source:
+      address: "0x0972A0fa37984E7FF2aEFA53A0Bb10dCE535aa73"
+      abi: WooCrossChainRouterV1
+      startBlock: 34887830
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooCrossSwapOnSrcChain
+        - WooCrossSwapOnDstChain
+      abis:
+        - name: WooCrossChainRouterV1
+          file: ./abis/WooCrossChainRouterV1_1.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
+          handler: handleWooCCRouterV1WooCrossSwapOnSrcChain_1
+        - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
+          handler: handleWooCCRouterV1WooCrossSwapOnDstChain_1
+      file: ./src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+  - kind: ethereum/contract
+    name: WooVaultManagerV1_1
+    network: arbitrum-one
+    source:
+      address: "0xF357eC5A6C82766AeB97D6DA7488e2efC3Dc0182"
+      abi: WooVaultManagerV1
+      startBlock: 35102661
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - RewardDistributed
+      abis:
+        - name: WooVaultManagerV1
+          file: ./abis/WooVaultManagerV1_1.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: RewardDistributed(indexed address,uint256)
+          handler: handleWooVaultManagerV1RewardDistributed_1
+      file: ./src/mappings/wooVaultManager/wooVaultManager.ts
+  - kind: ethereum/contract
     name: WooRouterV2_1
     network: arbitrum-one
     source:
-      address: "0xCdFd61a8303beB5C8dd2a6d02DF8D228Ce15B9f3"
+      address: "0x9aEd3A8896A85FE9a8CAc52C9B402D092B629a30"
       abi: WooRouterV2
-      startBlock: 34403377
+      startBlock: 35134665
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -28,9 +75,9 @@ dataSources:
     name: WooPPV2_1
     network: arbitrum-one
     source:
-      address: "0xB89a33227876AEf02A7ebd594aF9973aEce2F521"
+      address: "0x1f79f8A65E02f8A137ce7F79C038Cc44332dF448"
       abi: WooPPV2
-      startBlock: 34402296
+      startBlock: 35131309
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

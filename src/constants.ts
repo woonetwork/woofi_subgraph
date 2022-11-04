@@ -27,18 +27,17 @@ export const QUOTE_TOKEN = '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8';
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0xcdfd61a8303beb5c8dd2a6d02df8d228ce15b9f3",  // WooRouter
-    // "",  // WooCrossChainRouter
-    // "",  // Relayer
+    "0x9aed3a8896a85fe9a8cac52c9b402d092b629a30",  // WooRouter
+    "0x0972a0fa37984e7ff2aefa53a0bb10dce535aa73",  // WooCrossChainRouter
+    "0x177d36dbe2271a4ddb2ad8304d82628eb921d790",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0xb89a33227876aef02a7ebd594af9973aece2f521",
+    "0x1f79f8a65e02f8a137ce7f79c038cc44332df448",
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
-    // "",
-    "0x0000000000000000000000000000000000000000",
+    "0xf357ec5a6c82766aeb97d6da7488e2efc3dc0182",
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [

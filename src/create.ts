@@ -19,6 +19,7 @@ import {
     OrderHistory,
     CrossChainSrcOrderHistory,
     CrossChainDstOrderHistory,
+    HourRebate,
 } from "../generated/schema";
 import {
     BI_0,
@@ -511,4 +512,24 @@ export function createCrossChainDstOrderHistory(
     }
 
     return crossChainDstOrderHistory as CrossChainDstOrderHistory;
+}
+
+export function createHourRebate(event: ethereum.Event, rebateToAddress: Bytes): HourRebate {
+    let timestamp = event.block.timestamp.toI32();
+    let hourID = timestamp / 3600;
+    let hourStartTimestamp = hourID * 3600;
+
+    let hourRebateID = rebateToAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString());
+    let hourRebate = HourRebate.load(hourRebateID);
+    if (hourRebate == null) {
+        hourRebate = new HourRebate(hourRebateID);
+        hourRebate.timestamp = BigInt.fromI32(hourStartTimestamp);
+        hourRebate.swapFee = BI_0;
+        hourRebate.rebateFee = BI_0;
+        hourRebate.wooSwapCount = BI_0;
+        hourRebate.updatedAt = event.block.timestamp;
+        hourRebate.save();
+    }
+
+    return hourRebate as HourRebate;
 }

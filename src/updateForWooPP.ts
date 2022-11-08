@@ -31,7 +31,8 @@ import {
     createOrderSource,
     createUnknownDayOrderSource,
     createUnknownOrderSource,
-    createWooSwapHash
+    createWooSwapHash,
+    createHourRebate
 } from "./create";
 import {
     updateGlobalVariableOrderSourceVolumeUSD,
@@ -271,4 +272,15 @@ export function updateWooSwapHash(event: ethereum.Event, volumeUSD: BigInt, wooS
     wooSwapHash.updatedAt = event.block.timestamp;
 
     wooSwapHash.save();
+}
+
+export function updateHourRebate(event: ethereum.Event, swapFee: BigInt, rebateFee: BigInt, rebateToAddress: Bytes): void {
+    // Store every rebateTo even it's not in the allRebateAddresses(), will handle in backend script
+    let hourRebate = createHourRebate(event, rebateToAddress);
+    hourRebate.swapFee = hourRebate.swapFee.plus(swapFee);
+    hourRebate.rebateFee = hourRebate.rebateFee.plus(rebateFee);
+    hourRebate.wooSwapCount = hourRebate.wooSwapCount.plus(BI_1);
+    hourRebate.updatedAt = event.block.timestamp;
+
+    hourRebate.save();
 }

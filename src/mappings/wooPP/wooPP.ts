@@ -15,7 +15,8 @@ import {
     updateHourOrderSource,
     updateDayOrderSource,
     updateOrderSource,
-    updateWooSwapHash
+    updateWooSwapHash,
+    updateHourRebate
 } from "../../updateForWooPP";
 import {createToken, createWooSwapHash} from "../../create";
 import {updateTokenPrice} from "../../update";
@@ -27,6 +28,17 @@ export function handleWooPPV2WooSwap_1(event: WooPPV2WooSwap_1): void {
         event, event.params.fromToken, event.params.fromAmount,
         event.params.toToken, event.params.toAmount, event.params.from, event.params.swapVol, event.params.swapFee
     );
+    handleWooPPV2WooSwapRebateTo(event, event.params.swapFee, event.params.rebateTo);
+}
+
+function handleWooPPV2WooSwapRebateTo(
+    event: ethereum.Event,
+    swapFee: BigInt,
+    rebateToAddress: Bytes
+): void {
+    // WooPPV2 collect rebate fee off-chain, therefore it will be calculated in SubGraph
+    let rebateFee = swapFee.times(BigInt.fromI32(20)).div(BigInt.fromI32(100));
+    updateHourRebate(event, swapFee, rebateFee, rebateToAddress);
 }
 
 export function handleWooPPV1WooSwap_2(event: WooPPV1WooSwap_2): void {

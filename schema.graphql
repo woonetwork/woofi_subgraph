@@ -438,3 +438,18 @@ type CrossChainDstOrderHistory @entity {
     "order history count"
     txCount: BigInt!
 }
+
+type HourRebate @entity {
+    "rebate id"
+    id: ID!
+    "timestamp(start of hour)"
+    timestamp: BigInt!
+    "swap fee"
+    swapFee: BigInt!
+    "rebate fee"
+    rebateFee: BigInt!
+    "WooSwap count"
+    wooSwapCount: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}

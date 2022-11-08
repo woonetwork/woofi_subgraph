@@ -72,6 +72,28 @@ dataSources:
           handler: handleWooRouterV2WooRouterSwap_1
       file: ./src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
+    name: WooPPV2_2
+    network: arbitrum-one
+    source:
+      address: "0xeFF23B4bE1091b53205E35f3AfCD9C7182bf3062"
+      abi: WooPPV2
+      startBlock: 36279764
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooSwap
+      abis:
+        - name: WooPPV2
+          file: ./abis/WooPPV2_1.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
+          handler: handleWooPPV2WooSwap_2
+      file: ./src/mappings/wooPP/wooPP.ts
+  - kind: ethereum/contract
     name: WooPPV2_1
     network: arbitrum-one
     source:

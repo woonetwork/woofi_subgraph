@@ -54,6 +54,7 @@ export const DODO_ORDER_SOURCES: string[] = [
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
     "0x703855c7be44426f4c1c70976979f1ef3a6e58e6",  // OpenOcean Unverified Contract(assume as Adapter)
+    "0x4e6b18217ac75a779262c20b3cc07050cbe7282b",  // OpenOcean Unverified Contract(assume as Adapter)
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -65,9 +66,8 @@ export const YIELD_YAK_SOURCES: string[] = [
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
-    // "",  // FireBirdRouter
-    // "",  // FireBird Unverified Contract(assume as Adapter)
-    "0x0000000000000000000000000000000000000000",
+    "0x0c6134abc08a1eafc3e2dc9a5ad023bb08da86c3",  // FireBirdRouter
+    "0x984742be1901fcbed70d7b5847bee5be006d91c8",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

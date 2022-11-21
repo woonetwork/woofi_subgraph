@@ -68,6 +68,7 @@ export const YIELD_YAK_SOURCES: string[] = [
 export const FIRE_BIRD_SOURCES: string[] = [
     "0x0c6134abc08a1eafc3e2dc9a5ad023bb08da86c3",  // FireBirdRouter
     "0x984742be1901fcbed70d7b5847bee5be006d91c8",  // FireBird Unverified Contract(assume as Adapter)
+    "0xbbe84caaf62dba7081e1f1cc2c1f83f156587114",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

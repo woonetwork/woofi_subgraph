@@ -28,8 +28,8 @@ export const QUOTE_TOKEN = '0x7f5c764cbc14f9669b88837ca1490cca17c31607';
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
     "0xeaf1ac8e89ea0ae13e0f03634a4ff23502527024",  // WooRouter
-    // "",  // WooCrossChainRouter
-    // "",  // Relayer
+    "0x655e2fe03fe19327239b5294a556965192386a7b",  // WooCrossChainRouter
+    "0x81e792e5a9003cc1c8bf5569a00f34b65d75b017",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [

@@ -41,9 +41,11 @@ export const WOO_VAULT_MANAGER_SOURCES: string[] = [
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
-    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // AggregationRouterV4
+    "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
+    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x73f0a6927a3c04e679074e70dfb9105f453e799d",  // 1inch Unverified Contract
     "0xccf6b19bc2419e776b6ee030044811da846686fb",  // 1inch Unverified Contract
+    "0x93131efee501d5721737c32576238f619548edda",  // 1inch Unverified Contract
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [

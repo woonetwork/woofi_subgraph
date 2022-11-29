@@ -18,15 +18,15 @@ dataSources:
         - WooCrossSwapOnDstChain
       abis:
         - name: WooCrossChainRouterV1
-          file: ./abis/WooCrossChainRouterV1_1.json
+          file: ../abis/WooCrossChainRouterV1_1.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnSrcChain_1
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnDstChain_1
-      file: ./src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
   - kind: ethereum/contract
     name: WooVaultManagerV1_1
     network: bsc
@@ -42,13 +42,13 @@ dataSources:
         - RewardDistributed
       abis:
         - name: WooVaultManagerV1
-          file: ./abis/WooVaultManagerV1_1.json
+          file: ../abis/WooVaultManagerV1_1.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: RewardDistributed(indexed address,uint256)
           handler: handleWooVaultManagerV1RewardDistributed_1
-      file: ./src/mappings/wooVaultManager/wooVaultManager.ts
+      file: ../src/mappings/wooVaultManager/wooVaultManager.ts
   - kind: ethereum/contract
     name: WooRouterV1_2
     network: bsc
@@ -64,13 +64,13 @@ dataSources:
         - WooRouterSwap
       abis:
         - name: WooRouterV1
-          file: ./abis/WooRouterV1_2.json
+          file: ../abis/WooRouterV1_2.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooRouterV1WooRouterSwap_2
-      file: ./src/mappings/wooRouter/wooRouter.ts
+      file: ../src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
     name: WooRouterV1_1
     network: bsc
@@ -86,13 +86,13 @@ dataSources:
         - WooRouterSwap
       abis:
         - name: WooRouterV1
-          file: ./abis/WooRouterV1_1.json
+          file: ../abis/WooRouterV1_1.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooRouterSwap(uint8,address,address,uint256,uint256,address,address)
           handler: handleWooRouterV1WooRouterSwap_1
-      file: ./src/mappings/wooRouter/wooRouter.ts
+      file: ../src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
     name: WooPPV1_2
     network: bsc
@@ -108,13 +108,13 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPPV1
-          file: ./abis/WooPPV1_2.json
+          file: ../abis/WooPPV1_2.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooPPV1WooSwap_2
-      file: ./src/mappings/wooPP/wooPP.ts
+      file: ../src/mappings/wooPP/wooPP.ts
   - kind: ethereum/contract
     name: WooPPV1_1
     network: bsc
@@ -130,13 +130,13 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPPV1
-          file: ./abis/WooPPV1_1.json
+          file: ../abis/WooPPV1_1.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address)
           handler: handleWooPPV1WooSwap_1
-      file: ./src/mappings/wooPP/wooPP.ts
+      file: ../src/mappings/wooPP/wooPP.ts
   - kind: ethereum/contract
     name: WooPPV1_0
     network: bsc
@@ -152,10 +152,10 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPPV1
-          file: ./abis/WooPPV1_0.json
+          file: ../abis/WooPPV1_0.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address)
           handler: handleWooPPV1WooSwap_0
-      file: ./src/mappings/wooPP/wooPP.ts
+      file: ../src/mappings/wooPP/wooPP.ts

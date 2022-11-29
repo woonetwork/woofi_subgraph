@@ -41,14 +41,15 @@ export const WOO_VAULT_MANAGER_SOURCES: string[] = [
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
+    "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
+    "0x521709b3cd7f07e29722be0ba28a8ce0e806dbc3",  // 1inch Unverified Contract
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
-    // "",  // DODO: Router
-    // "",  // WooAdapter
-    "0x0000000000000000000000000000000000000000",
+    "0x3b6067d4caa8a14c63fdbe6318f27a0bbc9f9237", // DODO: Proxy Route
+    "0x1f076a800005c758a505e759720eb6737136e893", // WooV2Adapter
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [

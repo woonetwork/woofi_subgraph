@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: WooCrossChainRouterV1_1
-    network: matic
+    network: fantom
     source:
-      address: "0x376d567C5794cfc64C74852A9DB2105E0b5B482C"
+      address: "0xcF6Ce5Fd6bf28bB1AeAc88A55251f6c840059De5"
       abi: WooCrossChainRouterV1
-      startBlock: 29897168
+      startBlock: 40483282
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -18,22 +18,22 @@ dataSources:
         - WooCrossSwapOnDstChain
       abis:
         - name: WooCrossChainRouterV1
-          file: ./abis/WooCrossChainRouterV1_1.json
+          file: ../abis/WooCrossChainRouterV1_1.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnSrcChain_1
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnDstChain_1
-      file: ./src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
   - kind: ethereum/contract
     name: WooVaultManagerV1_1
-    network: matic
+    network: fantom
     source:
-      address: "0x2e668Bb88287675e34c8dF82686dfd0b7F0c0383"
+      address: "0x58C73F7E102BC6BCdC6b092EF0399B3E06d6b3E3"
       abi: WooVaultManagerV1
-      startBlock: 29859018
+      startBlock: 35428363
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -42,20 +42,20 @@ dataSources:
         - RewardDistributed
       abis:
         - name: WooVaultManagerV1
-          file: ./abis/WooVaultManagerV1_1.json
+          file: ../abis/WooVaultManagerV1_1.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: RewardDistributed(indexed address,uint256)
           handler: handleWooVaultManagerV1RewardDistributed_1
-      file: ./src/mappings/wooVaultManager/wooVaultManager.ts
+      file: ../src/mappings/wooVaultManager/wooVaultManager.ts
   - kind: ethereum/contract
     name: WooRouterV1_1
-    network: matic
+    network: fantom
     source:
-      address: "0x9D1A92e601db0901e69bd810029F2C14bCCA3128"
+      address: "0x37B5a5A730dAD670874f26Cc5507bb1b9705e447"
       abi: WooRouterV1
-      startBlock: 29860251
+      startBlock: 35476301
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -64,20 +64,20 @@ dataSources:
         - WooRouterSwap
       abis:
         - name: WooRouterV1
-          file: ./abis/WooRouterV1_2.json
+          file: ../abis/WooRouterV1_2.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooRouterV1WooRouterSwap_1
-      file: ./src/mappings/wooRouter/wooRouter.ts
+      file: ../src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
     name: WooPPV1_1
-    network: matic
+    network: fantom
     source:
-      address: "0x7400B665C8f4f3a951a99f1ee9872efb8778723d"
+      address: "0x9503E7517D3C5bc4f9E4A1c6AE4f8B33AC2546f2"
       abi: WooPPV1
-      startBlock: 29860023
+      startBlock: 35475008
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -86,10 +86,10 @@ dataSources:
         - WooSwap
       abis:
         - name: WooPPV1
-          file: ./abis/WooPPV1_2.json
+          file: ../abis/WooPPV1_2.json
         - name: ERC20
-          file: ./abis/ERC20.json
+          file: ../abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooPPV1WooSwap_1
-      file: ./src/mappings/wooPP/wooPP.ts
+      file: ../src/mappings/wooPP/wooPP.ts

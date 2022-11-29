@@ -46,6 +46,7 @@ export const WOO_VAULT_MANAGER_SOURCES: string[] = [
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
+    "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x3790c9b5a9b9d9aa1c69140a5f01a57c9b868e1e",  // Aggregation Executor for V4
     "0x2a71693a4d88b4f6ae6697a87b3524c04b92ab38",  // Exchange Governance
@@ -54,6 +55,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x9c4350f527ff7f96b650ee894ae9103bdfec0432",
     "0x05ad60d9a2f1aa30ba0cdbaf1e0a0a145fbea16f",
     "0x2ed740c6e3aaf5987c7f5a4fa13b90fcc47febd7",
+    "0x18101ac1d35230f1a3c005e2abaaeb25cae79e7f",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [

@@ -1,0 +1,73 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: WooCrossChainRouterV1_1
+    network: optimism
+    source:
+      address: "0x655e2FE03fe19327239b5294a556965192386a7b"
+      abi: WooCrossChainRouterV1
+      startBlock: 41190648
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooCrossSwapOnSrcChain
+        - WooCrossSwapOnDstChain
+      abis:
+        - name: WooCrossChainRouterV1
+          file: ../abis/WooCrossChainRouterV1_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
+          handler: handleWooCCRouterV1WooCrossSwapOnSrcChain_1
+        - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
+          handler: handleWooCCRouterV1WooCrossSwapOnDstChain_1
+      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+  - kind: ethereum/contract
+    name: WooRouterV2_1
+    network: optimism
+    source:
+      address: "0xEAf1Ac8E89EA0aE13E0f03634A4FF23502527024"
+      abi: WooRouterV2
+      startBlock: 39235238
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooRouterSwap
+      abis:
+        - name: WooRouterV2
+          file: ../abis/WooRouterV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
+          handler: handleWooRouterV2WooRouterSwap_1
+      file: ../src/mappings/wooRouter/wooRouter.ts
+  - kind: ethereum/contract
+    name: WooPPV2_1
+    network: optimism
+    source:
+      address: "0xd1778F9DF3eee5473A9640f13682e3846f61fEbC"
+      abi: WooPPV2
+      startBlock: 39234580
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooSwap
+      abis:
+        - name: WooPPV2
+          file: ../abis/WooPPV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
+          handler: handleWooPPV2WooSwap_1
+      file: ../src/mappings/wooPP/wooPP.ts

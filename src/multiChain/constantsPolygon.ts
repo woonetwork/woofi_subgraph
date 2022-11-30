@@ -47,6 +47,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
     "0x13927a60c7bf4d3d00e3c1593e0ec713e35d2106",  // 1inch Unverified Contract(assume as Adapter)
     "0x0d15038f8a0362b4ce71d6c879d56bf9fc2884cf",  // 1inch Unverified Contract(assume as Adapter)
+    "0x7ab5194e730c4ec4a9d1d7f1dcad9c173075888a",  // 1inch Unverified Contract(assume as Adapter)
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
@@ -57,6 +58,7 @@ export const DODO_ORDER_SOURCES: string[] = [
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
     "0x703855c7be44426f4c1c70976979f1ef3a6e58e6",  // OpenOcean Unverified Contract(assume as Adapter)
+    "0x10d443594cbe2ecc2574df8710ffc6a9a2f46c74",  // OpenOcean Unverified Contract(assume as Adapter)
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -70,6 +72,7 @@ export const YIELD_YAK_SOURCES: string[] = [
 export const FIRE_BIRD_SOURCES: string[] = [
     "0xb31d1b1ea48ce4bf10ed697d44b747287e785ad4",  // FireBirdRouter
     "0xe6862672bb084cd2f0a98725142950ddbcba7d97",  // FireBird Unverified Contract(assume as Adapter)
+    "0x99a36249753d992f527f18e7b2d89d5e9bd380f7",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

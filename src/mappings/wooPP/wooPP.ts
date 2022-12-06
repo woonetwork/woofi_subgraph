@@ -27,7 +27,8 @@ import {exponentToBigInt} from "../../utils";
 export function handleWooPPV2WooSwap_2(event: WooPPV2WooSwap_2): void {
     handleWooSwap(
         event, event.params.fromToken, event.params.fromAmount,
-        event.params.toToken, event.params.toAmount, event.params.from, event.params.swapVol, event.params.swapFee
+        event.params.toToken, event.params.toAmount, event.params.from,
+        event.params.swapVol, event.params.swapFee, false
     );
     handleWooPPV2WooSwapRebateTo(event, event.params.swapFee, event.params.rebateTo);
 }
@@ -35,7 +36,8 @@ export function handleWooPPV2WooSwap_2(event: WooPPV2WooSwap_2): void {
 export function handleWooPPV2WooSwap_1(event: WooPPV2WooSwap_1): void {
     handleWooSwap(
         event, event.params.fromToken, event.params.fromAmount,
-        event.params.toToken, event.params.toAmount, event.params.from, event.params.swapVol, event.params.swapFee
+        event.params.toToken, event.params.toAmount, event.params.from,
+        event.params.swapVol, event.params.swapFee, false
     );
     handleWooPPV2WooSwapRebateTo(event, event.params.swapFee, event.params.rebateTo);
 }
@@ -53,14 +55,14 @@ function handleWooPPV2WooSwapRebateTo(
 export function handleWooPPV1WooSwap_2(event: WooPPV1WooSwap_2): void {
     handleWooSwap(
         event, event.params.fromToken, event.params.fromAmount,
-        event.params.toToken, event.params.toAmount, event.params.from, BI_0, BI_0
+        event.params.toToken, event.params.toAmount, event.params.from, BI_0, BI_0, true
     );
 }
 
 export function handleWooPPV1WooSwap_1(event: WooPPV1WooSwap_1): void {
     handleWooSwap(
         event, event.params.fromToken, event.params.fromAmount,
-        event.params.toToken, event.params.toAmount, event.params.from, BI_0, BI_0
+        event.params.toToken, event.params.toAmount, event.params.from, BI_0, BI_0, true
     );
 }
 
@@ -80,11 +82,12 @@ function handleWooSwap(
     toAmount: BigInt,
     wooSwapFrom: Bytes,
     swapVol: BigInt,
-    swapFee: BigInt
+    swapFee: BigInt,
+    isV1: boolean
 ): void {
     // Start to data statistic, always update token price first
     let volumeUSD: BigInt;
-    if (swapVol != BI_0) {
+    if (isV1 == false) {
         // WooPPV2 is able to swap Base to Base
         let quoteTokenAddress = Bytes.fromHexString(QUOTE_TOKEN) as Bytes;
         let quoteToken = createToken(event, quoteTokenAddress);

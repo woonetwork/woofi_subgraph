@@ -3,6 +3,26 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
+    name: StargateBridgeV1_1
+    network: arbitrum-one
+    source:
+      address: "0x352d8275AAE3e0c2404d9f68f6cEE084B5bEB3DD"
+      abi: StargateBridgeV1
+      startBlock: 34887830
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - SendMsg
+      abis:
+        - name: StargateBridgeV1
+          file: ../abis/StargateBridgeV1_1.json
+      eventHandlers:
+        - event: SendMsg(uint8,uint64)
+          handler: handleStargateBridgeV1SendMsg_1
+      file: ../src/mappings/stargateBridge/stargateBridge.ts
+  - kind: ethereum/contract
     name: WooCrossChainRouterV1_2
     network: arbitrum-one
     source:

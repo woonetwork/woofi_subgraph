@@ -406,6 +406,8 @@ type CrossChainSrcOrderHistory @entity {
     realQuoteAmount: BigInt!
     "order history count"
     txCount: BigInt!
+    "Stargate Bridge SendMsg nonce"
+    stargateBridgeSendMsgNonce: BigInt!
 }
 
 type CrossChainDstOrderHistory @entity {
@@ -450,6 +452,17 @@ type HourRebate @entity {
     rebateFee: BigInt!
     "WooSwap count"
     wooSwapCount: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type StargateBridgeSendMsg @entity {
+    "Stargate Bridge SendMsg hash"
+    id: ID!
+    "msg type"
+    msgType: Int!
+    "nonce"
+    nonce: BigInt!
     "updated at"
     updatedAt: BigInt
 }

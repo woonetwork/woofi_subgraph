@@ -1,6 +1,12 @@
 import {exponentToBigInt} from "./utils";
 import {Address, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {createDayData, createGlobalVariable, createHourData, createToken} from "./create";
+import {
+    createGlobalVariable,
+    createHourData,
+    createDayData,
+    createToken,
+    createStargateBridgeSendMsg,
+} from "./create";
 import {
     BI_0,
     BI_2,
@@ -201,4 +207,13 @@ export function updateTokenOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD
     token.updatedAt = event.block.timestamp;
 
     token.save();
+}
+
+export function updateStargateBridgeSendMsg(event: ethereum.Event, msgType: i32, nonce: BigInt): void {
+    let stargateBridgeSendMsg = createStargateBridgeSendMsg(event);
+    stargateBridgeSendMsg.msgType = msgType;
+    stargateBridgeSendMsg.nonce = nonce;
+    stargateBridgeSendMsg.updatedAt = event.block.timestamp;
+
+    stargateBridgeSendMsg.save();
 }

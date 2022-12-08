@@ -20,6 +20,7 @@ import {
     CrossChainSrcOrderHistory,
     CrossChainDstOrderHistory,
     HourRebate,
+    StargateBridgeSendMsg,
 } from "../generated/schema";
 import {
     BI_0,
@@ -457,6 +458,9 @@ export function createCrossChainSrcOrderHistory(
         let crossChainSrcOrderHistoryVariable = createCrossChainSrcOrderHistoryVariable(event);
         crossChainSrcOrderHistory.txCount = crossChainSrcOrderHistoryVariable.txCount;
 
+        let stargateBridgeSendMsg = createStargateBridgeSendMsg(event);
+        crossChainSrcOrderHistory.stargateBridgeSendMsgNonce = stargateBridgeSendMsg.nonce;
+
         crossChainSrcOrderHistory.save();
     }
 
@@ -532,4 +536,18 @@ export function createHourRebate(event: ethereum.Event, rebateToAddress: Bytes):
     }
 
     return hourRebate as HourRebate;
+}
+
+export function createStargateBridgeSendMsg(event: ethereum.Event): StargateBridgeSendMsg {
+    let stargateBridgeSendMsgID = event.transaction.hash.toHexString();
+    let stargateBridgeSendMsg = StargateBridgeSendMsg.load(stargateBridgeSendMsgID);
+    if (stargateBridgeSendMsg == null) {
+        stargateBridgeSendMsg = new StargateBridgeSendMsg(stargateBridgeSendMsgID);
+        stargateBridgeSendMsg.msgType = BI_0.toI32();
+        stargateBridgeSendMsg.nonce = BI_0;
+        stargateBridgeSendMsg.updatedAt = event.block.timestamp;
+        stargateBridgeSendMsg.save();
+    }
+
+    return stargateBridgeSendMsg as StargateBridgeSendMsg;
 }

@@ -55,6 +55,7 @@ export const DODO_ORDER_SOURCES: string[] = [
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
     "0x4e6b18217ac75a779262c20b3cc07050cbe7282b",  // OpenOcean Unverified Contract(assume as Adapter)
+    "0x1aa298ae7c53d8dafa200ed49608649bfa76a446",  // OpenOcean Unverified Contract(assume as Adapter)
 ];
 
 export const METAMASK_SOURCES: string[] = [

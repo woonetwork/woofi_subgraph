@@ -35,6 +35,8 @@ type GlobalVariable @entity {
     totalVolumeUSDFromTransitSwap: BigInt!
     "total volume USD from 0x"
     totalVolumeUSDFromZeroX: BigInt!
+    "total volume USD from ODOS"
+    totalVolumeUSDFromODOS: BigInt!
     "total volume USD from Other Dex"
     totalVolumeUSDFromOther: BigInt!
     "route to WooPP volume USD"
@@ -173,6 +175,8 @@ type Token @entity {
     volumeUSDFromTransitSwap: BigInt!
     "volume USD from 0x"
     volumeUSDFromZeroX: BigInt!
+    "volume USD from ODOS"
+    volumeUSDFromODOS: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "updated at"
@@ -218,6 +222,8 @@ type HourData @entity {
     volumeUSDFromTransitSwap: BigInt!
     "volume USD from 0x"
     volumeUSDFromZeroX: BigInt!
+    "volume USD from ODOS"
+    volumeUSDFromODOS: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "route to WooPP tx count"
@@ -273,6 +279,8 @@ type DayData @entity {
     volumeUSDFromTransitSwap: BigInt!
     "volume USD from 0x"
     volumeUSDFromZeroX: BigInt!
+    "volume USD from ODOS"
+    volumeUSDFromODOS: BigInt!
     "volume USD from Other Dex"
     volumeUSDFromOther: BigInt!
     "route to WooPP tx count"

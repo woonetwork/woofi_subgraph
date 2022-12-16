@@ -56,6 +56,7 @@ export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
         globalVariable.totalVolumeUSDFromBeethovenX = BI_0;
         globalVariable.totalVolumeUSDFromTransitSwap = BI_0;
         globalVariable.totalVolumeUSDFromZeroX = BI_0;
+        globalVariable.totalVolumeUSDFromODOS = BI_0;
         globalVariable.totalVolumeUSDFromOther = BI_0;
         globalVariable.routeToWooPPVolumeUSD = BI_0;
         globalVariable.routeToDODOVolumeUSD = BI_0;
@@ -121,6 +122,7 @@ export function createToken(event: ethereum.Event, tokenAddress: Bytes): Token {
         token.volumeUSDFromBeethovenX = BI_0;
         token.volumeUSDFromTransitSwap = BI_0;
         token.volumeUSDFromZeroX = BI_0;
+        token.volumeUSDFromODOS = BI_0;
         token.volumeUSDFromOther = BI_0;
         token.updatedAt = event.block.timestamp;
         token.save();
@@ -156,6 +158,7 @@ export function createHourData(event: ethereum.Event): HourData {
         hourData.volumeUSDFromBeethovenX = BI_0;
         hourData.volumeUSDFromTransitSwap = BI_0;
         hourData.volumeUSDFromZeroX = BI_0;
+        hourData.volumeUSDFromODOS = BI_0;
         hourData.volumeUSDFromOther = BI_0;
         hourData.routeToWooPPTxCount = BI_0;
         hourData.routeToDODOTxCount = BI_0;
@@ -196,6 +199,7 @@ export function createDayData(event: ethereum.Event): DayData {
         dayData.volumeUSDFromBeethovenX = BI_0;
         dayData.volumeUSDFromTransitSwap = BI_0;
         dayData.volumeUSDFromZeroX = BI_0;
+        dayData.volumeUSDFromODOS = BI_0;
         dayData.volumeUSDFromOther = BI_0;
         dayData.routeToWooPPTxCount = BI_0;
         dayData.routeToDODOTxCount = BI_0;

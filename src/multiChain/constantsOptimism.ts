@@ -85,15 +85,16 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 ];
 
 export const TRANSIT_SWAP_SOURCES: string[] = [
-    // "0x8b48715c5d6d1645663a4c460ea85ce846b8580e",
-    // "0x1c64a6a28a4e789e65b22715a751249f2aa6e1d2",
     "0x0000000000000000000000000000000000000000",
 ];
 
 export const ZERO_X_SOURCES: string[] = [
-    // "0xdef1c0ded9bec7f1a1670819833240f027b25eff",
-    // "0xdb6f1920a889355780af7570773609bd8cb1f498",
     "0x0000000000000000000000000000000000000000",
+];
+
+export const ODOS_SOURCES: string[] = [
+    "0x69dd38645f7457be13571a847ffd905f9acbaf6d",  // OdosRouter
+    "0x045da4625b1e680bb8b1c2c7696612b440a0017e",  // Adaptor
 ];
 
 export let ADDRESS_SOURCES: string[][] = [
@@ -109,6 +110,7 @@ export let ADDRESS_SOURCES: string[][] = [
     BEETHOVEN_X_SOURCES,  // 9: BeethovenX
     TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
     ZERO_X_SOURCES,  // 11: 0x
+    ODOS_SOURCES,  // 12: ODOS
 ];
 
 export const GLOBAL_VARIABLE_ID = '0';
@@ -128,6 +130,7 @@ export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const TRANSIT_SWAP_ORDER_SOURCE_ID = '10';
 export const ZERO_X_ORDER_SOURCE_ID = '11';
+export const ODOS_ORDER_SOURCE_ID = '12';
 export const OTHER_ORDER_SOURCE_ID = '99';
 
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

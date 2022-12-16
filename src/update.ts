@@ -25,6 +25,7 @@ import {
     BEETHOVEN_X_ORDER_SOURCE_ID,
     TRANSIT_SWAP_ORDER_SOURCE_ID,
     ZERO_X_ORDER_SOURCE_ID,
+    ODOS_ORDER_SOURCE_ID,
     GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID,
 } from "./constants";
 import {BigInt} from "@graphprotocol/graph-ts";
@@ -99,6 +100,8 @@ export function updateGlobalVariableOrderSourceVolumeUSD(event: ethereum.Event, 
         globalVariable.totalVolumeUSDFromTransitSwap = globalVariable.totalVolumeUSDFromTransitSwap.plus(volumeUSD);
     } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
         globalVariable.totalVolumeUSDFromZeroX = globalVariable.totalVolumeUSDFromZeroX.plus(volumeUSD);
+    } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
+        globalVariable.totalVolumeUSDFromODOS = globalVariable.totalVolumeUSDFromODOS.plus(volumeUSD);
     } else {
         globalVariable.totalVolumeUSDFromOther = globalVariable.totalVolumeUSDFromOther.plus(volumeUSD);
     }
@@ -133,6 +136,8 @@ export function updateHourDataOrderSourceVolumeUSD(event: ethereum.Event, volume
         hourData.volumeUSDFromTransitSwap = hourData.volumeUSDFromTransitSwap.plus(volumeUSD);
     } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
         hourData.volumeUSDFromZeroX = hourData.volumeUSDFromZeroX.plus(volumeUSD);
+    } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
+        hourData.volumeUSDFromODOS = hourData.volumeUSDFromODOS.plus(volumeUSD);
     } else {
         hourData.volumeUSDFromOther = hourData.volumeUSDFromOther.plus(volumeUSD);
     }
@@ -167,6 +172,8 @@ export function updateDayDataOrderSourceVolumeUSD(event: ethereum.Event, volumeU
         dayData.volumeUSDFromTransitSwap = dayData.volumeUSDFromTransitSwap.plus(volumeUSD);
     } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
         dayData.volumeUSDFromZeroX = dayData.volumeUSDFromZeroX.plus(volumeUSD);
+    } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
+        dayData.volumeUSDFromODOS = dayData.volumeUSDFromODOS.plus(volumeUSD);
     } else {
         dayData.volumeUSDFromOther = dayData.volumeUSDFromOther.plus(volumeUSD);
     }
@@ -201,6 +208,8 @@ export function updateTokenOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD
         token.volumeUSDFromTransitSwap = token.volumeUSDFromTransitSwap.plus(volumeUSD);
     } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
         token.volumeUSDFromZeroX = token.volumeUSDFromZeroX.plus(volumeUSD);
+    } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
+        token.volumeUSDFromODOS = token.volumeUSDFromODOS.plus(volumeUSD);
     } else {
         token.volumeUSDFromOther = token.volumeUSDFromOther.plus(volumeUSD);
     }

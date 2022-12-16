@@ -96,6 +96,10 @@ export const ZERO_X_SOURCES: string[] = [
     "0xb4d961671cadfed687e040b076eee29840c142e5",
 ];
 
+export const ODOS_SOURCES: string[] = [
+    "0x0000000000000000000000000000000000000000",
+];
+
 export let ADDRESS_SOURCES: string[][] = [
     WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
     ONE_INCH_ORDER_SOURCES,  // 1: 1inch
@@ -109,6 +113,7 @@ export let ADDRESS_SOURCES: string[][] = [
     BEETHOVEN_X_SOURCES,  // 9: BeethovenX
     TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
     ZERO_X_SOURCES,  // 11: 0x
+    ODOS_SOURCES,  // 12: ODOS
 ];
 
 export const GLOBAL_VARIABLE_ID = '0';
@@ -128,6 +133,7 @@ export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const TRANSIT_SWAP_ORDER_SOURCE_ID = '10';
 export const ZERO_X_ORDER_SOURCE_ID = '11';
+export const ODOS_ORDER_SOURCE_ID = '12';
 export const OTHER_ORDER_SOURCE_ID = '99';
 
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

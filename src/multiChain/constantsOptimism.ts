@@ -44,6 +44,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
+    "0xff3cdca6db902617e6ae4133cb45df41c38222b1",  // Adapter
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [

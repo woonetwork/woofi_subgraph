@@ -23,6 +23,31 @@ dataSources:
           handler: handleStargateBridgeV1SendMsg_1
       file: ../src/mappings/stargateBridge/stargateBridge.ts
   - kind: ethereum/contract
+    name: WooCrossChainRouterV1_2
+    network: bsc
+    source:
+      address: "0xd12D239b781e34E0AAa106159940803A07E31a67"
+      abi: WooCrossChainRouterV1
+      startBlock: 24066491
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooCrossSwapOnSrcChain
+        - WooCrossSwapOnDstChain
+      abis:
+        - name: WooCrossChainRouterV1
+          file: ../abis/WooCrossChainRouterV1_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
+          handler: handleWooCCRouterV1WooCrossSwapOnSrcChain_2
+        - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
+          handler: handleWooCCRouterV1WooCrossSwapOnDstChain_2
+      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+  - kind: ethereum/contract
     name: WooCrossChainRouterV1_1
     network: bsc
     source:
@@ -48,6 +73,28 @@ dataSources:
           handler: handleWooCCRouterV1WooCrossSwapOnDstChain_1
       file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
   - kind: ethereum/contract
+    name: WooVaultManagerV1_2
+    network: bsc
+    source:
+      address: "0x8FA8e3dD9E84094a1d2511acf1353D7E011D8f90"
+      abi: WooVaultManagerV1
+      startBlock: 24066261
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - RewardDistributed
+      abis:
+        - name: WooVaultManagerV1
+          file: ../abis/WooVaultManagerV1_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: RewardDistributed(indexed address,uint256)
+          handler: handleWooVaultManagerV1RewardDistributed_2
+      file: ../src/mappings/wooVaultManager/wooVaultManager.ts
+  - kind: ethereum/contract
     name: WooVaultManagerV1_1
     network: bsc
     source:
@@ -69,6 +116,28 @@ dataSources:
         - event: RewardDistributed(indexed address,uint256)
           handler: handleWooVaultManagerV1RewardDistributed_1
       file: ../src/mappings/wooVaultManager/wooVaultManager.ts
+  - kind: ethereum/contract
+    name: WooRouterV2_1
+    network: bsc
+    source:
+      address: "0xC90bFE9951a4Efbf20aCa5ECd9966b2bF8A01294"
+      abi: WooRouterV2
+      startBlock: 24066455
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooRouterSwap
+      abis:
+        - name: WooRouterV2
+          file: ../abis/WooRouterV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
+          handler: handleWooRouterV2WooRouterSwap_1
+      file: ../src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
     name: WooRouterV1_2
     network: bsc
@@ -113,6 +182,28 @@ dataSources:
         - event: WooRouterSwap(uint8,address,address,uint256,uint256,address,address)
           handler: handleWooRouterV1WooRouterSwap_1
       file: ../src/mappings/wooRouter/wooRouter.ts
+  - kind: ethereum/contract
+    name: WooPPV2_1
+    network: bsc
+    source:
+      address: "0xEc054126922a9a1918435c9072c32f1B60cB2B90"
+      abi: WooPPV2
+      startBlock: 24066408
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooSwap
+      abis:
+        - name: WooPPV2
+          file: ../abis/WooPPV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
+          handler: handleWooPPV2WooSwap_1
+      file: ../src/mappings/wooPP/wooPP.ts
   - kind: ethereum/contract
     name: WooPPV1_2
     network: bsc

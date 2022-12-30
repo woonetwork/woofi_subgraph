@@ -12,53 +12,57 @@ export let BD_1 = BigDecimal.fromString('1');
 
 // Address Must Be Lower Case!!!
 export const ETHER = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
-export const ETHER_SYMBOL = 'ETH';
-export const ETHER_NAME = 'eth';
+export const ETHER_SYMBOL = 'MATIC';
+export const ETHER_NAME = 'matic';
 
-export const WRAPPED = '0x4200000000000000000000000000000000000006';
+export const WRAPPED = '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270';
 
 export const STABLE_TOKENS: string[] = [
-    "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",  // USDT
-    "0x7f5c764cbc14f9669b88837ca1490cca17c31607",  // USDC
-    "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",  // DAI
+    "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",  // USDT
+    "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",  // USDC
+    "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",  // DAI
 ];
 
-export const QUOTE_TOKEN = '0x7f5c764cbc14f9669b88837ca1490cca17c31607';
+export const QUOTE_TOKEN = '0x2791bca1f2de4661ed88a30c99a7a9449aa84174';
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0xeaf1ac8e89ea0ae13e0f03634a4ff23502527024",  // WooRouter
-    "0x655e2fe03fe19327239b5294a556965192386a7b",  // WooCrossChainRouter
-    "0x81e792e5a9003cc1c8bf5569a00f34b65d75b017",  // Relayer
+    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooRouter
+    "0x376d567c5794cfc64c74852a9db2105e0b5b482c",  // WooCrossChainRouter
+    "0xfe7c30860d01e28371d40434806f4a8fcdd3a098",  // Relayer
+    "0x75dc8e5f50c8221a82ca6af64af811caa983b65f",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0xd1778f9df3eee5473a9640f13682e3846f61febc",
+    "0x7400b665c8f4f3a951a99f1ee9872efb8778723d",
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
-    // "",
+    "0x2e668bb88287675e34c8df82686dfd0b7f0c0383",
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
+    "0x13927a60c7bf4d3d00e3c1593e0ec713e35d2106",  // 1inch Unverified Contract(assume as Adapter)
+    "0x0d15038f8a0362b4ce71d6c879d56bf9fc2884cf",  // 1inch Unverified Contract(assume as Adapter)
+    "0x7ab5194e730c4ec4a9d1d7f1dcad9c173075888a",  // 1inch Unverified Contract(assume as Adapter)
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
-    // "",  // DODO: Router
-    // "",  // WooAdapter
-    "0x0000000000000000000000000000000000000000",
+    "0x2fa4334cfd7c56a0e7ca02bd81455205fcbdc5e9",  // DODO: Router
+    "0x6e59a9d2b86d004ce8d67da19fc0ee24e2417d9d",  // WooAdapter
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
-    "0x4e6b18217ac75a779262c20b3cc07050cbe7282b",  // OpenOcean Unverified Contract(assume as Adapter)
+    "0x703855c7be44426f4c1c70976979f1ef3a6e58e6",  // OpenOcean Unverified Contract(assume as Adapter)
+    "0x10d443594cbe2ecc2574df8710ffc6a9a2f46c74",  // OpenOcean Unverified Contract(assume as Adapter)
 ];
 
 export const METAMASK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // MetaMask
+    "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // MetaMask
 ];
 
 export const YIELD_YAK_SOURCES: string[] = [
@@ -66,8 +70,9 @@ export const YIELD_YAK_SOURCES: string[] = [
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
-    "0x0c6134abc08a1eafc3e2dc9a5ad023bb08da86c3",  // FireBirdRouter
-    "0xbbe84caaf62dba7081e1f1cc2c1f83f156587114",  // FireBird Unverified Contract(assume as Adapter)
+    "0xb31d1b1ea48ce4bf10ed697d44b747287e785ad4",  // FireBirdRouter
+    "0xe6862672bb084cd2f0a98725142950ddbcba7d97",  // FireBird Unverified Contract(assume as Adapter)
+    "0x99a36249753d992f527f18e7b2d89d5e9bd380f7",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
@@ -83,15 +88,18 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 ];
 
 export const TRANSIT_SWAP_SOURCES: string[] = [
-    // "0x8b48715c5d6d1645663a4c460ea85ce846b8580e",
-    // "0x1c64a6a28a4e789e65b22715a751249f2aa6e1d2",
-    "0x0000000000000000000000000000000000000000",
+    "0x8b48715c5d6d1645663a4c460ea85ce846b8580e",
+    "0x1c64a6a28a4e789e65b22715a751249f2aa6e1d2",
 ];
 
 export const ZERO_X_SOURCES: string[] = [
-    // "0xdef1c0ded9bec7f1a1670819833240f027b25eff",
-    // "0xdb6f1920a889355780af7570773609bd8cb1f498",
-    "0x0000000000000000000000000000000000000000",
+    "0xdef1c0ded9bec7f1a1670819833240f027b25eff",
+    "0xdb6f1920a889355780af7570773609bd8cb1f498",
+];
+
+export const ODOS_SOURCES: string[] = [
+    "0xa32ee1c40594249eb3183c10792bcf573d4da47c",  // OdosRouter
+    "0x7a00fa13da1fef01aa023bd6a4aa794d3ea69be6",  // Adaptor
 ];
 
 export let ADDRESS_SOURCES: string[][] = [
@@ -107,6 +115,7 @@ export let ADDRESS_SOURCES: string[][] = [
     BEETHOVEN_X_SOURCES,  // 9: BeethovenX
     TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
     ZERO_X_SOURCES,  // 11: 0x
+    ODOS_SOURCES,  // 12: ODOS
 ];
 
 export const GLOBAL_VARIABLE_ID = '0';
@@ -126,6 +135,7 @@ export const PARA_SWAP_ORDER_SOURCE_ID = '8';
 export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
 export const TRANSIT_SWAP_ORDER_SOURCE_ID = '10';
 export const ZERO_X_ORDER_SOURCE_ID = '11';
+export const ODOS_ORDER_SOURCE_ID = '12';
 export const OTHER_ORDER_SOURCE_ID = '99';
 
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';

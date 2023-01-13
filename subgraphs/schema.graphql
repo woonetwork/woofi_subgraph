@@ -11,34 +11,34 @@ type GlobalVariable @entity {
     realTotalVolumeUSD: BigDecimal!
     "WOO buyback volume"
     wooBuybackVolume: BigInt!
-    "total volume USD from WooRouter"
-    totalVolumeUSDFromWooRouter: BigInt!
-    "total volume USD from 1inch"
-    totalVolumeUSDFromOneInch: BigInt!
-    "total volume USD from DODO"
-    totalVolumeUSDFromDODO: BigInt!
-    "total volume USD from OpenOcean"
-    totalVolumeUSDFromOpenOcean: BigInt!
-    "total volume USD from MetaMask"
-    totalVolumeUSDFromMetaMask: BigInt!
-    "total volume USD from YieldYak"
-    totalVolumeUSDFromYieldYak: BigInt!
-    "total volume USD from FireBird"
-    totalVolumeUSDFromFireBird: BigInt!
-    "total volume USD from BitKeep"
-    totalVolumeUSDFromBitKeep: BigInt!
-    "total volume USD from ParaSwap"
-    totalVolumeUSDFromParaSwap: BigInt!
-    "total volume USD from BeethovenX"
-    totalVolumeUSDFromBeethovenX: BigInt!
-    "total volume USD from TransitSwap"
-    totalVolumeUSDFromTransitSwap: BigInt!
-    "total volume USD from 0x"
-    totalVolumeUSDFromZeroX: BigInt!
-    "total volume USD from ODOS"
-    totalVolumeUSDFromODOS: BigInt!
-    "total volume USD from Other Dex"
-    totalVolumeUSDFromOther: BigInt!
+#    "total volume USD from WooRouter"
+#    totalVolumeUSDFromWooRouter: BigInt!
+#    "total volume USD from 1inch"
+#    totalVolumeUSDFromOneInch: BigInt!
+#    "total volume USD from DODO"
+#    totalVolumeUSDFromDODO: BigInt!
+#    "total volume USD from OpenOcean"
+#    totalVolumeUSDFromOpenOcean: BigInt!
+#    "total volume USD from MetaMask"
+#    totalVolumeUSDFromMetaMask: BigInt!
+#    "total volume USD from YieldYak"
+#    totalVolumeUSDFromYieldYak: BigInt!
+#    "total volume USD from FireBird"
+#    totalVolumeUSDFromFireBird: BigInt!
+#    "total volume USD from BitKeep"
+#    totalVolumeUSDFromBitKeep: BigInt!
+#    "total volume USD from ParaSwap"
+#    totalVolumeUSDFromParaSwap: BigInt!
+#    "total volume USD from BeethovenX"
+#    totalVolumeUSDFromBeethovenX: BigInt!
+#    "total volume USD from TransitSwap"
+#    totalVolumeUSDFromTransitSwap: BigInt!
+#    "total volume USD from 0x"
+#    totalVolumeUSDFromZeroX: BigInt!
+#    "total volume USD from ODOS"
+#    totalVolumeUSDFromODOS: BigInt!
+#    "total volume USD from Other Dex"
+#    totalVolumeUSDFromOther: BigInt!
     "route to WooPP volume USD"
     routeToWooPPVolumeUSD: BigInt!
     "route to DODO volume USD, not include in totalVolumeUSD"
@@ -151,34 +151,34 @@ type Token @entity {
     routeToWooPPVolumeUSD: BigInt!
     "route to DODO volume USD"
     routeToDODOVolumeUSD: BigInt!
-    "volume USD from WooRouter"
-    volumeUSDFromWooRouter: BigInt!
-    "volume USD from 1inch"
-    volumeUSDFromOneInch: BigInt!
-    "volume USD from DODO"
-    volumeUSDFromDODO: BigInt!
-    "volume USD from OpenOcean"
-    volumeUSDFromOpenOcean: BigInt!
-    "volume USD from MetaMask"
-    volumeUSDFromMetaMask: BigInt!
-    "volume USD from YieldYak"
-    volumeUSDFromYieldYak: BigInt!
-    "volume USD from FireBird"
-    volumeUSDFromFireBird: BigInt!
-    "volume USD from BitKeep"
-    volumeUSDFromBitKeep: BigInt!
-    "volume USD from ParaSwap"
-    volumeUSDFromParaSwap: BigInt!
-    "volume USD from BeethovenX"
-    volumeUSDFromBeethovenX: BigInt!
-    "volume USD from TransitSwap"
-    volumeUSDFromTransitSwap: BigInt!
-    "volume USD from 0x"
-    volumeUSDFromZeroX: BigInt!
-    "volume USD from ODOS"
-    volumeUSDFromODOS: BigInt!
-    "volume USD from Other Dex"
-    volumeUSDFromOther: BigInt!
+#    "volume USD from WooRouter"
+#    volumeUSDFromWooRouter: BigInt!
+#    "volume USD from 1inch"
+#    volumeUSDFromOneInch: BigInt!
+#    "volume USD from DODO"
+#    volumeUSDFromDODO: BigInt!
+#    "volume USD from OpenOcean"
+#    volumeUSDFromOpenOcean: BigInt!
+#    "volume USD from MetaMask"
+#    volumeUSDFromMetaMask: BigInt!
+#    "volume USD from YieldYak"
+#    volumeUSDFromYieldYak: BigInt!
+#    "volume USD from FireBird"
+#    volumeUSDFromFireBird: BigInt!
+#    "volume USD from BitKeep"
+#    volumeUSDFromBitKeep: BigInt!
+#    "volume USD from ParaSwap"
+#    volumeUSDFromParaSwap: BigInt!
+#    "volume USD from BeethovenX"
+#    volumeUSDFromBeethovenX: BigInt!
+#    "volume USD from TransitSwap"
+#    volumeUSDFromTransitSwap: BigInt!
+#    "volume USD from 0x"
+#    volumeUSDFromZeroX: BigInt!
+#    "volume USD from ODOS"
+#    volumeUSDFromODOS: BigInt!
+#    "volume USD from Other Dex"
+#    volumeUSDFromOther: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -198,34 +198,34 @@ type HourData @entity {
     volumeUSD: BigInt!
     "real volume USD"
     realVolumeUSD: BigDecimal!
-    "volume USD from WooRouter"
-    volumeUSDFromWooRouter: BigInt!
-    "volume USD from 1inch"
-    volumeUSDFromOneInch: BigInt!
-    "volume USD from DODO"
-    volumeUSDFromDODO: BigInt!
-    "volume USD from OpenOcean"
-    volumeUSDFromOpenOcean: BigInt!
-    "volume USD from MetaMask"
-    volumeUSDFromMetaMask: BigInt!
-    "volume USD from YieldYak"
-    volumeUSDFromYieldYak: BigInt!
-    "volume USD from FireBird"
-    volumeUSDFromFireBird: BigInt!
-    "volume USD from BitKeep"
-    volumeUSDFromBitKeep: BigInt!
-    "volume USD from ParaSwap"
-    volumeUSDFromParaSwap: BigInt!
-    "volume USD from BeethovenX"
-    volumeUSDFromBeethovenX: BigInt!
-    "volume USD from TransitSwap"
-    volumeUSDFromTransitSwap: BigInt!
-    "volume USD from 0x"
-    volumeUSDFromZeroX: BigInt!
-    "volume USD from ODOS"
-    volumeUSDFromODOS: BigInt!
-    "volume USD from Other Dex"
-    volumeUSDFromOther: BigInt!
+#    "volume USD from WooRouter"
+#    volumeUSDFromWooRouter: BigInt!
+#    "volume USD from 1inch"
+#    volumeUSDFromOneInch: BigInt!
+#    "volume USD from DODO"
+#    volumeUSDFromDODO: BigInt!
+#    "volume USD from OpenOcean"
+#    volumeUSDFromOpenOcean: BigInt!
+#    "volume USD from MetaMask"
+#    volumeUSDFromMetaMask: BigInt!
+#    "volume USD from YieldYak"
+#    volumeUSDFromYieldYak: BigInt!
+#    "volume USD from FireBird"
+#    volumeUSDFromFireBird: BigInt!
+#    "volume USD from BitKeep"
+#    volumeUSDFromBitKeep: BigInt!
+#    "volume USD from ParaSwap"
+#    volumeUSDFromParaSwap: BigInt!
+#    "volume USD from BeethovenX"
+#    volumeUSDFromBeethovenX: BigInt!
+#    "volume USD from TransitSwap"
+#    volumeUSDFromTransitSwap: BigInt!
+#    "volume USD from 0x"
+#    volumeUSDFromZeroX: BigInt!
+#    "volume USD from ODOS"
+#    volumeUSDFromODOS: BigInt!
+#    "volume USD from Other Dex"
+#    volumeUSDFromOther: BigInt!
     "route to WooPP tx count"
     routeToWooPPTxCount: BigInt!
     "route to DODO tx count"
@@ -255,34 +255,34 @@ type DayData @entity {
     realVolumeUSD: BigDecimal!
     "WOO buyback volume"
     wooBuybackVolume: BigInt!
-    "volume USD from WooRouter"
-    volumeUSDFromWooRouter: BigInt!
-    "volume USD from 1inch"
-    volumeUSDFromOneInch: BigInt!
-    "volume USD from DODO"
-    volumeUSDFromDODO: BigInt!
-    "volume USD from OpenOcean"
-    volumeUSDFromOpenOcean: BigInt!
-    "volume USD from MetaMask"
-    volumeUSDFromMetaMask: BigInt!
-    "volume USD from YieldYak"
-    volumeUSDFromYieldYak: BigInt!
-    "volume USD from FireBird"
-    volumeUSDFromFireBird: BigInt!
-    "volume USD from BitKeep"
-    volumeUSDFromBitKeep: BigInt!
-    "volume USD from ParaSwap"
-    volumeUSDFromParaSwap: BigInt!
-    "volume USD from BeethovenX"
-    volumeUSDFromBeethovenX: BigInt!
-    "volume USD from TransitSwap"
-    volumeUSDFromTransitSwap: BigInt!
-    "volume USD from 0x"
-    volumeUSDFromZeroX: BigInt!
-    "volume USD from ODOS"
-    volumeUSDFromODOS: BigInt!
-    "volume USD from Other Dex"
-    volumeUSDFromOther: BigInt!
+#    "volume USD from WooRouter"
+#    volumeUSDFromWooRouter: BigInt!
+#    "volume USD from 1inch"
+#    volumeUSDFromOneInch: BigInt!
+#    "volume USD from DODO"
+#    volumeUSDFromDODO: BigInt!
+#    "volume USD from OpenOcean"
+#    volumeUSDFromOpenOcean: BigInt!
+#    "volume USD from MetaMask"
+#    volumeUSDFromMetaMask: BigInt!
+#    "volume USD from YieldYak"
+#    volumeUSDFromYieldYak: BigInt!
+#    "volume USD from FireBird"
+#    volumeUSDFromFireBird: BigInt!
+#    "volume USD from BitKeep"
+#    volumeUSDFromBitKeep: BigInt!
+#    "volume USD from ParaSwap"
+#    volumeUSDFromParaSwap: BigInt!
+#    "volume USD from BeethovenX"
+#    volumeUSDFromBeethovenX: BigInt!
+#    "volume USD from TransitSwap"
+#    volumeUSDFromTransitSwap: BigInt!
+#    "volume USD from 0x"
+#    volumeUSDFromZeroX: BigInt!
+#    "volume USD from ODOS"
+#    volumeUSDFromODOS: BigInt!
+#    "volume USD from Other Dex"
+#    volumeUSDFromOther: BigInt!
     "route to WooPP tx count"
     routeToWooPPTxCount: BigInt!
     "route to DODO tx count"

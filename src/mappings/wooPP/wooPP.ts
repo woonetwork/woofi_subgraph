@@ -21,7 +21,7 @@ import {
 } from "../../updateForWooPP";
 import {createToken, createWooSwapHash} from "../../create";
 import {updateTokenPrice} from "../../update";
-import {BI_0, BI_18, QUOTE_TOKEN} from "../../constants";
+import {BI_0, BI_18, QUOTE_TOKEN_1_V2} from "../../constants";
 import {exponentToBigInt} from "../../utils";
 
 export function handleWooPPV2WooSwap_2(event: WooPPV2WooSwap_2): void {
@@ -89,7 +89,7 @@ function handleWooSwap(
     let volumeUSD: BigInt;
     if (isV1 == false) {
         // WooPPV2 is able to swap Base to Base
-        let quoteTokenAddress = Bytes.fromHexString(QUOTE_TOKEN) as Bytes;
+        let quoteTokenAddress = Bytes.fromHexString(QUOTE_TOKEN_1_V2) as Bytes;
         let quoteToken = createToken(event, quoteTokenAddress);
         if (fromTokenAddress != quoteTokenAddress && toTokenAddress != quoteTokenAddress) {
             updateTokenPrice(event, fromTokenAddress, fromAmount, quoteTokenAddress, swapVol.minus(swapFee));

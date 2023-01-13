@@ -1,6 +1,6 @@
 import {Address, BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts";
 import {ERC20} from "../generated/WooRouterV1_1/ERC20";
-import {BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS, QUOTE_TOKEN} from "./constants";
+import {BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS, QUOTE_TOKENS_V1} from "./constants";
 import {exponentToBigInt} from "./utils";
 import {createToken} from "./create";
 
@@ -122,8 +122,10 @@ export function calVolumeUSDForWooRouter(
 
     if (
         isV1 == true
-        && fromTokenAddress.toHexString() != QUOTE_TOKEN
-        && toTokenAddress.toHexString() != QUOTE_TOKEN
+        && QUOTE_TOKENS_V1.indexOf(fromTokenAddress.toHexString()) == -1
+        && QUOTE_TOKENS_V1.indexOf(toTokenAddress.toHexString()) == -1
+        // && fromTokenAddress.toHexString() != QUOTE_TOKEN_V1
+        // && toTokenAddress.toHexString() != QUOTE_TOKEN_V1
         && swapType == 0
     ) {
         volumeUSD = volumeUSD.times(BI_2);

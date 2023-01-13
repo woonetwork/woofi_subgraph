@@ -74,149 +74,149 @@ export function updateTokenPrice(event: ethereum.Event, fromTokenAddress: Bytes,
     }
 }
 
-export function updateGlobalVariableOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string): void {
-    let globalVariable = createGlobalVariable(event);
-    if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromWooRouter = globalVariable.totalVolumeUSDFromWooRouter.plus(volumeUSD);
-    } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromOneInch = globalVariable.totalVolumeUSDFromOneInch.plus(volumeUSD);
-    } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromDODO = globalVariable.totalVolumeUSDFromDODO.plus(volumeUSD);
-    } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromOpenOcean = globalVariable.totalVolumeUSDFromOpenOcean.plus(volumeUSD);
-    } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromMetaMask = globalVariable.totalVolumeUSDFromMetaMask.plus(volumeUSD);
-    } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromYieldYak = globalVariable.totalVolumeUSDFromYieldYak.plus(volumeUSD);
-    } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromFireBird = globalVariable.totalVolumeUSDFromFireBird.plus(volumeUSD);
-    } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromBitKeep = globalVariable.totalVolumeUSDFromBitKeep.plus(volumeUSD);
-    } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromParaSwap = globalVariable.totalVolumeUSDFromParaSwap.plus(volumeUSD);
-    } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromBeethovenX = globalVariable.totalVolumeUSDFromBeethovenX.plus(volumeUSD);
-    } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromTransitSwap = globalVariable.totalVolumeUSDFromTransitSwap.plus(volumeUSD);
-    } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromZeroX = globalVariable.totalVolumeUSDFromZeroX.plus(volumeUSD);
-    } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
-        globalVariable.totalVolumeUSDFromODOS = globalVariable.totalVolumeUSDFromODOS.plus(volumeUSD);
-    } else {
-        globalVariable.totalVolumeUSDFromOther = globalVariable.totalVolumeUSDFromOther.plus(volumeUSD);
-    }
-    globalVariable.updatedAt = event.block.timestamp;
-
-    globalVariable.save();
-}
-
-export function updateHourDataOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string): void {
-    let hourData = createHourData(event);
-    if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromWooRouter = hourData.volumeUSDFromWooRouter.plus(volumeUSD);
-    } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromOneInch = hourData.volumeUSDFromOneInch.plus(volumeUSD);
-    } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromDODO = hourData.volumeUSDFromDODO.plus(volumeUSD);
-    } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromOpenOcean = hourData.volumeUSDFromOpenOcean.plus(volumeUSD);
-    } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromMetaMask = hourData.volumeUSDFromMetaMask.plus(volumeUSD);
-    } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromYieldYak = hourData.volumeUSDFromYieldYak.plus(volumeUSD);
-    } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromFireBird = hourData.volumeUSDFromFireBird.plus(volumeUSD);
-    } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromBitKeep = hourData.volumeUSDFromBitKeep.plus(volumeUSD);
-    } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromParaSwap = hourData.volumeUSDFromParaSwap.plus(volumeUSD);
-    } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromBeethovenX = hourData.volumeUSDFromBeethovenX.plus(volumeUSD);
-    } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromTransitSwap = hourData.volumeUSDFromTransitSwap.plus(volumeUSD);
-    } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromZeroX = hourData.volumeUSDFromZeroX.plus(volumeUSD);
-    } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
-        hourData.volumeUSDFromODOS = hourData.volumeUSDFromODOS.plus(volumeUSD);
-    } else {
-        hourData.volumeUSDFromOther = hourData.volumeUSDFromOther.plus(volumeUSD);
-    }
-    hourData.updatedAt = event.block.timestamp;
-
-    hourData.save();
-}
-
-export function updateDayDataOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string): void {
-    let dayData = createDayData(event);
-    if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromWooRouter = dayData.volumeUSDFromWooRouter.plus(volumeUSD);
-    } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromOneInch = dayData.volumeUSDFromOneInch.plus(volumeUSD);
-    } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromDODO = dayData.volumeUSDFromDODO.plus(volumeUSD);
-    } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromOpenOcean = dayData.volumeUSDFromOpenOcean.plus(volumeUSD);
-    } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromMetaMask = dayData.volumeUSDFromMetaMask.plus(volumeUSD);
-    } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromYieldYak = dayData.volumeUSDFromYieldYak.plus(volumeUSD);
-    } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromFireBird = dayData.volumeUSDFromFireBird.plus(volumeUSD);
-    } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromBitKeep = dayData.volumeUSDFromBitKeep.plus(volumeUSD);
-    } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromParaSwap = dayData.volumeUSDFromParaSwap.plus(volumeUSD);
-    } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromBeethovenX = dayData.volumeUSDFromBeethovenX.plus(volumeUSD);
-    } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromTransitSwap = dayData.volumeUSDFromTransitSwap.plus(volumeUSD);
-    } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromZeroX = dayData.volumeUSDFromZeroX.plus(volumeUSD);
-    } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
-        dayData.volumeUSDFromODOS = dayData.volumeUSDFromODOS.plus(volumeUSD);
-    } else {
-        dayData.volumeUSDFromOther = dayData.volumeUSDFromOther.plus(volumeUSD);
-    }
-    dayData.updatedAt = event.block.timestamp;
-
-    dayData.save();
-}
-
-export function updateTokenOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string, tokenAddress: Bytes): void {
-    let token = createToken(event, tokenAddress);
-    if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
-        token.volumeUSDFromWooRouter = token.volumeUSDFromWooRouter.plus(volumeUSD);
-    } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
-        token.volumeUSDFromOneInch = token.volumeUSDFromOneInch.plus(volumeUSD);
-    } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
-        token.volumeUSDFromDODO = token.volumeUSDFromDODO.plus(volumeUSD);
-    } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
-        token.volumeUSDFromOpenOcean = token.volumeUSDFromOpenOcean.plus(volumeUSD);
-    } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
-        token.volumeUSDFromMetaMask = token.volumeUSDFromMetaMask.plus(volumeUSD);
-    } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
-        token.volumeUSDFromYieldYak = token.volumeUSDFromYieldYak.plus(volumeUSD);
-    } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
-        token.volumeUSDFromFireBird = token.volumeUSDFromFireBird.plus(volumeUSD);
-    } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
-        token.volumeUSDFromBitKeep = token.volumeUSDFromBitKeep.plus(volumeUSD);
-    } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
-        token.volumeUSDFromParaSwap = token.volumeUSDFromParaSwap.plus(volumeUSD);
-    } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
-        token.volumeUSDFromBeethovenX = token.volumeUSDFromBeethovenX.plus(volumeUSD);
-    } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
-        token.volumeUSDFromTransitSwap = token.volumeUSDFromTransitSwap.plus(volumeUSD);
-    } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
-        token.volumeUSDFromZeroX = token.volumeUSDFromZeroX.plus(volumeUSD);
-    } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
-        token.volumeUSDFromODOS = token.volumeUSDFromODOS.plus(volumeUSD);
-    } else {
-        token.volumeUSDFromOther = token.volumeUSDFromOther.plus(volumeUSD);
-    }
-    token.updatedAt = event.block.timestamp;
-
-    token.save();
-}
+// export function updateGlobalVariableOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string): void {
+//     let globalVariable = createGlobalVariable(event);
+//     if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromWooRouter = globalVariable.totalVolumeUSDFromWooRouter.plus(volumeUSD);
+//     } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromOneInch = globalVariable.totalVolumeUSDFromOneInch.plus(volumeUSD);
+//     } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromDODO = globalVariable.totalVolumeUSDFromDODO.plus(volumeUSD);
+//     } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromOpenOcean = globalVariable.totalVolumeUSDFromOpenOcean.plus(volumeUSD);
+//     } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromMetaMask = globalVariable.totalVolumeUSDFromMetaMask.plus(volumeUSD);
+//     } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromYieldYak = globalVariable.totalVolumeUSDFromYieldYak.plus(volumeUSD);
+//     } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromFireBird = globalVariable.totalVolumeUSDFromFireBird.plus(volumeUSD);
+//     } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromBitKeep = globalVariable.totalVolumeUSDFromBitKeep.plus(volumeUSD);
+//     } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromParaSwap = globalVariable.totalVolumeUSDFromParaSwap.plus(volumeUSD);
+//     } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromBeethovenX = globalVariable.totalVolumeUSDFromBeethovenX.plus(volumeUSD);
+//     } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromTransitSwap = globalVariable.totalVolumeUSDFromTransitSwap.plus(volumeUSD);
+//     } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromZeroX = globalVariable.totalVolumeUSDFromZeroX.plus(volumeUSD);
+//     } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
+//         globalVariable.totalVolumeUSDFromODOS = globalVariable.totalVolumeUSDFromODOS.plus(volumeUSD);
+//     } else {
+//         globalVariable.totalVolumeUSDFromOther = globalVariable.totalVolumeUSDFromOther.plus(volumeUSD);
+//     }
+//     globalVariable.updatedAt = event.block.timestamp;
+//
+//     globalVariable.save();
+// }
+//
+// export function updateHourDataOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string): void {
+//     let hourData = createHourData(event);
+//     if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromWooRouter = hourData.volumeUSDFromWooRouter.plus(volumeUSD);
+//     } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromOneInch = hourData.volumeUSDFromOneInch.plus(volumeUSD);
+//     } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromDODO = hourData.volumeUSDFromDODO.plus(volumeUSD);
+//     } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromOpenOcean = hourData.volumeUSDFromOpenOcean.plus(volumeUSD);
+//     } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromMetaMask = hourData.volumeUSDFromMetaMask.plus(volumeUSD);
+//     } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromYieldYak = hourData.volumeUSDFromYieldYak.plus(volumeUSD);
+//     } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromFireBird = hourData.volumeUSDFromFireBird.plus(volumeUSD);
+//     } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromBitKeep = hourData.volumeUSDFromBitKeep.plus(volumeUSD);
+//     } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromParaSwap = hourData.volumeUSDFromParaSwap.plus(volumeUSD);
+//     } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromBeethovenX = hourData.volumeUSDFromBeethovenX.plus(volumeUSD);
+//     } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromTransitSwap = hourData.volumeUSDFromTransitSwap.plus(volumeUSD);
+//     } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromZeroX = hourData.volumeUSDFromZeroX.plus(volumeUSD);
+//     } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
+//         hourData.volumeUSDFromODOS = hourData.volumeUSDFromODOS.plus(volumeUSD);
+//     } else {
+//         hourData.volumeUSDFromOther = hourData.volumeUSDFromOther.plus(volumeUSD);
+//     }
+//     hourData.updatedAt = event.block.timestamp;
+//
+//     hourData.save();
+// }
+//
+// export function updateDayDataOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string): void {
+//     let dayData = createDayData(event);
+//     if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromWooRouter = dayData.volumeUSDFromWooRouter.plus(volumeUSD);
+//     } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromOneInch = dayData.volumeUSDFromOneInch.plus(volumeUSD);
+//     } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromDODO = dayData.volumeUSDFromDODO.plus(volumeUSD);
+//     } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromOpenOcean = dayData.volumeUSDFromOpenOcean.plus(volumeUSD);
+//     } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromMetaMask = dayData.volumeUSDFromMetaMask.plus(volumeUSD);
+//     } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromYieldYak = dayData.volumeUSDFromYieldYak.plus(volumeUSD);
+//     } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromFireBird = dayData.volumeUSDFromFireBird.plus(volumeUSD);
+//     } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromBitKeep = dayData.volumeUSDFromBitKeep.plus(volumeUSD);
+//     } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromParaSwap = dayData.volumeUSDFromParaSwap.plus(volumeUSD);
+//     } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromBeethovenX = dayData.volumeUSDFromBeethovenX.plus(volumeUSD);
+//     } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromTransitSwap = dayData.volumeUSDFromTransitSwap.plus(volumeUSD);
+//     } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromZeroX = dayData.volumeUSDFromZeroX.plus(volumeUSD);
+//     } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
+//         dayData.volumeUSDFromODOS = dayData.volumeUSDFromODOS.plus(volumeUSD);
+//     } else {
+//         dayData.volumeUSDFromOther = dayData.volumeUSDFromOther.plus(volumeUSD);
+//     }
+//     dayData.updatedAt = event.block.timestamp;
+//
+//     dayData.save();
+// }
+//
+// export function updateTokenOrderSourceVolumeUSD(event: ethereum.Event, volumeUSD: BigInt, orderSourceID: string, tokenAddress: Bytes): void {
+//     let token = createToken(event, tokenAddress);
+//     if (orderSourceID == WOO_ROUTER_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromWooRouter = token.volumeUSDFromWooRouter.plus(volumeUSD);
+//     } else if (orderSourceID == ONE_INCH_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromOneInch = token.volumeUSDFromOneInch.plus(volumeUSD);
+//     } else if (orderSourceID == DODO_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromDODO = token.volumeUSDFromDODO.plus(volumeUSD);
+//     } else if (orderSourceID == OPEN_OCEAN_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromOpenOcean = token.volumeUSDFromOpenOcean.plus(volumeUSD);
+//     } else if (orderSourceID == METAMASK_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromMetaMask = token.volumeUSDFromMetaMask.plus(volumeUSD);
+//     } else if (orderSourceID == YIELD_YAK_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromYieldYak = token.volumeUSDFromYieldYak.plus(volumeUSD);
+//     } else if (orderSourceID == FIRE_BIRD_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromFireBird = token.volumeUSDFromFireBird.plus(volumeUSD);
+//     } else if (orderSourceID == BIT_KEEP_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromBitKeep = token.volumeUSDFromBitKeep.plus(volumeUSD);
+//     } else if (orderSourceID == PARA_SWAP_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromParaSwap = token.volumeUSDFromParaSwap.plus(volumeUSD);
+//     } else if (orderSourceID == BEETHOVEN_X_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromBeethovenX = token.volumeUSDFromBeethovenX.plus(volumeUSD);
+//     } else if (orderSourceID == TRANSIT_SWAP_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromTransitSwap = token.volumeUSDFromTransitSwap.plus(volumeUSD);
+//     } else if (orderSourceID == ZERO_X_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromZeroX = token.volumeUSDFromZeroX.plus(volumeUSD);
+//     } else if (orderSourceID == ODOS_ORDER_SOURCE_ID) {
+//         token.volumeUSDFromODOS = token.volumeUSDFromODOS.plus(volumeUSD);
+//     } else {
+//         token.volumeUSDFromOther = token.volumeUSDFromOther.plus(volumeUSD);
+//     }
+//     token.updatedAt = event.block.timestamp;
+//
+//     token.save();
+// }
 
 export function updateStargateBridgeSendMsg(event: ethereum.Event, msgType: i32, nonce: BigInt): void {
     let stargateBridgeSendMsg = createStargateBridgeSendMsg(event);

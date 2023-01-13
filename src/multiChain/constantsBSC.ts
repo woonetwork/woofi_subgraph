@@ -24,25 +24,34 @@ export const STABLE_TOKENS: string[] = [
     "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",  // DAI
 ];
 
-export const QUOTE_TOKEN = '0x55d398326f99059ff775485246999027b3197955';
+export const QUOTE_TOKEN_1_V1 = '0x55d398326f99059ff775485246999027b3197955';
+export const QUOTE_TOKEN_2_V1 = '0x55d398326f99059ff775485246999027b3197955';
+export const QUOTE_TOKENS_V1: string[] = [QUOTE_TOKEN_1_V1, QUOTE_TOKEN_2_V1];
+
+export const QUOTE_TOKEN_1_V2 = '0xe9e7cea3dedca5984780bafc599bd69add087d56';
+export const QUOTE_TOKENS_V2: string[] = [QUOTE_TOKEN_1_V2];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0xcef5be73ae943b77f9bc08859367d923c030a269",  // WooRouter
-    "0x114f84658c99aa6ea62e3160a87a16deaf7efe83",  // WooRouter
+    "0xcef5be73ae943b77f9bc08859367d923c030a269",  // WooRouterV1
+    "0x114f84658c99aa6ea62e3160a87a16deaf7efe83",  // WooRouterV1
+    "0xc90bfe9951a4efbf20aca5ecd9966b2bf8a01294",  // WooRouterV2
     "0x53e255e8bbf4edf16797f9885291b3ca0c70b59f",  // WooCrossChainRouter
+    "0xd12d239b781e34e0aaa106159940803a07e31a67",  // WooCrossChainRouter
     "0xfe7c30860d01e28371d40434806f4a8fcdd3a098",  // Relayer
     "0xa27a2ca24dd28ce14fb5f5844b59851f03dcf182",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0xbf365ce9cfcb2d5855521985e351ba3bcf77fd3f",
-    "0x8489d142da126f4ea01750e80ccaa12fd1642988",
-    "0x10c24658815585851a8888f059cb4338790023f1",
+    "0xbf365ce9cfcb2d5855521985e351ba3bcf77fd3f",  // WooPPV1
+    "0x8489d142da126f4ea01750e80ccaa12fd1642988",  // WooPPV1
+    "0x10c24658815585851a8888f059cb4338790023f1",  // WooPPV1
+    "0xec054126922a9a1918435c9072c32f1b60cb2b90",  // WooPPV2
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
     "0xf704eaf4a68ac424c809f7c4595451b9414d2b76",
+    "0x8fa8e3dd9e84094a1d2511acf1353d7e011d8f90",
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [

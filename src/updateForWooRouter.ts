@@ -1,5 +1,5 @@
 import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {BI_1, BI_2, STABLE_TOKENS, QUOTE_TOKEN, OTHER_ORDER_SOURCE_ID} from "./constants";
+import {BI_1, BI_2, STABLE_TOKENS, OTHER_ORDER_SOURCE_ID, QUOTE_TOKEN_1_V1} from "./constants";
 import {
     createGlobalVariable,
     createOrderHistoryVariable,
@@ -17,10 +17,10 @@ import {
 } from "./create";
 import {getOrderSourceIDForWooRouter} from "./utils";
 import {
-    updateGlobalVariableOrderSourceVolumeUSD,
-    updateHourDataOrderSourceVolumeUSD,
-    updateDayDataOrderSourceVolumeUSD,
-    updateTokenOrderSourceVolumeUSD,
+    // updateGlobalVariableOrderSourceVolumeUSD,
+    // updateHourDataOrderSourceVolumeUSD,
+    // updateDayDataOrderSourceVolumeUSD,
+    // updateTokenOrderSourceVolumeUSD,
 } from "./update";
 import {WooSwapHash} from "../generated/schema";
 
@@ -43,10 +43,10 @@ export function updateGlobalVariable(
 
     globalVariable.save();
 
-    if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
-        let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
-        updateGlobalVariableOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID);
-    }
+    // if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
+    //     let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
+    //     updateGlobalVariableOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID);
+    // }
 }
 
 export function updateHourToken(
@@ -112,13 +112,13 @@ export function updateToken(
             STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) == -1 &&
             STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) == -1
         ) {
-            let bytesQuoteToken = Bytes.fromHexString(QUOTE_TOKEN) as Bytes;
-            updateTokenOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID, bytesQuoteToken);
+            // let bytesQuoteToken = Bytes.fromHexString(QUOTE_TOKEN_V1) as Bytes;
+            // updateTokenOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID, bytesQuoteToken);
             realAddOrderSourceVolumeUSD = realAddOrderSourceVolumeUSD.div(BI_2);
         }
 
-        updateTokenOrderSourceVolumeUSD(event, realAddOrderSourceVolumeUSD, orderSourceID, fromTokenAddress);
-        updateTokenOrderSourceVolumeUSD(event, realAddOrderSourceVolumeUSD, orderSourceID, toTokenAddress);
+        // updateTokenOrderSourceVolumeUSD(event, realAddOrderSourceVolumeUSD, orderSourceID, fromTokenAddress);
+        // updateTokenOrderSourceVolumeUSD(event, realAddOrderSourceVolumeUSD, orderSourceID, toTokenAddress);
     }
 }
 
@@ -142,10 +142,10 @@ export function updateHourData(
 
     hourData.save();
 
-    if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
-        let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
-        updateHourDataOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID);
-    }
+    // if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
+    //     let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
+    //     updateHourDataOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID);
+    // }
 }
 
 export function updateDayData(
@@ -168,10 +168,10 @@ export function updateDayData(
 
     dayData.save();
 
-    if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
-        let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
-        updateDayDataOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID);
-    }
+    // if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
+    //     let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
+    //     updateDayDataOrderSourceVolumeUSD(event, addOrderSourceVolumeUSD, orderSourceID);
+    // }
 }
 
 export function updateHourOrderSource(

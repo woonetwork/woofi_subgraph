@@ -23,17 +23,22 @@ export const STABLE_TOKENS: string[] = [
     "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",  // DAI
 ];
 
-export const QUOTE_TOKEN = '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8';
+export const QUOTE_TOKEN_1_V1 = '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8';
+export const QUOTE_TOKEN_2_V1 = '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8';
+export const QUOTE_TOKENS_V1: string[] = [QUOTE_TOKEN_1_V1, QUOTE_TOKEN_2_V1];
+
+export const QUOTE_TOKEN_1_V2 = '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8';
+export const QUOTE_TOKENS_V2: string[] = [QUOTE_TOKEN_1_V2];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x9aed3a8896a85fe9a8cac52c9b402d092b629a30",  // WooRouter
+    "0x9aed3a8896a85fe9a8cac52c9b402d092b629a30",  // WooRouterV2
     "0x0972a0fa37984e7ff2aefa53a0bb10dce535aa73",  // WooCrossChainRouter
     "0x177d36dbe2271a4ddb2ad8304d82628eb921d790",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0x1f79f8a65e02f8a137ce7f79c038cc44332df448",
+    "0x1f79f8a65e02f8a137ce7f79c038cc44332df448",  // WooPPV2
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [

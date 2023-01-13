@@ -27,25 +27,34 @@ export const STABLE_TOKENS: string[] = [
     "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",  // USDC
 ];
 
-export const QUOTE_TOKEN = '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e';
+export const QUOTE_TOKEN_1_V1 = '0xc7198437980c041c805a1edcba50c1ce5db95118';
+export const QUOTE_TOKEN_2_V1 = '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e';
+export const QUOTE_TOKENS_V1: string[] = [QUOTE_TOKEN_1_V1, QUOTE_TOKEN_2_V1];
+
+export const QUOTE_TOKEN_1_V2 = '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e';
+export const QUOTE_TOKENS_V2: string[] = [QUOTE_TOKEN_1_V2];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x5aa6a4e96a9129562e2fc06660d07feddaaf7854",  // WooRouter
-    "0x3e0da0a9e4139b32b37710784b8dca643c152001",  // WooRouter
-    "0x160020b09ded3d862f7f851b5c50632bcf2062ff",  // WooRouter
+    "0x5aa6a4e96a9129562e2fc06660d07feddaaf7854",  // WooRouterV1
+    "0x3e0da0a9e4139b32b37710784b8dca643c152001",  // WooRouterV1
+    "0x160020b09ded3d862f7f851b5c50632bcf2062ff",  // WooRouterV1
+    "0xc22fbb3133df781e6c25ea6acebe2d2bb8cea2f9",  // WooRouterV2
     "0xdf37f7a85d4563f39a78494568824b4df8669b7a",  // WooCrossChainRouter
+    "0x1e6bb552ac038c6afb6ec5db6b06fdd106e31e33",  // WooCrossChainRouter
     "0x6f475642a6e85809b1c36fa62763669b1b48dd5b",  // Relayer
     "0xcd2e3622d483c7dc855f72e5eafadcd577ac78b4",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0x1df3009c57a8b143c6246149f00b090bce3b8f88",
-    "0xf8ce0d043891b62c55380fb1efbfb4f186153d96",
+    "0x1df3009c57a8b143c6246149f00b090bce3b8f88",  // WooPPV1
+    "0xf8ce0d043891b62c55380fb1efbfb4f186153d96",  // WooPPV1
+    "0x3b3e4b4741e91af52d0e9ad8660573e951c88524",  // WooPPV2
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
     "0x48419c93d0d3b2428cd02bbcdeabd3aafc107f85",
+    "0xfd7ed9d3d4fd88595af6a87f798ffdb42b4d7ccb",
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
@@ -69,6 +78,7 @@ export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean: Exchange V2
     "0x12cfe671e9b186f21d9852d69bdbfe3f8ac9ecb1",  // OpenOcean Unverified Contract
     "0x8d2b7e5501eb6d92f8e349f2febe785dd070be74",  // OpenOcean Unverified Contract
+    "0x07749429d3d9047a966b28a489500325bac9f1b6",  // OpenOcean Unverified Contract
 ];
 
 export const METAMASK_SOURCES: string[] = [

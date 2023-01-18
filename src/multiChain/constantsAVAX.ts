@@ -89,6 +89,7 @@ export const YIELD_YAK_SOURCES: string[] = [
     "0xc4729e56b831d74bbc18797e0e17a295fa77488c",  // YakRouter
     "0xe5a6a4279d1517231a84fae629e433b312fe89d7",  // WoofiAdapter
     "0xa64c5c58fc1510de3ff2ee644e030d666b660ea6",  // WoofiAdapter
+    "0x443a28ae2dc8e1d71327b2c6eedf03be8077538d",  // WoofiV2Adapter
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [

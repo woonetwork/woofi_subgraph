@@ -55,6 +55,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x73f0a6927a3c04e679074e70dfb9105f453e799d",  // 1inch Unverified Contract
     "0xccf6b19bc2419e776b6ee030044811da846686fb",  // 1inch Unverified Contract
     "0x93131efee501d5721737c32576238f619548edda",  // 1inch Unverified Contract
+    "0x5d0ec1f843c1233d304b96dbde0cab9ec04d71ef",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
@@ -64,6 +65,7 @@ export const DODO_ORDER_SOURCES: string[] = [
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOceanExchangeProxy
     "0xba6c1933235feca781fe896562895adb59dedb8c",  // OpenOcean Unverified Contract
+    "0xdec876911cbe9428265af0d12132c52ee8642a99",
 ];
 
 export const METAMASK_SOURCES: string[] = [

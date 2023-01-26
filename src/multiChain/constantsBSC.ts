@@ -65,6 +65,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x05ad60d9a2f1aa30ba0cdbaf1e0a0a145fbea16f",
     "0x2ed740c6e3aaf5987c7f5a4fa13b90fcc47febd7",
     "0x18101ac1d35230f1a3c005e2abaaeb25cae79e7f",
+    "0x7f9e3430880580713b03670046c7e89a0a91403b",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
@@ -93,6 +94,7 @@ export const YIELD_YAK_SOURCES: string[] = [
 export const FIRE_BIRD_SOURCES: string[] = [
     "0x92e4f29be975c1b1eb72e77de24dccf11432a5bd",  // FireBirdRouter
     "0xb97922afa65c46a1babbf70031f7224bd3449c8e",  // FireBird Unverified Contract(assume as Adapter)
+    "0xba9e5d8fb589ecd13bfcf0fa6d751c57c4ec9321",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
@@ -114,6 +116,7 @@ export const TRANSIT_SWAP_SOURCES: string[] = [
     "0x638f32fe09baec1fdc54f962e3e8e5f2b286aa70",  // Transit: Swap Router
     "0x09c0fa8e2cd5fb18a9cb41c8daa951d9a4b09d7a",  // Adapter
     "0x457b4c2ab9905b48511ad0d343ba528a0af5045b",  // Adapter
+    "0x661d4d4785c302a56d7cb8a92f130d319bc25e4a",  // Adapter
 ];
 
 export const ZERO_X_SOURCES: string[] = [
@@ -123,6 +126,7 @@ export const ZERO_X_SOURCES: string[] = [
 
 export const ODOS_SOURCES: string[] = [
     "0x9f138be5aa5cc442ea7cc7d18cd9e30593ed90b9",
+    "0xd4a2269719276313aa6ab7b01f91d238eba96433",
 ];
 
 export let ADDRESS_SOURCES: string[][] = [

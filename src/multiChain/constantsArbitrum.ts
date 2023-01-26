@@ -50,6 +50,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
     "0x521709b3cd7f07e29722be0ba28a8ce0e806dbc3",  // 1inch Unverified Contract
+    "0x64768a3a2453f1e8de9e43e92d65fc36e4c9872d",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
@@ -76,6 +77,7 @@ export const FIRE_BIRD_SOURCES: string[] = [
     "0x0c6134abc08a1eafc3e2dc9a5ad023bb08da86c3",  // FireBirdRouter
     "0x984742be1901fcbed70d7b5847bee5be006d91c8",  // FireBird Unverified Contract(assume as Adapter)
     "0xbbe84caaf62dba7081e1f1cc2c1f83f156587114",  // FireBird Unverified Contract(assume as Adapter)
+    "0x350e44fc8d033ab9cd5f832288f0c8f0ceed795f"
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

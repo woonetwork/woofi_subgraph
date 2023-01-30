@@ -74,6 +74,7 @@ export const DODO_ORDER_SOURCES: string[] = [
     "0xbce44767af0a53a108b3b7ba4f740e03d228ec0a",  // WooAdapter
     "0xa128ba44b2738a558a1fdc06d6303d52d3cef8c1",  // Approve
     "0x187da347debf4221b861eeafc9808d8cf89cf5fe",  // DODOLimitOrderBot
+    "0x5dcb1d7f932275e6bbc5d1ef82485992507766c1",  // WooV2Adapter
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [

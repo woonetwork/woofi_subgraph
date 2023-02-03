@@ -93,6 +93,7 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 
 export const TRANSIT_SWAP_SOURCES: string[] = [
     "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
+    "0xf7a2f863299c17dfa11cd8a14e7c7dca92f315b9",  // Adapter
 ];
 
 export const ZERO_X_SOURCES: string[] = [

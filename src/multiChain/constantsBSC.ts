@@ -119,6 +119,7 @@ export const TRANSIT_SWAP_SOURCES: string[] = [
     "0x457b4c2ab9905b48511ad0d343ba528a0af5045b",  // Adapter
     "0x661d4d4785c302a56d7cb8a92f130d319bc25e4a",  // Adapter
     "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
+    "0x661d4d4785c302a56d7cb8a92f130d319bc25e4a",  // Adapter
 ];
 
 export const ZERO_X_SOURCES: string[] = [

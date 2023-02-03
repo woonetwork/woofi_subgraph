@@ -34,6 +34,7 @@ export const QUOTE_TOKENS_V2: string[] = [QUOTE_TOKEN_1_V2];
 export const WOO_ROUTER_SOURCES: string[] = [
     "0x9aed3a8896a85fe9a8cac52c9b402d092b629a30",  // WooRouterV2
     "0x0972a0fa37984e7ff2aefa53a0bb10dce535aa73",  // WooCrossChainRouter
+    "0x44df096d2600c6a6db77899db3de3aecff746cb8",  // WooCrossChainRouter
     "0x177d36dbe2271a4ddb2ad8304d82628eb921d790",  // Relayer
 ];
 
@@ -93,7 +94,7 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 ];
 
 export const TRANSIT_SWAP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
 ];
 
 export const ZERO_X_SOURCES: string[] = [

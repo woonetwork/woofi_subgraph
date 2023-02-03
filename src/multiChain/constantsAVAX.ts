@@ -113,6 +113,7 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 export const TRANSIT_SWAP_SOURCES: string[] = [
     "0x57a8aa38d670f025385c5eb2eed47b96a1dbdf94",
     "0xc8d7899f22bc4995c8176e3f2a5ba3f5e87d95e5",
+    "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
 ];
 
 export const ZERO_X_SOURCES: string[] = [
@@ -123,6 +124,7 @@ export const ZERO_X_SOURCES: string[] = [
 export const ODOS_SOURCES: string[] = [
     "0xfe7ce93ac0f78826cd81d506b07fe9f459c00214",  // OdosRouter
     "0xea584ef9aa0a6b1d0b6782043ebfbc0bdd037adb",  // Adaptor
+    "0xe4614d81bd262d62b09867c915d556c508b7036f",  // Adaptor
 ];
 
 export let ADDRESS_SOURCES: string[][] = [

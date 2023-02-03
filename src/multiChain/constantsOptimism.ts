@@ -92,11 +92,11 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 ];
 
 export const TRANSIT_SWAP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
 ];
 
 export const ZERO_X_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0xa3128d9b7cca7d5af29780a56abeec12b05a6740",
 ];
 
 export const ODOS_SOURCES: string[] = [

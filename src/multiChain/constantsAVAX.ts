@@ -40,8 +40,9 @@ export const WOO_ROUTER_SOURCES: string[] = [
     "0x3e0da0a9e4139b32b37710784b8dca643c152001",  // WooRouterV1
     "0x160020b09ded3d862f7f851b5c50632bcf2062ff",  // WooRouterV1
     "0xc22fbb3133df781e6c25ea6acebe2d2bb8cea2f9",  // WooRouterV2
-    "0xdf37f7a85d4563f39a78494568824b4df8669b7a",  // WooCrossChainRouter
-    "0x1e6bb552ac038c6afb6ec5db6b06fdd106e31e33",  // WooCrossChainRouter
+    "0xdf37f7a85d4563f39a78494568824b4df8669b7a",  // WooCrossChainRouterV1
+    "0x1e6bb552ac038c6afb6ec5db6b06fdd106e31e33",  // WooCrossChainRouterV1
+    "0x4ea3b7cc1efcdb92a9fe67d2e45d5c46afb1262f",  // WooCrossChainRouterV2
     "0x6f475642a6e85809b1c36fa62763669b1b48dd5b",  // Relayer
     "0xcd2e3622d483c7dc855f72e5eafadcd577ac78b4",  // Relayer
 ];

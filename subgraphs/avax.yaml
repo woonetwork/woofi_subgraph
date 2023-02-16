@@ -23,6 +23,31 @@ dataSources:
           handler: handleStargateBridgeV1SendMsg_1
       file: ../src/mappings/stargateBridge/stargateBridge.ts
   - kind: ethereum/contract
+    name: WooCrossChainRouterV2_1
+    network: avalanche
+    source:
+      address: "0x4Ea3B7CC1eFcdB92a9fe67d2e45d5C46Afb1262F"
+      abi: WooCrossChainRouterV2
+      startBlock: 26283428
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooCrossSwapOnSrcChain
+        - WooCrossSwapOnDstChain
+      abis:
+        - name: WooCrossChainRouterV2
+          file: ../abis/WooCrossChainRouterV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
+          handler: handleWooCCRouterV2WooCrossSwapOnSrcChain_1
+        - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
+          handler: handleWooCCRouterV2WooCrossSwapOnDstChain_1
+      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+  - kind: ethereum/contract
     name: WooCrossChainRouterV1_2
     network: avalanche
     source:

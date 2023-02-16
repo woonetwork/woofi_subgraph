@@ -8,6 +8,10 @@ import {
     WooCrossSwapOnDstChain as WooCCRouterV1WooCrossSwapOnDstChain_2
 } from "../../../generated/WooCrossChainRouterV1_2/WooCrossChainRouterV1";
 import {
+    WooCrossSwapOnSrcChain as WooCCRouterV2WooCrossSwapOnSrcChain_1,
+    WooCrossSwapOnDstChain as WooCCRouterV2WooCrossSwapOnDstChain_1
+} from "../../../generated/WooCrossChainRouterV2_1/WooCrossChainRouterV2";
+import {
     createCrossChainSrcOrderHistory,
     createCrossChainDstOrderHistory
 } from "../../create";
@@ -15,6 +19,34 @@ import {
     updateCrossChainSrcOrderHistoryVariable,
     updateCrossChainDstOrderHistoryVariable,
 } from "../../updateForWooCrossChainRouter";
+
+export function handleWooCCRouterV2WooCrossSwapOnSrcChain_1(event: WooCCRouterV2WooCrossSwapOnSrcChain_1): void {
+    handleWooCrossSwapOnSrcChain(
+        event,
+        event.params.refId,
+        event.params.sender,
+        event.params.to,
+        event.params.fromToken,
+        event.params.fromAmount,
+        event.params.minBridgeAmount,
+        event.params.realBridgeAmount
+    );
+}
+
+export function handleWooCCRouterV2WooCrossSwapOnDstChain_1(event: WooCCRouterV2WooCrossSwapOnDstChain_1): void {
+    handleWooCrossSwapOnDstChain(
+        event,
+        event.params.refId,
+        event.params.sender,
+        event.params.to,
+        event.params.bridgedToken,
+        event.params.bridgedAmount,
+        event.params.toToken,
+        event.params.realToToken,
+        event.params.minToAmount,
+        event.params.realToAmount
+    );
+}
 
 export function handleWooCCRouterV1WooCrossSwapOnSrcChain_2(event: WooCCRouterV1WooCrossSwapOnSrcChain_2): void {
     handleWooCrossSwapOnSrcChain(

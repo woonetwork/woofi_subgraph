@@ -26,9 +26,9 @@ dataSources:
     name: WooCrossChainRouterV2_1
     network: fantom
     source:
-      address: "0xDeEFC0449d7E8162f1C007AebBB7EE92d50a5D0f"
+      address: "0xFC0E57b5F8adCadc5e6E37578bb9Aa30cEe312Af"
       abi: WooCrossChainRouterV2
-      startBlock: 55832559
+      startBlock: 55974719
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

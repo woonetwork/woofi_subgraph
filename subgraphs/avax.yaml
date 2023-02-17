@@ -26,9 +26,9 @@ dataSources:
     name: WooCrossChainRouterV2_1
     network: avalanche
     source:
-      address: "0x4Ea3B7CC1eFcdB92a9fe67d2e45d5C46Afb1262F"
+      address: "0xb5B3c7a642953524088C97b6D4870557aAAB2F2d"
       abi: WooCrossChainRouterV2
-      startBlock: 26283428
+      startBlock: 26365969
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

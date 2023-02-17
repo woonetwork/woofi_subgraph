@@ -26,9 +26,9 @@ dataSources:
     name: WooCrossChainRouterV2_1
     network: matic
     source:
-      address: "0xa0d702C9c0316e9C26fc39EFfc9d2e4652e898e4"
+      address: "0x5620035B2053CbAE26106a1CC8D49d051b4eD968"
       abi: WooCrossChainRouterV2
-      startBlock: 39312486
+      startBlock: 39389241
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

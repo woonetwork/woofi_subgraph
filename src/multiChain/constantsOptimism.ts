@@ -34,7 +34,7 @@ export const QUOTE_TOKENS_V2: string[] = [QUOTE_TOKEN_1_V2];
 export const WOO_ROUTER_SOURCES: string[] = [
     "0xeaf1ac8e89ea0ae13e0f03634a4ff23502527024",  // WooRouterV2
     "0x655e2fe03fe19327239b5294a556965192386a7b",  // WooCrossChainRouterV1
-    "0x1553a071c135137610699f93c9834e8165ecacca",  // WooCrossChainRouterV2
+    "0x8c603050d7a913b6f63836e07ebf385a4a5736e7",  // WooCrossChainRouterV2
     "0x81e792e5a9003cc1c8bf5569a00f34b65d75b017",  // Relayer
 ];
 

@@ -1,22 +1,12 @@
 import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {WooSwapHash} from "../generated/schema";
+import {WooSwapHash} from "../../../generated/schema";
 import {
     BI_1,
-    BI_18,
     WOO_ROUTER_ORDER_SOURCE_ID,
-    ONE_INCH_ORDER_SOURCE_ID,
-    DODO_ORDER_SOURCE_ID,
-    OPEN_OCEAN_ORDER_SOURCE_ID,
-    METAMASK_ORDER_SOURCE_ID,
-    YIELD_YAK_ORDER_SOURCE_ID,
-    FIRE_BIRD_ORDER_SOURCE_ID,
-    BIT_KEEP_ORDER_SOURCE_ID,
-    PARA_SWAP_ORDER_SOURCE_ID,
-    BEETHOVEN_X_ORDER_SOURCE_ID,
     OTHER_ORDER_SOURCE_ID,
     GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID,
-} from "./constants";
-import {exponentToBigDecimal, getOrderSourceIDForWooPP} from "./utils";
+} from "../../constants";
+import {getOrderSourceIDForWooPP} from "../../utils";
 import {
     createGlobalVariable,
     createHourToken,
@@ -33,14 +23,7 @@ import {
     createUnknownOrderSource,
     createWooSwapHash,
     createHourRebate
-} from "./create";
-import {
-    // updateGlobalVariableOrderSourceVolumeUSD,
-    // updateHourDataOrderSourceVolumeUSD,
-    // updateDayDataOrderSourceVolumeUSD,
-    // updateTokenOrderSourceVolumeUSD,
-} from "./update";
-import {BigDecimal} from "@graphprotocol/graph-ts";
+} from "../../create";
 
 export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapFrom: Bytes, wooSwapHash: WooSwapHash): void {
     let globalVariable = createGlobalVariable(event);
@@ -56,11 +39,6 @@ export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes
     globalVariable.updatedAt = event.block.timestamp;
 
     globalVariable.save();
-
-    // let orderSourceID = getOrderSourceIDForWooPP(event.transaction.to.toHexString(), wooSwapFrom.toHexString());
-    // if (orderSourceID != GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
-    //     updateGlobalVariableOrderSourceVolumeUSD(event, volumeUSD, orderSourceID);
-    // }
 }
 
 export function updateHourToken(
@@ -102,12 +80,6 @@ export function updateToken(event: ethereum.Event, volumeUSD: BigInt, fromTokenA
     toToken.updatedAt = event.block.timestamp;
 
     toToken.save();
-
-    // let orderSourceID = getOrderSourceIDForWooPP(event.transaction.to.toHexString(), wooSwapFrom.toHexString());
-    // if (orderSourceID != GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
-    //     updateTokenOrderSourceVolumeUSD(event, volumeUSD, orderSourceID, fromTokenAddress);
-    //     updateTokenOrderSourceVolumeUSD(event, volumeUSD, orderSourceID, toTokenAddress);
-    // }
 }
 
 export function updateHourData(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapFrom: Bytes, wooSwapHash: WooSwapHash): void {
@@ -125,11 +97,6 @@ export function updateHourData(event: ethereum.Event, traderAddress: Bytes, volu
     hourData.updatedAt = event.block.timestamp;
 
     hourData.save();
-
-    // let orderSourceID = getOrderSourceIDForWooPP(event.transaction.to.toHexString(), wooSwapFrom.toHexString());
-    // if (orderSourceID != GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
-    //     updateHourDataOrderSourceVolumeUSD(event, volumeUSD, orderSourceID);
-    // }
 }
 
 export function updateDayData(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapFrom: Bytes, wooSwapHash: WooSwapHash): void {
@@ -139,7 +106,6 @@ export function updateDayData(event: ethereum.Event, traderAddress: Bytes, volum
     if (dayTrader.tradedToday == false) {
         dayData.traders = dayData.traders.plus(BI_1);
     }
-    // 注意顺序, 需要先检查dayTrader.tradedToday后再更新dayTrader
     updateDayTrader(event, traderAddress, volumeUSD, wooSwapFrom);
     if (wooSwapHash.txnSynced == false) {
         dayData.txns = dayData.txns.plus(BI_1);
@@ -148,11 +114,6 @@ export function updateDayData(event: ethereum.Event, traderAddress: Bytes, volum
     dayData.updatedAt = event.block.timestamp;
 
     dayData.save();
-
-    // let orderSourceID = getOrderSourceIDForWooPP(event.transaction.to.toHexString(), wooSwapFrom.toHexString());
-    // if (orderSourceID != GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
-    //     updateDayDataOrderSourceVolumeUSD(event, volumeUSD, orderSourceID);
-    // }
 }
 
 export function updateHourTrader(event: ethereum.Event, traderAddress: Bytes): void {
@@ -269,7 +230,7 @@ export function updateWooSwapHash(event: ethereum.Event, volumeUSD: BigInt, wooS
 }
 
 export function updateHourRebate(event: ethereum.Event, swapFee: BigInt, rebateFee: BigInt, rebateToAddress: Bytes): void {
-    // Store every rebateTo even it's not in the allRebateAddresses(), will handle in backend script
+    // store every rebateTo even it's not in the allRebateAddresses(), will handle in backend script
     let hourRebate = createHourRebate(event, rebateToAddress);
     hourRebate.swapFee = hourRebate.swapFee.plus(swapFee);
     hourRebate.rebateFee = hourRebate.rebateFee.plus(rebateFee);

@@ -46,24 +46,18 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
     "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
-    "0x521709b3cd7f07e29722be0ba28a8ce0e806dbc3",  // 1inch Unverified Contract
-    "0x64768a3a2453f1e8de9e43e92d65fc36e4c9872d",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
-    "0x3b6067d4caa8a14c63fdbe6318f27a0bbc9f9237", // DODO: Proxy Route
-    "0x1f076a800005c758a505e759720eb6737136e893", // WooV2Adapter
+    "0x0000000000000000000000000000000000000000",
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
-    "0x703855c7be44426f4c1c70976979f1ef3a6e58e6",  // OpenOcean Unverified Contract(assume as Adapter)
-    "0x4e6b18217ac75a779262c20b3cc07050cbe7282b",  // OpenOcean Unverified Contract(assume as Adapter)
-    "0x07749429d3d9047a966b28a489500325bac9f1b6",  // OpenOcean Unverified Contract(assume as Adapter)
 ];
 
 export const METAMASK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // MetaMask
+    "0x0000000000000000000000000000000000000000",
 ];
 
 export const YIELD_YAK_SOURCES: string[] = [
@@ -71,10 +65,7 @@ export const YIELD_YAK_SOURCES: string[] = [
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
-    "0x0c6134abc08a1eafc3e2dc9a5ad023bb08da86c3",  // FireBirdRouter
-    "0x984742be1901fcbed70d7b5847bee5be006d91c8",  // FireBird Unverified Contract(assume as Adapter)
-    "0xbbe84caaf62dba7081e1f1cc2c1f83f156587114",  // FireBird Unverified Contract(assume as Adapter)
-    "0x350e44fc8d033ab9cd5f832288f0c8f0ceed795f"
+    "0x0000000000000000000000000000000000000000",
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
@@ -91,18 +82,14 @@ export const BEETHOVEN_X_SOURCES: string[] = [
 
 export const TRANSIT_SWAP_SOURCES: string[] = [
     "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
-    "0xf7a2f863299c17dfa11cd8a14e7c7dca92f315b9",  // Adapter
 ];
 
 export const ZERO_X_SOURCES: string[] = [
     "0xdef1c0ded9bec7f1a1670819833240f027b25eff",
-    "0xdb6f1920a889355780af7570773609bd8cb1f498",
 ];
 
 export const ODOS_SOURCES: string[] = [
     "0xdd94018f54e565dbfc939f7c44a16e163faab331",  // OdosRouter
-    "0xc160e4fe967f8ada7b58d9c578267ebbec1e7a63",  // Adaptor
-    "0xa5abf0fb3a51af318c48abb6478d350060009b84",  // Adaptor
 ];
 
 export let ADDRESS_SOURCES: string[][] = [

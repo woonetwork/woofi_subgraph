@@ -24,8 +24,6 @@ import {
 } from "../generated/schema";
 import {
     BI_0,
-    BD_0,
-    BI_18,
     STABLE_TOKENS,
     GLOBAL_VARIABLE_ID,
     ORDER_HISTORY_VARIABLE_ID,
@@ -323,7 +321,6 @@ export function createOrderHistoryVariable(event: ethereum.Event): OrderHistoryV
     return orderHistoryVariable as OrderHistoryVariable;
 }
 
-// Only Create by WooRouter
 export function createOrderHistory(
     event: ethereum.Event,
     swapType: i32,
@@ -334,6 +331,7 @@ export function createOrderHistory(
     toTokenAddress: Bytes,
     toAmount: BigInt
 ): OrderHistory {
+    // only create by WooRouter
     let orderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
     let orderHistory = OrderHistory.load(orderHistoryID);
     if (orderHistory == null) {
@@ -372,7 +370,6 @@ export function createCrossChainSrcOrderHistoryVariable(event: ethereum.Event): 
     return orderHistoryVariable as OrderHistoryVariable;
 }
 
-// Only Create by WooCrossChainRouter
 export function createCrossChainSrcOrderHistory(
     event: ethereum.Event,
     refId: BigInt,
@@ -383,6 +380,7 @@ export function createCrossChainSrcOrderHistory(
     minQuoteAmount: BigInt,
     realQuoteAmount: BigInt
 ): CrossChainSrcOrderHistory {
+    // only create by WooCrossChainRouter
     let crossChainSrcOrderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
     let crossChainSrcOrderHistory = CrossChainSrcOrderHistory.load(crossChainSrcOrderHistoryID);
     if (crossChainSrcOrderHistory == null) {
@@ -422,7 +420,6 @@ export function createCrossChainDstOrderHistoryVariable(event: ethereum.Event): 
     return orderHistoryVariable as OrderHistoryVariable;
 }
 
-// Only Create by WooCrossChainRouter
 export function createCrossChainDstOrderHistory(
     event: ethereum.Event,
     refId: BigInt,
@@ -435,6 +432,7 @@ export function createCrossChainDstOrderHistory(
     minToAmount: BigInt,
     realToAmount: BigInt
 ): CrossChainDstOrderHistory {
+    // only create by WooCrossChainRouter
     let crossChainDstOrderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
     let crossChainDstOrderHistory = CrossChainDstOrderHistory.load(crossChainDstOrderHistoryID);
     if (crossChainDstOrderHistory == null) {

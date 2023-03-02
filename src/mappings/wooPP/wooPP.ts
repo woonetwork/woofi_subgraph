@@ -18,7 +18,7 @@ import {
     updateOrderSource,
     updateWooSwapHash,
     updateHourRebate
-} from "../../updateForWooPP";
+} from "./update";
 import {createToken, createWooSwapHash} from "../../create";
 import {updateTokenPrice} from "../../update";
 import {BI_0, BI_18, QUOTE_TOKEN_1_V2} from "../../constants";

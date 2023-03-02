@@ -2,8 +2,8 @@ import {ethereum} from "@graphprotocol/graph-ts/index";
 import {
     createCrossChainSrcOrderHistoryVariable,
     createCrossChainDstOrderHistoryVariable,
-} from "./create";
-import {BI_1} from "./constants";
+} from "../../create";
+import {BI_1} from "../../constants";
 
 export function updateCrossChainSrcOrderHistoryVariable(event: ethereum.Event): void {
     let crossChainSrcOrderHistoryVariable = createCrossChainSrcOrderHistoryVariable(event);

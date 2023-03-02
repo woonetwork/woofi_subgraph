@@ -1,6 +1,8 @@
 specVersion: 0.0.2
+description: fi.woo.org
+repository: https://github.com/woonetwork/woofi_subgraph
 schema:
-  file: ./schema.graphql
+  file: ./woofi.graphql
 dataSources:
   - kind: ethereum/contract
     name: StargateBridgeV1_1

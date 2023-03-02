@@ -43,7 +43,7 @@ export const WOO_PP_SOURCES: string[] = [
 ];
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
-    // "",  // No WooVaultManager on Optimism
+    "0x0000000000000000000000000000000000000000",  // No WooVaultManager on Optimism
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [
@@ -55,8 +55,6 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
-    // "",  // DODO: Router
-    // "",  // WooAdapter
     "0x0000000000000000000000000000000000000000",
 ];
 
@@ -67,7 +65,7 @@ export const OPEN_OCEAN_SOURCES: string[] = [
 ];
 
 export const METAMASK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // MetaMask
+    "0x0000000000000000000000000000000000000000",
 ];
 
 export const YIELD_YAK_SOURCES: string[] = [

@@ -16,7 +16,7 @@ import {
     updateOrderSource,
     updateOrderHistoryVariable,
     updateWooRouterSwapHash,
-} from "../../updateForWooRouter";
+} from "./update";
 import {createOrderHistory, createWooSwapHash, createWooRouterSwapHash} from "../../create";
 import {WooSwapHash} from "../../../generated/schema";
 

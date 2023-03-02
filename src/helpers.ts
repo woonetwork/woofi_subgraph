@@ -124,8 +124,6 @@ export function calVolumeUSDForWooRouter(
         isV1 == true
         && QUOTE_TOKENS_V1.indexOf(fromTokenAddress.toHexString()) == -1
         && QUOTE_TOKENS_V1.indexOf(toTokenAddress.toHexString()) == -1
-        // && fromTokenAddress.toHexString() != QUOTE_TOKEN_V1
-        // && toTokenAddress.toHexString() != QUOTE_TOKEN_V1
         && swapType == 0
     ) {
         volumeUSD = volumeUSD.times(BI_2);

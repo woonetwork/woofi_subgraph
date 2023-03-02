@@ -35,9 +35,9 @@ export function updateGlobalVariable(
     let globalVariable = createGlobalVariable(event);
 
     if (swapType == 0) {
-        globalVariable.routeToWooPPVolumeUSD = globalVariable.routeToWooPPVolumeUSD.plus(volumeUSD);
+        globalVariable.routerToWooPPVolumeUSD = globalVariable.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
-        globalVariable.routeToDODOVolumeUSD = globalVariable.routeToDODOVolumeUSD.plus(volumeUSD);
+        globalVariable.routerToThirdPartyVolumeUSD = globalVariable.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
     globalVariable.updatedAt = event.block.timestamp;
 
@@ -60,20 +60,20 @@ export function updateHourToken(
     let toHourToken = createHourToken(event, toTokenAddress);
 
     if (swapType == 0) {
-        fromHourToken.routeToWooPPTxCount = fromHourToken.routeToWooPPTxCount.plus(BI_1);
-        fromHourToken.routeToWooPPVolumeUSD = fromHourToken.routeToWooPPVolumeUSD.plus(volumeUSD);
+        fromHourToken.routerToWooPPTxns = fromHourToken.routerToWooPPTxns.plus(BI_1);
+        fromHourToken.routerToWooPPVolumeUSD = fromHourToken.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
-        fromHourToken.routeToDODOTxCount = fromHourToken.routeToDODOTxCount.plus(BI_1);
-        fromHourToken.routeToDODOVolumeUSD = fromHourToken.routeToDODOVolumeUSD.plus(volumeUSD);
+        fromHourToken.routerToThirdPartyTxns = fromHourToken.routerToThirdPartyTxns.plus(BI_1);
+        fromHourToken.routerToThirdPartyVolumeUSD = fromHourToken.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
     fromHourToken.save();
 
     if (swapType == 0) {
-        toHourToken.routeToWooPPTxCount = toHourToken.routeToWooPPTxCount.plus(BI_1);
-        toHourToken.routeToWooPPVolumeUSD = toHourToken.routeToWooPPVolumeUSD.plus(volumeUSD);
+        toHourToken.routerToWooPPTxns = toHourToken.routerToWooPPTxns.plus(BI_1);
+        toHourToken.routerToWooPPVolumeUSD = toHourToken.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
-        toHourToken.routeToDODOTxCount = toHourToken.routeToDODOTxCount.plus(BI_1);
-        toHourToken.routeToDODOVolumeUSD = toHourToken.routeToDODOVolumeUSD.plus(volumeUSD);
+        toHourToken.routerToThirdPartyTxns = toHourToken.routerToThirdPartyTxns.plus(BI_1);
+        toHourToken.routerToThirdPartyVolumeUSD = toHourToken.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
     toHourToken.save();
 }
@@ -92,16 +92,16 @@ export function updateToken(
     let toToken = createToken(event, toTokenAddress);
 
     if (swapType == 0) {
-        fromToken.routeToWooPPVolumeUSD = fromToken.routeToWooPPVolumeUSD.plus(volumeUSD);
+        fromToken.routerToWooPPVolumeUSD = fromToken.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
-        fromToken.routeToDODOVolumeUSD = fromToken.routeToDODOVolumeUSD.plus(volumeUSD);
+        fromToken.routerToThirdPartyVolumeUSD = fromToken.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
     fromToken.save();
 
     if (swapType == 0) {
-        toToken.routeToWooPPVolumeUSD = toToken.routeToWooPPVolumeUSD.plus(volumeUSD);
+        toToken.routerToWooPPVolumeUSD = toToken.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
-        toToken.routeToDODOVolumeUSD = toToken.routeToDODOVolumeUSD.plus(volumeUSD);
+        toToken.routerToThirdPartyVolumeUSD = toToken.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
     toToken.save();
 
@@ -133,11 +133,11 @@ export function updateHourData(
     let hourData = createHourData(event);
 
     if (swapType == 0) {
-        hourData.routeToWooPPTxCount = hourData.routeToWooPPTxCount.plus(BI_1);
-        hourData.routeToWooPPVolumeUSD = hourData.routeToWooPPVolumeUSD.plus(volumeUSD);
+        hourData.routerToWooPPTxns = hourData.routerToWooPPTxns.plus(BI_1);
+        hourData.routerToWooPPVolumeUSD = hourData.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
-        hourData.routeToDODOTxCount = hourData.routeToDODOTxCount.plus(BI_1);
-        hourData.routeToDODOVolumeUSD = hourData.routeToDODOVolumeUSD.plus(volumeUSD);
+        hourData.routerToThirdPartyTxns = hourData.routerToThirdPartyTxns.plus(BI_1);
+        hourData.routerToThirdPartyVolumeUSD = hourData.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
 
     hourData.save();
@@ -159,11 +159,11 @@ export function updateDayData(
     let dayData = createDayData(event);
 
     if (swapType == 0) {
-        dayData.routeToWooPPTxCount = dayData.routeToWooPPTxCount.plus(BI_1);
-        dayData.routeToWooPPVolumeUSD = dayData.routeToWooPPVolumeUSD.plus(volumeUSD);
+        dayData.routerToWooPPTxns = dayData.routerToWooPPTxns.plus(BI_1);
+        dayData.routerToWooPPVolumeUSD = dayData.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
-        dayData.routeToDODOTxCount = dayData.routeToDODOTxCount.plus(BI_1);
-        dayData.routeToDODOVolumeUSD = dayData.routeToDODOVolumeUSD.plus(volumeUSD);
+        dayData.routerToThirdPartyTxns = dayData.routerToThirdPartyTxns.plus(BI_1);
+        dayData.routerToThirdPartyVolumeUSD = dayData.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
 
     dayData.save();
@@ -184,7 +184,7 @@ export function updateHourOrderSource(
         let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
         let hourOrderSource = createHourOrderSource(event, orderSourceID);
         hourOrderSource.volumeUSD = hourOrderSource.volumeUSD.plus(addOrderSourceVolumeUSD);
-        hourOrderSource.txCount = hourOrderSource.txCount.plus(BI_1);
+        hourOrderSource.txns = hourOrderSource.txns.plus(BI_1);
         hourOrderSource.updatedAt = event.block.timestamp;
 
         hourOrderSource.save();
@@ -201,7 +201,7 @@ export function updateDayOrderSource(
         let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
         let dayOrderSource = createDayOrderSource(event, orderSourceID);
         dayOrderSource.volumeUSD = dayOrderSource.volumeUSD.plus(addOrderSourceVolumeUSD);
-        dayOrderSource.txCount = dayOrderSource.txCount.plus(BI_1);
+        dayOrderSource.txns = dayOrderSource.txns.plus(BI_1);
         dayOrderSource.updatedAt = event.block.timestamp;
 
         dayOrderSource.save();
@@ -223,7 +223,7 @@ export function updateOrderSource(
         }
 
         orderSource.volumeUSD = orderSource.volumeUSD.plus(addOrderSourceVolumeUSD);
-        orderSource.txCount = orderSource.txCount.plus(BI_1);
+        orderSource.txns = orderSource.txns.plus(BI_1);
         orderSource.updatedAt = event.block.timestamp;
 
         orderSource.save();
@@ -234,7 +234,7 @@ export function updateUnknownDayOrderSource(event: ethereum.Event, volumeUSD: Bi
     let unknownDayOrderSource = createUnknownDayOrderSource(event, fromAddress.toHexString());
 
     unknownDayOrderSource.volumeUSD = unknownDayOrderSource.volumeUSD.plus(volumeUSD);
-    unknownDayOrderSource.txCount = unknownDayOrderSource.txCount.plus(BI_1);
+    unknownDayOrderSource.txns = unknownDayOrderSource.txns.plus(BI_1);
     unknownDayOrderSource.updatedAt = event.block.timestamp;
 
     unknownDayOrderSource.save();
@@ -244,7 +244,7 @@ export function updateUnknownOrderSource(event: ethereum.Event, volumeUSD: BigIn
     let unknownOrderSource = createUnknownOrderSource(event, fromAddress.toHexString());
 
     unknownOrderSource.volumeUSD = unknownOrderSource.volumeUSD.plus(volumeUSD);
-    unknownOrderSource.txCount = unknownOrderSource.txCount.plus(BI_1);
+    unknownOrderSource.txns = unknownOrderSource.txns.plus(BI_1);
     unknownOrderSource.updatedAt = event.block.timestamp;
 
     unknownOrderSource.save();
@@ -253,7 +253,7 @@ export function updateUnknownOrderSource(event: ethereum.Event, volumeUSD: BigIn
 export function updateOrderHistoryVariable(event: ethereum.Event): void {
     let orderHistoryVariable = createOrderHistoryVariable(event);
 
-    orderHistoryVariable.txCount = orderHistoryVariable.txCount.plus(BI_1);
+    orderHistoryVariable.txns = orderHistoryVariable.txns.plus(BI_1);
     orderHistoryVariable.updatedAt = event.block.timestamp;
 
     orderHistoryVariable.save();

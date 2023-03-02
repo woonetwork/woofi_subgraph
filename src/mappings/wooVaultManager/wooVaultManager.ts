@@ -20,13 +20,13 @@ export function handleWooVaultManagerV1RewardDistributed_1(event: WooVaultManage
 
 export function handleRewardDistributed(event: ethereum.Event, buybackVolume: BigInt): void {
     let globalVariable = createGlobalVariable(event);
-    globalVariable.wooBuybackVolume = globalVariable.wooBuybackVolume.plus(buybackVolume);
+    globalVariable.buybackVolumeWOO = globalVariable.buybackVolumeWOO.plus(buybackVolume);
     globalVariable.updatedAt = event.block.timestamp;
 
     globalVariable.save();
 
     let dayData = createDayData(event);
-    dayData.wooBuybackVolume = dayData.wooBuybackVolume.plus(buybackVolume);
+    dayData.buybackVolumeWOO = dayData.buybackVolumeWOO.plus(buybackVolume);
     dayData.updatedAt = event.block.timestamp;
 
     dayData.save();

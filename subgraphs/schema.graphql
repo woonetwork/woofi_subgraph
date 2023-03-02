@@ -3,46 +3,16 @@ type GlobalVariable @entity {
     id: ID!
     "total WooPP traders"
     totalTraders: BigInt!
-    "total WooPP tx count"
-    totalTxCount: BigInt!
-    "total WooPP volume USD, not include routeToDODOVolumeUSD"
+    "total WooPP txns"
+    totalTxns: BigInt!
+    "total WooPP USD volume"
     totalVolumeUSD: BigInt!
-    "real total WooPP volume USD, not include routeToDODOVolumeUSD"
-    realTotalVolumeUSD: BigDecimal!
-    "WOO buyback volume"
-    wooBuybackVolume: BigInt!
-#    "total volume USD from WooRouter"
-#    totalVolumeUSDFromWooRouter: BigInt!
-#    "total volume USD from 1inch"
-#    totalVolumeUSDFromOneInch: BigInt!
-#    "total volume USD from DODO"
-#    totalVolumeUSDFromDODO: BigInt!
-#    "total volume USD from OpenOcean"
-#    totalVolumeUSDFromOpenOcean: BigInt!
-#    "total volume USD from MetaMask"
-#    totalVolumeUSDFromMetaMask: BigInt!
-#    "total volume USD from YieldYak"
-#    totalVolumeUSDFromYieldYak: BigInt!
-#    "total volume USD from FireBird"
-#    totalVolumeUSDFromFireBird: BigInt!
-#    "total volume USD from BitKeep"
-#    totalVolumeUSDFromBitKeep: BigInt!
-#    "total volume USD from ParaSwap"
-#    totalVolumeUSDFromParaSwap: BigInt!
-#    "total volume USD from BeethovenX"
-#    totalVolumeUSDFromBeethovenX: BigInt!
-#    "total volume USD from TransitSwap"
-#    totalVolumeUSDFromTransitSwap: BigInt!
-#    "total volume USD from 0x"
-#    totalVolumeUSDFromZeroX: BigInt!
-#    "total volume USD from ODOS"
-#    totalVolumeUSDFromODOS: BigInt!
-#    "total volume USD from Other Dex"
-#    totalVolumeUSDFromOther: BigInt!
-    "route to WooPP volume USD"
-    routeToWooPPVolumeUSD: BigInt!
-    "route to DODO volume USD, not include in totalVolumeUSD"
-    routeToDODOVolumeUSD: BigInt!
+    "buyback WOO volume"
+    buybackVolumeWOO: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "WooRouter to third party USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -50,11 +20,11 @@ type GlobalVariable @entity {
 type WooSwapHash @entity {
     "WooSwap hash"
     id: ID!
-    "tx count for other entity"
-    txSynced: Boolean!
+    "txn statistic for other entity"
+    txnSynced: Boolean!
     "volume USD"
     volumeUSD: BigInt!
-    "get the order source by WooRouterSwap from parameter"
+    "get the order source by WooRouterSwap from"
     getOrderSourceByWooRouterSwapFrom: Boolean!
     "updated at"
     updatedAt: BigInt
@@ -63,7 +33,7 @@ type WooSwapHash @entity {
 type WooRouterSwapHash @entity {
     "WooRouterSwap hash"
     id: ID!
-    "previous Volume USD in update"
+    "previous USD Volume in updated"
     previousVolumeUSD: BigInt!
     "updated at"
     updatedAt: BigInt
@@ -72,8 +42,8 @@ type WooRouterSwapHash @entity {
 type OrderHistoryVariable @entity {
     "order history variable id"
     id: ID!
-    "order history tx count"
-    txCount: BigInt!
+    "order history txns"
+    txns: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -81,20 +51,20 @@ type OrderHistoryVariable @entity {
 type OrderHistory @entity {
     "order history id"
     id: ID!
-    "source (from : woofi、dodo)"
+    "source"
     source: Int!
-    "transaction hash"
+    "txn hash"
     hash: Bytes!
-    "block"
+    "block number"
     block: BigInt!
-    "timestamp of this transaction"
+    "block timestamp"
     timestamp: BigInt!
-    "tx.origin"
-    sender: Bytes!
-    "tx from address(msg.sender)"
+    "user EOA address(tx.origin)"
+    user: Bytes!
+    "txn from address(msg.sender)"
     from: Bytes!
-    "traded this hour"
-    tradedByOtherDex: Boolean!
+    "traded by other contrat(not WooRouter)"
+    tradedByOtherContract: Boolean!
     "to address"
     to: Bytes!
     "from token"
@@ -105,8 +75,8 @@ type OrderHistory @entity {
     fromAmount: BigInt!
     "to token amount"
     toAmount: BigInt!
-    "order history count"
-    txCount: BigInt!
+    "order history txns"
+    txns: BigInt!
 }
 
 type HourToken @entity {
@@ -114,20 +84,20 @@ type HourToken @entity {
     id: ID!
     "timestamp(start of hour)"
     timestamp: BigInt!
-    "token tx count in an hour"
-    txCount: BigInt!
+    "token txns in an hour"
+    txns: BigInt!
     "hour traded token volume"
     volume: BigInt!
-    "hour traded volume USD"
+    "hour traded USD volume"
     volumeUSD: BigInt!
-    "route to WooPP tx count"
-    routeToWooPPTxCount: BigInt!
-    "route to DODO tx count"
-    routeToDODOTxCount: BigInt!
-    "route to WooPP volume USD"
-    routeToWooPPVolumeUSD: BigInt!
-    "route to DODO volume USD"
-    routeToDODOVolumeUSD: BigInt!
+    "WooRouter to WooPP txns"
+    routerToWooPPTxns: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "WooRouter to third party txns"
+    routerToThirdPartyTxns: BigInt!
+    "WooRouter to third party USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -143,42 +113,14 @@ type Token @entity {
     totalSupply: BigInt!
     "decimals"
     decimals: BigInt!
-    "last trade price (quote/base)"
+    "last trade price(quote/base)"
     lastTradePrice: BigInt!
-    "total traded volume USD of token"
+    "total traded USD volume of the token"
     volumeUSD: BigInt!
-    "route to WooPP volume USD"
-    routeToWooPPVolumeUSD: BigInt!
-    "route to DODO volume USD"
-    routeToDODOVolumeUSD: BigInt!
-#    "volume USD from WooRouter"
-#    volumeUSDFromWooRouter: BigInt!
-#    "volume USD from 1inch"
-#    volumeUSDFromOneInch: BigInt!
-#    "volume USD from DODO"
-#    volumeUSDFromDODO: BigInt!
-#    "volume USD from OpenOcean"
-#    volumeUSDFromOpenOcean: BigInt!
-#    "volume USD from MetaMask"
-#    volumeUSDFromMetaMask: BigInt!
-#    "volume USD from YieldYak"
-#    volumeUSDFromYieldYak: BigInt!
-#    "volume USD from FireBird"
-#    volumeUSDFromFireBird: BigInt!
-#    "volume USD from BitKeep"
-#    volumeUSDFromBitKeep: BigInt!
-#    "volume USD from ParaSwap"
-#    volumeUSDFromParaSwap: BigInt!
-#    "volume USD from BeethovenX"
-#    volumeUSDFromBeethovenX: BigInt!
-#    "volume USD from TransitSwap"
-#    volumeUSDFromTransitSwap: BigInt!
-#    "volume USD from 0x"
-#    volumeUSDFromZeroX: BigInt!
-#    "volume USD from ODOS"
-#    volumeUSDFromODOS: BigInt!
-#    "volume USD from Other Dex"
-#    volumeUSDFromOther: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "route to third party USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -188,52 +130,20 @@ type HourData @entity {
     id: ID!
     "timestamp(start of hour)"
     timestamp: BigInt!
-    "timestamp(start of hour)"
-    hour: Int!
     "hour traders"
     traders: BigInt!
-    "hour tx count"
-    txCount: BigInt!
-    "volume USD"
+    "hour txns"
+    txns: BigInt!
+    "USD volume"
     volumeUSD: BigInt!
-    "real volume USD"
-    realVolumeUSD: BigDecimal!
-#    "volume USD from WooRouter"
-#    volumeUSDFromWooRouter: BigInt!
-#    "volume USD from 1inch"
-#    volumeUSDFromOneInch: BigInt!
-#    "volume USD from DODO"
-#    volumeUSDFromDODO: BigInt!
-#    "volume USD from OpenOcean"
-#    volumeUSDFromOpenOcean: BigInt!
-#    "volume USD from MetaMask"
-#    volumeUSDFromMetaMask: BigInt!
-#    "volume USD from YieldYak"
-#    volumeUSDFromYieldYak: BigInt!
-#    "volume USD from FireBird"
-#    volumeUSDFromFireBird: BigInt!
-#    "volume USD from BitKeep"
-#    volumeUSDFromBitKeep: BigInt!
-#    "volume USD from ParaSwap"
-#    volumeUSDFromParaSwap: BigInt!
-#    "volume USD from BeethovenX"
-#    volumeUSDFromBeethovenX: BigInt!
-#    "volume USD from TransitSwap"
-#    volumeUSDFromTransitSwap: BigInt!
-#    "volume USD from 0x"
-#    volumeUSDFromZeroX: BigInt!
-#    "volume USD from ODOS"
-#    volumeUSDFromODOS: BigInt!
-#    "volume USD from Other Dex"
-#    volumeUSDFromOther: BigInt!
-    "route to WooPP tx count"
-    routeToWooPPTxCount: BigInt!
-    "route to DODO tx count"
-    routeToDODOTxCount: BigInt!
-    "route to WooPP volume USD"
-    routeToWooPPVolumeUSD: BigInt!
-    "route to DODO volume USD"
-    routeToDODOVolumeUSD: BigInt!
+    "WooRouter to WooPP txns"
+    routerToWooPPTxns: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "WooRouter to third party txns"
+    routerToThirdPartyTxns: BigInt!
+    "WooRouter to third party USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -243,54 +153,22 @@ type DayData @entity {
     id: ID!
     "timestamp(start of day)"
     timestamp: BigInt!
-    "timestamp(start of day)"
-    date: Int!
     "daily traders"
     traders: BigInt!
-    "daily tx count"
-    txCount: BigInt!
-    "volume USD"
+    "daily txns"
+    txns: BigInt!
+    "USD volume"
     volumeUSD: BigInt!
-    "real volume USD"
-    realVolumeUSD: BigDecimal!
-    "WOO buyback volume"
-    wooBuybackVolume: BigInt!
-#    "volume USD from WooRouter"
-#    volumeUSDFromWooRouter: BigInt!
-#    "volume USD from 1inch"
-#    volumeUSDFromOneInch: BigInt!
-#    "volume USD from DODO"
-#    volumeUSDFromDODO: BigInt!
-#    "volume USD from OpenOcean"
-#    volumeUSDFromOpenOcean: BigInt!
-#    "volume USD from MetaMask"
-#    volumeUSDFromMetaMask: BigInt!
-#    "volume USD from YieldYak"
-#    volumeUSDFromYieldYak: BigInt!
-#    "volume USD from FireBird"
-#    volumeUSDFromFireBird: BigInt!
-#    "volume USD from BitKeep"
-#    volumeUSDFromBitKeep: BigInt!
-#    "volume USD from ParaSwap"
-#    volumeUSDFromParaSwap: BigInt!
-#    "volume USD from BeethovenX"
-#    volumeUSDFromBeethovenX: BigInt!
-#    "volume USD from TransitSwap"
-#    volumeUSDFromTransitSwap: BigInt!
-#    "volume USD from 0x"
-#    volumeUSDFromZeroX: BigInt!
-#    "volume USD from ODOS"
-#    volumeUSDFromODOS: BigInt!
-#    "volume USD from Other Dex"
-#    volumeUSDFromOther: BigInt!
-    "route to WooPP tx count"
-    routeToWooPPTxCount: BigInt!
-    "route to DODO tx count"
-    routeToDODOTxCount: BigInt!
-    "route to WooPP volume USD"
-    routeToWooPPVolumeUSD: BigInt!
-    "route to DODO volume USD"
-    routeToDODOVolumeUSD: BigInt!
+    "buyback WOO volume"
+    buybackVolumeWOO: BigInt!
+    "WooRouter to WooPP txns"
+    routerToWooPPTxns: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "WooRouter to third party txns"
+    routerToThirdPartyTxns: BigInt!
+    "WooRouter to DODO USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -311,9 +189,9 @@ type DayTrader @entity {
     tradedToday: Boolean!
     "timestamp(start of day)"
     timestamp: BigInt!
-    "user address"
+    "trader address"
     address: Bytes!
-    "volume USD"
+    "USD volume"
     volumeUSD: BigInt!
     "updated at"
     updatedAt: BigInt
@@ -329,27 +207,27 @@ type Trader @entity {
 }
 
 type HourOrderSource @entity {
-    "order source id"
+    "hour order source id"
     id: ID!
     "timestamp(start of hour)"
     timestamp: BigInt!
-    "volume USD"
+    "USD volume"
     volumeUSD: BigInt!
-    "order source tx count"
-    txCount: BigInt!
+    "order source txns"
+    txns: BigInt!
     "updated at"
     updatedAt: BigInt
 }
 
 type DayOrderSource @entity {
-    "order source id"
+    "day order source id"
     id: ID!
     "timestamp(start of day)"
     timestamp: BigInt!
-    "volume USD"
+    "USD volume"
     volumeUSD: BigInt!
-    "order source tx count"
-    txCount: BigInt!
+    "order source txns"
+    txns: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -357,34 +235,34 @@ type DayOrderSource @entity {
 type OrderSource @entity {
     "order source id"
     id: ID!
-    "volume USD"
+    "USD volume"
     volumeUSD: BigInt!
-    "order source tx count"
-    txCount: BigInt!
+    "order source txns"
+    txns: BigInt!
     "updated at"
     updatedAt: BigInt
 }
 
 type UnknownDayOrderSource @entity {
-    "order source address"
+    "unknown day order source address"
     id: ID!
     "timestamp(start of day)"
     timestamp: BigInt!
-    "volume USD"
+    "USD volume"
     volumeUSD: BigInt!
-    "order source tx count"
-    txCount: BigInt!
+    "order source txns"
+    txns: BigInt!
     "updated at"
     updatedAt: BigInt
 }
 
 type UnknownOrderSource @entity {
-    "order source address"
+    "unknown order source address"
     id: ID!
-    "volume USD"
+    "USD volume"
     volumeUSD: BigInt!
-    "order source tx count"
-    txCount: BigInt!
+    "order source txns"
+    txns: BigInt!
     "updated at"
     updatedAt: BigInt
 }
@@ -392,15 +270,15 @@ type UnknownOrderSource @entity {
 type CrossChainSrcOrderHistory @entity {
     "cross chain src order history id"
     id: ID!
-    "transaction hash"
+    "txn hash"
     hash: Bytes!
-    "block"
+    "block number"
     block: BigInt!
-    "timestamp of this transaction"
+    "block timestamp"
     timestamp: BigInt!
-    "ref id(it's a uuid)"
+    "ref id(uuid)"
     refId: BigInt!
-    "msg.sender that crossSwap() been executed"
+    "txn from address(msg.sender)"
     sender: Bytes!
     "to address"
     to: Bytes!
@@ -412,24 +290,24 @@ type CrossChainSrcOrderHistory @entity {
     minQuoteAmount: BigInt!
     "actual quote amount on src chain"
     realQuoteAmount: BigInt!
-    "order history count"
-    txCount: BigInt!
+    "cross chain src order history txns"
+    txns: BigInt!
     "Stargate Bridge SendMsg nonce"
     stargateBridgeSendMsgNonce: BigInt!
 }
 
 type CrossChainDstOrderHistory @entity {
-    "cross chain src order history id"
+    "cross chain dst order history id"
     id: ID!
-    "transaction hash"
+    "txn hash"
     hash: Bytes!
-    "block"
+    "block number"
     block: BigInt!
-    "timestamp of this transaction"
+    "block timestamp"
     timestamp: BigInt!
-    "ref id(it's a uuid)"
+    "ref id(uuid)"
     refId: BigInt!
-    "msg.sender that crossSwap() been executed"
+    "txn from address(msg.sender)"
     sender: Bytes!
     "to address"
     to: Bytes!
@@ -439,18 +317,18 @@ type CrossChainDstOrderHistory @entity {
     bridgedAmount: BigInt!
     "to token"
     toToken: Bytes!
-    "actual token that send to address `to`"
+    "actual send token to user"
     realToToken: Bytes!
     "min to token amount"
     minToAmount: BigInt!
-    "actual `realToToken` amount that send to address `to`"
+    "actual send amount to user"
     realToAmount: BigInt!
-    "order history count"
-    txCount: BigInt!
+    "cross chain dst order history txns"
+    txns: BigInt!
 }
 
 type HourRebate @entity {
-    "rebate id"
+    "hour rebate id"
     id: ID!
     "timestamp(start of hour)"
     timestamp: BigInt!
@@ -458,14 +336,14 @@ type HourRebate @entity {
     swapFee: BigInt!
     "rebate fee"
     rebateFee: BigInt!
-    "WooSwap count"
-    wooSwapCount: BigInt!
+    "WooSwap numbers"
+    wooSwaps: BigInt!
     "updated at"
     updatedAt: BigInt
 }
 
 type StargateBridgeSendMsg @entity {
-    "Stargate Bridge SendMsg hash"
+    "Stargate Bridge SendMsg txn hash"
     id: ID!
     "msg type"
     msgType: Int!

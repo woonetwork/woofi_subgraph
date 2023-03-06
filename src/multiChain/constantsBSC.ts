@@ -83,6 +83,7 @@ export const OPEN_OCEAN_SOURCES: string[] = [
     "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
     "0x170100a288dc3d7e83fea20441f98166b15b6df0",
     "0xdec876911cbe9428265af0d12132c52ee8642a99",
+    "0xfe9a934a8607ef020adf22d4431d6ce6005aa4d3",
 ];
 
 export const METAMASK_SOURCES: string[] = [

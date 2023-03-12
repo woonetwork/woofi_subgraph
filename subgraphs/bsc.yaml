@@ -26,9 +26,9 @@ dataSources:
     name: WooCrossChainRouterV2_1
     network: bsc
     source:
-      address: "0x74486b10a8E512169706a899929B2142293C7C73"
+      address: "0x81004C9b697857fD54E137075b51506c739EF439"
       abi: WooCrossChainRouterV2
-      startBlock: 25739708
+      startBlock: 26253694
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

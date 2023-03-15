@@ -28,9 +28,9 @@ dataSources:
     name: WooCrossChainRouterV2_1
     network: optimism
     source:
-      address: "0x8C603050D7a913b6f63836e07ebF385a4A5736E7"
+      address: "0xbeaE1B06949d033Da628bA3E5aF267C3E740494b"
       abi: WooCrossChainRouterV2
-      startBlock: 74926745
+      startBlock: 79007675
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

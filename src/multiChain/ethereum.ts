@@ -31,7 +31,7 @@ export const QUOTE_TOKENS_V2: string[] = [QUOTE_TOKEN_1_V2];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x3d605fa64595dba86f7780e128816adaaeca8a2b",  // WooCrossChainRouterV2
+    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooCrossChainRouterV2
 ];
 
 export const WOO_PP_SOURCES: string[] = [

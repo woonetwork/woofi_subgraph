@@ -28,9 +28,9 @@ dataSources:
     name: WooCrossChainRouterV2_1
     network: arbitrum-one
     source:
-      address: "0xB6F776718F2E4c16A9a7161dB2018b5261485354"
+      address: "0x4AB421de52b3112D02442b040dd3DC73e8Af63b5"
       abi: WooCrossChainRouterV2
-      startBlock: 61718891
+      startBlock: 67535237
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4

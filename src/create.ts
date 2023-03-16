@@ -24,8 +24,6 @@ import {
 } from "../generated/schema";
 import {
     BI_0,
-    BD_0,
-    BI_18,
     STABLE_TOKENS,
     GLOBAL_VARIABLE_ID,
     ORDER_HISTORY_VARIABLE_ID,
@@ -40,26 +38,11 @@ export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
     if (globalVariable == null) {
         globalVariable = new GlobalVariable(GLOBAL_VARIABLE_ID);
         globalVariable.totalTraders = BI_0;
-        globalVariable.totalTxCount = BI_0;
+        globalVariable.totalTxns = BI_0;
         globalVariable.totalVolumeUSD = BI_0;
-        globalVariable.realTotalVolumeUSD = BD_0;
-        globalVariable.wooBuybackVolume = BI_0;
-        // globalVariable.totalVolumeUSDFromWooRouter = BI_0;
-        // globalVariable.totalVolumeUSDFromOneInch = BI_0;
-        // globalVariable.totalVolumeUSDFromDODO = BI_0;
-        // globalVariable.totalVolumeUSDFromOpenOcean = BI_0;
-        // globalVariable.totalVolumeUSDFromMetaMask = BI_0;
-        // globalVariable.totalVolumeUSDFromYieldYak = BI_0;
-        // globalVariable.totalVolumeUSDFromFireBird = BI_0;
-        // globalVariable.totalVolumeUSDFromBitKeep = BI_0;
-        // globalVariable.totalVolumeUSDFromParaSwap = BI_0;
-        // globalVariable.totalVolumeUSDFromBeethovenX = BI_0;
-        // globalVariable.totalVolumeUSDFromTransitSwap = BI_0;
-        // globalVariable.totalVolumeUSDFromZeroX = BI_0;
-        // globalVariable.totalVolumeUSDFromODOS = BI_0;
-        // globalVariable.totalVolumeUSDFromOther = BI_0;
-        globalVariable.routeToWooPPVolumeUSD = BI_0;
-        globalVariable.routeToDODOVolumeUSD = BI_0;
+        globalVariable.buybackVolumeWOO = BI_0;
+        globalVariable.routerToWooPPVolumeUSD = BI_0;
+        globalVariable.routerToThirdPartyVolumeUSD = BI_0;
         globalVariable.updatedAt = event.block.timestamp;
         globalVariable.save();
     }
@@ -77,13 +60,13 @@ export function createHourToken(event: ethereum.Event, tokenAddress: Bytes): Hou
     if (hourToken == null) {
         hourToken = new HourToken(hourTokenID);
         hourToken.timestamp = BigInt.fromI32(hourStartTimestamp);
-        hourToken.txCount = BI_0;
+        hourToken.txns = BI_0;
         hourToken.volume = BI_0;
         hourToken.volumeUSD = BI_0;
-        hourToken.routeToWooPPTxCount = BI_0;
-        hourToken.routeToDODOTxCount = BI_0;
-        hourToken.routeToWooPPVolumeUSD = BI_0;
-        hourToken.routeToDODOVolumeUSD = BI_0;
+        hourToken.routerToWooPPTxns = BI_0;
+        hourToken.routerToWooPPVolumeUSD = BI_0;
+        hourToken.routerToThirdPartyTxns = BI_0;
+        hourToken.routerToThirdPartyVolumeUSD = BI_0;
         hourToken.updatedAt = event.block.timestamp;
         hourToken.save();
     }
@@ -108,22 +91,8 @@ export function createToken(event: ethereum.Event, tokenAddress: Bytes): Token {
             token.lastTradePrice = BI_0;
         }
         token.volumeUSD = BI_0;
-        token.routeToWooPPVolumeUSD = BI_0;
-        token.routeToDODOVolumeUSD = BI_0;
-        // token.volumeUSDFromWooRouter = BI_0;
-        // token.volumeUSDFromOneInch = BI_0;
-        // token.volumeUSDFromDODO = BI_0;
-        // token.volumeUSDFromOpenOcean = BI_0;
-        // token.volumeUSDFromMetaMask = BI_0;
-        // token.volumeUSDFromYieldYak = BI_0;
-        // token.volumeUSDFromFireBird = BI_0;
-        // token.volumeUSDFromBitKeep = BI_0;
-        // token.volumeUSDFromParaSwap = BI_0;
-        // token.volumeUSDFromBeethovenX = BI_0;
-        // token.volumeUSDFromTransitSwap = BI_0;
-        // token.volumeUSDFromZeroX = BI_0;
-        // token.volumeUSDFromODOS = BI_0;
-        // token.volumeUSDFromOther = BI_0;
+        token.routerToWooPPVolumeUSD = BI_0;
+        token.routerToThirdPartyVolumeUSD = BI_0;
         token.updatedAt = event.block.timestamp;
         token.save();
     }
@@ -141,29 +110,13 @@ export function createHourData(event: ethereum.Event): HourData {
     if (hourData == null) {
         hourData = new HourData(hourDataID);
         hourData.timestamp = BigInt.fromI32(hourStartTimestamp);
-        hourData.hour = hourStartTimestamp;
         hourData.traders = BI_0;
-        hourData.txCount = BI_0;
+        hourData.txns = BI_0;
         hourData.volumeUSD = BI_0;
-        hourData.realVolumeUSD = BD_0;
-        // hourData.volumeUSDFromWooRouter = BI_0;
-        // hourData.volumeUSDFromOneInch = BI_0;
-        // hourData.volumeUSDFromDODO = BI_0;
-        // hourData.volumeUSDFromOpenOcean = BI_0;
-        // hourData.volumeUSDFromMetaMask = BI_0;
-        // hourData.volumeUSDFromYieldYak = BI_0;
-        // hourData.volumeUSDFromFireBird = BI_0;
-        // hourData.volumeUSDFromBitKeep = BI_0;
-        // hourData.volumeUSDFromParaSwap = BI_0;
-        // hourData.volumeUSDFromBeethovenX = BI_0;
-        // hourData.volumeUSDFromTransitSwap = BI_0;
-        // hourData.volumeUSDFromZeroX = BI_0;
-        // hourData.volumeUSDFromODOS = BI_0;
-        // hourData.volumeUSDFromOther = BI_0;
-        hourData.routeToWooPPTxCount = BI_0;
-        hourData.routeToDODOTxCount = BI_0;
-        hourData.routeToWooPPVolumeUSD = BI_0;
-        hourData.routeToDODOVolumeUSD = BI_0;
+        hourData.routerToWooPPTxns = BI_0;
+        hourData.routerToWooPPVolumeUSD = BI_0;
+        hourData.routerToThirdPartyTxns = BI_0;
+        hourData.routerToThirdPartyVolumeUSD = BI_0;
         hourData.updatedAt = event.block.timestamp;
         hourData.save();
     }
@@ -181,30 +134,14 @@ export function createDayData(event: ethereum.Event): DayData {
     if (dayData == null) {
         dayData = new DayData(dayDataID);
         dayData.timestamp = BigInt.fromI32(dayStartTimestamp);
-        dayData.date = dayStartTimestamp;
         dayData.traders = BI_0;
-        dayData.txCount = BI_0;
+        dayData.txns = BI_0;
         dayData.volumeUSD = BI_0;
-        dayData.realVolumeUSD = BD_0;
-        dayData.wooBuybackVolume = BI_0;
-        // dayData.volumeUSDFromWooRouter = BI_0;
-        // dayData.volumeUSDFromOneInch = BI_0;
-        // dayData.volumeUSDFromDODO = BI_0;
-        // dayData.volumeUSDFromOpenOcean = BI_0;
-        // dayData.volumeUSDFromMetaMask = BI_0;
-        // dayData.volumeUSDFromYieldYak = BI_0;
-        // dayData.volumeUSDFromFireBird = BI_0;
-        // dayData.volumeUSDFromBitKeep = BI_0;
-        // dayData.volumeUSDFromParaSwap = BI_0;
-        // dayData.volumeUSDFromBeethovenX = BI_0;
-        // dayData.volumeUSDFromTransitSwap = BI_0;
-        // dayData.volumeUSDFromZeroX = BI_0;
-        // dayData.volumeUSDFromODOS = BI_0;
-        // dayData.volumeUSDFromOther = BI_0;
-        dayData.routeToWooPPTxCount = BI_0;
-        dayData.routeToDODOTxCount = BI_0;
-        dayData.routeToWooPPVolumeUSD = BI_0;
-        dayData.routeToDODOVolumeUSD = BI_0;
+        dayData.buybackVolumeWOO = BI_0;
+        dayData.routerToWooPPTxns = BI_0;
+        dayData.routerToWooPPVolumeUSD = BI_0;
+        dayData.routerToThirdPartyTxns = BI_0;
+        dayData.routerToThirdPartyVolumeUSD = BI_0;
         dayData.updatedAt = event.block.timestamp;
         dayData.save();
     }
@@ -272,7 +209,7 @@ export function createHourOrderSource(event: ethereum.Event, orderSourceID: stri
         hourOrderSource = new HourOrderSource(hourOrderSourceID);
         hourOrderSource.timestamp = BigInt.fromI32(hourStartTimestamp);
         hourOrderSource.volumeUSD = BI_0;
-        hourOrderSource.txCount = BI_0;
+        hourOrderSource.txns = BI_0;
         hourOrderSource.updatedAt = event.block.timestamp;
         hourOrderSource.save();
     }
@@ -291,7 +228,7 @@ export function createDayOrderSource(event: ethereum.Event, orderSourceID: strin
         dayOrderSource = new DayOrderSource(dayOrderSourceID);
         dayOrderSource.timestamp = BigInt.fromI32(dayStartTimestamp);
         dayOrderSource.volumeUSD = BI_0;
-        dayOrderSource.txCount = BI_0;
+        dayOrderSource.txns = BI_0;
         dayOrderSource.updatedAt = event.block.timestamp;
         dayOrderSource.save();
     }
@@ -304,7 +241,7 @@ export function createOrderSource(event: ethereum.Event, orderSourceID: string):
     if (orderSource == null) {
         orderSource = new OrderSource(orderSourceID);
         orderSource.volumeUSD = BI_0;
-        orderSource.txCount = BI_0;
+        orderSource.txns = BI_0;
         orderSource.updatedAt = event.block.timestamp;
         orderSource.save();
     }
@@ -323,7 +260,7 @@ export function createUnknownDayOrderSource(event: ethereum.Event, msgSender: st
         unknownDayOrderSource = new UnknownDayOrderSource(unknownDayOrderSourceID);
         unknownDayOrderSource.timestamp = BigInt.fromI32(dayStartTimestamp);
         unknownDayOrderSource.volumeUSD = BI_0;
-        unknownDayOrderSource.txCount = BI_0;
+        unknownDayOrderSource.txns = BI_0;
         unknownDayOrderSource.updatedAt = event.block.timestamp;
         unknownDayOrderSource.save();
     }
@@ -336,7 +273,7 @@ export function createUnknownOrderSource(event: ethereum.Event, msgSender: strin
     if (unknownOrderSource == null) {
         unknownOrderSource = new UnknownOrderSource(msgSender);
         unknownOrderSource.volumeUSD = BI_0;
-        unknownOrderSource.txCount = BI_0;
+        unknownOrderSource.txns = BI_0;
         unknownOrderSource.updatedAt = event.block.timestamp;
         unknownOrderSource.save();
     }
@@ -349,7 +286,7 @@ export function createWooSwapHash(event: ethereum.Event): WooSwapHash {
     let wooSwapHash = WooSwapHash.load(wooSwapHashID);
     if (wooSwapHash == null) {
         wooSwapHash = new WooSwapHash(wooSwapHashID);
-        wooSwapHash.txSynced = false;
+        wooSwapHash.txnSynced = false;
         wooSwapHash.volumeUSD = BI_0;
         wooSwapHash.getOrderSourceByWooRouterSwapFrom = false;
         wooSwapHash.updatedAt = event.block.timestamp;
@@ -376,7 +313,7 @@ export function createOrderHistoryVariable(event: ethereum.Event): OrderHistoryV
     let orderHistoryVariable = OrderHistoryVariable.load(ORDER_HISTORY_VARIABLE_ID);
     if (orderHistoryVariable == null) {
         orderHistoryVariable = new OrderHistoryVariable(ORDER_HISTORY_VARIABLE_ID);
-        orderHistoryVariable.txCount = BI_0;
+        orderHistoryVariable.txns = BI_0;
         orderHistoryVariable.updatedAt = event.block.timestamp;
         orderHistoryVariable.save();
     }
@@ -384,7 +321,6 @@ export function createOrderHistoryVariable(event: ethereum.Event): OrderHistoryV
     return orderHistoryVariable as OrderHistoryVariable;
 }
 
-// Only Create by WooRouter
 export function createOrderHistory(
     event: ethereum.Event,
     swapType: i32,
@@ -395,6 +331,7 @@ export function createOrderHistory(
     toTokenAddress: Bytes,
     toAmount: BigInt
 ): OrderHistory {
+    // only create by WooRouter
     let orderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
     let orderHistory = OrderHistory.load(orderHistoryID);
     if (orderHistory == null) {
@@ -403,9 +340,9 @@ export function createOrderHistory(
         orderHistory.hash = event.transaction.hash;
         orderHistory.block = event.block.number;
         orderHistory.timestamp = event.block.timestamp;
-        orderHistory.sender = event.transaction.from;
+        orderHistory.user = event.transaction.from;
         orderHistory.from = fromAddress;
-        orderHistory.tradedByOtherDex = event.transaction.from != fromAddress;
+        orderHistory.tradedByOtherContract = event.transaction.from != fromAddress;
         orderHistory.to = toAddress;
         orderHistory.fromToken = fromTokenAddress;
         orderHistory.fromAmount = fromAmount;
@@ -413,7 +350,7 @@ export function createOrderHistory(
         orderHistory.toAmount = toAmount;
 
         let orderHistoryVariable = createOrderHistoryVariable(event);
-        orderHistory.txCount = orderHistoryVariable.txCount;
+        orderHistory.txns = orderHistoryVariable.txns;
 
         orderHistory.save();
     }
@@ -425,7 +362,7 @@ export function createCrossChainSrcOrderHistoryVariable(event: ethereum.Event): 
     let orderHistoryVariable = OrderHistoryVariable.load(CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID);
     if (orderHistoryVariable == null) {
         orderHistoryVariable = new OrderHistoryVariable(CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID);
-        orderHistoryVariable.txCount = BI_0;
+        orderHistoryVariable.txns = BI_0;
         orderHistoryVariable.updatedAt = event.block.timestamp;
         orderHistoryVariable.save();
     }
@@ -433,7 +370,6 @@ export function createCrossChainSrcOrderHistoryVariable(event: ethereum.Event): 
     return orderHistoryVariable as OrderHistoryVariable;
 }
 
-// Only Create by WooCrossChainRouter
 export function createCrossChainSrcOrderHistory(
     event: ethereum.Event,
     refId: BigInt,
@@ -444,6 +380,7 @@ export function createCrossChainSrcOrderHistory(
     minQuoteAmount: BigInt,
     realQuoteAmount: BigInt
 ): CrossChainSrcOrderHistory {
+    // only create by WooCrossChainRouter
     let crossChainSrcOrderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
     let crossChainSrcOrderHistory = CrossChainSrcOrderHistory.load(crossChainSrcOrderHistoryID);
     if (crossChainSrcOrderHistory == null) {
@@ -460,7 +397,7 @@ export function createCrossChainSrcOrderHistory(
         crossChainSrcOrderHistory.realQuoteAmount = realQuoteAmount;
 
         let crossChainSrcOrderHistoryVariable = createCrossChainSrcOrderHistoryVariable(event);
-        crossChainSrcOrderHistory.txCount = crossChainSrcOrderHistoryVariable.txCount;
+        crossChainSrcOrderHistory.txns = crossChainSrcOrderHistoryVariable.txns;
 
         let stargateBridgeSendMsg = createStargateBridgeSendMsg(event);
         crossChainSrcOrderHistory.stargateBridgeSendMsgNonce = stargateBridgeSendMsg.nonce;
@@ -475,7 +412,7 @@ export function createCrossChainDstOrderHistoryVariable(event: ethereum.Event): 
     let orderHistoryVariable = OrderHistoryVariable.load(CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID);
     if (orderHistoryVariable == null) {
         orderHistoryVariable = new OrderHistoryVariable(CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID);
-        orderHistoryVariable.txCount = BI_0;
+        orderHistoryVariable.txns = BI_0;
         orderHistoryVariable.updatedAt = event.block.timestamp;
         orderHistoryVariable.save();
     }
@@ -483,7 +420,6 @@ export function createCrossChainDstOrderHistoryVariable(event: ethereum.Event): 
     return orderHistoryVariable as OrderHistoryVariable;
 }
 
-// Only Create by WooCrossChainRouter
 export function createCrossChainDstOrderHistory(
     event: ethereum.Event,
     refId: BigInt,
@@ -496,6 +432,7 @@ export function createCrossChainDstOrderHistory(
     minToAmount: BigInt,
     realToAmount: BigInt
 ): CrossChainDstOrderHistory {
+    // only create by WooCrossChainRouter
     let crossChainDstOrderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
     let crossChainDstOrderHistory = CrossChainDstOrderHistory.load(crossChainDstOrderHistoryID);
     if (crossChainDstOrderHistory == null) {
@@ -514,7 +451,7 @@ export function createCrossChainDstOrderHistory(
         crossChainDstOrderHistory.realToAmount = realToAmount;
 
         let crossChainDstOrderHistoryVariable = createCrossChainDstOrderHistoryVariable(event);
-        crossChainDstOrderHistory.txCount = crossChainDstOrderHistoryVariable.txCount;
+        crossChainDstOrderHistory.txns = crossChainDstOrderHistoryVariable.txns;
 
         crossChainDstOrderHistory.save();
     }
@@ -534,7 +471,7 @@ export function createHourRebate(event: ethereum.Event, rebateToAddress: Bytes):
         hourRebate.timestamp = BigInt.fromI32(hourStartTimestamp);
         hourRebate.swapFee = BI_0;
         hourRebate.rebateFee = BI_0;
-        hourRebate.wooSwapCount = BI_0;
+        hourRebate.wooSwaps = BI_0;
         hourRebate.updatedAt = event.block.timestamp;
         hourRebate.save();
     }

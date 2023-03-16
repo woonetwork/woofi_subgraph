@@ -18,7 +18,7 @@ import {
 import {
     updateCrossChainSrcOrderHistoryVariable,
     updateCrossChainDstOrderHistoryVariable,
-} from "../../updateForWooCrossChainRouter";
+} from "./update";
 
 export function handleWooCCRouterV2WooCrossSwapOnSrcChain_1(event: WooCCRouterV2WooCrossSwapOnSrcChain_1): void {
     handleWooCrossSwapOnSrcChain(

@@ -1,0 +1,354 @@
+type GlobalVariable @entity {
+    "global variable id"
+    id: ID!
+    "total WooPP traders"
+    totalTraders: BigInt!
+    "total WooPP txns"
+    totalTxns: BigInt!
+    "total WooPP USD volume"
+    totalVolumeUSD: BigInt!
+    "buyback WOO volume"
+    buybackVolumeWOO: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "WooRouter to third party USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type WooSwapHash @entity {
+    "WooSwap hash"
+    id: ID!
+    "txn statistic for other entity"
+    txnSynced: Boolean!
+    "volume USD"
+    volumeUSD: BigInt!
+    "get the order source by WooRouterSwap from"
+    getOrderSourceByWooRouterSwapFrom: Boolean!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type WooRouterSwapHash @entity {
+    "WooRouterSwap hash"
+    id: ID!
+    "previous USD Volume in updated"
+    previousVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type OrderHistoryVariable @entity {
+    "order history variable id"
+    id: ID!
+    "order history txns"
+    txns: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type OrderHistory @entity {
+    "order history id"
+    id: ID!
+    "source"
+    source: Int!
+    "txn hash"
+    hash: Bytes!
+    "block number"
+    block: BigInt!
+    "block timestamp"
+    timestamp: BigInt!
+    "user EOA address(tx.origin)"
+    user: Bytes!
+    "txn from address(msg.sender)"
+    from: Bytes!
+    "traded by other contrat(not WooRouter)"
+    tradedByOtherContract: Boolean!
+    "to address"
+    to: Bytes!
+    "from token"
+    fromToken: Bytes!
+    "to token"
+    toToken: Bytes!
+    "from token amount"
+    fromAmount: BigInt!
+    "to token amount"
+    toAmount: BigInt!
+    "order history txns"
+    txns: BigInt!
+}
+
+type HourToken @entity {
+    "hour token id"
+    id: ID!
+    "timestamp(start of hour)"
+    timestamp: BigInt!
+    "token txns in an hour"
+    txns: BigInt!
+    "hour traded token volume"
+    volume: BigInt!
+    "hour traded USD volume"
+    volumeUSD: BigInt!
+    "WooRouter to WooPP txns"
+    routerToWooPPTxns: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "WooRouter to third party txns"
+    routerToThirdPartyTxns: BigInt!
+    "WooRouter to third party USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type Token @entity {
+    "token address"
+    id: ID!
+    "symbol"
+    symbol: String!
+    "name"
+    name: String!
+    "totalSupply"
+    totalSupply: BigInt!
+    "decimals"
+    decimals: BigInt!
+    "last trade price(quote/base)"
+    lastTradePrice: BigInt!
+    "total traded USD volume of the token"
+    volumeUSD: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "route to third party USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type HourData @entity {
+    "hour data id"
+    id: ID!
+    "timestamp(start of hour)"
+    timestamp: BigInt!
+    "hour traders"
+    traders: BigInt!
+    "hour txns"
+    txns: BigInt!
+    "USD volume"
+    volumeUSD: BigInt!
+    "WooRouter to WooPP txns"
+    routerToWooPPTxns: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "WooRouter to third party txns"
+    routerToThirdPartyTxns: BigInt!
+    "WooRouter to third party USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type DayData @entity {
+    "day data id"
+    id: ID!
+    "timestamp(start of day)"
+    timestamp: BigInt!
+    "daily traders"
+    traders: BigInt!
+    "daily txns"
+    txns: BigInt!
+    "USD volume"
+    volumeUSD: BigInt!
+    "buyback WOO volume"
+    buybackVolumeWOO: BigInt!
+    "WooRouter to WooPP txns"
+    routerToWooPPTxns: BigInt!
+    "WooRouter to WooPP USD volume"
+    routerToWooPPVolumeUSD: BigInt!
+    "WooRouter to third party txns"
+    routerToThirdPartyTxns: BigInt!
+    "WooRouter to DODO USD volume"
+    routerToThirdPartyVolumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type HourTrader @entity {
+    "hour trader id"
+    id: ID!
+    "traded this hour"
+    tradedThisHour: Boolean!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type DayTrader @entity {
+    "day trader id"
+    id: ID!
+    "traded today"
+    tradedToday: Boolean!
+    "timestamp(start of day)"
+    timestamp: BigInt!
+    "trader address"
+    address: Bytes!
+    "USD volume"
+    volumeUSD: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type Trader @entity {
+    "trader address"
+    id: ID!
+    "traded before"
+    tradedBefore: Boolean!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type HourOrderSource @entity {
+    "hour order source id"
+    id: ID!
+    "timestamp(start of hour)"
+    timestamp: BigInt!
+    "USD volume"
+    volumeUSD: BigInt!
+    "order source txns"
+    txns: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type DayOrderSource @entity {
+    "day order source id"
+    id: ID!
+    "timestamp(start of day)"
+    timestamp: BigInt!
+    "USD volume"
+    volumeUSD: BigInt!
+    "order source txns"
+    txns: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type OrderSource @entity {
+    "order source id"
+    id: ID!
+    "USD volume"
+    volumeUSD: BigInt!
+    "order source txns"
+    txns: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type UnknownDayOrderSource @entity {
+    "unknown day order source address"
+    id: ID!
+    "timestamp(start of day)"
+    timestamp: BigInt!
+    "USD volume"
+    volumeUSD: BigInt!
+    "order source txns"
+    txns: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type UnknownOrderSource @entity {
+    "unknown order source address"
+    id: ID!
+    "USD volume"
+    volumeUSD: BigInt!
+    "order source txns"
+    txns: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type CrossChainSrcOrderHistory @entity {
+    "cross chain src order history id"
+    id: ID!
+    "txn hash"
+    hash: Bytes!
+    "block number"
+    block: BigInt!
+    "block timestamp"
+    timestamp: BigInt!
+    "ref id(uuid)"
+    refId: BigInt!
+    "txn from address(msg.sender)"
+    sender: Bytes!
+    "to address"
+    to: Bytes!
+    "from token"
+    fromToken: Bytes!
+    "from token amount"
+    fromAmount: BigInt!
+    "min quote amount"
+    minQuoteAmount: BigInt!
+    "actual quote amount on src chain"
+    realQuoteAmount: BigInt!
+    "cross chain src order history txns"
+    txns: BigInt!
+    "Stargate Bridge SendMsg nonce"
+    stargateBridgeSendMsgNonce: BigInt!
+}
+
+type CrossChainDstOrderHistory @entity {
+    "cross chain dst order history id"
+    id: ID!
+    "txn hash"
+    hash: Bytes!
+    "block number"
+    block: BigInt!
+    "block timestamp"
+    timestamp: BigInt!
+    "ref id(uuid)"
+    refId: BigInt!
+    "txn from address(msg.sender)"
+    sender: Bytes!
+    "to address"
+    to: Bytes!
+    "bridged token"
+    bridgedToken: Bytes!
+    "bridged token amount"
+    bridgedAmount: BigInt!
+    "to token"
+    toToken: Bytes!
+    "actual send token to user"
+    realToToken: Bytes!
+    "min to token amount"
+    minToAmount: BigInt!
+    "actual send amount to user"
+    realToAmount: BigInt!
+    "cross chain dst order history txns"
+    txns: BigInt!
+}
+
+type HourRebate @entity {
+    "hour rebate id"
+    id: ID!
+    "timestamp(start of hour)"
+    timestamp: BigInt!
+    "swap fee"
+    swapFee: BigInt!
+    "rebate fee"
+    rebateFee: BigInt!
+    "WooSwap numbers"
+    wooSwaps: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
+type StargateBridgeSendMsg @entity {
+    "Stargate Bridge SendMsg txn hash"
+    id: ID!
+    "msg type"
+    msgType: Int!
+    "nonce"
+    nonce: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}

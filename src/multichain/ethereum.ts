@@ -7,15 +7,15 @@ export let BI_6 = BigInt.fromI32(6);
 export let BI_8 = BigInt.fromI32(8);
 export let BI_18 = BigInt.fromI32(18);
 
-export let BD_0 = BigDecimal.fromString('0');
-export let BD_1 = BigDecimal.fromString('1');
+export let BD_0 = BigDecimal.fromString("0");
+export let BD_1 = BigDecimal.fromString("1");
 
 // Address Must Be Lower Case!!!
-export const ETHER = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
-export const ETHER_SYMBOL = 'ETH';
-export const ETHER_NAME = 'eth';
+export const ETHER = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+export const ETHER_SYMBOL = "ETH";
+export const ETHER_NAME = "eth";
 
-export const WRAPPED = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
+export const WRAPPED = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
 
 export const STABLE_TOKENS: string[] = [
     "0xdac17f958d2ee523a2206206994597c13d831ec7",  // USDT
@@ -103,24 +103,24 @@ export let ADDRESS_SOURCES: string[][] = [
     ODOS_SOURCES,  // 12: ODOS
 ];
 
-export const GLOBAL_VARIABLE_ID = '0';
-export const ORDER_HISTORY_VARIABLE_ID = '0';
-export const CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID = '1';
-export const CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID = '2';
+export const GLOBAL_VARIABLE_ID = "0";
+export const ORDER_HISTORY_VARIABLE_ID = "0";
+export const CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID = "1";
+export const CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID = "2";
 
-export const WOO_ROUTER_ORDER_SOURCE_ID = '0';
-export const ONE_INCH_ORDER_SOURCE_ID = '1';
-export const DODO_ORDER_SOURCE_ID = '2';
-export const OPEN_OCEAN_ORDER_SOURCE_ID = '3';
-export const METAMASK_ORDER_SOURCE_ID = '4';
-export const YIELD_YAK_ORDER_SOURCE_ID = '5';
-export const FIRE_BIRD_ORDER_SOURCE_ID = '6';
-export const BIT_KEEP_ORDER_SOURCE_ID = '7';
-export const PARA_SWAP_ORDER_SOURCE_ID = '8';
-export const BEETHOVEN_X_ORDER_SOURCE_ID = '9';
-export const TRANSIT_SWAP_ORDER_SOURCE_ID = '10';
-export const ZERO_X_ORDER_SOURCE_ID = '11';
-export const ODOS_ORDER_SOURCE_ID = '12';
-export const OTHER_ORDER_SOURCE_ID = '99';
+export const WOO_ROUTER_ORDER_SOURCE_ID = "0";
+export const ONE_INCH_ORDER_SOURCE_ID = "1";
+export const DODO_ORDER_SOURCE_ID = "2";
+export const OPEN_OCEAN_ORDER_SOURCE_ID = "3";
+export const METAMASK_ORDER_SOURCE_ID = "4";
+export const YIELD_YAK_ORDER_SOURCE_ID = "5";
+export const FIRE_BIRD_ORDER_SOURCE_ID = "6";
+export const BIT_KEEP_ORDER_SOURCE_ID = "7";
+export const PARA_SWAP_ORDER_SOURCE_ID = "8";
+export const BEETHOVEN_X_ORDER_SOURCE_ID = "9";
+export const TRANSIT_SWAP_ORDER_SOURCE_ID = "10";
+export const ZERO_X_ORDER_SOURCE_ID = "11";
+export const ODOS_ORDER_SOURCE_ID = "12";
+export const OTHER_ORDER_SOURCE_ID = "99";
 
-export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = '-99';
+export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = "-99";

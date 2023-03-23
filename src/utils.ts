@@ -10,9 +10,9 @@ import {
 } from "./constants";
 
 export function exponentToBigInt(decimals: BigInt): BigInt {
-    let bi = BigInt.fromString('1');
+    let bi = BigInt.fromString("1");
     for (let i = BI_0; i.lt(decimals as BigInt); i = i.plus(BI_1)) {
-        bi = bi.times(BigInt.fromString('10'));
+        bi = bi.times(BigInt.fromString("10"));
     }
     return bi;
 }

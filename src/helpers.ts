@@ -12,7 +12,7 @@ export function fetchTokenSymbol(tokenAddress: Bytes): string {
     let contract = ERC20.bind(tokenAddress as Address);
     let symbolResult = contract.try_symbol();
     if (symbolResult.reverted) {
-        return 'UNKNOWN';
+        return "UNKNOWN";
     }
 
     return symbolResult.value;
@@ -26,7 +26,7 @@ export function fetchTokenName(tokenAddress: Bytes): string {
     let contract = ERC20.bind(tokenAddress as Address);
     let nameResult = contract.try_name();
     if (nameResult.reverted) {
-        return 'Unknown';
+        return "Unknown";
     }
 
     return nameResult.value;

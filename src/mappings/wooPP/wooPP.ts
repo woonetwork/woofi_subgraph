@@ -1,12 +1,12 @@
-import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {WooSwapHash} from "../../../generated/schema";
-import {WooSwap as WooPPV1WooSwap_0} from "../../../generated/WooPPV1_0/WooPPV1"
-import {WooSwap as WooPPV1WooSwap_1} from "../../../generated/WooPPV1_1/WooPPV1"
-import {WooSwap as WooPPV1WooSwap_2} from "../../../generated/WooPPV1_2/WooPPV1"
-import {WooSwap as WooPPV2WooSwap_1} from "../../../generated/WooPPV2_1/WooPPV2"
-import {WooSwap as WooPPV2WooSwap_2} from "../../../generated/WooPPV2_2/WooPPV2"
+import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
+import { WooSwapHash } from "../../../generated/schema";
+import { WooSwap as WooPPV1WooSwap_0 } from "../../../generated/WooPPV1_0/WooPPV1";
+import { WooSwap as WooPPV1WooSwap_1 } from "../../../generated/WooPPV1_1/WooPPV1";
+import { WooSwap as WooPPV1WooSwap_2 } from "../../../generated/WooPPV1_2/WooPPV1";
+import { WooSwap as WooPPV2WooSwap_1 } from "../../../generated/WooPPV2_1/WooPPV2";
+import { WooSwap as WooPPV2WooSwap_2 } from "../../../generated/WooPPV2_2/WooPPV2";
 
-import {calVolumeUSDForWooPP} from '../../helpers'
+import { calVolumeUSDForWooPP } from "../../helpers";
 import {
     updateGlobalVariable,
     updateHourToken,
@@ -17,12 +17,12 @@ import {
     updateDayOrderSource,
     updateOrderSource,
     updateWooSwapHash,
-    updateHourRebate
+    updateHourRebate,
 } from "./update";
-import {createToken, createWooSwapHash} from "../../create";
-import {updateTokenPrice} from "../../update";
-import {BI_0, BI_18, QUOTE_TOKEN_1_V2} from "../../constants";
-import {exponentToBigInt} from "../../utils";
+import { createToken, createWooSwapHash } from "../../create";
+import { updateTokenPrice } from "../../update";
+import { BI_0, BI_18, WOO_PP_QUOTE_TOKENS } from "../../constants";
+import { exponentToBigInt } from "../../utils";
 
 export function handleWooPPV2WooSwap_2(event: WooPPV2WooSwap_2): void {
     handleWooSwap(
@@ -67,7 +67,7 @@ export function handleWooPPV1WooSwap_1(event: WooPPV1WooSwap_1): void {
 }
 
 export function handleWooPPV1WooSwap_0(event: WooPPV1WooSwap_0): void {
-    // Only for WooRouterV1 swap history at the beginning
+    // only for WooRouterV1 swap history at the beginning
     updateTokenPrice(
         event, event.params.fromToken, event.params.fromAmount,
         event.params.toToken, event.params.toAmount
@@ -85,11 +85,12 @@ function handleWooSwap(
     swapFee: BigInt,
     isV1: boolean
 ): void {
-    // Start to data statistic, always update token price first
+    // start to data statistic, always update token price first
     let volumeUSD: BigInt;
+    let wooPPAddressString = event.address.toHexString();
+    let quoteTokenAddress = Bytes.fromHexString(WOO_PP_QUOTE_TOKENS.get(wooPPAddressString) as string) as Bytes;
     if (isV1 == false) {
         // WooPPV2 is able to swap Base to Base
-        let quoteTokenAddress = Bytes.fromHexString(QUOTE_TOKEN_1_V2) as Bytes;
         let quoteToken = createToken(event, quoteTokenAddress);
         if (fromTokenAddress != quoteTokenAddress && toTokenAddress != quoteTokenAddress) {
             updateTokenPrice(event, fromTokenAddress, fromAmount, quoteTokenAddress, swapVol.minus(swapFee));

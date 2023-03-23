@@ -1,19 +1,19 @@
-import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
+import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import {
     WooCrossSwapOnSrcChain as WooCCRouterV1WooCrossSwapOnSrcChain_1,
-    WooCrossSwapOnDstChain as WooCCRouterV1WooCrossSwapOnDstChain_1
+    WooCrossSwapOnDstChain as WooCCRouterV1WooCrossSwapOnDstChain_1,
 } from "../../../generated/WooCrossChainRouterV1_1/WooCrossChainRouterV1";
 import {
     WooCrossSwapOnSrcChain as WooCCRouterV1WooCrossSwapOnSrcChain_2,
-    WooCrossSwapOnDstChain as WooCCRouterV1WooCrossSwapOnDstChain_2
+    WooCrossSwapOnDstChain as WooCCRouterV1WooCrossSwapOnDstChain_2,
 } from "../../../generated/WooCrossChainRouterV1_2/WooCrossChainRouterV1";
 import {
     WooCrossSwapOnSrcChain as WooCCRouterV2WooCrossSwapOnSrcChain_1,
-    WooCrossSwapOnDstChain as WooCCRouterV2WooCrossSwapOnDstChain_1
+    WooCrossSwapOnDstChain as WooCCRouterV2WooCrossSwapOnDstChain_1,
 } from "../../../generated/WooCrossChainRouterV2_1/WooCrossChainRouterV2";
 import {
     createCrossChainSrcOrderHistory,
-    createCrossChainDstOrderHistory
+    createCrossChainDstOrderHistory,
 } from "../../create";
 import {
     updateCrossChainSrcOrderHistoryVariable,

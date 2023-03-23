@@ -1,8 +1,8 @@
-import {Address, BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts";
-import {ERC20} from "../generated/WooRouterV1_1/ERC20";
-import {BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, WRAPPED, STABLE_TOKENS, QUOTE_TOKENS_V1} from "./constants";
-import {exponentToBigInt} from "./utils";
-import {createToken} from "./create";
+import { ethereum, Address, BigInt, Bytes } from "@graphprotocol/graph-ts";
+import { ERC20 } from "../generated/WooRouterV1_1/ERC20";
+import { BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, STABLE_TOKENS } from "./constants";
+import { exponentToBigInt } from "./utils";
+import { createToken } from "./create";
 
 export function fetchTokenSymbol(tokenAddress: Bytes): string {
     if (tokenAddress.toHexString() == ETHER) {
@@ -122,8 +122,8 @@ export function calVolumeUSDForWooRouter(
 
     if (
         isV1 == true
-        && QUOTE_TOKENS_V1.indexOf(fromTokenAddress.toHexString()) == -1
-        && QUOTE_TOKENS_V1.indexOf(toTokenAddress.toHexString()) == -1
+        && STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) == -1
+        && STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) == -1
         && swapType == 0
     ) {
         volumeUSD = volumeUSD.times(BI_2);

@@ -1,4 +1,4 @@
-import {BigDecimal, BigInt} from "@graphprotocol/graph-ts/index";
+import { BigDecimal, BigInt, TypedMap } from "@graphprotocol/graph-ts";
 
 export let BI_0 = BigInt.fromI32(0);
 export let BI_1 = BigInt.fromI32(1);
@@ -24,13 +24,6 @@ export const STABLE_TOKENS: string[] = [
     "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",  // DAI
 ];
 
-export const QUOTE_TOKEN_1_V1 = '0x55d398326f99059ff775485246999027b3197955';
-export const QUOTE_TOKEN_2_V1 = '0x55d398326f99059ff775485246999027b3197955';
-export const QUOTE_TOKENS_V1: string[] = [QUOTE_TOKEN_1_V1, QUOTE_TOKEN_2_V1];
-
-export const QUOTE_TOKEN_1_V2 = '0xe9e7cea3dedca5984780bafc599bd69add087d56';
-export const QUOTE_TOKENS_V2: string[] = [QUOTE_TOKEN_1_V2];
-
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
     "0xcef5be73ae943b77f9bc08859367d923c030a269",  // WooRouterV1
@@ -49,6 +42,12 @@ export const WOO_PP_SOURCES: string[] = [
     "0x10c24658815585851a8888f059cb4338790023f1",  // WooPPV1
     "0xec054126922a9a1918435c9072c32f1b60cb2b90",  // WooPPV2
 ];
+
+export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDT
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[1]);  // USDT
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[2], STABLE_TOKENS[1]);  // USDT
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[3], STABLE_TOKENS[0]);  // BUSD
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
     "0xf704eaf4a68ac424c809f7c4595451b9414d2b76",

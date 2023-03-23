@@ -1,4 +1,4 @@
-import {BigDecimal, BigInt} from "@graphprotocol/graph-ts/index";
+import { BigDecimal, BigInt, TypedMap } from "@graphprotocol/graph-ts";
 
 export let BI_0 = BigInt.fromI32(0);
 export let BI_1 = BigInt.fromI32(1);
@@ -22,13 +22,6 @@ export const STABLE_TOKENS: string[] = [
     "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",  // USDC
 ];
 
-export const QUOTE_TOKEN_1_V1 = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48';
-export const QUOTE_TOKEN_2_V1 = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48';
-export const QUOTE_TOKENS_V1: string[] = [QUOTE_TOKEN_1_V1, QUOTE_TOKEN_2_V1];
-
-export const QUOTE_TOKEN_1_V2 = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48';
-export const QUOTE_TOKENS_V2: string[] = [QUOTE_TOKEN_1_V2];
-
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
     "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooCrossChainRouterV2
@@ -37,6 +30,8 @@ export const WOO_ROUTER_SOURCES: string[] = [
 export const WOO_PP_SOURCES: string[] = [
     "0x0000000000000000000000000000000000000000",
 ];
+
+export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
     "0x0000000000000000000000000000000000000000",

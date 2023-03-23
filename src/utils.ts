@@ -1,4 +1,4 @@
-import {BigDecimal, BigInt} from "@graphprotocol/graph-ts/index";
+import { BigDecimal, BigInt } from "@graphprotocol/graph-ts";
 import {
     BI_1,
     BI_0,

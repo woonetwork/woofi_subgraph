@@ -1,5 +1,5 @@
-import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {BI_1, BI_2, STABLE_TOKENS, OTHER_ORDER_SOURCE_ID} from "../../constants";
+import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
+import { BI_1, BI_2, STABLE_TOKENS, OTHER_ORDER_SOURCE_ID } from "../../constants";
 import {
     createGlobalVariable,
     createOrderHistoryVariable,
@@ -14,8 +14,8 @@ import {
     createUnknownDayOrderSource,
     createUnknownOrderSource,
 } from "../../create";
-import {getOrderSourceIDForWooRouter} from "../../utils";
-import {WooSwapHash} from "../../../generated/schema";
+import { getOrderSourceIDForWooRouter } from "../../utils";
+import { WooSwapHash } from "../../../generated/schema";
 
 export function updateGlobalVariable(
     event: ethereum.Event,

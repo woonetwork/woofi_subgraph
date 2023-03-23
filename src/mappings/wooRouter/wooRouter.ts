@@ -1,10 +1,10 @@
-import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
-import {WooRouterSwap as WooRouterV1WooRouterSwap_1} from "../../../generated/WooRouterV1_1/WooRouterV1"
-import {WooRouterSwap as WooRouterV1WooRouterSwap_2} from "../../../generated/WooRouterV1_2/WooRouterV1"
-import {WooRouterSwap as WooRouterV1WooRouterSwap_3} from "../../../generated/WooRouterV1_3/WooRouterV1"
-import {WooRouterSwap as WooRouterV2WooRouterSwap_1} from "../../../generated/WooRouterV2_1/WooRouterV2"
+import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
+import { WooRouterSwap as WooRouterV1WooRouterSwap_1 } from "../../../generated/WooRouterV1_1/WooRouterV1";
+import { WooRouterSwap as WooRouterV1WooRouterSwap_2 } from "../../../generated/WooRouterV1_2/WooRouterV1";
+import { WooRouterSwap as WooRouterV1WooRouterSwap_3 } from "../../../generated/WooRouterV1_3/WooRouterV1";
+import { WooRouterSwap as WooRouterV2WooRouterSwap_1 } from "../../../generated/WooRouterV2_1/WooRouterV2";
 
-import {calVolumeUSDForWooRouter} from "../../helpers";
+import { calVolumeUSDForWooRouter } from "../../helpers";
 import {
     updateGlobalVariable,
     updateHourData,
@@ -17,8 +17,8 @@ import {
     updateOrderHistoryVariable,
     updateWooRouterSwapHash,
 } from "./update";
-import {createOrderHistory, createWooSwapHash, createWooRouterSwapHash} from "../../create";
-import {WooSwapHash} from "../../../generated/schema";
+import { createOrderHistory, createWooSwapHash, createWooRouterSwapHash } from "../../create";
+import { WooSwapHash } from "../../../generated/schema";
 
 export function handleWooRouterV2WooRouterSwap_1(event: WooRouterV2WooRouterSwap_1): void {
     handleWooRouterSwap(

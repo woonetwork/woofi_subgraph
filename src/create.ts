@@ -1,4 +1,4 @@
-import {BigInt, Bytes, ethereum} from "@graphprotocol/graph-ts/index";
+import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import {
     GlobalVariable,
     HourToken,
@@ -30,8 +30,8 @@ import {
     CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID,
     CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID,
 } from "./constants";
-import {exponentToBigInt} from "./utils";
-import {fetchTokenDecimals, fetchTokenName, fetchTokenSymbol, fetchTokenTotalSupply} from "./helpers";
+import { exponentToBigInt } from "./utils";
+import { fetchTokenDecimals, fetchTokenName, fetchTokenSymbol, fetchTokenTotalSupply } from "./helpers";
 
 export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
     let globalVariable = GlobalVariable.load(GLOBAL_VARIABLE_ID);

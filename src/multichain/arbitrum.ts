@@ -108,6 +108,7 @@ export const ODOS_SOURCES: string[] = [
     "0xdd94018f54e565dbfc939f7c44a16e163faab331",  // OdosRouter
     "0xc160e4fe967f8ada7b58d9c578267ebbec1e7a63",  // Adaptor
     "0xa5abf0fb3a51af318c48abb6478d350060009b84",  // Adaptor
+    "0xe5b1145b272bea861f5bb84f424b4e55590c75e8",
 ];
 
 export let ADDRESS_SOURCES: string[][] = [

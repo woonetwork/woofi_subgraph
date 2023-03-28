@@ -93,7 +93,7 @@ export const YIELD_YAK_SOURCES: string[] = [
 ];
 
 export const FIRE_BIRD_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x704f8eaf1509c5b85d929d888de48fd0af1a43c7",
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

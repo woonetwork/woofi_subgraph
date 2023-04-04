@@ -3,6 +3,7 @@ import { WooRouterSwap as WooRouterV1WooRouterSwap_1 } from "../../../generated/
 import { WooRouterSwap as WooRouterV1WooRouterSwap_2 } from "../../../generated/WooRouterV1_2/WooRouterV1";
 import { WooRouterSwap as WooRouterV1WooRouterSwap_3 } from "../../../generated/WooRouterV1_3/WooRouterV1";
 import { WooRouterSwap as WooRouterV2WooRouterSwap_1 } from "../../../generated/WooRouterV2_1/WooRouterV2";
+import { WooRouterSwap as WooRouterV2WooRouterSwap_2 } from "../../../generated/WooRouterV2_2/WooRouterV2";
 
 import { calVolumeUSDForWooRouter } from "../../helpers";
 import {
@@ -19,6 +20,14 @@ import {
 } from "./update";
 import { createOrderHistory, createWooSwapHash, createWooRouterSwapHash } from "../../create";
 import { WooSwapHash } from "../../../generated/schema";
+
+export function handleWooRouterV2WooRouterSwap_2(event: WooRouterV2WooRouterSwap_2): void {
+    handleWooRouterSwap(
+        event, event.params.swapType, event.params.from, event.params.to,
+        event.params.fromToken, event.params.fromAmount,
+        event.params.toToken, event.params.toAmount, false
+    );
+}
 
 export function handleWooRouterV2WooRouterSwap_1(event: WooRouterV2WooRouterSwap_1): void {
     handleWooRouterSwap(

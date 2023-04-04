@@ -29,6 +29,7 @@ export const WOO_ROUTER_SOURCES: string[] = [
     "0xcef5be73ae943b77f9bc08859367d923c030a269",  // WooRouterV1
     "0x114f84658c99aa6ea62e3160a87a16deaf7efe83",  // WooRouterV1
     "0xc90bfe9951a4efbf20aca5ecd9966b2bf8a01294",  // WooRouterV2
+    "0x4f4fd4290c9bb49764701803af6445c5b03e8f06",  // WooRouterV2
     "0x53e255e8bbf4edf16797f9885291b3ca0c70b59f",  // WooCrossChainRouterV1
     "0xd12d239b781e34e0aaa106159940803a07e31a67",  // WooCrossChainRouterV1
     "0x81004c9b697857fd54e137075b51506c739ef439",  // WooCrossChainRouterV2
@@ -41,6 +42,7 @@ export const WOO_PP_SOURCES: string[] = [
     "0x8489d142da126f4ea01750e80ccaa12fd1642988",  // WooPPV1
     "0x10c24658815585851a8888f059cb4338790023f1",  // WooPPV1
     "0xec054126922a9a1918435c9072c32f1b60cb2b90",  // WooPPV2
+    "0x59de3b49314bf5067719364a2cb43e8525ab93fa",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
@@ -48,10 +50,12 @@ WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDT
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[1]);  // USDT
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[2], STABLE_TOKENS[1]);  // USDT
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[3], STABLE_TOKENS[0]);  // BUSD
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[4], STABLE_TOKENS[1]);  // USDT
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
     "0xf704eaf4a68ac424c809f7c4595451b9414d2b76",
     "0x8fa8e3dd9e84094a1d2511acf1353d7e011d8f90",
+    "0x13afd5e3915096b4a53d23ece1a9b4bf1ad8f524",
 ];
 
 export const ONE_INCH_ORDER_SOURCES: string[] = [

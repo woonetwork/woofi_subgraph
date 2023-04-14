@@ -87,6 +87,7 @@ export const OPEN_OCEAN_SOURCES: string[] = [
     "0x170100a288dc3d7e83fea20441f98166b15b6df0",
     "0xdec876911cbe9428265af0d12132c52ee8642a99",
     "0xfe9a934a8607ef020adf22d4431d6ce6005aa4d3",
+    "0x573d43b31f7e937117b319a4a9f098c0bf72ae05",
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -101,6 +102,7 @@ export const FIRE_BIRD_SOURCES: string[] = [
     "0x92e4f29be975c1b1eb72e77de24dccf11432a5bd",  // FireBirdRouter
     "0xb97922afa65c46a1babbf70031f7224bd3449c8e",  // FireBird Unverified Contract(assume as Adapter)
     "0xba9e5d8fb589ecd13bfcf0fa6d751c57c4ec9321",  // FireBird Unverified Contract(assume as Adapter)
+    "0x32615e3f7860bd0a24c65f3e1b8c1e3abff320d5",  // FireBird Unverified Contract(assume as Adapter)
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

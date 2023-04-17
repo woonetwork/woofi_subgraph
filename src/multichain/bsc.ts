@@ -70,6 +70,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x2ed740c6e3aaf5987c7f5a4fa13b90fcc47febd7",
     "0x18101ac1d35230f1a3c005e2abaaeb25cae79e7f",
     "0x7f9e3430880580713b03670046c7e89a0a91403b",
+    "0x14831f12fccc86c4f3dae41c769593df766e4353",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
@@ -137,6 +138,7 @@ export const ZERO_X_SOURCES: string[] = [
 export const ODOS_SOURCES: string[] = [
     "0x9f138be5aa5cc442ea7cc7d18cd9e30593ed90b9",
     "0xd4a2269719276313aa6ab7b01f91d238eba96433",
+    "0xdc723b71ca7ed367624a906a008893c69f291894",
 ];
 
 export let ADDRESS_SOURCES: string[][] = [

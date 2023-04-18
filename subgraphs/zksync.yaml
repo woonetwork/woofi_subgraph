@@ -1,0 +1,50 @@
+specVersion: 0.0.2
+description: fi.woo.org
+repository: https://github.com/woonetwork/woofi_subgraph
+schema:
+  file: ./woofi.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: WooRouterV2_1
+    network: zksync
+    source:
+      address: "0xfd505702b37Ae9b626952Eb2DD736d9045876417"
+      abi: WooRouterV2
+      startBlock: 1470178
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooRouterSwap
+      abis:
+        - name: WooRouterV2
+          file: ../abis/WooRouterV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
+          handler: handleWooRouterV2WooRouterSwap_1
+      file: ../src/mappings/wooRouter/wooRouter.ts
+  - kind: ethereum/contract
+    name: WooPPV2_1
+    network: zksync
+    source:
+      address: "0x42ED123EB5266A5B8E2B54B2C76180CCF5e72FEe"
+      abi: WooPPV2
+      startBlock: 1466595
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WooSwap
+      abis:
+        - name: WooPPV2
+          file: ../abis/WooPPV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
+          handler: handleWooPPV2WooSwap_1
+      file: ../src/mappings/wooPP/wooPP.ts

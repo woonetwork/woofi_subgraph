@@ -53,7 +53,10 @@
     "deploy_ethereum_production": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum subgraphs/ethereum.yaml",
     "deploy_ethereum_staging": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum-staging subgraphs/ethereum.yaml",
     "deploy_ethereum_testing": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum-testing subgraphs/ethereum.yaml",
-    "deploy_ethereum_dev": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum-dev subgraphs/ethereum.yaml"
+    "deploy_ethereum_dev": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum-dev subgraphs/ethereum.yaml",
+
+    "create_zksync_local": "graph create woonetwork/woofi-zksync --node http://127.0.0.1:8020",
+    "deploy_zksync_local": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020 woonetwork/woofi-zksync subgraphs/zksync.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.20.0",

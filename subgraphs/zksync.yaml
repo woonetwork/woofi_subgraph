@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: WooRouterV2_1
-    network: zksync
+    network: zksync-era
     source:
       address: "0xfd505702b37Ae9b626952Eb2DD736d9045876417"
       abi: WooRouterV2
@@ -28,7 +28,7 @@ dataSources:
       file: ../src/mappings/wooRouter/wooRouter.ts
   - kind: ethereum/contract
     name: WooPPV2_1
-    network: zksync
+    network: zksync-era
     source:
       address: "0x42ED123EB5266A5B8E2B54B2C76180CCF5e72FEe"
       abi: WooPPV2

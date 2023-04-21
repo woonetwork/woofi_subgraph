@@ -64,6 +64,7 @@ export const OPEN_OCEAN_SOURCES: string[] = [
     "0x4e6b18217ac75a779262c20b3cc07050cbe7282b",  // OpenOcean Unverified Contract(assume as Adapter)
     "0x07749429d3d9047a966b28a489500325bac9f1b6",  // OpenOcean Unverified Contract(assume as Adapter)
     "0xb5d99a61a5d34e3edfeea052483f49f7a922e248",
+    "0x1e82ad8a12068a85fcb96368463b434e77b21201",
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -109,6 +110,7 @@ export const ODOS_SOURCES: string[] = [
     "0xc160e4fe967f8ada7b58d9c578267ebbec1e7a63",  // Adaptor
     "0xa5abf0fb3a51af318c48abb6478d350060009b84",  // Adaptor
     "0xe5b1145b272bea861f5bb84f424b4e55590c75e8",
+    "0x549a2f915a1f4e9655d71cbdbf5e055ec357efae",
 ];
 
 export let ADDRESS_SOURCES: string[][] = [

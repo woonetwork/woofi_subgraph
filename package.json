@@ -55,8 +55,14 @@
     "deploy_ethereum_testing": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum-testing subgraphs/ethereum.yaml",
     "deploy_ethereum_dev": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum-dev subgraphs/ethereum.yaml",
 
-    "create_zksync_local": "graph create woonetwork/woofi-zksync --node http://127.0.0.1:18020",
-    "deploy_zksync_local": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:18020 woonetwork/woofi-zksync subgraphs/zksync.yaml"
+    "create_local_zksync_production": "graph create woonetwork/woofi-zksync --node http://127.0.0.1:8020",
+    "create_local_zksync_staging": "graph create woonetwork/woofi-zksync-staging --node http://127.0.0.1:8020",
+    "create_local_zksync_testing": "graph create woonetwork/woofi-zksync-testing --node http://127.0.0.1:8020",
+    "deploy_local_zksync_production": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-zksync subgraphs/zksync.yaml",
+    "deploy_local_zksync_staging": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-zksync-staging subgraphs/zksync.yaml",
+    "deploy_local_zksync_testing": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-zksync-testing subgraphs/zksync.yaml",
+
+    "deploy_studio_zksync": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --studio woofi-zksync subgraphs/zksync.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.20.0",

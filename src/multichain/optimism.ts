@@ -75,7 +75,7 @@ export const FIRE_BIRD_SOURCES: string[] = [
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x0bb624b3881e4c860f6e4ddc5b6070802ec6a87b",
 ];
 
 export const PARA_SWAP_SOURCES: string[] = [

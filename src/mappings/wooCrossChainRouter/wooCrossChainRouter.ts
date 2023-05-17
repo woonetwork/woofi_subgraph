@@ -14,6 +14,8 @@ import {
 import {
     createCrossChainSrcOrderHistory,
     createCrossChainDstOrderHistory,
+    createWooSwapHash,
+    createDayTrader,
 } from "../../create";
 import {
     updateCrossChainSrcOrderHistoryVariable,
@@ -141,6 +143,15 @@ export function handleWooCrossSwapOnDstChain(
     realToAmount: BigInt
 ): void {
     updateCrossChainDstOrderHistoryVariable(event);
+
+    let wooSwapHash = createWooSwapHash(event);
+    let dayTrader = createDayTrader(event, toAddress);
+    if (dayTrader.tradedToday == false) {
+        dayTrader.tradedToday = true;
+    }
+    dayTrader.volumeUSD = dayTrader.volumeUSD.plus(wooSwapHash.volumeUSD);
+    dayTrader.updatedAt = event.block.timestamp;
+    dayTrader.save();
 
     createCrossChainDstOrderHistory(
         event,

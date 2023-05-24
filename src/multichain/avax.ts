@@ -125,6 +125,7 @@ export const ODOS_SOURCES: string[] = [
     "0xfe7ce93ac0f78826cd81d506b07fe9f459c00214",  // OdosRouter
     "0xea584ef9aa0a6b1d0b6782043ebfbc0bdd037adb",  // Adaptor
     "0xe4614d81bd262d62b09867c915d556c508b7036f",  // Adaptor
+    "0x7a00fa13da1fef01aa023bd6a4aa794d3ea69be6",
 ];
 
 export const HERA_FINANCE_SOURCES: string[] = [

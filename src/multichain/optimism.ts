@@ -98,6 +98,7 @@ export const ZERO_X_SOURCES: string[] = [
 export const ODOS_SOURCES: string[] = [
     "0x69dd38645f7457be13571a847ffd905f9acbaf6d",  // OdosRouter
     "0x045da4625b1e680bb8b1c2c7696612b440a0017e",  // Adaptor
+    "0x4bde8be121d80349662cb98be900d5d03a78cacf",
 ];
 
 export const HERA_FINANCE_SOURCES: string[] = [

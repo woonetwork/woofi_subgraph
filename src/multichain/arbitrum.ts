@@ -65,6 +65,7 @@ export const OPEN_OCEAN_SOURCES: string[] = [
     "0x07749429d3d9047a966b28a489500325bac9f1b6",  // OpenOcean Unverified Contract(assume as Adapter)
     "0xb5d99a61a5d34e3edfeea052483f49f7a922e248",
     "0x1e82ad8a12068a85fcb96368463b434e77b21201",
+    "0x2691f337abeb0146f16441ca4f82f363275851d5",
 ];
 
 export const METAMASK_SOURCES: string[] = [
@@ -81,6 +82,7 @@ export const FIRE_BIRD_SOURCES: string[] = [
     "0xbbe84caaf62dba7081e1f1cc2c1f83f156587114",  // FireBird Unverified Contract(assume as Adapter)
     "0x350e44fc8d033ab9cd5f832288f0c8f0ceed795f",
     "0x8dd6ae22d7db82d559a2aa295ecd8904c8355ad3",
+    "0x97ff1e6a1bad1d491912172edb4e25337c366f9c",
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [
@@ -111,6 +113,7 @@ export const ODOS_SOURCES: string[] = [
     "0xa5abf0fb3a51af318c48abb6478d350060009b84",  // Adaptor
     "0xe5b1145b272bea861f5bb84f424b4e55590c75e8",
     "0x549a2f915a1f4e9655d71cbdbf5e055ec357efae",
+    "0xcfedfa1734528a1ad96a5ee999b034623785c6ae",
 ];
 
 export const HERA_FINANCE_SOURCES: string[] = [

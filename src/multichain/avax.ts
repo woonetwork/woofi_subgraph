@@ -127,6 +127,14 @@ export const ODOS_SOURCES: string[] = [
     "0xe4614d81bd262d62b09867c915d556c508b7036f",  // Adaptor
 ];
 
+export const HERA_FINANCE_SOURCES: string[] = [
+    "0x0000000000000000000000000000000000000000",
+];
+
+export const THOR_SWAP_SOURCES: string[] = [
+    "0x5505be604dfa8a1ad402a71f8a357fba47f9bf5a",
+];
+
 export let ADDRESS_SOURCES: string[][] = [
     WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
     ONE_INCH_ORDER_SOURCES,  // 1: 1inch
@@ -141,6 +149,8 @@ export let ADDRESS_SOURCES: string[][] = [
     TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
     ZERO_X_SOURCES,  // 11: 0x
     ODOS_SOURCES,  // 12: ODOS
+    HERA_FINANCE_SOURCES,  // 13: HeraFinance
+    THOR_SWAP_SOURCES,  // 14: ThorSwap
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";
@@ -161,6 +171,8 @@ export const BEETHOVEN_X_ORDER_SOURCE_ID = "9";
 export const TRANSIT_SWAP_ORDER_SOURCE_ID = "10";
 export const ZERO_X_ORDER_SOURCE_ID = "11";
 export const ODOS_ORDER_SOURCE_ID = "12";
+export const HERA_FINANCE_ORDER_SOURCE_ID = "13";
+export const THOR_SWAP_ORDER_SOURCE_ID = "14";
 export const OTHER_ORDER_SOURCE_ID = "99";
 
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = "-99";

@@ -124,7 +124,7 @@ export let ADDRESS_SOURCES: string[][] = [
     ZERO_X_SOURCES,  // 11: 0x
     ODOS_SOURCES,  // 12: ODOS
     HERA_FINANCE_SOURCES,  // 13: HeraFinance
-    THOR_SWAP_SOURCES,  // 14: ThorSwap
+    THOR_SWAP_SOURCES,  // 14: THORSwap
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

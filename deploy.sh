@@ -1,5 +1,4 @@
 networks="bsc avax fantom polygon arbitrum optimism"
-# networks="bsc avax fantom polygon"
 
 for network in $networks;
 do

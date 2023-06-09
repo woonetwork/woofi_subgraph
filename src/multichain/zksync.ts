@@ -46,7 +46,8 @@ export const DODO_ORDER_SOURCES: string[] = [
 ];
 
 export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+    "0x36a1acbbcafca2468b85011ddd16e7cb4d673230",
+    "0xadc1b156d22765dc884b278b701dabc197e00a27",
 ];
 
 export const METAMASK_SOURCES: string[] = [

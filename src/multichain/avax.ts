@@ -67,6 +67,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0xbdf50eae568ecef74796ed6022a0d453e8432410",  // Socket: One Inch Swap Implementation
     "0x4e66794586cc9c53a8c604d77b4ce3d39b1cff7c",  // 1inch Unverified Contract
     "0xf01ef4051130cc8871fa0c17024a6d62e379e856",
+    "0x32d12a25f539e341089050e2d26794f041fc9df8",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [

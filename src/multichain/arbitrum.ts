@@ -51,6 +51,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
     "0x521709b3cd7f07e29722be0ba28a8ce0e806dbc3",  // 1inch Unverified Contract
     "0x64768a3a2453f1e8de9e43e92d65fc36e4c9872d",
+    "0x454c8b4dc6a2affe669a3db1633133f7d305e305",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [

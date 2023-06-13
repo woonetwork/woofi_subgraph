@@ -95,6 +95,7 @@ export const YIELD_YAK_SOURCES: string[] = [
 
 export const FIRE_BIRD_SOURCES: string[] = [
     "0x704f8eaf1509c5b85d929d888de48fd0af1a43c7",
+    "0xbcbe6a4fe2459c69188f73ce7570d966e56ef0e6",
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

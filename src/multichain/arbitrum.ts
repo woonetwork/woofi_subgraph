@@ -84,6 +84,7 @@ export const FIRE_BIRD_SOURCES: string[] = [
     "0x350e44fc8d033ab9cd5f832288f0c8f0ceed795f",
     "0x8dd6ae22d7db82d559a2aa295ecd8904c8355ad3",
     "0x97ff1e6a1bad1d491912172edb4e25337c366f9c",
+    "0x1f5a3c42f26b72c917b3625c7a964ca33600fa25",
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

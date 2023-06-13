@@ -48,6 +48,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
     "0xff3cdca6db902617e6ae4133cb45df41c38222b1",  // Adapter
     "0xf0694acc9e941b176e17b9ef923e71e7b8b2477a",  // Adapter
+    "0xafea5601b0a894451955355e79ad3026515e500d",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [
@@ -72,6 +73,7 @@ export const FIRE_BIRD_SOURCES: string[] = [
     "0x0c6134abc08a1eafc3e2dc9a5ad023bb08da86c3",  // FireBirdRouter
     "0xbbe84caaf62dba7081e1f1cc2c1f83f156587114",  // FireBird Unverified Contract(assume as Adapter)
     "0x350e44fc8d033ab9cd5f832288f0c8f0ceed795f",  // FireBird Unverified Contract(assume as Adapter)
+    "0xdda1afe34928450fff2af5c051e5e0c0853e21c9",
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

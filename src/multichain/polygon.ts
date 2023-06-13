@@ -83,6 +83,7 @@ export const FIRE_BIRD_SOURCES: string[] = [
     "0xb31d1b1ea48ce4bf10ed697d44b747287e785ad4",  // FireBirdRouter
     "0xe6862672bb084cd2f0a98725142950ddbcba7d97",  // FireBird Unverified Contract(assume as Adapter)
     "0x99a36249753d992f527f18e7b2d89d5e9bd380f7",  // FireBird Unverified Contract(assume as Adapter)
+    "0x5b58811507f8f9f1fe5d7905b487b6b88966fa13",
 ];
 
 export const BIT_KEEP_SOURCES: string[] = [

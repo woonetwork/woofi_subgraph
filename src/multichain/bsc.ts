@@ -90,6 +90,7 @@ export const OPEN_OCEAN_SOURCES: string[] = [
     "0xdec876911cbe9428265af0d12132c52ee8642a99",
     "0xfe9a934a8607ef020adf22d4431d6ce6005aa4d3",
     "0x573d43b31f7e937117b319a4a9f098c0bf72ae05",
+    "0x23ebcd701fd92867235aeb0174b7c444b9b2b3ad",
 ];
 
 export const METAMASK_SOURCES: string[] = [

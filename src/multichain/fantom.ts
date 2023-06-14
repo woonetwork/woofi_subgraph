@@ -54,6 +54,7 @@ export const ONE_INCH_ORDER_SOURCES: string[] = [
     "0xccf6b19bc2419e776b6ee030044811da846686fb",  // 1inch Unverified Contract
     "0x93131efee501d5721737c32576238f619548edda",  // 1inch Unverified Contract
     "0x5d0ec1f843c1233d304b96dbde0cab9ec04d71ef",
+    "0xc603a00595d5f8ea8d93c5c338c00ff29dba6258",
 ];
 
 export const DODO_ORDER_SOURCES: string[] = [

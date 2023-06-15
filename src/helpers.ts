@@ -5,11 +5,11 @@ import { exponentToBigInt } from "./utils";
 import { createToken } from "./create";
 
 export function fetchTokenSymbol(tokenAddress: Bytes): string {
-    if (tokenAddress.toHexString() === ETHER) {
+    if (tokenAddress.toHexString() == ETHER) {
         return ETHER_SYMBOL;
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
     let symbolResult = contract.try_symbol();
     if (symbolResult.reverted) {
         return "UNKNOWN";
@@ -19,11 +19,11 @@ export function fetchTokenSymbol(tokenAddress: Bytes): string {
 }
 
 export function fetchTokenName(tokenAddress: Bytes): string {
-    if (tokenAddress.toHexString() === ETHER) {
+    if (tokenAddress.toHexString() == ETHER) {
         return ETHER_NAME;
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
     let nameResult = contract.try_name();
     if (nameResult.reverted) {
         return "Unknown";
@@ -33,11 +33,11 @@ export function fetchTokenName(tokenAddress: Bytes): string {
 }
 
 export function fetchTokenTotalSupply(tokenAddress: Bytes): BigInt {
-    if (tokenAddress.toHexString() === ETHER) {
+    if (tokenAddress.toHexString() == ETHER) {
         return BigInt.fromI32(0);
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
     let totalSupplyResult = contract.try_totalSupply();
     if (totalSupplyResult.reverted) {
         return BigInt.fromI32(0);
@@ -47,11 +47,11 @@ export function fetchTokenTotalSupply(tokenAddress: Bytes): BigInt {
 }
 
 export function fetchTokenDecimals(tokenAddress: Bytes): BigInt {
-    if (tokenAddress.toHexString() === ETHER) {
+    if (tokenAddress.toHexString() == ETHER) {
         return BigInt.fromI32(18);
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
     let decimalResult = contract.try_decimals();
     if (decimalResult.reverted) {
         return BigInt.fromI32(18);
@@ -61,12 +61,12 @@ export function fetchTokenDecimals(tokenAddress: Bytes): BigInt {
 }
 
 export function fetchTokenBalance(tokenAddress: Bytes, user: Bytes): BigInt {
-    if (tokenAddress.toHexString() === ETHER) {
+    if (tokenAddress.toHexString() == ETHER) {
         return BigInt.fromI32(0);
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
-    let balanceResult = contract.try_balanceOf(user as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
+    let balanceResult = contract.try_balanceOf(Address.fromBytes(user));
     if (balanceResult.reverted) {
         return BigInt.fromI32(0);
     }

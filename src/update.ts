@@ -32,7 +32,7 @@ export function updateTokenPrice(event: ethereum.Event, fromTokenAddress: Bytes,
         toToken.updatedAt = event.block.timestamp;
         toToken.save();
 
-        if (toTokenAddress.toHexString() === WRAPPED) {
+        if (toTokenAddress.toHexString() == WRAPPED) {
             updateNativeTokenPrice(event, lastTradePrice);
         }
     } else if (STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) != -1) {  // toToken is Stable Coin
@@ -46,7 +46,7 @@ export function updateTokenPrice(event: ethereum.Event, fromTokenAddress: Bytes,
         fromToken.updatedAt = event.block.timestamp;
         fromToken.save();
 
-        if (fromTokenAddress.toHexString() === WRAPPED) {
+        if (fromTokenAddress.toHexString() == WRAPPED) {
             updateNativeTokenPrice(event, lastTradePrice);
         }
     }

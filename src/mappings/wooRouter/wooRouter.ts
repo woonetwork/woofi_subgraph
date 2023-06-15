@@ -133,9 +133,9 @@ function updateHourStatistics(
     addOrderSourceVolumeUSD: BigInt,
     wooSwapHash: WooSwapHash
 ): void {
-    updateHourData(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    updateHourData(event, volumeUSD, swapType);
     updateHourToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
-    updateHourOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    // updateHourOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
 }
 
 function updateDayStatistics(
@@ -149,7 +149,7 @@ function updateDayStatistics(
     wooSwapHash: WooSwapHash
 ): void {
     updateDayData(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
-    updateDayOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    // updateDayOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
 }
 
 function updateStatistic(
@@ -164,6 +164,6 @@ function updateStatistic(
 ): void {
     updateGlobalVariable(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
     updateToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
-    updateOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    // updateOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
     updateOrderHistoryVariable(event);
 }

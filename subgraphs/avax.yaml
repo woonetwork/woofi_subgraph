@@ -276,7 +276,7 @@ dataSources:
           handler: handleWooPPV2WooSwap_1
       file: ../src/mappings/wooPP/wooPP.ts
   - kind: ethereum/contract
-    name: WooPPV1_2
+    name: WooPPV1_3
     network: avalanche
     source:
       address: "0x1df3009c57a8B143c6246149F00B090Bce3b8f88"
@@ -295,10 +295,10 @@ dataSources:
           file: ../abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
-          handler: handleWooPPV1WooSwap_2
+          handler: handleWooPPV1WooSwap_3
       file: ../src/mappings/wooPP/wooPP.ts
   - kind: ethereum/contract
-    name: WooPPV1_1
+    name: WooPPV1_2
     network: avalanche
     source:
       address: "0xF8cE0D043891b62c55380fB1EFBfB4F186153D96"
@@ -317,5 +317,5 @@ dataSources:
           file: ../abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
-          handler: handleWooPPV1WooSwap_1
+          handler: handleWooPPV1WooSwap_2
       file: ../src/mappings/wooPP/wooPP.ts

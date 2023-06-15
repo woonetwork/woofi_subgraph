@@ -1,5 +1,5 @@
 import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
-import { BI_1, BI_2, STABLE_TOKENS, OTHER_ORDER_SOURCE_ID } from "../../constants";
+import { BI_1, BI_2, STABLE_TOKENS, OTHER_ORDER_SOURCE_ID, WOOFI_SWAP_TYPE } from "../../constants";
 import {
     createGlobalVariable,
     createOrderHistoryVariable,
@@ -108,14 +108,11 @@ export function updateToken(
 export function updateHourData(
     event: ethereum.Event,
     volumeUSD: BigInt,
-    swapType: i32,
-    fromAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
+    swapType: i32
 ): void {
     let hourData = createHourData(event);
 
-    if (swapType == 0) {
+    if (swapType == WOOFI_SWAP_TYPE) {
         hourData.routerToWooPPTxns = hourData.routerToWooPPTxns.plus(BI_1);
         hourData.routerToWooPPVolumeUSD = hourData.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {

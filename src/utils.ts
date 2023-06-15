@@ -1,12 +1,15 @@
-import { BigDecimal, BigInt } from "@graphprotocol/graph-ts";
+import { BigDecimal, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import {
     BI_1,
     BI_0,
     WOO_ROUTER_SOURCES,
-    WOO_ROUTER_ORDER_SOURCE_ID,
+    // WOO_ROUTER_ORDER_SOURCE_ID,
+    WOOFI_ORDER_SOURCE_ID,
     OTHER_ORDER_SOURCE_ID,
     GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID,
     ADDRESS_SOURCES,
+    WOOFI_SOURCES,
+    REBATE_ADDRESSES,
 } from "./constants";
 
 export function exponentToBigInt(decimals: BigInt): BigInt {
@@ -23,17 +26,17 @@ export function exponentToBigDecimal(decimals: BigInt): BigDecimal {
     return bi.toBigDecimal();
 }
 
-export function getOrderSourceIDForWooPP(transactionTo: string, wooSwapFrom: string): string {
-    if (ADDRESS_SOURCES[0].indexOf(transactionTo) != -1) {
-        return WOO_ROUTER_ORDER_SOURCE_ID;
+export function getOrderSourceIDForWooPP(transactionTo: string, wooSwapFrom: Bytes, rebateTo: Bytes | null): string {
+    if (WOOFI_SOURCES.indexOf(transactionTo) !== -1 || rebateTo === null) {
+        return WOOFI_ORDER_SOURCE_ID;
     }
 
-    if (WOO_ROUTER_SOURCES.indexOf(wooSwapFrom) != -1) {
-        return GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID;
-    }
+    // if (WOO_ROUTER_SOURCES.indexOf(wooSwapFrom.toHexString()) !== -1) {
+    //     return GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID;
+    // }
 
-    for (let i = 1; i < ADDRESS_SOURCES.length; i++) {
-        if (ADDRESS_SOURCES[i].indexOf(wooSwapFrom) != -1) {
+    for (let i = 0; i < REBATE_ADDRESSES.length; i++) {
+        if (REBATE_ADDRESSES[i].indexOf(rebateTo.toHexString()) !== -1) {
             return i.toString();
         }
     }
@@ -42,11 +45,15 @@ export function getOrderSourceIDForWooPP(transactionTo: string, wooSwapFrom: str
 }
 
 export function getOrderSourceIDForWooRouter(transactionFrom: string, wooRouterSwapFrom: string): string {
-    for (let i = 1; i < ADDRESS_SOURCES.length; i++) {
-        if (ADDRESS_SOURCES[i].indexOf(wooRouterSwapFrom) != -1) {
-            return i.toString();
-        }
-    }
+    // if (rebateTo === null) {
+    //     return WOOFI_ORDER_SOURCE_ID;
+    // }
+
+    // for (let i = 0; i < REBATE_ADDRESSES.length; i++) {
+    //     if (REBATE_ADDRESSES[i].indexOf(rebateTo.toHexString()) !== -1) {
+    //         return i.toString();
+    //     }
+    // }
 
     return OTHER_ORDER_SOURCE_ID;
 }

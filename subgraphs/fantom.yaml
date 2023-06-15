@@ -210,7 +210,7 @@ dataSources:
           handler: handleWooPPV2WooSwap_1
       file: ../src/mappings/wooPP/wooPP.ts
   - kind: ethereum/contract
-    name: WooPPV1_1
+    name: WooPPV1_2
     network: fantom
     source:
       address: "0x9503E7517D3C5bc4f9E4A1c6AE4f8B33AC2546f2"
@@ -229,5 +229,5 @@ dataSources:
           file: ../abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
-          handler: handleWooPPV1WooSwap_1
+          handler: handleWooPPV1WooSwap_2
       file: ../src/mappings/wooPP/wooPP.ts

@@ -26,7 +26,7 @@ dataSources:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooRouterV2WooRouterSwap_1
           receipt: true
-      file: ../src/mappings/wooRouter/wooRouter.ts
+      file: ../src/mappings/wooRouter/index.ts
   - kind: ethereum/contract
     name: WooPPV2_1
     network: zksync-era
@@ -49,4 +49,4 @@ dataSources:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
           handler: handleWooPPV2WooSwap_1
           receipt: true
-      file: ../src/mappings/wooPP/wooPP.ts
+      file: ../src/mappings/wooPP/index.ts

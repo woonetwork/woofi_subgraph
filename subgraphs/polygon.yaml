@@ -24,7 +24,7 @@ dataSources:
         - event: SendMsg(uint8,uint64)
           handler: handleStargateBridgeV1SendMsg_1
           receipt: true
-      file: ../src/mappings/stargateBridge/stargateBridge.ts
+      file: ../src/mappings/stargateBridge/index.ts
   - kind: ethereum/contract
     name: WooCrossChainRouterV2_1
     network: matic
@@ -51,7 +51,7 @@ dataSources:
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV2WooCrossSwapOnDstChain_1
           receipt: true
-      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+      file: ../src/mappings/wooCrossChainRouter/index.ts
   - kind: ethereum/contract
     name: WooCrossChainRouterV1_2
     network: matic
@@ -78,7 +78,7 @@ dataSources:
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnDstChain_2
           receipt: true
-      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+      file: ../src/mappings/wooCrossChainRouter/index.ts
   - kind: ethereum/contract
     name: WooCrossChainRouterV1_1
     network: matic
@@ -105,7 +105,7 @@ dataSources:
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnDstChain_1
           receipt: true
-      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+      file: ../src/mappings/wooCrossChainRouter/index.ts
   - kind: ethereum/contract
     name: WooVaultManagerV1_2
     network: matic
@@ -128,7 +128,7 @@ dataSources:
         - event: RewardDistributed(indexed address,uint256)
           handler: handleWooVaultManagerV1RewardDistributed_2
           receipt: true
-      file: ../src/mappings/wooVaultManager/wooVaultManager.ts
+      file: ../src/mappings/wooVaultManager/index.ts
   - kind: ethereum/contract
     name: WooVaultManagerV1_1
     network: matic
@@ -151,7 +151,7 @@ dataSources:
         - event: RewardDistributed(indexed address,uint256)
           handler: handleWooVaultManagerV1RewardDistributed_1
           receipt: true
-      file: ../src/mappings/wooVaultManager/wooVaultManager.ts
+      file: ../src/mappings/wooVaultManager/index.ts
   - kind: ethereum/contract
     name: WooRouterV2_1
     network: matic
@@ -174,7 +174,7 @@ dataSources:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooRouterV2WooRouterSwap_1
           receipt: true
-      file: ../src/mappings/wooRouter/wooRouter.ts
+      file: ../src/mappings/wooRouter/index.ts
   - kind: ethereum/contract
     name: WooRouterV1_1
     network: matic
@@ -197,7 +197,7 @@ dataSources:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooRouterV1WooRouterSwap_1
           receipt: true
-      file: ../src/mappings/wooRouter/wooRouter.ts
+      file: ../src/mappings/wooRouter/index.ts
   - kind: ethereum/contract
     name: WooPPV2_1
     network: matic
@@ -220,7 +220,7 @@ dataSources:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
           handler: handleWooPPV2WooSwap_1
           receipt: true
-      file: ../src/mappings/wooPP/wooPP.ts
+      file: ../src/mappings/wooPP/index.ts
   - kind: ethereum/contract
     name: WooPPV1_2
     network: matic
@@ -243,4 +243,4 @@ dataSources:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooPPV1WooSwap_2
           receipt: true
-      file: ../src/mappings/wooPP/wooPP.ts
+      file: ../src/mappings/wooPP/index.ts

@@ -8,14 +8,14 @@ import { WooRouterSwap as WooRouterV2WooRouterSwap_2 } from "../../../generated/
 import { calVolumeUSDForWooRouter } from "../../helpers";
 import {
     updateGlobalVariable,
-    updateHourData,
     updateHourToken,
-    updateDayData,
     updateToken,
+    updateHourData,
+    updateDayData,
     updateOrderHistoryVariable,
     updateWooRouterSwapHash,
 } from "./update";
-import { createOrderHistory, createWooSwapHash, createWooRouterSwapHash } from "../../create";
+import { createWooSwapHash, createWooRouterSwapHash, createOrderHistory } from "../../create";
 
 export function handleWooRouterV2WooRouterSwap_2(event: WooRouterV2WooRouterSwap_2): void {
     handleWooRouterSwap(

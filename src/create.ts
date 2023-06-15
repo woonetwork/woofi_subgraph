@@ -1,22 +1,22 @@
 import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import {
     GlobalVariable,
+    WooSwapHash,
+    WooRouterSwapHash,
+    OrderHistoryVariable,
+    OrderHistory,
     HourToken,
     Token,
     HourData,
     DayData,
+    HourTrader,
+    DayTrader,
+    Trader,
     HourOrderSource,
     DayOrderSource,
     OrderSource,
     UnknownDayOrderSource,
     UnknownOrderSource,
-    HourTrader,
-    DayTrader,
-    Trader,
-    WooSwapHash,
-    WooRouterSwapHash,
-    OrderHistoryVariable,
-    OrderHistory,
     CrossChainSrcOrderHistory,
     CrossChainDstOrderHistory,
     HourRebate,
@@ -31,7 +31,7 @@ import {
     CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID,
 } from "./constants";
 import { exponentToBigInt } from "./utils";
-import { fetchTokenDecimals, fetchTokenName, fetchTokenSymbol, fetchTokenTotalSupply } from "./helpers";
+import { fetchTokenSymbol, fetchTokenName, fetchTokenTotalSupply, fetchTokenDecimals } from "./helpers";
 
 export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
     let entity = GlobalVariable.load(GLOBAL_VARIABLE_ID);

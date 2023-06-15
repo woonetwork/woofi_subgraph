@@ -2,10 +2,10 @@ import { ethereum, BigInt, Bytes, Address } from "@graphprotocol/graph-ts";
 import { WooSwapHash } from "../../../generated/schema";
 import {
     BI_1,
+    LAYER_ZERO_SOURCES,
+    WOOFI_ORDER_SOURCE_ID,
     OTHER_ORDER_SOURCE_ID,
     GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID,
-    WOOFI_ORDER_SOURCE_ID,
-    LAYER_ZERO_SOURCES,
 } from "../../constants";
 import { getOrderSourceIDForWooPP } from "../../utils";
 import {

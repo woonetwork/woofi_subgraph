@@ -2,14 +2,14 @@ import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import { BI_1, WOOFI_SWAP_TYPE } from "../../constants";
 import {
     createGlobalVariable,
-    createOrderHistoryVariable,
     createHourToken,
     createToken,
     createHourData,
     createDayData,
-    createWooRouterSwapHash,
     createUnknownDayOrderSource,
     createUnknownOrderSource,
+    createWooRouterSwapHash,
+    createOrderHistoryVariable,
 } from "../../create";
 
 export function updateGlobalVariable(

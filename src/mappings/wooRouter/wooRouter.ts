@@ -10,16 +10,12 @@ import {
     updateGlobalVariable,
     updateHourData,
     updateHourToken,
-    updateHourOrderSource,
     updateDayData,
-    updateDayOrderSource,
     updateToken,
-    updateOrderSource,
     updateOrderHistoryVariable,
     updateWooRouterSwapHash,
 } from "./update";
 import { createOrderHistory, createWooSwapHash, createWooRouterSwapHash } from "../../create";
-import { WooSwapHash } from "../../../generated/schema";
 
 export function handleWooRouterV2WooRouterSwap_2(event: WooRouterV2WooRouterSwap_2): void {
     handleWooRouterSwap(
@@ -102,12 +98,12 @@ export function handleWooRouterSwap(
 
     // Transaction may exist two WooRouterSwap
     let wooSwapHash = createWooSwapHash(event);
-    let wooRouterSwapHash = createWooRouterSwapHash(event);
-    let addOrderSourceVolumeUSD = wooSwapHash.volumeUSD.minus(wooRouterSwapHash.previousVolumeUSD);
+    // let wooRouterSwapHash = createWooRouterSwapHash(event);
+    // let addOrderSourceVolumeUSD = wooSwapHash.volumeUSD.minus(wooRouterSwapHash.previousVolumeUSD);
 
-    updateHourStatistics(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress, addOrderSourceVolumeUSD, wooSwapHash);
-    updateDayStatistics(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress, addOrderSourceVolumeUSD, wooSwapHash);
-    updateStatistic(event, volumeUSD, swapType, fromAddress, fromTokenAddress, toTokenAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    updateHourStatistics(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
+    updateDayStatistics(event, volumeUSD, swapType);
+    updateStatistic(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
 
     updateWooRouterSwapHash(event, wooSwapHash.volumeUSD);
 
@@ -127,43 +123,29 @@ function updateHourStatistics(
     event: ethereum.Event,
     volumeUSD: BigInt,
     swapType: i32,
-    fromAddress: Bytes,
     fromTokenAddress: Bytes,
-    toTokenAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
+    toTokenAddress: Bytes
 ): void {
     updateHourData(event, volumeUSD, swapType);
     updateHourToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
-    // updateHourOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
 }
 
 function updateDayStatistics(
     event: ethereum.Event,
     volumeUSD: BigInt,
-    swapType: i32,
-    fromAddress: Bytes,
-    fromTokenAddress: Bytes,
-    toTokenAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
+    swapType: i32
 ): void {
-    updateDayData(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
-    // updateDayOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    updateDayData(event, volumeUSD, swapType);
 }
 
 function updateStatistic(
     event: ethereum.Event,
     volumeUSD: BigInt,
     swapType: i32,
-    fromAddress: Bytes,
     fromTokenAddress: Bytes,
-    toTokenAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
+    toTokenAddress: Bytes
 ): void {
-    updateGlobalVariable(event, volumeUSD, swapType, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
-    updateToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
-    // updateOrderSource(event, fromAddress, addOrderSourceVolumeUSD, wooSwapHash);
+    updateGlobalVariable(event, volumeUSD, swapType);
+    updateToken(event, volumeUSD, swapType, fromTokenAddress, toTokenAddress);
     updateOrderHistoryVariable(event);
 }

@@ -1,11 +1,11 @@
 import { ethereum, Address, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import { ERC20 } from "../generated/WooRouterV1_1/ERC20";
-import { BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, STABLE_TOKENS } from "./constants";
+import { BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, STABLE_TOKENS, WOOFI_SWAP_TYPE } from "./constants";
 import { exponentToBigInt } from "./utils";
 import { createToken } from "./create";
 
 export function fetchTokenSymbol(tokenAddress: Bytes): string {
-    if (tokenAddress.toHexString() == ETHER) {
+    if (tokenAddress.toHexString() === ETHER) {
         return ETHER_SYMBOL;
     }
 
@@ -19,7 +19,7 @@ export function fetchTokenSymbol(tokenAddress: Bytes): string {
 }
 
 export function fetchTokenName(tokenAddress: Bytes): string {
-    if (tokenAddress.toHexString() == ETHER) {
+    if (tokenAddress.toHexString() === ETHER) {
         return ETHER_NAME;
     }
 
@@ -33,7 +33,7 @@ export function fetchTokenName(tokenAddress: Bytes): string {
 }
 
 export function fetchTokenTotalSupply(tokenAddress: Bytes): BigInt {
-    if (tokenAddress.toHexString() == ETHER) {
+    if (tokenAddress.toHexString() === ETHER) {
         return BigInt.fromI32(0);
     }
 
@@ -47,7 +47,7 @@ export function fetchTokenTotalSupply(tokenAddress: Bytes): BigInt {
 }
 
 export function fetchTokenDecimals(tokenAddress: Bytes): BigInt {
-    if (tokenAddress.toHexString() == ETHER) {
+    if (tokenAddress.toHexString() === ETHER) {
         return BigInt.fromI32(18);
     }
 
@@ -61,7 +61,7 @@ export function fetchTokenDecimals(tokenAddress: Bytes): BigInt {
 }
 
 export function fetchTokenBalance(tokenAddress: Bytes, user: Bytes): BigInt {
-    if (tokenAddress.toHexString() == ETHER) {
+    if (tokenAddress.toHexString() === ETHER) {
         return BigInt.fromI32(0);
     }
 
@@ -124,7 +124,7 @@ export function calVolumeUSDForWooRouter(
         isV1 === true
         && STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) === -1
         && STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) === -1
-        && swapType === 0
+        && swapType === WOOFI_SWAP_TYPE
     ) {
         volumeUSD = volumeUSD.times(BI_2);
     }

@@ -5,6 +5,7 @@ import {
     OTHER_ORDER_SOURCE_ID,
     GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID,
     WOOFI_ORDER_SOURCE_ID,
+    LAYER_ZERO_SOURCES,
 } from "../../constants";
 import { getOrderSourceIDForWooPP } from "../../utils";
 import {
@@ -27,11 +28,15 @@ import {
 
 export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapHash: WooSwapHash): void {
     let globalVariable = createGlobalVariable(event);
-    let trader = createTrader(event, traderAddress);
-    if (trader.tradedBefore === false) {
-        globalVariable.totalTraders = globalVariable.totalTraders.plus(BI_1);
-        updateTrader(event, traderAddress);
+    
+    if (LAYER_ZERO_SOURCES.indexOf((event.transaction.to as Address).toHexString()) === -1) {
+        let trader = createTrader(event, traderAddress);
+        if (trader.tradedBefore === false) {
+            globalVariable.totalTraders = globalVariable.totalTraders.plus(BI_1);
+            updateTrader(event, traderAddress);
+        }
     }
+
     if (wooSwapHash.txnSynced === false) {
         globalVariable.totalTxns = globalVariable.totalTxns.plus(BI_1);
     }
@@ -85,11 +90,14 @@ export function updateToken(event: ethereum.Event, volumeUSD: BigInt, fromTokenA
 export function updateHourData(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapHash: WooSwapHash): void {
     let hourData = createHourData(event);
 
-    let hourTrader = createHourTrader(event, traderAddress);
-    if (hourTrader.tradedThisHour === false) {
-        hourData.traders = hourData.traders.plus(BI_1);
-        updateHourTrader(event, traderAddress);
+    if (LAYER_ZERO_SOURCES.indexOf((event.transaction.to as Address).toHexString()) === -1) {
+        let hourTrader = createHourTrader(event, traderAddress);
+        if (hourTrader.tradedThisHour === false) {
+            hourData.traders = hourData.traders.plus(BI_1);
+            updateHourTrader(event, traderAddress);
+        }
     }
+
     if (wooSwapHash.txnSynced === false) {
         hourData.txns = hourData.txns.plus(BI_1);
     }
@@ -102,11 +110,14 @@ export function updateHourData(event: ethereum.Event, traderAddress: Bytes, volu
 export function updateDayData(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapFrom: Bytes, rebateTo: Bytes | null, wooSwapHash: WooSwapHash): void {
     let dayData = createDayData(event);
 
-    let dayTrader = createDayTrader(event, traderAddress);
-    if (dayTrader.tradedToday === false) {
-        dayData.traders = dayData.traders.plus(BI_1);
+    if (LAYER_ZERO_SOURCES.indexOf((event.transaction.to as Address).toHexString()) === -1) {
+        let dayTrader = createDayTrader(event, traderAddress);
+        if (dayTrader.tradedToday === false) {
+            dayData.traders = dayData.traders.plus(BI_1);
+        }
+        updateDayTrader(event, traderAddress, volumeUSD, wooSwapFrom, rebateTo);
     }
-    updateDayTrader(event, traderAddress, volumeUSD, wooSwapFrom, rebateTo);
+    
     if (wooSwapHash.txnSynced === false) {
         dayData.txns = dayData.txns.plus(BI_1);
     }

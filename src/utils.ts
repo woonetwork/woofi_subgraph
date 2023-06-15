@@ -1,15 +1,11 @@
 import { BigDecimal, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import {
-    BI_1,
     BI_0,
-    WOO_ROUTER_SOURCES,
-    // WOO_ROUTER_ORDER_SOURCE_ID,
-    WOOFI_ORDER_SOURCE_ID,
-    OTHER_ORDER_SOURCE_ID,
-    GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID,
-    ADDRESS_SOURCES,
+    BI_1,
     WOOFI_SOURCES,
     REBATE_ADDRESSES,
+    WOOFI_ORDER_SOURCE_ID,
+    OTHER_ORDER_SOURCE_ID,
 } from "./constants";
 
 export function exponentToBigInt(decimals: BigInt): BigInt {
@@ -31,29 +27,11 @@ export function getOrderSourceIDForWooPP(transactionTo: string, wooSwapFrom: Byt
         return WOOFI_ORDER_SOURCE_ID;
     }
 
-    // if (WOO_ROUTER_SOURCES.indexOf(wooSwapFrom.toHexString()) !== -1) {
-    //     return GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID;
-    // }
-
     for (let i = 0; i < REBATE_ADDRESSES.length; i++) {
         if (REBATE_ADDRESSES[i].indexOf(rebateTo.toHexString()) !== -1) {
             return i.toString();
         }
     }
-
-    return OTHER_ORDER_SOURCE_ID;
-}
-
-export function getOrderSourceIDForWooRouter(transactionFrom: string, wooRouterSwapFrom: string): string {
-    // if (rebateTo === null) {
-    //     return WOOFI_ORDER_SOURCE_ID;
-    // }
-
-    // for (let i = 0; i < REBATE_ADDRESSES.length; i++) {
-    //     if (REBATE_ADDRESSES[i].indexOf(rebateTo.toHexString()) !== -1) {
-    //         return i.toString();
-    //     }
-    // }
 
     return OTHER_ORDER_SOURCE_ID;
 }

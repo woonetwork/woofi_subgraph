@@ -37,9 +37,7 @@ export const WOO_PP_SOURCES: string[] = [
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDC
 
-export const WOO_VAULT_MANAGER_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",  // No WooVaultManager on Optimism
-];
+export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 
 // destination swap called by Layer Zero Relayer
 export const LAYER_ZERO_SOURCES: string[] = [
@@ -122,98 +120,6 @@ export const ZETA_FARM_REBATE_ADDRESSES: string[] = [
 ];
 
 export const SLINGSHOT_REBATE_ADDRESSES: string[] = [];
-
-export const ONE_INCH_ORDER_SOURCES: string[] = [
-    "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
-    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
-    "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
-    "0xff3cdca6db902617e6ae4133cb45df41c38222b1",  // Adapter
-    "0xf0694acc9e941b176e17b9ef923e71e7b8b2477a",  // Adapter
-    "0xafea5601b0a894451955355e79ad3026515e500d",
-];
-
-export const DODO_ORDER_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
-];
-
-export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
-    "0x4e6b18217ac75a779262c20b3cc07050cbe7282b",  // OpenOcean Unverified Contract(assume as Adapter)
-    "0x1aa298ae7c53d8dafa200ed49608649bfa76a446",  // OpenOcean Unverified Contract(assume as Adapter)
-];
-
-export const METAMASK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
-];
-
-export const YIELD_YAK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
-];
-
-export const FIRE_BIRD_SOURCES: string[] = [
-    "0x0c6134abc08a1eafc3e2dc9a5ad023bb08da86c3",  // FireBirdRouter
-    "0xbbe84caaf62dba7081e1f1cc2c1f83f156587114",  // FireBird Unverified Contract(assume as Adapter)
-    "0x350e44fc8d033ab9cd5f832288f0c8f0ceed795f",  // FireBird Unverified Contract(assume as Adapter)
-    "0xdda1afe34928450fff2af5c051e5e0c0853e21c9",
-];
-
-export const BIT_KEEP_SOURCES: string[] = [
-    "0x0bb624b3881e4c860f6e4ddc5b6070802ec6a87b",
-];
-
-export const PARA_SWAP_SOURCES: string[] = [
-    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",  // AugustusSwapper
-];
-
-export const BEETHOVEN_X_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
-];
-
-export const TRANSIT_SWAP_SOURCES: string[] = [
-    "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
-    "0xf7a2f863299c17dfa11cd8a14e7c7dca92f315b9",  // Adapter
-];
-
-export const ZERO_X_SOURCES: string[] = [
-    "0xa3128d9b7cca7d5af29780a56abeec12b05a6740",
-];
-
-export const ODOS_SOURCES: string[] = [
-    "0x69dd38645f7457be13571a847ffd905f9acbaf6d",  // OdosRouter
-    "0x045da4625b1e680bb8b1c2c7696612b440a0017e",  // Adaptor
-    "0x4bde8be121d80349662cb98be900d5d03a78cacf",
-];
-
-export const HERA_FINANCE_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
-];
-
-export const THOR_SWAP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
-];
-
-export const OKX_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
-];
-
-export let ADDRESS_SOURCES: string[][] = [
-    WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
-    ONE_INCH_ORDER_SOURCES,  // 1: 1inch
-    DODO_ORDER_SOURCES,  // 2: DODO
-    OPEN_OCEAN_SOURCES,  // 3: OpenOcean
-    METAMASK_SOURCES,  // 4: MetaMask
-    YIELD_YAK_SOURCES,  // 5: YieldYak
-    FIRE_BIRD_SOURCES,  // 6: FireBird
-    BIT_KEEP_SOURCES,  // 7: BitKeep
-    PARA_SWAP_SOURCES,  // 8: ParaSwap
-    BEETHOVEN_X_SOURCES,  // 9: BeethovenX
-    TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
-    ZERO_X_SOURCES,  // 11: 0x
-    ODOS_SOURCES,  // 12: ODOS
-    HERA_FINANCE_SOURCES,  // 13: HeraFinance
-    THOR_SWAP_SOURCES,  // 14: THORSwap
-    OKX_SOURCES,  // 15: OKX
-];
 
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi

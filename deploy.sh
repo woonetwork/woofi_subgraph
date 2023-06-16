@@ -1,4 +1,4 @@
-networks="bsc avax fantom polygon arbitrum optimism ethereum"
+networks="bsc avax fantom polygon arbitrum optimism ethereum";
 
 for network in $networks;
 do

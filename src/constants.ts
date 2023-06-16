@@ -15,33 +15,27 @@ export const ETHER = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 export const ETHER_SYMBOL = "ETH";
 export const ETHER_NAME = "eth";
 
-export const WRAPPED = "0x4200000000000000000000000000000000000006";
+export const WRAPPED = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
 
 export const STABLE_TOKENS: string[] = [
-    "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",  // USDT
-    "0x7f5c764cbc14f9669b88837ca1490cca17c31607",  // USDC
-    "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",  // DAI
+    "0xdac17f958d2ee523a2206206994597c13d831ec7",  // USDT
+    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",  // USDC
 ];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0xeaf1ac8e89ea0ae13e0f03634a4ff23502527024",  // WooRouterV2
-    "0x655e2fe03fe19327239b5294a556965192386a7b",  // WooCrossChainRouterV1
-    "0xbeae1b06949d033da628ba3e5af267c3e740494b",  // WooCrossChainRouterV2
+    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooCrossChainRouterV2
 ];
 
-export const WOO_PP_SOURCES: string[] = [
-    "0xd1778f9df3eee5473a9640f13682e3846f61febc",  // WooPPV2
-];
+export const WOO_PP_SOURCES: string[] = [];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
-WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDC
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 
 // destination swap called by Layer Zero Relayer
 export const LAYER_ZERO_SOURCES: string[] = [
-    "0x81e792e5a9003cc1c8bf5569a00f34b65d75b017",  // Relayer
+    "0x902f09715b6303d4173037652fa7377e5b98089e",  // Relayer
 ];
 
 export const WOOFI_SOURCES: string[] = WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES).concat(LAYER_ZERO_SOURCES);
@@ -89,9 +83,7 @@ export const ZERO_X_REBATE_ADDRESSES: string[] = [
     "0xBfdcBB4C05843163F491C24f9c0019c510786304",
 ];
 
-export const ODOS_REBATE_ADDRESSES: string[] = [
-    "0x9ff6e05e9c5f4e2f5ed8fd771c98e0c07e933b85",
-];
+export const ODOS_REBATE_ADDRESSES: string[] = [];
 
 export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [
     "0x1111110808b63f93b869a8a8ef87bc5b4dd79689",

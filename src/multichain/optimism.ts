@@ -58,13 +58,13 @@ export const DODO_REBATE_ADDRESSES: string[] = [
 ];
 
 export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [
-    "0x353c1f0bc78fbbc245b3C93ef77b1DCC5b77D2A0",
+    "0x353c1f0bc78fbbc245b3c93ef77b1dcc5b77d2a0",
 ];
 
 export const METAMASK_REBATE_ADDRESSES: string[] = [];
 
 export const YIELD_YAK_REBATE_ADDRESSES: string[] = [
-    "0x5925C5c6843A8F67f7Ef2b55Db1f5491573C85Eb",
+    "0x5925c5c6843a8f67f7ef2b55db1f5491573c85eb",
 ];
 
 export const FIRE_BIRD_REBATE_ADDRESSES: string[] = [
@@ -72,11 +72,11 @@ export const FIRE_BIRD_REBATE_ADDRESSES: string[] = [
 ];
 
 export const BIT_KEEP_REBATE_ADDRESSES: string[] = [
-    "0x9712394CAcCAb28acd26d41F7e0566C1e88759aA",
+    "0x9712394caccab28acd26d41f7e0566c1e88759aa",
 ];
 
 export const PARA_SWAP_REBATE_ADDRESSES: string[] = [
-    "0xDEF171Fe48CF0115B1d80b88dc8eAB59176FEe57",
+    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
 ];
 
 export const BEETHOVEN_X_REBATE_ADDRESSES: string[] = [];
@@ -86,7 +86,7 @@ export const TRANSIT_SWAP_REBATE_ADDRESSES: string[] = [
 ];
 
 export const ZERO_X_REBATE_ADDRESSES: string[] = [
-    "0xBfdcBB4C05843163F491C24f9c0019c510786304",
+    "0xbfdcbb4c05843163f491c24f9c0019c510786304",
 ];
 
 export const ODOS_REBATE_ADDRESSES: string[] = [
@@ -98,7 +98,7 @@ export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [
 ];
 
 export const THOR_SWAP_REBATE_ADDRESSES: string[] = [
-    "0x72c6D8fCc3E591253a1Eb563180d317998346bec",
+    "0x72c6d8fcc3e591253a1eb563180d317998346bec",
 ];
 
 export const OKX_REBATE_ADDRESSES: string[] = [];

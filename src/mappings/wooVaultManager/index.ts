@@ -3,7 +3,7 @@ import { RewardDistributed as WooVaultManagerV1RewardDistributed_1 } from "../..
 import { RewardDistributed as WooVaultManagerV1RewardDistributed_2 } from "../../../generated/WooVaultManagerV1_2/WooVaultManagerV1";
 import { RewardDistributed as WooVaultManagerV1RewardDistributed_3 } from "../../../generated/WooVaultManagerV1_3/WooVaultManagerV1";
 
-import { createDayData, createGlobalVariable } from "../../create";
+import { createGlobalVariable, createDayData } from "../../create";
 
 export function handleWooVaultManagerV1RewardDistributed_3(event: WooVaultManagerV1RewardDistributed_3): void {
     handleRewardDistributed(event, event.params.amount);

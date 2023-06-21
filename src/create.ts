@@ -1,22 +1,22 @@
 import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import {
     GlobalVariable,
+    WooSwapHash,
+    WooRouterSwapHash,
+    OrderHistoryVariable,
+    OrderHistory,
     HourToken,
     Token,
     HourData,
     DayData,
+    HourTrader,
+    DayTrader,
+    Trader,
     HourOrderSource,
     DayOrderSource,
     OrderSource,
     UnknownDayOrderSource,
     UnknownOrderSource,
-    HourTrader,
-    DayTrader,
-    Trader,
-    WooSwapHash,
-    WooRouterSwapHash,
-    OrderHistoryVariable,
-    OrderHistory,
     CrossChainSrcOrderHistory,
     CrossChainDstOrderHistory,
     HourRebate,
@@ -31,294 +31,285 @@ import {
     CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID,
 } from "./constants";
 import { exponentToBigInt } from "./utils";
-import { fetchTokenDecimals, fetchTokenName, fetchTokenSymbol, fetchTokenTotalSupply } from "./helpers";
+import { fetchTokenSymbol, fetchTokenName, fetchTokenTotalSupply, fetchTokenDecimals } from "./helpers";
 
 export function createGlobalVariable(event: ethereum.Event): GlobalVariable {
-    let globalVariable = GlobalVariable.load(GLOBAL_VARIABLE_ID);
-    if (globalVariable == null) {
-        globalVariable = new GlobalVariable(GLOBAL_VARIABLE_ID);
-        globalVariable.totalTraders = BI_0;
-        globalVariable.totalTxns = BI_0;
-        globalVariable.totalVolumeUSD = BI_0;
-        globalVariable.buybackVolumeWOO = BI_0;
-        globalVariable.routerToWooPPVolumeUSD = BI_0;
-        globalVariable.routerToThirdPartyVolumeUSD = BI_0;
-        globalVariable.updatedAt = event.block.timestamp;
-        globalVariable.save();
+    let entity = GlobalVariable.load(GLOBAL_VARIABLE_ID);
+    if (entity === null) {
+        entity = new GlobalVariable(GLOBAL_VARIABLE_ID);
+        entity.totalTraders = BI_0;
+        entity.totalTxns = BI_0;
+        entity.totalVolumeUSD = BI_0;
+        entity.buybackVolumeWOO = BI_0;
+        entity.routerToWooPPVolumeUSD = BI_0;
+        entity.routerToThirdPartyVolumeUSD = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return globalVariable as GlobalVariable;
+    return entity as GlobalVariable;
 }
 
 export function createHourToken(event: ethereum.Event, tokenAddress: Bytes): HourToken {
-    let timestamp = event.block.timestamp.toI32();
-    let hourID = timestamp / 3600;
-    let hourStartTimestamp = hourID * 3600;
+    let hourID = event.block.timestamp.toI32() / 3600;
+    let hourUTCTimestamp = hourID * 3600;
+    let entityID = tokenAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString());
 
-    let hourTokenID = tokenAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString())
-    let hourToken = HourToken.load(hourTokenID);
-    if (hourToken == null) {
-        hourToken = new HourToken(hourTokenID);
-        hourToken.timestamp = BigInt.fromI32(hourStartTimestamp);
-        hourToken.txns = BI_0;
-        hourToken.volume = BI_0;
-        hourToken.volumeUSD = BI_0;
-        hourToken.routerToWooPPTxns = BI_0;
-        hourToken.routerToWooPPVolumeUSD = BI_0;
-        hourToken.routerToThirdPartyTxns = BI_0;
-        hourToken.routerToThirdPartyVolumeUSD = BI_0;
-        hourToken.updatedAt = event.block.timestamp;
-        hourToken.save();
+    let entity = HourToken.load(entityID);
+    if (entity === null) {
+        entity = new HourToken(entityID);
+        entity.timestamp = BigInt.fromI32(hourUTCTimestamp);
+        entity.txns = BI_0;
+        entity.volume = BI_0;
+        entity.volumeUSD = BI_0;
+        entity.routerToWooPPTxns = BI_0;
+        entity.routerToWooPPVolumeUSD = BI_0;
+        entity.routerToThirdPartyTxns = BI_0;
+        entity.routerToThirdPartyVolumeUSD = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return hourToken as HourToken;
+    return entity as HourToken;
 }
 
 export function createToken(event: ethereum.Event, tokenAddress: Bytes): Token {
-    // event can be `WooRouterSwap` or `WooSwap`
-    let tokenID = tokenAddress.toHexString();
-    let token = Token.load(tokenID);
-    if (token == null) {
-        token = new Token(tokenID);
-        token.symbol = fetchTokenSymbol(tokenAddress);
-        token.name = fetchTokenName(tokenAddress);
-        token.totalSupply = fetchTokenTotalSupply(tokenAddress);
+    let entityID = tokenAddress.toHexString();
+    let entity = Token.load(entityID);
+    if (entity === null) {
+        entity = new Token(entityID);
+        entity.symbol = fetchTokenSymbol(tokenAddress);
+        entity.name = fetchTokenName(tokenAddress);
+        entity.totalSupply = fetchTokenTotalSupply(tokenAddress);
         let decimals = fetchTokenDecimals(tokenAddress);
-        token.decimals = decimals;
-        if (STABLE_TOKENS.indexOf(tokenID) != -1) {
-            token.lastTradePrice = exponentToBigInt(decimals);
+        entity.decimals = decimals;
+        if (STABLE_TOKENS.indexOf(entityID) !== -1) {
+            entity.lastTradePrice = exponentToBigInt(decimals);
         } else {
-            token.lastTradePrice = BI_0;
+            entity.lastTradePrice = BI_0;
         }
-        token.volumeUSD = BI_0;
-        token.routerToWooPPVolumeUSD = BI_0;
-        token.routerToThirdPartyVolumeUSD = BI_0;
-        token.updatedAt = event.block.timestamp;
-        token.save();
+        entity.volumeUSD = BI_0;
+        entity.routerToWooPPVolumeUSD = BI_0;
+        entity.routerToThirdPartyVolumeUSD = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return token as Token;
+    return entity as Token;
 }
 
 export function createHourData(event: ethereum.Event): HourData {
-    let timestamp = event.block.timestamp.toI32();
-    let hourID = timestamp / 3600;
-    let hourStartTimestamp = hourID * 3600;
+    let hourID = event.block.timestamp.toI32() / 3600;
+    let hourUTCTimestamp = hourID * 3600;
+    let entityID = BigInt.fromI32(hourID).toString();
 
-    let hourDataID = BigInt.fromI32(hourID).toString();
-    let hourData = HourData.load(hourDataID);
-    if (hourData == null) {
-        hourData = new HourData(hourDataID);
-        hourData.timestamp = BigInt.fromI32(hourStartTimestamp);
-        hourData.traders = BI_0;
-        hourData.txns = BI_0;
-        hourData.volumeUSD = BI_0;
-        hourData.routerToWooPPTxns = BI_0;
-        hourData.routerToWooPPVolumeUSD = BI_0;
-        hourData.routerToThirdPartyTxns = BI_0;
-        hourData.routerToThirdPartyVolumeUSD = BI_0;
-        hourData.updatedAt = event.block.timestamp;
-        hourData.save();
+    let entity = HourData.load(entityID);
+    if (entity === null) {
+        entity = new HourData(entityID);
+        entity.timestamp = BigInt.fromI32(hourUTCTimestamp);
+        entity.traders = BI_0;
+        entity.txns = BI_0;
+        entity.volumeUSD = BI_0;
+        entity.routerToWooPPTxns = BI_0;
+        entity.routerToWooPPVolumeUSD = BI_0;
+        entity.routerToThirdPartyTxns = BI_0;
+        entity.routerToThirdPartyVolumeUSD = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return hourData as HourData;
+    return entity as HourData;
 }
 
 export function createDayData(event: ethereum.Event): DayData {
-    let timestamp = event.block.timestamp.toI32();
-    let dayID = timestamp / 86400;
-    let dayStartTimestamp = dayID * 86400;
+    let dayID = event.block.timestamp.toI32() / 86400;
+    let dayUTC0Timestamp = dayID * 86400;
+    let entityID = BigInt.fromI32(dayID).toString();
 
-    let dayDataID = BigInt.fromI32(dayID).toString();
-    let dayData = DayData.load(dayDataID);
-    if (dayData == null) {
-        dayData = new DayData(dayDataID);
-        dayData.timestamp = BigInt.fromI32(dayStartTimestamp);
-        dayData.traders = BI_0;
-        dayData.txns = BI_0;
-        dayData.volumeUSD = BI_0;
-        dayData.buybackVolumeWOO = BI_0;
-        dayData.routerToWooPPTxns = BI_0;
-        dayData.routerToWooPPVolumeUSD = BI_0;
-        dayData.routerToThirdPartyTxns = BI_0;
-        dayData.routerToThirdPartyVolumeUSD = BI_0;
-        dayData.updatedAt = event.block.timestamp;
-        dayData.save();
+    let entity = DayData.load(entityID);
+    if (entity === null) {
+        entity = new DayData(entityID);
+        entity.timestamp = BigInt.fromI32(dayUTC0Timestamp);
+        entity.traders = BI_0;
+        entity.txns = BI_0;
+        entity.volumeUSD = BI_0;
+        entity.buybackVolumeWOO = BI_0;
+        entity.routerToWooPPTxns = BI_0;
+        entity.routerToWooPPVolumeUSD = BI_0;
+        entity.routerToThirdPartyTxns = BI_0;
+        entity.routerToThirdPartyVolumeUSD = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return dayData as DayData;
+    return entity as DayData;
 }
 
 export function createHourTrader(event: ethereum.Event, traderAddress: Bytes): HourTrader {
-    let timestamp = event.block.timestamp.toI32();
-    let hourID = timestamp / 3600;
+    let hourID = event.block.timestamp.toI32() / 3600;
 
-    let hourTraderID = traderAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString());
-    let hourTrader = HourTrader.load(hourTraderID);
-    if (hourTrader == null) {
-        hourTrader = new HourTrader(hourTraderID);
-        hourTrader.tradedThisHour = false;
-        hourTrader.updatedAt = event.block.timestamp;
-        hourTrader.save();
+    let entityID = traderAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString());
+    let entity = HourTrader.load(entityID);
+    if (entity === null) {
+        entity = new HourTrader(entityID);
+        entity.tradedThisHour = false;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return hourTrader as HourTrader;
+    return entity as HourTrader;
 }
 
 export function createDayTrader(event: ethereum.Event, traderAddress: Bytes): DayTrader {
-    let timestamp = event.block.timestamp.toI32();
-    let dayID = timestamp / 86400;
-    let dayStartTimestamp = dayID * 86400;
+    let dayID = event.block.timestamp.toI32() / 86400;
+    let dayUTC0Timestamp = dayID * 86400;
+    let entityID = traderAddress.toHexString().concat("-").concat(BigInt.fromI32(dayID).toString());
 
-    let dayTraderID = traderAddress.toHexString().concat("-").concat(BigInt.fromI32(dayID).toString());
-    let dayTrader = DayTrader.load(dayTraderID);
-    if (dayTrader == null) {
-        dayTrader = new DayTrader(dayTraderID);
-        dayTrader.tradedToday = false;
-        dayTrader.timestamp = BigInt.fromI32(dayStartTimestamp);
-        dayTrader.address = traderAddress;
-        dayTrader.volumeUSD = BI_0;
-        dayTrader.updatedAt = event.block.timestamp;
-        dayTrader.save();
+    let entity = DayTrader.load(entityID);
+    if (entity === null) {
+        entity = new DayTrader(entityID);
+        entity.tradedToday = false;
+        entity.timestamp = BigInt.fromI32(dayUTC0Timestamp);
+        entity.address = traderAddress;
+        entity.volumeUSD = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return dayTrader as DayTrader;
+    return entity as DayTrader;
 }
 
 export function createTrader(event: ethereum.Event, traderAddress: Bytes): Trader {
-    let traderID = traderAddress.toHexString();
-    let trader = Trader.load(traderID);
-    if (trader == null) {
-        trader = new Trader(traderID);
-        trader.tradedBefore = false;
-        trader.updatedAt = event.block.timestamp;
-        trader.save();
+    let entityID = traderAddress.toHexString();
+    let entity = Trader.load(entityID);
+    if (entity === null) {
+        entity = new Trader(entityID);
+        entity.tradedBefore = false;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return trader as Trader;
+    return entity as Trader;
 }
 
 export function createHourOrderSource(event: ethereum.Event, orderSourceID: string): HourOrderSource {
-    let timestamp = event.block.timestamp.toI32();
-    let hourID = timestamp / 3600;
-    let hourStartTimestamp = hourID * 3600;
+    let hourID = event.block.timestamp.toI32() / 3600;
+    let hourUTCTimestamp = hourID * 3600;
+    let entityID = orderSourceID.concat("-").concat(BigInt.fromI32(hourID).toString());
 
-    let hourOrderSourceID = orderSourceID.concat("-").concat(BigInt.fromI32(hourID).toString());
-    let hourOrderSource = HourOrderSource.load(hourOrderSourceID);
-    if (hourOrderSource == null) {
-        hourOrderSource = new HourOrderSource(hourOrderSourceID);
-        hourOrderSource.timestamp = BigInt.fromI32(hourStartTimestamp);
-        hourOrderSource.volumeUSD = BI_0;
-        hourOrderSource.txns = BI_0;
-        hourOrderSource.updatedAt = event.block.timestamp;
-        hourOrderSource.save();
+    let entity = HourOrderSource.load(entityID);
+    if (entity === null) {
+        entity = new HourOrderSource(entityID);
+        entity.timestamp = BigInt.fromI32(hourUTCTimestamp);
+        entity.volumeUSD = BI_0;
+        entity.txns = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return hourOrderSource as HourOrderSource;
+    return entity as HourOrderSource;
 }
 
 export function createDayOrderSource(event: ethereum.Event, orderSourceID: string): DayOrderSource {
-    let timestamp = event.block.timestamp.toI32();
-    let dayID = timestamp / 86400;
-    let dayStartTimestamp = dayID * 86400;
+    let dayID = event.block.timestamp.toI32() / 86400;
+    let dayUTC0Timestamp = dayID * 86400;
+    let entityID = orderSourceID.concat("-").concat(BigInt.fromI32(dayID).toString());
 
-    let dayOrderSourceID = orderSourceID.concat("-").concat(BigInt.fromI32(dayID).toString());
-    let dayOrderSource = DayOrderSource.load(dayOrderSourceID);
-    if (dayOrderSource == null) {
-        dayOrderSource = new DayOrderSource(dayOrderSourceID);
-        dayOrderSource.timestamp = BigInt.fromI32(dayStartTimestamp);
-        dayOrderSource.volumeUSD = BI_0;
-        dayOrderSource.txns = BI_0;
-        dayOrderSource.updatedAt = event.block.timestamp;
-        dayOrderSource.save();
+    let entity = DayOrderSource.load(entityID);
+    if (entity === null) {
+        entity = new DayOrderSource(entityID);
+        entity.timestamp = BigInt.fromI32(dayUTC0Timestamp);
+        entity.volumeUSD = BI_0;
+        entity.txns = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return dayOrderSource as DayOrderSource;
+    return entity as DayOrderSource;
 }
 
 export function createOrderSource(event: ethereum.Event, orderSourceID: string): OrderSource {
-    let orderSource = OrderSource.load(orderSourceID);
-    if (orderSource == null) {
-        orderSource = new OrderSource(orderSourceID);
-        orderSource.volumeUSD = BI_0;
-        orderSource.txns = BI_0;
-        orderSource.updatedAt = event.block.timestamp;
-        orderSource.save();
+    let entity = OrderSource.load(orderSourceID);
+    if (entity === null) {
+        entity = new OrderSource(orderSourceID);
+        entity.volumeUSD = BI_0;
+        entity.txns = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return orderSource as OrderSource;
+    return entity as OrderSource;
 }
 
 export function createUnknownDayOrderSource(event: ethereum.Event, msgSender: string): UnknownDayOrderSource {
-    let timestamp = event.block.timestamp.toI32();
-    let dayID = timestamp / 86400;
-    let dayStartTimestamp = dayID * 86400;
+    let dayID = event.block.timestamp.toI32() / 86400;
+    let dayUTCTimestamp = dayID * 86400;
+    let entityID = msgSender.concat("-").concat(BigInt.fromI32(dayID).toString());
 
-    let unknownDayOrderSourceID = msgSender.concat("-").concat(BigInt.fromI32(dayID).toString());
-    let unknownDayOrderSource = UnknownDayOrderSource.load(unknownDayOrderSourceID);
-    if (unknownDayOrderSource == null) {
-        unknownDayOrderSource = new UnknownDayOrderSource(unknownDayOrderSourceID);
-        unknownDayOrderSource.timestamp = BigInt.fromI32(dayStartTimestamp);
-        unknownDayOrderSource.volumeUSD = BI_0;
-        unknownDayOrderSource.txns = BI_0;
-        unknownDayOrderSource.updatedAt = event.block.timestamp;
-        unknownDayOrderSource.save();
+    let entity = UnknownDayOrderSource.load(entityID);
+    if (entity === null) {
+        entity = new UnknownDayOrderSource(entityID);
+        entity.timestamp = BigInt.fromI32(dayUTCTimestamp);
+        entity.volumeUSD = BI_0;
+        entity.txns = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return unknownDayOrderSource as UnknownDayOrderSource;
+    return entity as UnknownDayOrderSource;
 }
 
 export function createUnknownOrderSource(event: ethereum.Event, msgSender: string): UnknownOrderSource {
-    let unknownOrderSource = UnknownOrderSource.load(msgSender);
-    if (unknownOrderSource == null) {
-        unknownOrderSource = new UnknownOrderSource(msgSender);
-        unknownOrderSource.volumeUSD = BI_0;
-        unknownOrderSource.txns = BI_0;
-        unknownOrderSource.updatedAt = event.block.timestamp;
-        unknownOrderSource.save();
+    let entity = UnknownOrderSource.load(msgSender);
+    if (entity === null) {
+        entity = new UnknownOrderSource(msgSender);
+        entity.volumeUSD = BI_0;
+        entity.txns = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return unknownOrderSource as UnknownOrderSource;
+    return entity as UnknownOrderSource;
 }
 
 export function createWooSwapHash(event: ethereum.Event): WooSwapHash {
-    let wooSwapHashID = event.transaction.hash.toHexString();
-    let wooSwapHash = WooSwapHash.load(wooSwapHashID);
-    if (wooSwapHash == null) {
-        wooSwapHash = new WooSwapHash(wooSwapHashID);
-        wooSwapHash.txnSynced = false;
-        wooSwapHash.volumeUSD = BI_0;
-        wooSwapHash.getOrderSourceByWooRouterSwapFrom = false;
-        wooSwapHash.updatedAt = event.block.timestamp;
-        wooSwapHash.save();
+    let entityID = event.transaction.hash.toHexString();
+    let entity = WooSwapHash.load(entityID);
+    if (entity === null) {
+        entity = new WooSwapHash(entityID);
+        entity.txnSynced = false;
+        entity.volumeUSD = BI_0;
+        entity.getOrderSourceByWooRouterSwapFrom = false;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return wooSwapHash as WooSwapHash;
+    return entity as WooSwapHash;
 }
 
 export function createWooRouterSwapHash(event: ethereum.Event): WooRouterSwapHash {
-    let wooRouterSwapHashID = event.transaction.hash.toHexString();
-    let wooRouterSwapHash = WooRouterSwapHash.load(wooRouterSwapHashID);
-    if (wooRouterSwapHash == null) {
-        wooRouterSwapHash = new WooRouterSwapHash(wooRouterSwapHashID);
-        wooRouterSwapHash.previousVolumeUSD = BI_0;
-        wooRouterSwapHash.updatedAt = event.block.timestamp;
-        wooRouterSwapHash.save();
+    let entityID = event.transaction.hash.toHexString();
+    let entity = WooRouterSwapHash.load(entityID);
+    if (entity === null) {
+        entity = new WooRouterSwapHash(entityID);
+        entity.previousVolumeUSD = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return wooRouterSwapHash as WooRouterSwapHash;
+    return entity as WooRouterSwapHash;
 }
 
 export function createOrderHistoryVariable(event: ethereum.Event): OrderHistoryVariable {
-    let orderHistoryVariable = OrderHistoryVariable.load(ORDER_HISTORY_VARIABLE_ID);
-    if (orderHistoryVariable == null) {
-        orderHistoryVariable = new OrderHistoryVariable(ORDER_HISTORY_VARIABLE_ID);
-        orderHistoryVariable.txns = BI_0;
-        orderHistoryVariable.updatedAt = event.block.timestamp;
-        orderHistoryVariable.save();
+    let entity = OrderHistoryVariable.load(ORDER_HISTORY_VARIABLE_ID);
+    if (entity === null) {
+        entity = new OrderHistoryVariable(ORDER_HISTORY_VARIABLE_ID);
+        entity.txns = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return orderHistoryVariable as OrderHistoryVariable;
+    return entity as OrderHistoryVariable;
 }
 
 export function createOrderHistory(
@@ -332,42 +323,42 @@ export function createOrderHistory(
     toAmount: BigInt
 ): OrderHistory {
     // only create by WooRouter
-    let orderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
-    let orderHistory = OrderHistory.load(orderHistoryID);
-    if (orderHistory == null) {
-        orderHistory = new OrderHistory(orderHistoryID);
-        orderHistory.source = swapType;
-        orderHistory.hash = event.transaction.hash;
-        orderHistory.block = event.block.number;
-        orderHistory.timestamp = event.block.timestamp;
-        orderHistory.user = event.transaction.from;
-        orderHistory.from = fromAddress;
-        orderHistory.tradedByOtherContract = event.transaction.from != fromAddress;
-        orderHistory.to = toAddress;
-        orderHistory.fromToken = fromTokenAddress;
-        orderHistory.fromAmount = fromAmount;
-        orderHistory.toToken = toTokenAddress;
-        orderHistory.toAmount = toAmount;
+    let entityID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
+    let entity = OrderHistory.load(entityID);
+    if (entity === null) {
+        entity = new OrderHistory(entityID);
+        entity.source = swapType;
+        entity.hash = event.transaction.hash;
+        entity.block = event.block.number;
+        entity.timestamp = event.block.timestamp;
+        entity.user = event.transaction.from;
+        entity.from = fromAddress;
+        entity.tradedByOtherContract = event.transaction.from != fromAddress;
+        entity.to = toAddress;
+        entity.fromToken = fromTokenAddress;
+        entity.fromAmount = fromAmount;
+        entity.toToken = toTokenAddress;
+        entity.toAmount = toAmount;
 
         let orderHistoryVariable = createOrderHistoryVariable(event);
-        orderHistory.txns = orderHistoryVariable.txns;
+        entity.txns = orderHistoryVariable.txns;
 
-        orderHistory.save();
+        entity.save();
     }
 
-    return orderHistory as OrderHistory;
+    return entity as OrderHistory;
 }
 
 export function createCrossChainSrcOrderHistoryVariable(event: ethereum.Event): OrderHistoryVariable {
-    let orderHistoryVariable = OrderHistoryVariable.load(CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID);
-    if (orderHistoryVariable == null) {
-        orderHistoryVariable = new OrderHistoryVariable(CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID);
-        orderHistoryVariable.txns = BI_0;
-        orderHistoryVariable.updatedAt = event.block.timestamp;
-        orderHistoryVariable.save();
+    let entity = OrderHistoryVariable.load(CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID);
+    if (entity === null) {
+        entity = new OrderHistoryVariable(CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID);
+        entity.txns = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return orderHistoryVariable as OrderHistoryVariable;
+    return entity as OrderHistoryVariable;
 }
 
 export function createCrossChainSrcOrderHistory(
@@ -381,43 +372,43 @@ export function createCrossChainSrcOrderHistory(
     realQuoteAmount: BigInt
 ): CrossChainSrcOrderHistory {
     // only create by WooCrossChainRouter
-    let crossChainSrcOrderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
-    let crossChainSrcOrderHistory = CrossChainSrcOrderHistory.load(crossChainSrcOrderHistoryID);
-    if (crossChainSrcOrderHistory == null) {
-        crossChainSrcOrderHistory = new CrossChainSrcOrderHistory(crossChainSrcOrderHistoryID);
-        crossChainSrcOrderHistory.hash = event.transaction.hash;
-        crossChainSrcOrderHistory.block = event.block.number;
-        crossChainSrcOrderHistory.timestamp = event.block.timestamp;
-        crossChainSrcOrderHistory.refId = refId;
-        crossChainSrcOrderHistory.sender = sender;
-        crossChainSrcOrderHistory.to = toAddress;
-        crossChainSrcOrderHistory.fromToken = fromTokenAddress;
-        crossChainSrcOrderHistory.fromAmount = fromAmount;
-        crossChainSrcOrderHistory.minQuoteAmount = minQuoteAmount;
-        crossChainSrcOrderHistory.realQuoteAmount = realQuoteAmount;
+    let entityID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
+    let entity = CrossChainSrcOrderHistory.load(entityID);
+    if (entity === null) {
+        entity = new CrossChainSrcOrderHistory(entityID);
+        entity.hash = event.transaction.hash;
+        entity.block = event.block.number;
+        entity.timestamp = event.block.timestamp;
+        entity.refId = refId;
+        entity.sender = sender;
+        entity.to = toAddress;
+        entity.fromToken = fromTokenAddress;
+        entity.fromAmount = fromAmount;
+        entity.minQuoteAmount = minQuoteAmount;
+        entity.realQuoteAmount = realQuoteAmount;
 
         let crossChainSrcOrderHistoryVariable = createCrossChainSrcOrderHistoryVariable(event);
-        crossChainSrcOrderHistory.txns = crossChainSrcOrderHistoryVariable.txns;
+        entity.txns = crossChainSrcOrderHistoryVariable.txns;
 
         let stargateBridgeSendMsg = createStargateBridgeSendMsg(event);
-        crossChainSrcOrderHistory.stargateBridgeSendMsgNonce = stargateBridgeSendMsg.nonce;
+        entity.stargateBridgeSendMsgNonce = stargateBridgeSendMsg.nonce;
 
-        crossChainSrcOrderHistory.save();
+        entity.save();
     }
 
-    return crossChainSrcOrderHistory as CrossChainSrcOrderHistory;
+    return entity as CrossChainSrcOrderHistory;
 }
 
 export function createCrossChainDstOrderHistoryVariable(event: ethereum.Event): OrderHistoryVariable {
-    let orderHistoryVariable = OrderHistoryVariable.load(CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID);
-    if (orderHistoryVariable == null) {
-        orderHistoryVariable = new OrderHistoryVariable(CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID);
-        orderHistoryVariable.txns = BI_0;
-        orderHistoryVariable.updatedAt = event.block.timestamp;
-        orderHistoryVariable.save();
+    let entity = OrderHistoryVariable.load(CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID);
+    if (entity === null) {
+        entity = new OrderHistoryVariable(CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID);
+        entity.txns = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return orderHistoryVariable as OrderHistoryVariable;
+    return entity as OrderHistoryVariable;
 }
 
 export function createCrossChainDstOrderHistory(
@@ -433,62 +424,61 @@ export function createCrossChainDstOrderHistory(
     realToAmount: BigInt
 ): CrossChainDstOrderHistory {
     // only create by WooCrossChainRouter
-    let crossChainDstOrderHistoryID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
-    let crossChainDstOrderHistory = CrossChainDstOrderHistory.load(crossChainDstOrderHistoryID);
-    if (crossChainDstOrderHistory == null) {
-        crossChainDstOrderHistory = new CrossChainDstOrderHistory(crossChainDstOrderHistoryID);
-        crossChainDstOrderHistory.hash = event.transaction.hash;
-        crossChainDstOrderHistory.block = event.block.number;
-        crossChainDstOrderHistory.timestamp = event.block.timestamp;
-        crossChainDstOrderHistory.refId = refId;
-        crossChainDstOrderHistory.sender = sender;
-        crossChainDstOrderHistory.to = toAddress;
-        crossChainDstOrderHistory.bridgedToken = bridgedTokenAddress;
-        crossChainDstOrderHistory.bridgedAmount = bridgedAmount;
-        crossChainDstOrderHistory.toToken = toTokenAddress;
-        crossChainDstOrderHistory.realToToken = realToToken;
-        crossChainDstOrderHistory.minToAmount = minToAmount;
-        crossChainDstOrderHistory.realToAmount = realToAmount;
+    let entityID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
+    let entity = CrossChainDstOrderHistory.load(entityID);
+    if (entity === null) {
+        entity = new CrossChainDstOrderHistory(entityID);
+        entity.hash = event.transaction.hash;
+        entity.block = event.block.number;
+        entity.timestamp = event.block.timestamp;
+        entity.refId = refId;
+        entity.sender = sender;
+        entity.to = toAddress;
+        entity.bridgedToken = bridgedTokenAddress;
+        entity.bridgedAmount = bridgedAmount;
+        entity.toToken = toTokenAddress;
+        entity.realToToken = realToToken;
+        entity.minToAmount = minToAmount;
+        entity.realToAmount = realToAmount;
 
         let crossChainDstOrderHistoryVariable = createCrossChainDstOrderHistoryVariable(event);
-        crossChainDstOrderHistory.txns = crossChainDstOrderHistoryVariable.txns;
+        entity.txns = crossChainDstOrderHistoryVariable.txns;
 
-        crossChainDstOrderHistory.save();
+        entity.save();
     }
 
-    return crossChainDstOrderHistory as CrossChainDstOrderHistory;
+    return entity as CrossChainDstOrderHistory;
 }
 
 export function createHourRebate(event: ethereum.Event, rebateToAddress: Bytes): HourRebate {
-    let timestamp = event.block.timestamp.toI32();
-    let hourID = timestamp / 3600;
-    let hourStartTimestamp = hourID * 3600;
+    let hourID = event.block.timestamp.toI32() / 3600;
+    let hourUTCTimestamp = hourID * 3600;
+    let entityID = rebateToAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString());
 
-    let hourRebateID = rebateToAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString());
-    let hourRebate = HourRebate.load(hourRebateID);
-    if (hourRebate == null) {
-        hourRebate = new HourRebate(hourRebateID);
-        hourRebate.timestamp = BigInt.fromI32(hourStartTimestamp);
-        hourRebate.swapFee = BI_0;
-        hourRebate.rebateFee = BI_0;
-        hourRebate.wooSwaps = BI_0;
-        hourRebate.updatedAt = event.block.timestamp;
-        hourRebate.save();
+    let entity = HourRebate.load(entityID);
+    if (entity === null) {
+        entity = new HourRebate(entityID);
+        entity.timestamp = BigInt.fromI32(hourUTCTimestamp);
+        entity.swapFee = BI_0;
+        entity.rebateFee = BI_0;
+        entity.wooSwaps = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return hourRebate as HourRebate;
+    return entity as HourRebate;
 }
 
 export function createStargateBridgeSendMsg(event: ethereum.Event): StargateBridgeSendMsg {
-    let stargateBridgeSendMsgID = event.transaction.hash.toHexString();
-    let stargateBridgeSendMsg = StargateBridgeSendMsg.load(stargateBridgeSendMsgID);
-    if (stargateBridgeSendMsg == null) {
-        stargateBridgeSendMsg = new StargateBridgeSendMsg(stargateBridgeSendMsgID);
-        stargateBridgeSendMsg.msgType = BI_0.toI32();
-        stargateBridgeSendMsg.nonce = BI_0;
-        stargateBridgeSendMsg.updatedAt = event.block.timestamp;
-        stargateBridgeSendMsg.save();
+    let entityID = event.transaction.hash.toHexString();
+    let entity = StargateBridgeSendMsg.load(entityID);
+    if (entity === null) {
+        entity = new StargateBridgeSendMsg(entityID);
+        entity.msgType = BI_0.toI32();
+        entity.nonce = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
     }
 
-    return stargateBridgeSendMsg as StargateBridgeSendMsg;
+    return entity as StargateBridgeSendMsg;
 }

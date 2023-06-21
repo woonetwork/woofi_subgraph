@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.6
 description: fi.woo.org
 repository: https://github.com/woonetwork/woofi_subgraph
 schema:
@@ -13,7 +13,7 @@ dataSources:
       startBlock: 16781811
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - WooCrossSwapOnSrcChain
@@ -26,6 +26,8 @@ dataSources:
       eventHandlers:
         - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
           handler: handleWooCCRouterV2WooCrossSwapOnSrcChain_1
+          receipt: true
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV2WooCrossSwapOnDstChain_1
-      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+          receipt: true
+      file: ../src/mappings/wooCrossChainRouter/index.ts

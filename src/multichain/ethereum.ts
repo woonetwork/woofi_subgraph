@@ -27,95 +27,114 @@ export const WOO_ROUTER_SOURCES: string[] = [
     "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooCrossChainRouterV2
 ];
 
-export const WOO_PP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
-];
+export const WOO_PP_SOURCES: string[] = [];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
 
-export const WOO_VAULT_MANAGER_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
+
+// destination swap called by Layer Zero Relayer
+export const LAYER_ZERO_SOURCES: string[] = [
+    "0x902f09715b6303d4173037652fa7377e5b98089e",  // Relayer
 ];
 
-export const ONE_INCH_ORDER_SOURCES: string[] = [
-    "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
-    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
-    "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
+export const WOOFI_SOURCES: string[] = WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES).concat(LAYER_ZERO_SOURCES);
+
+export const WOOFI_REBATE_ADDRESSES: string[] = [];
+
+export const ONE_INCH_REBATE_ADDRESSES: string[] = [
+    "0x703a96e7d7a6d05d2d7f3f8223fd538c23897ce8",
+    "0x910bf2d50fa5e014fd06666f456182d4ab7c8bd2",
 ];
 
-export const DODO_ORDER_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const DODO_REBATE_ADDRESSES: string[] = [
+    "0xea8e147bdb3ee3dde2085acb88de826e1a6de37a",
 ];
 
-export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
+export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [
+    "0x353c1f0bc78fbbc245b3c93ef77b1dcc5b77d2a0",
 ];
 
-export const METAMASK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const METAMASK_REBATE_ADDRESSES: string[] = [];
+
+export const YIELD_YAK_REBATE_ADDRESSES: string[] = [
+    "0x5925c5c6843a8f67f7ef2b55db1f5491573c85eb",
 ];
 
-export const YIELD_YAK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const FIRE_BIRD_REBATE_ADDRESSES: string[] = [
+    "0xa20ca7c6705fb88847cbf50549d7a38f4e99d32c",
 ];
 
-export const FIRE_BIRD_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const BIT_KEEP_REBATE_ADDRESSES: string[] = [
+    "0x9712394caccab28acd26d41f7e0566c1e88759aa",
 ];
 
-export const BIT_KEEP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const PARA_SWAP_REBATE_ADDRESSES: string[] = [
+    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
 ];
 
-export const PARA_SWAP_SOURCES: string[] = [
-    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",  // AugustusSwapper
+export const BEETHOVEN_X_REBATE_ADDRESSES: string[] = [];
+
+export const TRANSIT_SWAP_REBATE_ADDRESSES: string[] = [
+    "0x92106728f6efe170f8de919e1bd88c04c2473d3c",
 ];
 
-export const BEETHOVEN_X_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const ZERO_X_REBATE_ADDRESSES: string[] = [
+    "0xbfdcbb4c05843163f491c24f9c0019c510786304",
 ];
 
-export const TRANSIT_SWAP_SOURCES: string[] = [
-    "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
+export const ODOS_REBATE_ADDRESSES: string[] = [];
+
+export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [
+    "0x1111110808b63f93b869a8a8ef87bc5b4dd79689",
 ];
 
-export const ZERO_X_SOURCES: string[] = [
-    "0xdef1c0ded9bec7f1a1670819833240f027b25eff",
+export const THOR_SWAP_REBATE_ADDRESSES: string[] = [
+    "0x72c6d8fcc3e591253a1eb563180d317998346bec",
 ];
 
-export const ODOS_SOURCES: string[] = [
-    "0xdd94018f54e565dbfc939f7c44a16e163faab331",  // OdosRouter
+export const OKX_REBATE_ADDRESSES: string[] = [];
+
+export const ONTO_REBATE_ADDRESSES: string[] = [
+    "0x0ce56280bf51dc8211952c3522d4e1ce917319a6",
 ];
 
-export const HERA_FINANCE_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const YETI_REBATE_ADDRESSES: string[] = [
+    "0x718c79e7c12f7e2c1a5d641c81d02eb7566db9a8",
 ];
 
-export const THOR_SWAP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const JOY_REBATE_ADDRESSES: string[] = [
+    "0x80a2ee7b55dd0910e0087b3a80f5f5fded666666",
 ];
 
-export const OKX_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const ZETA_FARM_REBATE_ADDRESSES: string[] = [
+    "0x04a285427eee8ade8dce32299478e4522fb7c287",
 ];
 
-export let ADDRESS_SOURCES: string[][] = [
-    WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
-    ONE_INCH_ORDER_SOURCES,  // 1: 1inch
-    DODO_ORDER_SOURCES,  // 2: DODO
-    OPEN_OCEAN_SOURCES,  // 3: OpenOcean
-    METAMASK_SOURCES,  // 4: MetaMask
-    YIELD_YAK_SOURCES,  // 5: YieldYak
-    FIRE_BIRD_SOURCES,  // 6: FireBird
-    BIT_KEEP_SOURCES,  // 7: BitKeep
-    PARA_SWAP_SOURCES,  // 8: ParaSwap
-    BEETHOVEN_X_SOURCES,  // 9: BeethovenX
-    TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
-    ZERO_X_SOURCES,  // 11: 0x
-    ODOS_SOURCES,  // 12: ODOS
-    HERA_FINANCE_SOURCES,  // 13: HeraFinance
-    THOR_SWAP_SOURCES,  // 14: THORSwap
-    OKX_SOURCES,  // 15: OKX
+export const SLINGSHOT_REBATE_ADDRESSES: string[] = [];
+
+export let REBATE_ADDRESSES: string[][] = [
+    WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
+    ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
+    DODO_REBATE_ADDRESSES,  // 2: DODO
+    OPEN_OCEAN_REBATE_ADDRESSES,  // 3: OpenOcean
+    METAMASK_REBATE_ADDRESSES,  // 4: MetaMask
+    YIELD_YAK_REBATE_ADDRESSES,  // 5: YieldYak
+    FIRE_BIRD_REBATE_ADDRESSES,  // 6: FireBird
+    BIT_KEEP_REBATE_ADDRESSES,  // 7: BitKeep
+    PARA_SWAP_REBATE_ADDRESSES,  // 8: ParaSwap
+    BEETHOVEN_X_REBATE_ADDRESSES,  // 9: BeethovenX
+    TRANSIT_SWAP_REBATE_ADDRESSES,  // 10: TransitSwap
+    ZERO_X_REBATE_ADDRESSES,  // 11: 0x
+    ODOS_REBATE_ADDRESSES,  // 12: ODOS
+    HERA_FINANCE_REBATE_ADDRESSES,  // 13: HeraFinance
+    THOR_SWAP_REBATE_ADDRESSES,  // 14: THORSwap
+    OKX_REBATE_ADDRESSES,  // 15: OKX
+    ONTO_REBATE_ADDRESSES,  // 16: ONTO
+    YETI_REBATE_ADDRESSES,  // 17: Yeti
+    JOY_REBATE_ADDRESSES,  // 18: Joy
+    ZETA_FARM_REBATE_ADDRESSES,  // 19: ZetaFarm
+    SLINGSHOT_REBATE_ADDRESSES,  // 20: Slingshot
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";
@@ -123,22 +142,8 @@ export const ORDER_HISTORY_VARIABLE_ID = "0";
 export const CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID = "1";
 export const CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID = "2";
 
-export const WOO_ROUTER_ORDER_SOURCE_ID = "0";
-export const ONE_INCH_ORDER_SOURCE_ID = "1";
-export const DODO_ORDER_SOURCE_ID = "2";
-export const OPEN_OCEAN_ORDER_SOURCE_ID = "3";
-export const METAMASK_ORDER_SOURCE_ID = "4";
-export const YIELD_YAK_ORDER_SOURCE_ID = "5";
-export const FIRE_BIRD_ORDER_SOURCE_ID = "6";
-export const BIT_KEEP_ORDER_SOURCE_ID = "7";
-export const PARA_SWAP_ORDER_SOURCE_ID = "8";
-export const BEETHOVEN_X_ORDER_SOURCE_ID = "9";
-export const TRANSIT_SWAP_ORDER_SOURCE_ID = "10";
-export const ZERO_X_ORDER_SOURCE_ID = "11";
-export const ODOS_ORDER_SOURCE_ID = "12";
-export const HERA_FINANCE_ORDER_SOURCE_ID = "13";
-export const THOR_SWAP_ORDER_SOURCE_ID = "14";
-export const OKX_ORDER_SOURCE_ID = "15";
+export const WOOFI_ORDER_SOURCE_ID = "0";
 export const OTHER_ORDER_SOURCE_ID = "99";
-
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = "-99";
+
+export const WOOFI_SWAP_TYPE = 0;

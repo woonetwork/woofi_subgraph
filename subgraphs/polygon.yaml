@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.6
 description: fi.woo.org
 repository: https://github.com/woonetwork/woofi_subgraph
 schema:
@@ -13,7 +13,7 @@ dataSources:
       startBlock: 29897168
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - SendMsg
@@ -23,7 +23,8 @@ dataSources:
       eventHandlers:
         - event: SendMsg(uint8,uint64)
           handler: handleStargateBridgeV1SendMsg_1
-      file: ../src/mappings/stargateBridge/stargateBridge.ts
+          receipt: true
+      file: ../src/mappings/stargateBridge/index.ts
   - kind: ethereum/contract
     name: WooCrossChainRouterV2_1
     network: matic
@@ -33,7 +34,7 @@ dataSources:
       startBlock: 40063901
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - WooCrossSwapOnSrcChain
@@ -46,9 +47,11 @@ dataSources:
       eventHandlers:
         - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
           handler: handleWooCCRouterV2WooCrossSwapOnSrcChain_1
+          receipt: true
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV2WooCrossSwapOnDstChain_1
-      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+          receipt: true
+      file: ../src/mappings/wooCrossChainRouter/index.ts
   - kind: ethereum/contract
     name: WooCrossChainRouterV1_2
     network: matic
@@ -58,7 +61,7 @@ dataSources:
       startBlock: 36882842
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - WooCrossSwapOnSrcChain
@@ -71,9 +74,11 @@ dataSources:
       eventHandlers:
         - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnSrcChain_2
+          receipt: true
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnDstChain_2
-      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+          receipt: true
+      file: ../src/mappings/wooCrossChainRouter/index.ts
   - kind: ethereum/contract
     name: WooCrossChainRouterV1_1
     network: matic
@@ -83,7 +88,7 @@ dataSources:
       startBlock: 29897168
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - WooCrossSwapOnSrcChain
@@ -96,9 +101,11 @@ dataSources:
       eventHandlers:
         - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnSrcChain_1
+          receipt: true
         - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256)
           handler: handleWooCCRouterV1WooCrossSwapOnDstChain_1
-      file: ../src/mappings/wooCrossChainRouter/wooCrossChainRouter.ts
+          receipt: true
+      file: ../src/mappings/wooCrossChainRouter/index.ts
   - kind: ethereum/contract
     name: WooVaultManagerV1_2
     network: matic
@@ -108,7 +115,7 @@ dataSources:
       startBlock: 37055346
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - RewardDistributed
@@ -120,7 +127,8 @@ dataSources:
       eventHandlers:
         - event: RewardDistributed(indexed address,uint256)
           handler: handleWooVaultManagerV1RewardDistributed_2
-      file: ../src/mappings/wooVaultManager/wooVaultManager.ts
+          receipt: true
+      file: ../src/mappings/wooVaultManager/index.ts
   - kind: ethereum/contract
     name: WooVaultManagerV1_1
     network: matic
@@ -130,7 +138,7 @@ dataSources:
       startBlock: 29859018
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - RewardDistributed
@@ -142,7 +150,8 @@ dataSources:
       eventHandlers:
         - event: RewardDistributed(indexed address,uint256)
           handler: handleWooVaultManagerV1RewardDistributed_1
-      file: ../src/mappings/wooVaultManager/wooVaultManager.ts
+          receipt: true
+      file: ../src/mappings/wooVaultManager/index.ts
   - kind: ethereum/contract
     name: WooRouterV2_1
     network: matic
@@ -152,7 +161,7 @@ dataSources:
       startBlock: 36859029
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - WooRouterSwap
@@ -164,7 +173,8 @@ dataSources:
       eventHandlers:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooRouterV2WooRouterSwap_1
-      file: ../src/mappings/wooRouter/wooRouter.ts
+          receipt: true
+      file: ../src/mappings/wooRouter/index.ts
   - kind: ethereum/contract
     name: WooRouterV1_1
     network: matic
@@ -174,7 +184,7 @@ dataSources:
       startBlock: 29860251
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - WooRouterSwap
@@ -186,7 +196,8 @@ dataSources:
       eventHandlers:
         - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
           handler: handleWooRouterV1WooRouterSwap_1
-      file: ../src/mappings/wooRouter/wooRouter.ts
+          receipt: true
+      file: ../src/mappings/wooRouter/index.ts
   - kind: ethereum/contract
     name: WooPPV2_1
     network: matic
@@ -196,7 +207,7 @@ dataSources:
       startBlock: 36856771
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - WooSwap
@@ -208,9 +219,10 @@ dataSources:
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
           handler: handleWooPPV2WooSwap_1
-      file: ../src/mappings/wooPP/wooPP.ts
+          receipt: true
+      file: ../src/mappings/wooPP/index.ts
   - kind: ethereum/contract
-    name: WooPPV1_1
+    name: WooPPV1_2
     network: matic
     source:
       address: "0x7400B665C8f4f3a951a99f1ee9872efb8778723d"
@@ -218,7 +230,7 @@ dataSources:
       startBlock: 29860023
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - WooSwap
@@ -229,5 +241,6 @@ dataSources:
           file: ../abis/ERC20.json
       eventHandlers:
         - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address)
-          handler: handleWooPPV1WooSwap_1
-      file: ../src/mappings/wooPP/wooPP.ts
+          handler: handleWooPPV1WooSwap_2
+          receipt: true
+      file: ../src/mappings/wooPP/index.ts

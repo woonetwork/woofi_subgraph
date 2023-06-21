@@ -1,33 +1,25 @@
 import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
-import { BI_1, BI_2, STABLE_TOKENS, OTHER_ORDER_SOURCE_ID } from "../../constants";
+import { BI_1, WOOFI_SWAP_TYPE } from "../../constants";
 import {
     createGlobalVariable,
-    createOrderHistoryVariable,
     createHourToken,
     createToken,
     createHourData,
     createDayData,
-    createWooRouterSwapHash,
-    createHourOrderSource,
-    createDayOrderSource,
-    createOrderSource,
     createUnknownDayOrderSource,
     createUnknownOrderSource,
+    createWooRouterSwapHash,
+    createOrderHistoryVariable,
 } from "../../create";
-import { getOrderSourceIDForWooRouter } from "../../utils";
-import { WooSwapHash } from "../../../generated/schema";
 
 export function updateGlobalVariable(
     event: ethereum.Event,
     volumeUSD: BigInt,
-    swapType: i32,
-    fromAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
+    swapType: i32
 ): void {
     let globalVariable = createGlobalVariable(event);
 
-    if (swapType == 0) {
+    if (swapType === WOOFI_SWAP_TYPE) {
         globalVariable.routerToWooPPVolumeUSD = globalVariable.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
         globalVariable.routerToThirdPartyVolumeUSD = globalVariable.routerToThirdPartyVolumeUSD.plus(volumeUSD);
@@ -47,7 +39,7 @@ export function updateHourToken(
     let fromHourToken = createHourToken(event, fromTokenAddress);
     let toHourToken = createHourToken(event, toTokenAddress);
 
-    if (swapType == 0) {
+    if (swapType === WOOFI_SWAP_TYPE) {
         fromHourToken.routerToWooPPTxns = fromHourToken.routerToWooPPTxns.plus(BI_1);
         fromHourToken.routerToWooPPVolumeUSD = fromHourToken.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
@@ -56,7 +48,7 @@ export function updateHourToken(
     }
     fromHourToken.save();
 
-    if (swapType == 0) {
+    if (swapType === WOOFI_SWAP_TYPE) {
         toHourToken.routerToWooPPTxns = toHourToken.routerToWooPPTxns.plus(BI_1);
         toHourToken.routerToWooPPVolumeUSD = toHourToken.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
@@ -71,51 +63,34 @@ export function updateToken(
     volumeUSD: BigInt,
     swapType: i32,
     fromTokenAddress: Bytes,
-    toTokenAddress: Bytes,
-    fromAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
+    toTokenAddress: Bytes
 ): void {
     let fromToken = createToken(event, fromTokenAddress);
     let toToken = createToken(event, toTokenAddress);
 
-    if (swapType == 0) {
+    if (swapType === WOOFI_SWAP_TYPE) {
         fromToken.routerToWooPPVolumeUSD = fromToken.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
         fromToken.routerToThirdPartyVolumeUSD = fromToken.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
     fromToken.save();
 
-    if (swapType == 0) {
+    if (swapType === WOOFI_SWAP_TYPE) {
         toToken.routerToWooPPVolumeUSD = toToken.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
         toToken.routerToThirdPartyVolumeUSD = toToken.routerToThirdPartyVolumeUSD.plus(volumeUSD);
     }
     toToken.save();
-
-    if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
-        let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
-        let realAddOrderSourceVolumeUSD = addOrderSourceVolumeUSD;
-        if (
-            STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) == -1 &&
-            STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) == -1
-        ) {
-            realAddOrderSourceVolumeUSD = realAddOrderSourceVolumeUSD.div(BI_2);
-        }
-    }
 }
 
 export function updateHourData(
     event: ethereum.Event,
     volumeUSD: BigInt,
-    swapType: i32,
-    fromAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
+    swapType: i32
 ): void {
     let hourData = createHourData(event);
 
-    if (swapType == 0) {
+    if (swapType === WOOFI_SWAP_TYPE) {
         hourData.routerToWooPPTxns = hourData.routerToWooPPTxns.plus(BI_1);
         hourData.routerToWooPPVolumeUSD = hourData.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
@@ -129,14 +104,11 @@ export function updateHourData(
 export function updateDayData(
     event: ethereum.Event,
     volumeUSD: BigInt,
-    swapType: i32,
-    fromAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
+    swapType: i32
 ): void {
     let dayData = createDayData(event);
 
-    if (swapType == 0) {
+    if (swapType === WOOFI_SWAP_TYPE) {
         dayData.routerToWooPPTxns = dayData.routerToWooPPTxns.plus(BI_1);
         dayData.routerToWooPPVolumeUSD = dayData.routerToWooPPVolumeUSD.plus(volumeUSD);
     } else {
@@ -145,62 +117,6 @@ export function updateDayData(
     }
 
     dayData.save();
-}
-
-export function updateHourOrderSource(
-    event: ethereum.Event,
-    fromAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
-): void {
-    if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
-        let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
-        let hourOrderSource = createHourOrderSource(event, orderSourceID);
-        hourOrderSource.volumeUSD = hourOrderSource.volumeUSD.plus(addOrderSourceVolumeUSD);
-        hourOrderSource.txns = hourOrderSource.txns.plus(BI_1);
-        hourOrderSource.updatedAt = event.block.timestamp;
-
-        hourOrderSource.save();
-    }
-}
-
-export function updateDayOrderSource(
-    event: ethereum.Event,
-    fromAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
-): void {
-    if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
-        let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
-        let dayOrderSource = createDayOrderSource(event, orderSourceID);
-        dayOrderSource.volumeUSD = dayOrderSource.volumeUSD.plus(addOrderSourceVolumeUSD);
-        dayOrderSource.txns = dayOrderSource.txns.plus(BI_1);
-        dayOrderSource.updatedAt = event.block.timestamp;
-
-        dayOrderSource.save();
-    }
-}
-
-export function updateOrderSource(
-    event: ethereum.Event,
-    fromAddress: Bytes,
-    addOrderSourceVolumeUSD: BigInt,
-    wooSwapHash: WooSwapHash
-): void {
-    if (wooSwapHash.getOrderSourceByWooRouterSwapFrom == true) {
-        let orderSourceID = getOrderSourceIDForWooRouter(event.transaction.from.toHexString(), fromAddress.toHexString());
-        let orderSource = createOrderSource(event, orderSourceID);
-        if (orderSource.id == OTHER_ORDER_SOURCE_ID) {
-            updateUnknownDayOrderSource(event, addOrderSourceVolumeUSD, fromAddress);
-            updateUnknownOrderSource(event, addOrderSourceVolumeUSD, fromAddress);
-        }
-
-        orderSource.volumeUSD = orderSource.volumeUSD.plus(addOrderSourceVolumeUSD);
-        orderSource.txns = orderSource.txns.plus(BI_1);
-        orderSource.updatedAt = event.block.timestamp;
-
-        orderSource.save();
-    }
 }
 
 export function updateUnknownDayOrderSource(event: ethereum.Event, volumeUSD: BigInt, fromAddress: Bytes): void {

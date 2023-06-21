@@ -12,15 +12,18 @@ import {
     WooCrossSwapOnDstChain as WooCCRouterV2WooCrossSwapOnDstChain_1,
 } from "../../../generated/WooCrossChainRouterV2_1/WooCrossChainRouterV2";
 import {
+    createDayData,
+    createDayTrader,
+    createWooSwapHash,
     createCrossChainSrcOrderHistory,
     createCrossChainDstOrderHistory,
-    createWooSwapHash,
-    createDayTrader,
 } from "../../create";
 import {
     updateCrossChainSrcOrderHistoryVariable,
     updateCrossChainDstOrderHistoryVariable,
 } from "./update";
+import { updateDayTrader } from "../wooPP/update";
+import { BI_1 } from "../../constants";
 
 export function handleWooCCRouterV2WooCrossSwapOnSrcChain_1(event: WooCCRouterV2WooCrossSwapOnSrcChain_1): void {
     handleWooCrossSwapOnSrcChain(
@@ -145,13 +148,18 @@ export function handleWooCrossSwapOnDstChain(
     updateCrossChainDstOrderHistoryVariable(event);
 
     let wooSwapHash = createWooSwapHash(event);
+    let dayData = createDayData(event);
     let dayTrader = createDayTrader(event, toAddress);
-    if (dayTrader.tradedToday == false) {
-        dayTrader.tradedToday = true;
+    if (dayTrader.tradedToday === false) {
+        dayData.traders = dayData.traders.plus(BI_1);
     }
-    dayTrader.volumeUSD = dayTrader.volumeUSD.plus(wooSwapHash.volumeUSD);
-    dayTrader.updatedAt = event.block.timestamp;
-    dayTrader.save();
+    /**
+     * on destination txn:
+     * 1.traderAddress === toAddress
+     * 2.wooSwapFrom === WooCrossChainRouter
+     * 3.toAddress === rebateTo
+     */
+    updateDayTrader(event, toAddress, wooSwapHash.volumeUSD, event.address, toAddress);
 
     createCrossChainDstOrderHistory(
         event,

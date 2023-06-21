@@ -1,6 +1,6 @@
 import { ethereum, Address, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import { ERC20 } from "../generated/WooRouterV1_1/ERC20";
-import { BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, STABLE_TOKENS } from "./constants";
+import { BI_0, BI_2, BI_18, ETHER, ETHER_SYMBOL, ETHER_NAME, STABLE_TOKENS, WOOFI_SWAP_TYPE } from "./constants";
 import { exponentToBigInt } from "./utils";
 import { createToken } from "./create";
 
@@ -9,7 +9,7 @@ export function fetchTokenSymbol(tokenAddress: Bytes): string {
         return ETHER_SYMBOL;
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
     let symbolResult = contract.try_symbol();
     if (symbolResult.reverted) {
         return "UNKNOWN";
@@ -23,7 +23,7 @@ export function fetchTokenName(tokenAddress: Bytes): string {
         return ETHER_NAME;
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
     let nameResult = contract.try_name();
     if (nameResult.reverted) {
         return "Unknown";
@@ -37,7 +37,7 @@ export function fetchTokenTotalSupply(tokenAddress: Bytes): BigInt {
         return BigInt.fromI32(0);
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
     let totalSupplyResult = contract.try_totalSupply();
     if (totalSupplyResult.reverted) {
         return BigInt.fromI32(0);
@@ -51,7 +51,7 @@ export function fetchTokenDecimals(tokenAddress: Bytes): BigInt {
         return BigInt.fromI32(18);
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
     let decimalResult = contract.try_decimals();
     if (decimalResult.reverted) {
         return BigInt.fromI32(18);
@@ -65,8 +65,8 @@ export function fetchTokenBalance(tokenAddress: Bytes, user: Bytes): BigInt {
         return BigInt.fromI32(0);
     }
 
-    let contract = ERC20.bind(tokenAddress as Address);
-    let balanceResult = contract.try_balanceOf(user as Address);
+    let contract = ERC20.bind(Address.fromBytes(tokenAddress));
+    let balanceResult = contract.try_balanceOf(Address.fromBytes(user));
     if (balanceResult.reverted) {
         return BigInt.fromI32(0);
     }
@@ -121,10 +121,10 @@ export function calVolumeUSDForWooRouter(
     }
 
     if (
-        isV1 == true
-        && STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) == -1
-        && STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) == -1
-        && swapType == 0
+        isV1 === true
+        && STABLE_TOKENS.indexOf(fromTokenAddress.toHexString()) === -1
+        && STABLE_TOKENS.indexOf(toTokenAddress.toHexString()) === -1
+        && swapType === WOOFI_SWAP_TYPE
     ) {
         volumeUSD = volumeUSD.times(BI_2);
     }

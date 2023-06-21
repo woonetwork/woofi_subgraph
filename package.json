@@ -65,10 +65,10 @@
     "deploy_studio_zksync": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --studio woofi-zksync subgraphs/zksync.yaml"
   },
   "devDependencies": {
-    "@graphprotocol/graph-ts": "^0.20.0",
+    "@graphprotocol/graph-ts": "^0.27.0",
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.21.0"
+    "@graphprotocol/graph-cli": "^0.43.0"
   }
 }

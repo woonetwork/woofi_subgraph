@@ -33,8 +33,6 @@ export const WOO_ROUTER_SOURCES: string[] = [
     "0x53e255e8bbf4edf16797f9885291b3ca0c70b59f",  // WooCrossChainRouterV1
     "0xd12d239b781e34e0aaa106159940803a07e31a67",  // WooCrossChainRouterV1
     "0x81004c9b697857fd54e137075b51506c739ef439",  // WooCrossChainRouterV2
-    "0xfe7c30860d01e28371d40434806f4a8fcdd3a098",  // Relayer
-    "0xa27a2ca24dd28ce14fb5f5844b59851f03dcf182",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
@@ -58,122 +56,111 @@ export const WOO_VAULT_MANAGER_SOURCES: string[] = [
     "0x13afd5e3915096b4a53d23ece1a9b4bf1ad8f524",
 ];
 
-export const ONE_INCH_ORDER_SOURCES: string[] = [
-    "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
-    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
-    "0x3790c9b5a9b9d9aa1c69140a5f01a57c9b868e1e",  // Aggregation Executor for V4
-    "0x2a71693a4d88b4f6ae6697a87b3524c04b92ab38",  // Exchange Governance
-    "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
-    "0xbaf9a5d4b0052359326a6cdab54babaa3a3a9643",  // Aggregation Executor
-    "0x9c4350f527ff7f96b650ee894ae9103bdfec0432",
-    "0x05ad60d9a2f1aa30ba0cdbaf1e0a0a145fbea16f",
-    "0x2ed740c6e3aaf5987c7f5a4fa13b90fcc47febd7",
-    "0x18101ac1d35230f1a3c005e2abaaeb25cae79e7f",
-    "0x7f9e3430880580713b03670046c7e89a0a91403b",
-    "0x14831f12fccc86c4f3dae41c769593df766e4353",
-    "0x170d2ed0b2a5d9f450652be814784f964749ffa4",
+// destination swap called by Layer Zero Relayer
+export const LAYER_ZERO_SOURCES: string[] = [
+    "0xfe7c30860d01e28371d40434806f4a8fcdd3a098",  // Relayer
+    "0xa27a2ca24dd28ce14fb5f5844b59851f03dcf182",  // Relayer
 ];
 
-export const DODO_ORDER_SOURCES: string[] = [
-    "0x6b3d817814eabc984d51896b1015c0b89e9737ca",  // DODO Proxy 01
-    "0x8f8dd7db1bda5ed3da8c9daf3bfa471c12d58486",  // DODO Proxy 02
-    "0xbce44767af0a53a108b3b7ba4f740e03d228ec0a",  // WooAdapter
-    "0xa128ba44b2738a558a1fdc06d6303d52d3cef8c1",  // Approve
-    "0x187da347debf4221b861eeafc9808d8cf89cf5fe",  // DODOLimitOrderBot
-    "0x5dcb1d7f932275e6bbc5d1ef82485992507766c1",  // WooV2Adapter
+export const WOOFI_SOURCES: string[] = WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES).concat(LAYER_ZERO_SOURCES);
+
+export const WOOFI_REBATE_ADDRESSES: string[] = [];
+
+export const ONE_INCH_REBATE_ADDRESSES: string[] = [
+    "0x703a96e7d7a6d05d2d7f3f8223fd538c23897ce8",
+    "0x910bf2d50fa5e014fd06666f456182d4ab7c8bd2",
 ];
 
-export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x6dd434082eab5cd134b33719ec1ff05fe985b97b",  // OpenOcean Pool
-    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
-    "0x170100a288dc3d7e83fea20441f98166b15b6df0",
-    "0xdec876911cbe9428265af0d12132c52ee8642a99",
-    "0xfe9a934a8607ef020adf22d4431d6ce6005aa4d3",
-    "0x573d43b31f7e937117b319a4a9f098c0bf72ae05",
-    "0x23ebcd701fd92867235aeb0174b7c444b9b2b3ad",
+export const DODO_REBATE_ADDRESSES: string[] = [
+    "0xea8e147bdb3ee3dde2085acb88de826e1a6de37a",
 ];
 
-export const METAMASK_SOURCES: string[] = [
-    "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // MetaMask
+export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [
+    "0x353c1f0bc78fbbc245b3c93ef77b1dcc5b77d2a0",
 ];
 
-export const YIELD_YAK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const METAMASK_REBATE_ADDRESSES: string[] = [];
+
+export const YIELD_YAK_REBATE_ADDRESSES: string[] = [
+    "0x5925c5c6843a8f67f7ef2b55db1f5491573c85eb",
 ];
 
-export const FIRE_BIRD_SOURCES: string[] = [
-    "0x92e4f29be975c1b1eb72e77de24dccf11432a5bd",  // FireBirdRouter
-    "0xb97922afa65c46a1babbf70031f7224bd3449c8e",  // FireBird Unverified Contract(assume as Adapter)
-    "0xba9e5d8fb589ecd13bfcf0fa6d751c57c4ec9321",  // FireBird Unverified Contract(assume as Adapter)
-    "0x32615e3f7860bd0a24c65f3e1b8c1e3abff320d5",  // FireBird Unverified Contract(assume as Adapter)
+export const FIRE_BIRD_REBATE_ADDRESSES: string[] = [
+    "0xa20ca7c6705fb88847cbf50549d7a38f4e99d32c",
 ];
 
-export const BIT_KEEP_SOURCES: string[] = [
-    "0x0c9adcfc5fc5c34074bd67e402c5f9cb14ba2920",  // BitKeepRouter
-    "0x22fefbe577a4dbc083bee213e546ac69aedc2c56",  // BitKeep Unverified Contract(assume as Adapter)
-    "0x2a07cb9e1236a31c6e4cfd7dfd39cf1e0c5687d6",
-    "0xb64d61fa39a7343a3d85e20da612e08dc7500af0",
+export const BIT_KEEP_REBATE_ADDRESSES: string[] = [
+    "0x9712394caccab28acd26d41f7e0566c1e88759aa",
 ];
 
-export const PARA_SWAP_SOURCES: string[] = [
-    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",  // AugustusSwapper
+export const PARA_SWAP_REBATE_ADDRESSES: string[] = [
+    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
 ];
 
-export const BEETHOVEN_X_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const BEETHOVEN_X_REBATE_ADDRESSES: string[] = [];
+
+export const TRANSIT_SWAP_REBATE_ADDRESSES: string[] = [
+    "0x92106728f6efe170f8de919e1bd88c04c2473d3c",
 ];
 
-export const TRANSIT_SWAP_SOURCES: string[] = [
-    "0x638f32fe09baec1fdc54f962e3e8e5f2b286aa70",  // Transit: Swap Router
-    "0x09c0fa8e2cd5fb18a9cb41c8daa951d9a4b09d7a",  // Adapter
-    "0x457b4c2ab9905b48511ad0d343ba528a0af5045b",  // Adapter
-    "0x661d4d4785c302a56d7cb8a92f130d319bc25e4a",  // Adapter
-    "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
-    "0x661d4d4785c302a56d7cb8a92f130d319bc25e4a",  // Adapter
+export const ZERO_X_REBATE_ADDRESSES: string[] = [
+    "0xbfdcbb4c05843163f491c24f9c0019c510786304",
 ];
 
-export const ZERO_X_SOURCES: string[] = [
-    "0xdef1c0ded9bec7f1a1670819833240f027b25eff",
-    "0xdb6f1920a889355780af7570773609bd8cb1f498",
+export const ODOS_REBATE_ADDRESSES: string[] = [
+    "0xb13d1210dedd20f974457a73eaa8ac3d6f04cd28",
 ];
 
-export const ODOS_SOURCES: string[] = [
-    "0x9f138be5aa5cc442ea7cc7d18cd9e30593ed90b9",
-    "0xd4a2269719276313aa6ab7b01f91d238eba96433",
-    "0xdc723b71ca7ed367624a906a008893c69f291894",
+export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [
+    "0x1111110808b63f93b869a8a8ef87bc5b4dd79689",
 ];
 
-export const HERA_FINANCE_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const THOR_SWAP_REBATE_ADDRESSES: string[] = [
+    "0x72c6d8fcc3e591253a1eb563180d317998346bec",
 ];
 
-export const THOR_SWAP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const OKX_REBATE_ADDRESSES: string[] = [];
+
+export const ONTO_REBATE_ADDRESSES: string[] = [
+    "0x0ce56280bf51dc8211952c3522d4e1ce917319a6",
 ];
 
-export const OKX_SOURCES: string[] = [
-    "0x2c34a2fb1d0b4f55de51e1d0bdefaddce6b7cdd6",
-    "0x9333c74bdd1e118634fe5664aca7a9710b108bab",
-    "0x781ed5b8233394eaa56bfa7233c1adfea3c93fcc",
+export const YETI_REBATE_ADDRESSES: string[] = [
+    "0x718c79e7c12f7e2c1a5d641c81d02eb7566db9a8",
 ];
 
-export let ADDRESS_SOURCES: string[][] = [
-    WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
-    ONE_INCH_ORDER_SOURCES,  // 1: 1inch
-    DODO_ORDER_SOURCES,  // 2: DODO
-    OPEN_OCEAN_SOURCES,  // 3: OpenOcean
-    METAMASK_SOURCES,  // 4: MetaMask
-    YIELD_YAK_SOURCES,  // 5: YieldYak
-    FIRE_BIRD_SOURCES,  // 6: FireBird
-    BIT_KEEP_SOURCES,  // 7: BitKeep
-    PARA_SWAP_SOURCES,  // 8: ParaSwap
-    BEETHOVEN_X_SOURCES,  // 9: BeethovenX
-    TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
-    ZERO_X_SOURCES,  // 11: 0x
-    ODOS_SOURCES,  // 12: ODOS
-    HERA_FINANCE_SOURCES,  // 13: HeraFinance
-    THOR_SWAP_SOURCES,  // 14: THORSwap
-    OKX_SOURCES,  // 15: OKX
+export const JOY_REBATE_ADDRESSES: string[] = [
+    "0x80a2ee7b55dd0910e0087b3a80f5f5fded666666",
+];
+
+export const ZETA_FARM_REBATE_ADDRESSES: string[] = [
+    "0x04a285427eee8ade8dce32299478e4522fb7c287",
+];
+
+export const SLINGSHOT_REBATE_ADDRESSES: string[] = [];
+
+export let REBATE_ADDRESSES: string[][] = [
+    WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
+    ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
+    DODO_REBATE_ADDRESSES,  // 2: DODO
+    OPEN_OCEAN_REBATE_ADDRESSES,  // 3: OpenOcean
+    METAMASK_REBATE_ADDRESSES,  // 4: MetaMask
+    YIELD_YAK_REBATE_ADDRESSES,  // 5: YieldYak
+    FIRE_BIRD_REBATE_ADDRESSES,  // 6: FireBird
+    BIT_KEEP_REBATE_ADDRESSES,  // 7: BitKeep
+    PARA_SWAP_REBATE_ADDRESSES,  // 8: ParaSwap
+    BEETHOVEN_X_REBATE_ADDRESSES,  // 9: BeethovenX
+    TRANSIT_SWAP_REBATE_ADDRESSES,  // 10: TransitSwap
+    ZERO_X_REBATE_ADDRESSES,  // 11: 0x
+    ODOS_REBATE_ADDRESSES,  // 12: ODOS
+    HERA_FINANCE_REBATE_ADDRESSES,  // 13: HeraFinance
+    THOR_SWAP_REBATE_ADDRESSES,  // 14: THORSwap
+    OKX_REBATE_ADDRESSES,  // 15: OKX
+    ONTO_REBATE_ADDRESSES,  // 16: ONTO
+    YETI_REBATE_ADDRESSES,  // 17: Yeti
+    JOY_REBATE_ADDRESSES,  // 18: Joy
+    ZETA_FARM_REBATE_ADDRESSES,  // 19: ZetaFarm
+    SLINGSHOT_REBATE_ADDRESSES,  // 20: Slingshot
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";
@@ -181,22 +168,8 @@ export const ORDER_HISTORY_VARIABLE_ID = "0";
 export const CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID = "1";
 export const CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID = "2";
 
-export const WOO_ROUTER_ORDER_SOURCE_ID = "0";
-export const ONE_INCH_ORDER_SOURCE_ID = "1";
-export const DODO_ORDER_SOURCE_ID = "2";
-export const OPEN_OCEAN_ORDER_SOURCE_ID = "3";
-export const METAMASK_ORDER_SOURCE_ID = "4";
-export const YIELD_YAK_ORDER_SOURCE_ID = "5";
-export const FIRE_BIRD_ORDER_SOURCE_ID = "6";
-export const BIT_KEEP_ORDER_SOURCE_ID = "7";
-export const PARA_SWAP_ORDER_SOURCE_ID = "8";
-export const BEETHOVEN_X_ORDER_SOURCE_ID = "9";
-export const TRANSIT_SWAP_ORDER_SOURCE_ID = "10";
-export const ZERO_X_ORDER_SOURCE_ID = "11";
-export const ODOS_ORDER_SOURCE_ID = "12";
-export const HERA_FINANCE_ORDER_SOURCE_ID = "13";
-export const THOR_SWAP_ORDER_SOURCE_ID = "14";
-export const OKX_ORDER_SOURCE_ID = "15";
+export const WOOFI_ORDER_SOURCE_ID = "0";
 export const OTHER_ORDER_SOURCE_ID = "99";
-
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = "-99";
+
+export const WOOFI_SWAP_TYPE = 0;

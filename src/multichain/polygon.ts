@@ -30,8 +30,6 @@ export const WOO_ROUTER_SOURCES: string[] = [
     "0x376d567c5794cfc64c74852a9db2105e0b5b482c",  // WooCrossChainRouterV1
     "0x574b9cec19553435b360803d8b4de2a5b2c008fd",  // WooCrossChainRouterV1
     "0xaa9c15cd603428ca8ddd45e933f8efe3afbcc173",  // WooCrossChainRouterV2
-    "0xfe7c30860d01e28371d40434806f4a8fcdd3a098",  // Relayer
-    "0x75dc8e5f50c8221a82ca6af64af811caa983b65f",  // Relayer
 ];
 
 export const WOO_PP_SOURCES: string[] = [
@@ -48,103 +46,111 @@ export const WOO_VAULT_MANAGER_SOURCES: string[] = [
     "0x88748243de01c4f3c103f2de2833f39f6807db17",
 ];
 
-export const ONE_INCH_ORDER_SOURCES: string[] = [
-    "0x1111111254eeb25477b68fb85ed929f73a960582",  // Aggregation Router V5
-    "0x1111111254fb6c44bac0bed2854e76f90643097d",  // Aggregation Router V4
-    "0x11111112542d85b3ef69ae05771c2dccff4faa26",  // Aggregation Router V3
-    "0x13927a60c7bf4d3d00e3c1593e0ec713e35d2106",  // 1inch Unverified Contract(assume as Adapter)
-    "0x0d15038f8a0362b4ce71d6c879d56bf9fc2884cf",  // 1inch Unverified Contract(assume as Adapter)
-    "0x7ab5194e730c4ec4a9d1d7f1dcad9c173075888a",  // 1inch Unverified Contract(assume as Adapter)
-    "0xb97cd69145e5a9357b2acd6af6c5076380f17afb",  // 1inch Unverified Contract(assume as Adapter)
-    "0x56f9c3982925f3867b1636d4aeb9ca63c9f7b2e3",  // 1inch Unverified Contract(assume as Adapter)
-    "0xcfd674f8731e801a4a15c1ae31770960e1afded1",
+// destination swap called by Layer Zero Relayer
+export const LAYER_ZERO_SOURCES: string[] = [
+    "0xfe7c30860d01e28371d40434806f4a8fcdd3a098",  // Relayer
+    "0x75dc8e5f50c8221a82ca6af64af811caa983b65f",  // Relayer
 ];
 
-export const DODO_ORDER_SOURCES: string[] = [
-    "0x2fa4334cfd7c56a0e7ca02bd81455205fcbdc5e9",  // DODO: Router
-    "0x6e59a9d2b86d004ce8d67da19fc0ee24e2417d9d",  // WooAdapter
+export const WOOFI_SOURCES: string[] = WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES).concat(LAYER_ZERO_SOURCES);
+
+export const WOOFI_REBATE_ADDRESSES: string[] = [];
+
+export const ONE_INCH_REBATE_ADDRESSES: string[] = [
+    "0x703a96e7d7a6d05d2d7f3f8223fd538c23897ce8",
+    "0x910bf2d50fa5e014fd06666f456182d4ab7c8bd2",
 ];
 
-export const OPEN_OCEAN_SOURCES: string[] = [
-    "0x6352a56caadc4f1e25cd6c75970fa768a3304e64",  // OpenOcean Exchange V2
-    "0x703855c7be44426f4c1c70976979f1ef3a6e58e6",  // OpenOcean Unverified Contract(assume as Adapter)
-    "0x10d443594cbe2ecc2574df8710ffc6a9a2f46c74",  // OpenOcean Unverified Contract(assume as Adapter)
+export const DODO_REBATE_ADDRESSES: string[] = [
+    "0xea8e147bdb3ee3dde2085acb88de826e1a6de37a",
 ];
 
-export const METAMASK_SOURCES: string[] = [
-    "0x1a1ec25dc08e98e5e93f1104b5e5cdd298707d31",  // MetaMask
+export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [
+    "0x353c1f0bc78fbbc245b3c93ef77b1dcc5b77d2a0",
 ];
 
-export const YIELD_YAK_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const METAMASK_REBATE_ADDRESSES: string[] = [];
+
+export const YIELD_YAK_REBATE_ADDRESSES: string[] = [
+    "0x5925c5c6843a8f67f7ef2b55db1f5491573c85eb",
 ];
 
-export const FIRE_BIRD_SOURCES: string[] = [
-    "0xb31d1b1ea48ce4bf10ed697d44b747287e785ad4",  // FireBirdRouter
-    "0xe6862672bb084cd2f0a98725142950ddbcba7d97",  // FireBird Unverified Contract(assume as Adapter)
-    "0x99a36249753d992f527f18e7b2d89d5e9bd380f7",  // FireBird Unverified Contract(assume as Adapter)
-    "0x5b58811507f8f9f1fe5d7905b487b6b88966fa13",
+export const FIRE_BIRD_REBATE_ADDRESSES: string[] = [
+    "0xa20ca7c6705fb88847cbf50549d7a38f4e99d32c",
 ];
 
-export const BIT_KEEP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const BIT_KEEP_REBATE_ADDRESSES: string[] = [
+    "0x9712394caccab28acd26d41f7e0566c1e88759aa",
 ];
 
-export const PARA_SWAP_SOURCES: string[] = [
-    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",  // AugustusSwapper
+export const PARA_SWAP_REBATE_ADDRESSES: string[] = [
+    "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
 ];
 
-export const BEETHOVEN_X_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const BEETHOVEN_X_REBATE_ADDRESSES: string[] = [];
+
+export const TRANSIT_SWAP_REBATE_ADDRESSES: string[] = [
+    "0x92106728f6efe170f8de919e1bd88c04c2473d3c",
 ];
 
-export const TRANSIT_SWAP_SOURCES: string[] = [
-    "0x8b48715c5d6d1645663a4c460ea85ce846b8580e",
-    "0x1c64a6a28a4e789e65b22715a751249f2aa6e1d2",
-    "0xb45a2dda996c32e93b8c47098e90ed0e7ab18e39",  // Router
-    "0xf7a2f863299c17dfa11cd8a14e7c7dca92f315b9",  // Adapter
+export const ZERO_X_REBATE_ADDRESSES: string[] = [
+    "0xbfdcbb4c05843163f491c24f9c0019c510786304",
 ];
 
-export const ZERO_X_SOURCES: string[] = [
-    "0xdef1c0ded9bec7f1a1670819833240f027b25eff",
-    "0xdb6f1920a889355780af7570773609bd8cb1f498",
+export const ODOS_REBATE_ADDRESSES: string[] = [
+    "0x7dfbf322aa55f417a4c8a89784bc560471095240",
 ];
 
-export const ODOS_SOURCES: string[] = [
-    "0xa32ee1c40594249eb3183c10792bcf573d4da47c",  // OdosRouter
-    "0x7a00fa13da1fef01aa023bd6a4aa794d3ea69be6",  // Adaptor
-    "0xc9f011d33c5878ac0b6085fe98a1a099fbf771b6",
+export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [
+    "0x1111110808b63f93b869a8a8ef87bc5b4dd79689",
 ];
 
-export const HERA_FINANCE_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const THOR_SWAP_REBATE_ADDRESSES: string[] = [
+    "0x72c6d8fcc3e591253a1eb563180d317998346bec",
 ];
 
-export const THOR_SWAP_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const OKX_REBATE_ADDRESSES: string[] = [];
+
+export const ONTO_REBATE_ADDRESSES: string[] = [
+    "0x0ce56280bf51dc8211952c3522d4e1ce917319a6",
 ];
 
-export const OKX_SOURCES: string[] = [
-    "0x0000000000000000000000000000000000000000",
+export const YETI_REBATE_ADDRESSES: string[] = [
+    "0x718c79e7c12f7e2c1a5d641c81d02eb7566db9a8",
 ];
 
-export let ADDRESS_SOURCES: string[][] = [
-    WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES),  // 0: WOOFi
-    ONE_INCH_ORDER_SOURCES,  // 1: 1inch
-    DODO_ORDER_SOURCES,  // 2: DODO
-    OPEN_OCEAN_SOURCES,  // 3: OpenOcean
-    METAMASK_SOURCES,  // 4: MetaMask
-    YIELD_YAK_SOURCES,  // 5: YieldYak
-    FIRE_BIRD_SOURCES,  // 6: FireBird
-    BIT_KEEP_SOURCES,  // 7: BitKeep
-    PARA_SWAP_SOURCES,  // 8: ParaSwap
-    BEETHOVEN_X_SOURCES,  // 9: BeethovenX
-    TRANSIT_SWAP_SOURCES,  // 10: TransitSwap
-    ZERO_X_SOURCES,  // 11: 0x
-    ODOS_SOURCES,  // 12: ODOS
-    HERA_FINANCE_SOURCES,  // 13: HeraFinance
-    THOR_SWAP_SOURCES,  // 14: THORSwap
-    OKX_SOURCES,  // 15: OKX
+export const JOY_REBATE_ADDRESSES: string[] = [
+    "0x80a2ee7b55dd0910e0087b3a80f5f5fded666666",
+];
+
+export const ZETA_FARM_REBATE_ADDRESSES: string[] = [
+    "0x04a285427eee8ade8dce32299478e4522fb7c287",
+];
+
+export const SLINGSHOT_REBATE_ADDRESSES: string[] = [];
+
+export let REBATE_ADDRESSES: string[][] = [
+    WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
+    ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
+    DODO_REBATE_ADDRESSES,  // 2: DODO
+    OPEN_OCEAN_REBATE_ADDRESSES,  // 3: OpenOcean
+    METAMASK_REBATE_ADDRESSES,  // 4: MetaMask
+    YIELD_YAK_REBATE_ADDRESSES,  // 5: YieldYak
+    FIRE_BIRD_REBATE_ADDRESSES,  // 6: FireBird
+    BIT_KEEP_REBATE_ADDRESSES,  // 7: BitKeep
+    PARA_SWAP_REBATE_ADDRESSES,  // 8: ParaSwap
+    BEETHOVEN_X_REBATE_ADDRESSES,  // 9: BeethovenX
+    TRANSIT_SWAP_REBATE_ADDRESSES,  // 10: TransitSwap
+    ZERO_X_REBATE_ADDRESSES,  // 11: 0x
+    ODOS_REBATE_ADDRESSES,  // 12: ODOS
+    HERA_FINANCE_REBATE_ADDRESSES,  // 13: HeraFinance
+    THOR_SWAP_REBATE_ADDRESSES,  // 14: THORSwap
+    OKX_REBATE_ADDRESSES,  // 15: OKX
+    ONTO_REBATE_ADDRESSES,  // 16: ONTO
+    YETI_REBATE_ADDRESSES,  // 17: Yeti
+    JOY_REBATE_ADDRESSES,  // 18: Joy
+    ZETA_FARM_REBATE_ADDRESSES,  // 19: ZetaFarm
+    SLINGSHOT_REBATE_ADDRESSES,  // 20: Slingshot
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";
@@ -152,22 +158,8 @@ export const ORDER_HISTORY_VARIABLE_ID = "0";
 export const CROSS_CHAIN_SRC_ORDER_HISTORY_VARIABLE_ID = "1";
 export const CROSS_CHAIN_DST_ORDER_HISTORY_VARIABLE_ID = "2";
 
-export const WOO_ROUTER_ORDER_SOURCE_ID = "0";
-export const ONE_INCH_ORDER_SOURCE_ID = "1";
-export const DODO_ORDER_SOURCE_ID = "2";
-export const OPEN_OCEAN_ORDER_SOURCE_ID = "3";
-export const METAMASK_ORDER_SOURCE_ID = "4";
-export const YIELD_YAK_ORDER_SOURCE_ID = "5";
-export const FIRE_BIRD_ORDER_SOURCE_ID = "6";
-export const BIT_KEEP_ORDER_SOURCE_ID = "7";
-export const PARA_SWAP_ORDER_SOURCE_ID = "8";
-export const BEETHOVEN_X_ORDER_SOURCE_ID = "9";
-export const TRANSIT_SWAP_ORDER_SOURCE_ID = "10";
-export const ZERO_X_ORDER_SOURCE_ID = "11";
-export const ODOS_ORDER_SOURCE_ID = "12";
-export const HERA_FINANCE_ORDER_SOURCE_ID = "13";
-export const THOR_SWAP_ORDER_SOURCE_ID = "14";
-export const OKX_ORDER_SOURCE_ID = "15";
+export const WOOFI_ORDER_SOURCE_ID = "0";
 export const OTHER_ORDER_SOURCE_ID = "99";
-
 export const GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID = "-99";
+
+export const WOOFI_SWAP_TYPE = 0;

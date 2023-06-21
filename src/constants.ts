@@ -71,6 +71,7 @@ export const BIT_KEEP_REBATE_ADDRESSES: string[] = [
 
 export const PARA_SWAP_REBATE_ADDRESSES: string[] = [
     "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
+    "0xd5b927956057075377263aab7f8afc12f85100db",
 ];
 
 export const BEETHOVEN_X_REBATE_ADDRESSES: string[] = [];

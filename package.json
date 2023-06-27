@@ -62,7 +62,15 @@
     "deploy_local_zksync_staging": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-zksync-staging subgraphs/zksync.yaml",
     "deploy_local_zksync_testing": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-zksync-testing subgraphs/zksync.yaml",
 
-    "deploy_studio_zksync": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --studio woofi-zksync subgraphs/zksync.yaml"
+    "create_local_polygon_zkevm_production": "graph create woonetwork/woofi-polygon-zkevm --node http://127.0.0.1:8020",
+    "create_local_polygon_zkevm_staging": "graph create woonetwork/woofi-polygon-zkevm-staging --node http://127.0.0.1:8020",
+    "create_local_polygon_zkevm_testing": "graph create woonetwork/woofi-polygon-zkevm-testing --node http://127.0.0.1:8020",
+    "deploy_local_polygon_zkevm_production": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-polygon-zkevm subgraphs/polygon-zkevm.yaml",
+    "deploy_local_polygon_zkevm_staging": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-polygon-zkevm-staging subgraphs/polygon-zkevm.yaml",
+    "deploy_local_polygon_zkevm_testing": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-polygon-zkevm-testing subgraphs/polygon-zkevm.yaml",
+
+    "deploy_studio_zksync": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --studio woofi-zksync subgraphs/zksync.yaml",
+    "deploy_studio_polygon_zkevm": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --studio woofi-polygon-zkevm subgraphs/polygon-zkevm.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.27.0",

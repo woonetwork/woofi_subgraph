@@ -138,6 +138,8 @@ export const ZETA_FARM_REBATE_ADDRESSES: string[] = [
 
 export const SLINGSHOT_REBATE_ADDRESSES: string[] = [];
 
+export const KALM_REBATE_ADDRESSES: string[] = [];
+
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
     ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
@@ -160,6 +162,7 @@ export let REBATE_ADDRESSES: string[][] = [
     JOY_REBATE_ADDRESSES,  // 18: Joy
     ZETA_FARM_REBATE_ADDRESSES,  // 19: ZetaFarm
     SLINGSHOT_REBATE_ADDRESSES,  // 20: Slingshot
+    KALM_REBATE_ADDRESSES,  // 21: KALM
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

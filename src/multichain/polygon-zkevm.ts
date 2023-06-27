@@ -15,19 +15,19 @@ export const ETHER = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 export const ETHER_SYMBOL = "ETH";
 export const ETHER_NAME = "eth";
 
-export const WRAPPED = "0x5aea5775959fbc2557cc8789bc1bf90a239d9a91";
+export const WRAPPED = "0x4f9a0e7fd2bf6067db6994cf12e4495df938e6e9";
 
 export const STABLE_TOKENS: string[] = [
-    "0x3355df6d4c9c3035724fd0e3914de96a5a83aaf4",  // USDC
+    "0xa8ce8aee21bc2a48a5ef670afcc9274c7bbbc035",  // USDC
 ];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0xfd505702b37ae9b626952eb2dd736d9045876417",  // WooRouterV2
+    "0x39d361e66798155813b907a70d6c2e3fdafb0877",  // WooRouterV2
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0x42ed123eb5266a5b8e2b54b2c76180ccf5e72fee",
+    "0xf5d215d9c84778f85746d15762daf39b9e83a2d6",
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
@@ -71,7 +71,6 @@ export const BIT_KEEP_REBATE_ADDRESSES: string[] = [
 
 export const PARA_SWAP_REBATE_ADDRESSES: string[] = [
     "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
-    "0xd5b927956057075377263aab7f8afc12f85100db",
 ];
 
 export const BEETHOVEN_X_REBATE_ADDRESSES: string[] = [];

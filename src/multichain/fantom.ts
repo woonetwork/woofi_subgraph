@@ -117,9 +117,7 @@ export const YETI_REBATE_ADDRESSES: string[] = [
     "0x718c79e7c12f7e2c1a5d641c81d02eb7566db9a8",
 ];
 
-export const JOY_REBATE_ADDRESSES: string[] = [
-    "0x80a2ee7b55dd0910e0087b3a80f5f5fded666666",
-];
+export const JOY_REBATE_ADDRESSES: string[] = [];
 
 export const ZETA_FARM_REBATE_ADDRESSES: string[] = [
     "0x04a285427eee8ade8dce32299478e4522fb7c287",

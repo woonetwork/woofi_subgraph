@@ -69,8 +69,23 @@
     "deploy_local_polygon_zkevm_staging": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-polygon-zkevm-staging subgraphs/polygon-zkevm.yaml",
     "deploy_local_polygon_zkevm_testing": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-polygon-zkevm-testing subgraphs/polygon-zkevm.yaml",
 
+    "create_local_linea_production": "graph create woonetwork/woofi-linea --node http://127.0.0.1:8020",
+    "create_local_linea_staging": "graph create woonetwork/woofi-linea-staging --node http://127.0.0.1:8020",
+    "create_local_linea_testing": "graph create woonetwork/woofi-linea-testing --node http://127.0.0.1:8020",
+    "deploy_local_linea_production": "cp ./src/multichain/linea.ts ./src/constants.ts && graph codegen subgraphs/linea.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-linea subgraphs/linea.yaml",
+    "deploy_local_linea_staging": "cp ./src/multichain/linea.ts ./src/constants.ts && graph codegen subgraphs/linea.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-linea-staging subgraphs/linea.yaml",
+    "deploy_local_linea_testing": "cp ./src/multichain/linea.ts ./src/constants.ts && graph codegen subgraphs/linea.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-linea-testing subgraphs/linea.yaml",
+
+    "create_local_base_production": "graph create woonetwork/woofi-base --node http://127.0.0.1:8020",
+    "create_local_base_staging": "graph create woonetwork/woofi-base-staging --node http://127.0.0.1:8020",
+    "create_local_base_testing": "graph create woonetwork/woofi-base-testing --node http://127.0.0.1:8020",
+    "deploy_local_base_production": "cp ./src/multichain/base.ts ./src/constants.ts && graph codegen subgraphs/base.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-base subgraphs/base.yaml",
+    "deploy_local_base_staging": "cp ./src/multichain/base.ts ./src/constants.ts && graph codegen subgraphs/base.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-base-staging subgraphs/base.yaml",
+    "deploy_local_base_testing": "cp ./src/multichain/base.ts ./src/constants.ts && graph codegen subgraphs/base.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-base-testing subgraphs/base.yaml",
+
     "deploy_studio_zksync": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --studio woofi-zksync subgraphs/zksync.yaml",
-    "deploy_studio_polygon_zkevm": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --studio woofi-polygon-zkevm subgraphs/polygon-zkevm.yaml"
+    "deploy_studio_polygon_zkevm": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --studio woofi-polygon-zkevm subgraphs/polygon-zkevm.yaml",
+    "deploy_studio_base": "cp ./src/multichain/base.ts ./src/constants.ts && graph codegen subgraphs/base.yaml && graph deploy --studio woofi-base subgraphs/base.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.27.0",

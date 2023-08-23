@@ -92,6 +92,6 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.51.2"
+    "@graphprotocol/graph-cli": "^0.55.0"
   }
 }

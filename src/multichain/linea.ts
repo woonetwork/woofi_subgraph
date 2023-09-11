@@ -49,6 +49,7 @@ export const ONE_INCH_REBATE_ADDRESSES: string[] = [
 
 export const DODO_REBATE_ADDRESSES: string[] = [
     "0xea8e147bdb3ee3dde2085acb88de826e1a6de37a",
+    "0xce9f9716fec7b4c11c773751aa579b1908fe9f5b",
 ];
 
 export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [

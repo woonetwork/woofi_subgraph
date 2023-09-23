@@ -127,6 +127,10 @@ export const SLINGSHOT_REBATE_ADDRESSES: string[] = [];
 
 export const KALM_REBATE_ADDRESSES: string[] = [];
 
+export const UNIZEN_REBATE_ADDRESSES: string[] = [
+    "0xaf951f7a4aa4e2a033b034af0897273ed553e8c3",
+];
+
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
     ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
@@ -150,6 +154,7 @@ export let REBATE_ADDRESSES: string[][] = [
     ZETA_FARM_REBATE_ADDRESSES,  // 19: ZetaFarm
     SLINGSHOT_REBATE_ADDRESSES,  // 20: Slingshot
     KALM_REBATE_ADDRESSES,  // 21: KALM
+    UNIZEN_REBATE_ADDRESSES,  // 22: unizen
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

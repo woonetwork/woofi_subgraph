@@ -15,28 +15,28 @@ export const ETHER = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 export const ETHER_SYMBOL = "ETH";
 export const ETHER_NAME = "eth";
 
-export const WRAPPED = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
+export const WRAPPED = "0x4200000000000000000000000000000000000006";
 
 export const STABLE_TOKENS: string[] = [
-    "0xdac17f958d2ee523a2206206994597c13d831ec7",  // USDT
-    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",  // USDC
+    "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",  // USDC
 ];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooCrossChainRouterV2
+    "0x27425e9fb6a9a625e8484cfd9620851d1fa322e5",  // WooRouterV2
 ];
 
-export const WOO_PP_SOURCES: string[] = [];
+export const WOO_PP_SOURCES: string[] = [
+    "0xb130a49065178465931d4f887056328cea5d723f",
+];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[0]);  // USDC
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 
 // destination swap called by Layer Zero Relayer
-export const LAYER_ZERO_SOURCES: string[] = [
-    "0x902f09715b6303d4173037652fa7377e5b98089e",  // Relayer
-];
+export const LAYER_ZERO_SOURCES: string[] = [];
 
 export const WOOFI_SOURCES: string[] = WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES).concat(LAYER_ZERO_SOURCES);
 
@@ -84,7 +84,9 @@ export const ZERO_X_REBATE_ADDRESSES: string[] = [
     "0xbfdcbb4c05843163f491c24f9c0019c510786304",
 ];
 
-export const ODOS_REBATE_ADDRESSES: string[] = [];
+export const ODOS_REBATE_ADDRESSES: string[] = [
+    "0xa7471690db0c93a7f827d1894c78df7379be11c0",
+];
 
 export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [
     "0x1111110808b63f93b869a8a8ef87bc5b4dd79689",
@@ -114,6 +116,10 @@ export const SLINGSHOT_REBATE_ADDRESSES: string[] = [];
 
 export const KALM_REBATE_ADDRESSES: string[] = [];
 
+export const UNIZEN_REBATE_ADDRESSES: string[] = [
+    "0xaf951f7a4aa4e2a033b034af0897273ed553e8c3",
+];
+
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
     ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
@@ -137,6 +143,7 @@ export let REBATE_ADDRESSES: string[][] = [
     ZETA_FARM_REBATE_ADDRESSES,  // 19: ZetaFarm
     SLINGSHOT_REBATE_ADDRESSES,  // 20: Slingshot
     KALM_REBATE_ADDRESSES,  // 21: KALM
+    UNIZEN_REBATE_ADDRESSES,  // 22: unizen
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

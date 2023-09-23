@@ -12,6 +12,10 @@ import {
     WooCrossSwapOnDstChain as WooCCRouterV2WooCrossSwapOnDstChain_1,
 } from "../../../generated/WooCrossChainRouterV2_1/WooCrossChainRouterV2";
 import {
+    WooCrossSwapOnSrcChain as WooCCRouterV3WooCrossSwapOnSrcChain_1,
+    WooCrossSwapOnDstChain as WooCCRouterV3WooCrossSwapOnDstChain_1,
+} from "../../../generated/WooCrossChainRouterV3_1/WooCrossChainRouterV3";
+import {
     createDayData,
     createDayTrader,
     createWooSwapHash,
@@ -24,6 +28,34 @@ import {
 } from "./update";
 import { updateDayTrader } from "../wooPP/update";
 import { BI_1 } from "../../constants";
+
+export function handleWooCCRouterV3WooCrossSwapOnSrcChain_1(event: WooCCRouterV3WooCrossSwapOnSrcChain_1): void {
+    handleWooCrossSwapOnSrcChain(
+        event,
+        event.params.refId,
+        event.params.sender,
+        event.params.to,
+        event.params.fromToken,
+        event.params.fromAmount,
+        event.params.minBridgeAmount,
+        event.params.realBridgeAmount
+    );
+}
+
+export function handleWooCCRouterV3WooCrossSwapOnDstChain_1(event: WooCCRouterV3WooCrossSwapOnDstChain_1): void {
+    handleWooCrossSwapOnDstChain(
+        event,
+        event.params.refId,
+        event.params.sender,
+        event.params.to,
+        event.params.bridgedToken,
+        event.params.bridgedAmount,
+        event.params.toToken,
+        event.params.realToToken,
+        event.params.minToAmount,
+        event.params.realToAmount
+    );
+}
 
 export function handleWooCCRouterV2WooCrossSwapOnSrcChain_1(event: WooCCRouterV2WooCrossSwapOnSrcChain_1): void {
     handleWooCrossSwapOnSrcChain(

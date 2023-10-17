@@ -141,11 +141,8 @@ export function updateDayTrader(event: ethereum.Event, traderAddress: Bytes, vol
         dayTrader.tradedToday = true;
         dayTrader.updatedAt = event.block.timestamp;
     }
-    let orderSourceID = getOrderSourceIDForWooPP((event.transaction.to as Address).toHexString(), wooSwapFrom, rebateTo);
-    if (orderSourceID === WOOFI_ORDER_SOURCE_ID) {
-        dayTrader.volumeUSD = dayTrader.volumeUSD.plus(volumeUSD);
-        dayTrader.updatedAt = event.block.timestamp;
-    }
+    dayTrader.volumeUSD = dayTrader.volumeUSD.plus(volumeUSD);
+    dayTrader.updatedAt = event.block.timestamp;
 
     dayTrader.save();
 }

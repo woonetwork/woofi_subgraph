@@ -26,6 +26,33 @@ dataSources:
           receipt: true
       file: ../src/mappings/stargateBridge/index.ts
   - kind: ethereum/contract
+    name: WooCrossChainRouterV4_1
+    network: bsc
+    source:
+      address: "0xCa10E8825FA9F1dB0651Cd48A9097997DBf7615d"
+      abi: WooCrossChainRouterV4
+      startBlock: 32770797
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - WooCrossSwapOnSrcChain
+        - WooCrossSwapOnDstChain
+      abis:
+        - name: WooCrossChainRouterV4
+          file: ../abis/WooCrossChainRouterV4_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooCrossSwapOnSrcChain(indexed uint256,indexed address,indexed address,address,uint256,address,uint256,uint256,uint8,uint256)
+          handler: handleWooCCRouterV4WooCrossSwapOnSrcChain_1
+          receipt: true
+        - event: WooCrossSwapOnDstChain(indexed uint256,indexed address,indexed address,address,uint256,address,address,uint256,uint256,uint8,uint256)
+          handler: handleWooCCRouterV4WooCrossSwapOnDstChain_1
+          receipt: true
+      file: ../src/mappings/wooCrossChainRouter/index.ts
+  - kind: ethereum/contract
     name: WooCrossChainRouterV3_1
     network: bsc
     source:

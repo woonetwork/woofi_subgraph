@@ -83,6 +83,13 @@
     "deploy_local_base_staging": "cp ./src/multichain/base.ts ./src/constants.ts && graph codegen subgraphs/base.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-base-staging subgraphs/base.yaml",
     "deploy_local_base_testing": "cp ./src/multichain/base.ts ./src/constants.ts && graph codegen subgraphs/base.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-base-testing subgraphs/base.yaml",
 
+    "create_local_mantle_production": "graph create woonetwork/woofi-mantle --node http://127.0.0.1:8020",
+    "create_local_mantle_staging": "graph create woonetwork/woofi-mantle-staging --node http://127.0.0.1:8020",
+    "create_local_mantle_testing": "graph create woonetwork/woofi-mantle-testing --node http://127.0.0.1:8020",
+    "deploy_local_mantle_production": "cp ./src/multichain/mantle.ts ./src/constants.ts && graph codegen subgraphs/mantle.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-mantle subgraphs/mantle.yaml",
+    "deploy_local_mantle_staging": "cp ./src/multichain/mantle.ts ./src/constants.ts && graph codegen subgraphs/mantle.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-mantle-staging subgraphs/mantle.yaml",
+    "deploy_local_mantle_testing": "cp ./src/multichain/mantle.ts ./src/constants.ts && graph codegen subgraphs/mantle.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-mantle-testing subgraphs/mantle.yaml",
+
     "deploy_studio_zksync": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --studio woofi-zksync subgraphs/zksync.yaml",
     "deploy_studio_polygon_zkevm": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --studio woofi-polygon-zkevm subgraphs/polygon-zkevm.yaml",
     "deploy_studio_base": "cp ./src/multichain/base.ts ./src/constants.ts && graph codegen subgraphs/base.yaml && graph deploy --studio woofi-base subgraphs/base.yaml"

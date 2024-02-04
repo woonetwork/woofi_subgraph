@@ -30,6 +30,8 @@ export const WOO_ROUTER_SOURCES: string[] = [
     "0x376d567c5794cfc64c74852a9db2105e0b5b482c",  // WooCrossChainRouterV1
     "0x574b9cec19553435b360803d8b4de2a5b2c008fd",  // WooCrossChainRouterV1
     "0xaa9c15cd603428ca8ddd45e933f8efe3afbcc173",  // WooCrossChainRouterV2
+    "0xe47fec1c72850d867a1655c4c5902de7728ca205",  // WooCrossChainRouterV3
+    "0xca10e8825fa9f1db0651cd48a9097997dbf7615d",  // WooCrossChainRouterV4
 ];
 
 export const WOO_PP_SOURCES: string[] = [

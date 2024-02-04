@@ -15,28 +15,30 @@ export const ETHER = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 export const ETHER_SYMBOL = "ETH";
 export const ETHER_NAME = "eth";
 
-export const WRAPPED = "0x4200000000000000000000000000000000000006";
+export const WRAPPED = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
 
 export const STABLE_TOKENS: string[] = [
-    "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",  // USDC
+    "0xdac17f958d2ee523a2206206994597c13d831ec7",  // USDT
+    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",  // USDC
 ];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x27425e9fb6a9a625e8484cfd9620851d1fa322e5",  // WooRouterV2
+    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooCrossChainRouterV2
+    "0xe47fec1c72850d867a1655c4c5902de7728ca205",  // WooCrossChainRouterV3
+    "0xca10e8825fa9f1db0651cd48a9097997dbf7615d",  // WooCrossChainRouterV4
 ];
 
-export const WOO_PP_SOURCES: string[] = [
-    "0xb130a49065178465931d4f887056328cea5d723f",
-];
+export const WOO_PP_SOURCES: string[] = [];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
-WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[0]);  // USDC
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 
 // destination swap called by Layer Zero Relayer
-export const LAYER_ZERO_SOURCES: string[] = [];
+export const LAYER_ZERO_SOURCES: string[] = [
+    "0x902f09715b6303d4173037652fa7377e5b98089e",  // Relayer
+];
 
 export const WOOFI_SOURCES: string[] = WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES).concat(LAYER_ZERO_SOURCES);
 
@@ -72,7 +74,6 @@ export const BIT_KEEP_REBATE_ADDRESSES: string[] = [
 export const PARA_SWAP_REBATE_ADDRESSES: string[] = [
     "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
     "0xd5b927956057075377263aab7f8afc12f85100db",
-    "0x65136b3e4f012e4c13aff0926091e2eadcfedb42",
 ];
 
 export const BEETHOVEN_X_REBATE_ADDRESSES: string[] = [];
@@ -85,9 +86,7 @@ export const ZERO_X_REBATE_ADDRESSES: string[] = [
     "0xbfdcbb4c05843163f491c24f9c0019c510786304",
 ];
 
-export const ODOS_REBATE_ADDRESSES: string[] = [
-    "0xa7471690db0c93a7f827d1894c78df7379be11c0",
-];
+export const ODOS_REBATE_ADDRESSES: string[] = [];
 
 export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [
     "0x1111110808b63f93b869a8a8ef87bc5b4dd79689",

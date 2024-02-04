@@ -29,27 +29,30 @@ export const STABLE_TOKENS: string[] = [
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x5aa6a4e96a9129562e2fc06660d07feddaaf7854",  // WooRouterV1
-    "0x3e0da0a9e4139b32b37710784b8dca643c152001",  // WooRouterV1
     "0x160020b09ded3d862f7f851b5c50632bcf2062ff",  // WooRouterV1
+    "0x3e0da0a9e4139b32b37710784b8dca643c152001",  // WooRouterV1
+    "0x5aa6a4e96a9129562e2fc06660d07feddaaf7854",  // WooRouterV1
     "0xc22fbb3133df781e6c25ea6acebe2d2bb8cea2f9",  // WooRouterV2
     "0xdf37f7a85d4563f39a78494568824b4df8669b7a",  // WooCrossChainRouterV1
     "0x1e6bb552ac038c6afb6ec5db6b06fdd106e31e33",  // WooCrossChainRouterV1
     "0x51af494f1b4d3f77835951fa827d66fc4a18dae8",  // WooCrossChainRouterV2
+    "0xe47fec1c72850d867a1655c4c5902de7728ca205",  // WooCrossChainRouterV3
+    "0xca10e8825fa9f1db0651cd48a9097997dbf7615d",  // WooCrossChainRouterV4
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0x1df3009c57a8b143c6246149f00b090bce3b8f88",  // WooPPV1
     "0xf8ce0d043891b62c55380fb1efbfb4f186153d96",  // WooPPV1
+    "0x1df3009c57a8b143c6246149f00b090bce3b8f88",  // WooPPV1
     "0x3b3e4b4741e91af52d0e9ad8660573e951c88524",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
-WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[6]);  // USDC
-WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[1]);  // USDT.e
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDT.e
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[6]);  // USDC
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[2], STABLE_TOKENS[6]);  // USDC
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
+    "0xb97851fa559c2596e26038a1d531bb846050cdf7",
     "0x48419c93d0d3b2428cd02bbcdeabd3aafc107f85",
     "0xfd7ed9d3d4fd88595af6a87f798ffdb42b4d7ccb",
 ];

@@ -24,6 +24,9 @@ export const STABLE_TOKENS: string[] = [
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
     "0x39d361e66798155813b907a70d6c2e3fdafb0877",  // WooRouterV2
+    "0x376d567c5794cfc64c74852a9db2105e0b5b482c",  // WooCrossChainRouterV2
+    "0xe47fec1c72850d867a1655c4c5902de7728ca205",  // WooCrossChainRouterV3
+    "0xca10e8825fa9f1db0651cd48a9097997dbf7615d",  // WooCrossChainRouterV4
 ];
 
 export const WOO_PP_SOURCES: string[] = [
@@ -36,7 +39,9 @@ WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[0]);  // USDC
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 
 // destination swap called by Layer Zero Relayer
-export const LAYER_ZERO_SOURCES: string[] = [];
+export const LAYER_ZERO_SOURCES: string[] = [
+    "0xa658742d33ebd2ce2f0bdff73515aa797fd161d9",
+];
 
 export const WOOFI_SOURCES: string[] = WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES).concat(LAYER_ZERO_SOURCES);
 

@@ -12,32 +12,34 @@ export let BD_1 = BigDecimal.fromString("1");
 
 // Address Must Be Lower Case!!!
 export const ETHER = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
-export const ETHER_SYMBOL = "ETH";
-export const ETHER_NAME = "eth";
+export const ETHER_SYMBOL = "MNT";
+export const ETHER_NAME = "mnt";
 
-export const WRAPPED = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
+export const WRAPPED = "0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8";
 
 export const STABLE_TOKENS: string[] = [
-    "0xdac17f958d2ee523a2206206994597c13d831ec7",  // USDT
-    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",  // USDC
+    "0x201eba5cc46d216ce6dc03f6a759e8e766e956ae",  // USDT
+    "0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9",  // USDC
 ];
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooCrossChainRouterV2
-    "0xe47fec1c72850d867a1655c4c5902de7728ca205",  // WooCrossChainRouterV3
+    "0xd14a997308f9e7514a8fea835064d596cdcaa99e",  // WooRouterV2
     "0xca10e8825fa9f1db0651cd48a9097997dbf7615d",  // WooCrossChainRouterV4
 ];
 
-export const WOO_PP_SOURCES: string[] = [];
+export const WOO_PP_SOURCES: string[] = [
+    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",
+];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[0]);  // USDT
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 
 // destination swap called by Layer Zero Relayer
 export const LAYER_ZERO_SOURCES: string[] = [
-    "0x902f09715b6303d4173037652fa7377e5b98089e",  // Relayer
+    "0xcb566e3b6934fa77258d68ea18e931fa75e1aaaa",
 ];
 
 export const WOOFI_SOURCES: string[] = WOO_ROUTER_SOURCES.concat(WOO_PP_SOURCES).concat(WOO_VAULT_MANAGER_SOURCES).concat(LAYER_ZERO_SOURCES);
@@ -74,6 +76,7 @@ export const BIT_KEEP_REBATE_ADDRESSES: string[] = [
 export const PARA_SWAP_REBATE_ADDRESSES: string[] = [
     "0xdef171fe48cf0115b1d80b88dc8eab59176fee57",
     "0xd5b927956057075377263aab7f8afc12f85100db",
+    "0x65136b3e4f012e4c13aff0926091e2eadcfedb42",
 ];
 
 export const BEETHOVEN_X_REBATE_ADDRESSES: string[] = [];
@@ -86,7 +89,9 @@ export const ZERO_X_REBATE_ADDRESSES: string[] = [
     "0xbfdcbb4c05843163f491c24f9c0019c510786304",
 ];
 
-export const ODOS_REBATE_ADDRESSES: string[] = [];
+export const ODOS_REBATE_ADDRESSES: string[] = [
+    "0xa7471690db0c93a7f827d1894c78df7379be11c0",
+];
 
 export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [
     "0x1111110808b63f93b869a8a8ef87bc5b4dd79689",
@@ -124,6 +129,10 @@ export const KYBER_SWAP_REBATE_ADDRESSES: string[] = [
     "0x4f82e73edb06d29ff62c91ec8f5ff06571bdeb29",
 ];
 
+export const ONE_DELTA_REBATE_ADDRESSES: string[] = [
+    "0xc95eed7f6e8334611765f84ceb8ed6270f08907e",
+];
+
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
     ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
@@ -149,6 +158,7 @@ export let REBATE_ADDRESSES: string[][] = [
     KALM_REBATE_ADDRESSES,  // 21: KALM
     UNIZEN_REBATE_ADDRESSES,  // 22: unizen
     KYBER_SWAP_REBATE_ADDRESSES,  // 23: KyberSwap
+    ONE_DELTA_REBATE_ADDRESSES,  // 24: 1delta
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

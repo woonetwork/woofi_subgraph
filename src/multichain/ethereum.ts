@@ -124,6 +124,10 @@ export const KYBER_SWAP_REBATE_ADDRESSES: string[] = [
     "0x4f82e73edb06d29ff62c91ec8f5ff06571bdeb29",
 ];
 
+export const ONE_DELTA_REBATE_ADDRESSES: string[] = [
+    "0xc95eed7f6e8334611765f84ceb8ed6270f08907e",
+];
+
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
     ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
@@ -149,6 +153,7 @@ export let REBATE_ADDRESSES: string[][] = [
     KALM_REBATE_ADDRESSES,  // 21: KALM
     UNIZEN_REBATE_ADDRESSES,  // 22: unizen
     KYBER_SWAP_REBATE_ADDRESSES,  // 23: KyberSwap
+    ONE_DELTA_REBATE_ADDRESSES,  // 24: 1delta
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

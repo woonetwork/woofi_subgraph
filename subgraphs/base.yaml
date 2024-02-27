@@ -107,6 +107,29 @@ dataSources:
           receipt: true
       file: ../src/mappings/wooCrossChainRouter/index.ts
   - kind: ethereum/contract
+    name: WooRouterV2_2
+    network: base
+    source:
+      address: "0x4c4AF8DBc524681930a27b2F1Af5bcC8062E6fB7"
+      abi: WooRouterV2
+      startBlock: 11080369
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - WooRouterSwap
+      abis:
+        - name: WooRouterV2
+          file: ../abis/WooRouterV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooRouterSwap(uint8,indexed address,indexed address,uint256,uint256,address,indexed address,address)
+          handler: handleWooRouterV2WooRouterSwap_2
+          receipt: true
+      file: ../src/mappings/wooRouter/index.ts
+  - kind: ethereum/contract
     name: WooRouterV2_1
     network: base
     source:

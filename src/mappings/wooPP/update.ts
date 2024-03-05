@@ -29,7 +29,8 @@ import {
 export function updateGlobalVariable(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapHash: WooSwapHash): void {
     let globalVariable = createGlobalVariable(event);
     
-    if (LAYER_ZERO_SOURCES.indexOf((event.transaction.to as Address).toHexString()) === -1) {
+    let toAddressString = event.transaction.to !== null ? (event.transaction.to as Address).toHexString() : "";
+    if (LAYER_ZERO_SOURCES.indexOf(toAddressString) === -1) {
         let trader = createTrader(event, traderAddress);
         if (trader.tradedBefore === false) {
             globalVariable.totalTraders = globalVariable.totalTraders.plus(BI_1);
@@ -90,7 +91,8 @@ export function updateToken(event: ethereum.Event, volumeUSD: BigInt, fromTokenA
 export function updateHourData(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapHash: WooSwapHash): void {
     let hourData = createHourData(event);
 
-    if (LAYER_ZERO_SOURCES.indexOf((event.transaction.to as Address).toHexString()) === -1) {
+    let toAddressString = event.transaction.to !== null ? (event.transaction.to as Address).toHexString() : "";
+    if (LAYER_ZERO_SOURCES.indexOf(toAddressString) === -1) {
         let hourTrader = createHourTrader(event, traderAddress);
         if (hourTrader.tradedThisHour === false) {
             hourData.traders = hourData.traders.plus(BI_1);
@@ -110,7 +112,8 @@ export function updateHourData(event: ethereum.Event, traderAddress: Bytes, volu
 export function updateDayData(event: ethereum.Event, traderAddress: Bytes, volumeUSD: BigInt, wooSwapFrom: Bytes, rebateTo: Bytes | null, wooSwapHash: WooSwapHash): void {
     let dayData = createDayData(event);
 
-    if (LAYER_ZERO_SOURCES.indexOf((event.transaction.to as Address).toHexString()) === -1) {
+    let toAddressString = event.transaction.to !== null ? (event.transaction.to as Address).toHexString() : "";
+    if (LAYER_ZERO_SOURCES.indexOf(toAddressString) === -1) {
         let dayTrader = createDayTrader(event, traderAddress);
         if (dayTrader.tradedToday === false) {
             dayData.traders = dayData.traders.plus(BI_1);
@@ -156,7 +159,8 @@ export function updateTrader(event: ethereum.Event, traderAddress: Bytes): void 
 }
 
 export function updateHourOrderSource(event: ethereum.Event, volumeUSD: BigInt, wooSwapFrom: Bytes, rebateTo: Bytes | null, wooSwapHash: WooSwapHash): void {
-    let orderSourceID = getOrderSourceIDForWooPP((event.transaction.to as Address).toHexString(), wooSwapFrom, rebateTo);
+    let toAddressString = event.transaction.to !== null ? (event.transaction.to as Address).toHexString() : "";
+    let orderSourceID = getOrderSourceIDForWooPP(toAddressString, wooSwapFrom, rebateTo);
     if (orderSourceID !== GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
         let hourOrderSource = createHourOrderSource(event, orderSourceID);
         hourOrderSource.volumeUSD = hourOrderSource.volumeUSD.plus(volumeUSD);
@@ -170,7 +174,8 @@ export function updateHourOrderSource(event: ethereum.Event, volumeUSD: BigInt, 
 }
 
 export function updateDayOrderSource(event: ethereum.Event, volumeUSD: BigInt, wooSwapFrom: Bytes, rebateTo: Bytes | null, wooSwapHash: WooSwapHash): void {
-    let orderSourceID = getOrderSourceIDForWooPP((event.transaction.to as Address).toHexString(), wooSwapFrom, rebateTo);
+    let toAddressString = event.transaction.to !== null ? (event.transaction.to as Address).toHexString() : "";
+    let orderSourceID = getOrderSourceIDForWooPP(toAddressString, wooSwapFrom, rebateTo);
     if (orderSourceID !== GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
         if (orderSourceID === OTHER_ORDER_SOURCE_ID && rebateTo !== null) {
             updateUnknownDayOrderSource(event, volumeUSD, rebateTo, wooSwapHash);
@@ -188,7 +193,8 @@ export function updateDayOrderSource(event: ethereum.Event, volumeUSD: BigInt, w
 }
 
 export function updateOrderSource(event: ethereum.Event, volumeUSD: BigInt, wooSwapFrom: Bytes, rebateTo: Bytes | null, wooSwapHash: WooSwapHash): void {
-    let orderSourceID = getOrderSourceIDForWooPP((event.transaction.to as Address).toHexString(), wooSwapFrom, rebateTo);
+    let toAddressString = event.transaction.to !== null ? (event.transaction.to as Address).toHexString() : "";
+    let orderSourceID = getOrderSourceIDForWooPP(toAddressString, wooSwapFrom, rebateTo);
     if (orderSourceID !== GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
         if (orderSourceID === OTHER_ORDER_SOURCE_ID && rebateTo !== null) {
             updateUnknownOrderSource(event, volumeUSD, rebateTo, wooSwapHash);
@@ -233,7 +239,8 @@ export function updateWooSwapHash(event: ethereum.Event, volumeUSD: BigInt, wooS
     let wooSwapHash = createWooSwapHash(event);
     wooSwapHash.txnSynced = true;
     wooSwapHash.volumeUSD = wooSwapHash.volumeUSD.plus(volumeUSD);
-    let orderSourceID = getOrderSourceIDForWooPP((event.transaction.to as Address).toHexString(), wooSwapFrom, rebateTo);
+    let toAddressString = event.transaction.to !== null ? (event.transaction.to as Address).toHexString() : "";
+    let orderSourceID = getOrderSourceIDForWooPP(toAddressString, wooSwapFrom, rebateTo);
     if (orderSourceID === GET_ORDER_SOURCE_BY_WOO_ROUTER_SWAP_FROM_ID) {
         wooSwapHash.getOrderSourceByWooRouterSwapFrom = true;
     }

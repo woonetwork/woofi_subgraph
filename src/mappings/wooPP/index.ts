@@ -111,7 +111,7 @@ function handleWooSwap(
         } else {
             updateTokenPrice(event, fromTokenAddress, fromAmount, toTokenAddress, toAmount);
         }
-        volumeUSD = swapVol.times(exponentToBigInt(BI_18)).div(exponentToBigInt(quoteToken.decimals));;
+        volumeUSD = swapVol.times(exponentToBigInt(BI_18)).div(exponentToBigInt(quoteToken.decimals));
     } else {
         // WooPPV1 is not able to swap Base to Base
         updateTokenPrice(event, fromTokenAddress, fromAmount, toTokenAddress, toAmount);

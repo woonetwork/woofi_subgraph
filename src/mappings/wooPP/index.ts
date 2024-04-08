@@ -7,6 +7,7 @@ import { WooSwap as WooPPV1WooSwap_3 } from "../../../generated/WooPPV1_3/WooPPV
 
 import { WooSwap as WooPPV2WooSwap_1 } from "../../../generated/WooPPV2_1/WooPPV2";
 import { WooSwap as WooPPV2WooSwap_2 } from "../../../generated/WooPPV2_2/WooPPV2";
+import { WooSwap as WooPPV2WooSwap_3 } from "../../../generated/WooPPV2_3/WooPPV2";
 
 import { calVolumeUSDForWooPP } from "../../helpers";
 import {
@@ -25,6 +26,15 @@ import { createToken, createWooSwapHash } from "../../create";
 import { updateTokenPrice } from "../../update";
 import { BI_18, WOO_PP_QUOTE_TOKENS } from "../../constants";
 import { exponentToBigInt } from "../../utils";
+
+export function handleWooPPV2WooSwap_3(event: WooPPV2WooSwap_3): void {
+    handleWooSwap(
+        event, event.params.fromToken, event.params.fromAmount,
+        event.params.toToken, event.params.toAmount, event.params.from,
+        event.params.to, event.params.rebateTo, event.params.swapVol, event.params.swapFee
+    );
+    handleWooPPV2WooSwapRebateTo(event, event.params.swapFee, event.params.rebateTo);
+}
 
 export function handleWooPPV2WooSwap_2(event: WooPPV2WooSwap_2): void {
     handleWooSwap(

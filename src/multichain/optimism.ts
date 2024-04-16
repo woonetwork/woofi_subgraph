@@ -19,7 +19,8 @@ export const WRAPPED = "0x4200000000000000000000000000000000000006";
 
 export const STABLE_TOKENS: string[] = [
     "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58",  // USDT
-    "0x7f5c764cbc14f9669b88837ca1490cca17c31607",  // USDC
+    "0x7f5c764cbc14f9669b88837ca1490cca17c31607",  // USDC.e
+    "0x0b2c639c533813f4aa9d7837caf62653d097ff85",  // USDC
     "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",  // DAI
 ];
 
@@ -37,7 +38,7 @@ export const WOO_PP_SOURCES: string[] = [
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
-WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDC
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDC.e
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 

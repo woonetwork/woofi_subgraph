@@ -55,6 +55,11 @@
     "deploy_ethereum_testing": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum-testing subgraphs/ethereum.yaml",
     "deploy_ethereum_dev": "cp ./src/multichain/ethereum.ts ./src/constants.ts && graph codegen subgraphs/ethereum.yaml && graph deploy --product hosted-service woonetwork/woofi-ethereum-dev subgraphs/ethereum.yaml",
 
+    "create_local_arbitrum_production": "graph create woonetwork/woofi-arbitrum --node http://127.0.0.1:8020",
+    "create_local_arbitrum_staging": "graph create woonetwork/woofi-arbitrum-staging --node http://127.0.0.1:8020",
+    "deploy_local_arbitrum_production": "cp ./src/multichain/arbitrum.ts ./src/constants.ts && graph codegen subgraphs/arbitrum.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-arbitrum subgraphs/arbitrum.yaml",
+    "deploy_local_arbitrum_staging": "cp ./src/multichain/arbitrum.ts ./src/constants.ts && graph codegen subgraphs/arbitrum.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-arbitrum-staging subgraphs/arbitrum.yaml",
+
     "create_local_zksync_production": "graph create woonetwork/woofi-zksync --node http://127.0.0.1:8020",
     "create_local_zksync_staging": "graph create woonetwork/woofi-zksync-staging --node http://127.0.0.1:8020",
     "create_local_zksync_testing": "graph create woonetwork/woofi-zksync-testing --node http://127.0.0.1:8020",

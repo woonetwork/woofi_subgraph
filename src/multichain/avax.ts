@@ -18,7 +18,7 @@ export const ETHER_NAME = "avax";
 export const WRAPPED = "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7";
 
 export const STABLE_TOKENS: string[] = [
-    "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",  // BUSD
+    "0x19860ccb0a68fd4213ab9d8266f7bbf05a8dde98",  // BUSD.e
     "0xc7198437980c041c805a1edcba50c1ce5db95118",  // USDT.e
     "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",  // USDC.e
     "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",  // DAI.e

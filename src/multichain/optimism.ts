@@ -35,10 +35,12 @@ export const WOO_ROUTER_SOURCES: string[] = [
 
 export const WOO_PP_SOURCES: string[] = [
     "0xd1778f9df3eee5473a9640f13682e3846f61febc",  // WooPPV2
+    "0xed9e3f98bbed560e66b89aac922e29d4596a9642",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDC.e
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[2]);  // USDC
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 

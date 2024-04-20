@@ -38,11 +38,13 @@ export const WOO_ROUTER_SOURCES: string[] = [
 export const WOO_PP_SOURCES: string[] = [
     "0x7400b665c8f4f3a951a99f1ee9872efb8778723d",  // WooPPV1
     "0x7081a38158bd050ae4a86e38e0225bc281887d7e",  // WooPPV2
+    "0xed9e3f98bbed560e66b89aac922e29d4596a9642",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDC.e
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[1]);  // USDC.e
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[2], STABLE_TOKENS[2]);  // USDC
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [
     "0x2e668bb88287675e34c8df82686dfd0b7f0c0383",

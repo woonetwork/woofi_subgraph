@@ -76,6 +76,7 @@ export const METAMASK_REBATE_ADDRESSES: string[] = [];
 export const YIELD_YAK_REBATE_ADDRESSES: string[] = [
     "0x5925c5c6843a8f67f7ef2b55db1f5491573c85eb",
     "0x4a6c794192831fb9f4782e61bec05d6c5cc9f3ea",
+    "0x599850287dd42db3137ef82f70c5dcabc690d524",
 ];
 
 export const FIRE_BIRD_REBATE_ADDRESSES: string[] = [

@@ -18,7 +18,8 @@ export const ETHER_NAME = "eth";
 export const WRAPPED = "0x4200000000000000000000000000000000000006";
 
 export const STABLE_TOKENS: string[] = [
-    "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",  // USDC
+    "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca",  // USDbC
+    "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",  // USDC
 ];
 
 // Contract Name as Variable Name
@@ -30,11 +31,13 @@ export const WOO_ROUTER_SOURCES: string[] = [
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0xb130a49065178465931d4f887056328cea5d723f",
+    "0xb130a49065178465931d4f887056328cea5d723f",  // WooPPV2
+    "0xed9e3f98bbed560e66b89aac922e29d4596a9642",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
-WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[0]);  // USDC
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[0]);  // USDbC
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[1]);  // USDC
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 

@@ -98,6 +98,7 @@
     "deploy_studio_arbitrum_dev": "cp ./src/multichain/arbitrum.ts ./src/constants.ts && graph codegen subgraphs/arbitrum.yaml && graph deploy --studio woofi-arbitrum-dev subgraphs/arbitrum.yaml",
     "deploy_studio_zksync": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --studio woofi-zksync subgraphs/zksync.yaml",
     "deploy_studio_polygon_zkevm": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --studio woofi-polygon-zkevm subgraphs/polygon-zkevm.yaml",
+    "deploy_studio_linea": "cp ./src/multichain/linea.ts ./src/constants.ts && graph codegen subgraphs/linea.yaml && graph deploy --studio woofi-linea subgraphs/linea.yaml",
     "deploy_studio_base": "cp ./src/multichain/base.ts ./src/constants.ts && graph codegen subgraphs/base.yaml && graph deploy --studio woofi-base subgraphs/base.yaml"
   },
   "devDependencies": {

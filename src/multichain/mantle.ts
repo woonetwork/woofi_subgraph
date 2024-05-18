@@ -29,11 +29,13 @@ export const WOO_ROUTER_SOURCES: string[] = [
 ];
 
 export const WOO_PP_SOURCES: string[] = [
-    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",
+    "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooPPV2
+    "0xed9e3f98bbed560e66b89aac922e29d4596a9642",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[0]);  // USDT
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[0]);  // USDT
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 

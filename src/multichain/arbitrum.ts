@@ -101,6 +101,7 @@ export const TRANSIT_SWAP_REBATE_ADDRESSES: string[] = [
 
 export const ZERO_X_REBATE_ADDRESSES: string[] = [
     "0xbfdcbb4c05843163f491c24f9c0019c510786304",
+    "0x5e01d320e95133d80dd59a2191c95728fa69036d",
 ];
 
 export const ODOS_REBATE_ADDRESSES: string[] = [

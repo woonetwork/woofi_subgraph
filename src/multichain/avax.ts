@@ -33,6 +33,7 @@ export const WOO_ROUTER_SOURCES: string[] = [
     "0x3e0da0a9e4139b32b37710784b8dca643c152001",  // WooRouterV1
     "0x5aa6a4e96a9129562e2fc06660d07feddaaf7854",  // WooRouterV1
     "0xc22fbb3133df781e6c25ea6acebe2d2bb8cea2f9",  // WooRouterV2
+    "0x4c4af8dbc524681930a27b2f1af5bcc8062e6fb7",  // WooRouterV2
     "0xdf37f7a85d4563f39a78494568824b4df8669b7a",  // WooCrossChainRouterV1
     "0x1e6bb552ac038c6afb6ec5db6b06fdd106e31e33",  // WooCrossChainRouterV1
     "0x51af494f1b4d3f77835951fa827d66fc4a18dae8",  // WooCrossChainRouterV2

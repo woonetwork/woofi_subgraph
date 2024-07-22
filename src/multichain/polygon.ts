@@ -28,6 +28,7 @@ export const STABLE_TOKENS: string[] = [
 export const WOO_ROUTER_SOURCES: string[] = [
     "0x9d1a92e601db0901e69bd810029f2c14bcca3128",  // WooRouterV1
     "0x817eb46d60762442da3d931ff51a30334ca39b74",  // WooRouterV2
+    "0x4c4af8dbc524681930a27b2f1af5bcc8062e6fb7",  // WooRouterV2
     "0x376d567c5794cfc64c74852a9db2105e0b5b482c",  // WooCrossChainRouterV1
     "0x574b9cec19553435b360803d8b4de2a5b2c008fd",  // WooCrossChainRouterV1
     "0xaa9c15cd603428ca8ddd45e933f8efe3afbcc173",  // WooCrossChainRouterV2

@@ -99,6 +99,11 @@
     "deploy_studio_mantle_staging": "cp ./src/multichain/mantle.ts ./src/constants.ts && graph codegen subgraphs/mantle.yaml && graph deploy --ipfs https://subgraph-api.mantle.xyz/ipfs --node https://subgraph-api.mantle.xyz/deploy woonetwork/woofi-mantle-staging subgraphs/mantle.yaml",
     "deploy_studio_mantle_testing": "cp ./src/multichain/mantle.ts ./src/constants.ts && graph codegen subgraphs/mantle.yaml && graph deploy --ipfs https://subgraph-api.mantle.xyz/ipfs --node https://subgraph-api.mantle.xyz/deploy woonetwork/woofi-mantle-testing subgraphs/mantle.yaml",
 
+    "deploy_studio_sonic_production": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic subgraphs/sonic.yaml",
+    "deploy_studio_sonic_staging": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic-staging subgraphs/sonic.yaml",
+    "deploy_studio_sonic_testing": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic-testing subgraphs/sonic.yaml",
+    "deploy_studio_sonic_dev": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic-dev subgraphs/sonic.yaml",
+
     "deploy_studio_zksync": "cp ./src/multichain/zksync.ts ./src/constants.ts && graph codegen subgraphs/zksync.yaml && graph deploy --studio woofi-zksync subgraphs/zksync.yaml",
     "deploy_studio_polygon_zkevm": "cp ./src/multichain/polygon-zkevm.ts ./src/constants.ts && graph codegen subgraphs/polygon-zkevm.yaml && graph deploy --studio woofi-polygon-zkevm subgraphs/polygon-zkevm.yaml",
     "deploy_studio_linea": "cp ./src/multichain/linea.ts ./src/constants.ts && graph codegen subgraphs/linea.yaml && graph deploy --studio woofi-linea subgraphs/linea.yaml",

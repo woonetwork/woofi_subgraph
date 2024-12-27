@@ -23,7 +23,7 @@ export const STABLE_TOKENS: string[] = [
 
 // Contract Name as Variable Name
 export const WOO_ROUTER_SOURCES: string[] = [
-    "0x17ccef8785cc6d95b3afa5bc1b8d85a4af6c7f9f",  // WooRouterV2
+    "0x4c4af8dbc524681930a27b2f1af5bcc8062e6fb7",  // WooRouterV2
 ];
 
 export const WOO_PP_SOURCES: string[] = [

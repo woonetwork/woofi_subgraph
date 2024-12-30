@@ -86,11 +86,17 @@ export const KALM_REBATE_ADDRESSES: string[] = [];
 
 export const UNIZEN_REBATE_ADDRESSES: string[] = [];
 
-export const KYBER_SWAP_REBATE_ADDRESSES: string[] = [];
+export const KYBER_SWAP_REBATE_ADDRESSES: string[] = [
+    "0x4f82e73edb06d29ff62c91ec8f5ff06571bdeb29",
+];
 
 export const ONE_DELTA_REBATE_ADDRESSES: string[] = [];
 
 export const EISEN_REBATE_ADDRESSES: string[] = [];
+
+export const HYPERSONIC_REBATE_ADDRESSES: string[] = [
+    "0xc0ffee3865121adca7e0b3428a5d1ce53942c005",
+];
 
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
@@ -119,6 +125,7 @@ export let REBATE_ADDRESSES: string[][] = [
     KYBER_SWAP_REBATE_ADDRESSES,  // 23: KyberSwap
     ONE_DELTA_REBATE_ADDRESSES,  // 24: 1delta
     EISEN_REBATE_ADDRESSES,  // 25: Eisen
+    HYPERSONIC_REBATE_ADDRESSES,  // 26: Hypersonic
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

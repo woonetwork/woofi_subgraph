@@ -46,7 +46,9 @@ export const ONE_INCH_REBATE_ADDRESSES: string[] = [];
 
 export const DODO_REBATE_ADDRESSES: string[] = [];
 
-export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [];
+export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [
+    "0x922164bbbd36acf9e854acbbf32facc949fcaeef",
+];
 
 export const METAMASK_REBATE_ADDRESSES: string[] = [];
 
@@ -64,7 +66,9 @@ export const TRANSIT_SWAP_REBATE_ADDRESSES: string[] = [];
 
 export const ZERO_X_REBATE_ADDRESSES: string[] = [];
 
-export const ODOS_REBATE_ADDRESSES: string[] = [];
+export const ODOS_REBATE_ADDRESSES: string[] = [
+    "0x9bcfd3910761115bf2aeb7d4019b5f48fe52ef12",
+];
 
 export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [];
 

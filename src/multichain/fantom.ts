@@ -67,6 +67,7 @@ export const DODO_REBATE_ADDRESSES: string[] = [
 
 export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [
     "0x353c1f0bc78fbbc245b3c93ef77b1dcc5b77d2a0",
+    "0x922164bbbd36acf9e854acbbf32facc949fcaeef",
 ];
 
 export const METAMASK_REBATE_ADDRESSES: string[] = [];

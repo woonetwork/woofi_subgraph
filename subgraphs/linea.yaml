@@ -5,6 +5,33 @@ schema:
   file: ./woofi.graphql
 dataSources:
   - kind: ethereum/contract
+    name: WOOFiCrossRouterV5_1
+    network: linea
+    source:
+      address: "0xB84aEfEF2DDDE628d5c7F1fba320dE63e3f4757c"
+      abi: WOOFiCrossRouterV5
+      startBlock: 14815270
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - WOOFiCrossSwapOnSrcChain
+        - WOOFiCrossSwapOnDstChain
+      abis:
+        - name: WOOFiCrossRouterV5
+          file: ../abis/WOOFiCrossRouterV5_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WOOFiCrossSwapOnSrcChain(uint32,indexed bytes32,indexed address,indexed address,address,uint256,address,uint256,uint256,uint8,uint256)
+          handler: handleWOOFiCrossRouterV5WOOFiCrossSwapOnSrcChain_1
+          receipt: true
+        - event: WOOFiCrossSwapOnDstChain(uint32,indexed bytes32,indexed address,indexed address,address,uint256,uint256,address,address,uint256,uint256,uint8,uint256)
+          handler: handleWOOFiCrossRouterV5WOOFiCrossSwapOnDstChain_1
+          receipt: true
+      file: ../src/mappings/wooCrossChainRouter/index.ts
+  - kind: ethereum/contract
     name: StargateBridgeV1_1
     network: linea
     source:

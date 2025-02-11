@@ -352,3 +352,26 @@ type StargateBridgeSendMsg @entity {
     "updated at"
     updatedAt: BigInt
 }
+
+type OFTSent @entity(immutable: true) {
+  id: Bytes!
+  guid: Bytes! # bytes32
+  dstEid: BigInt! # uint32
+  fromAddress: Bytes! # address
+  amountSentLD: BigInt! # uint256
+  amountReceivedLD: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OFTReceived @entity(immutable: true) {
+  id: Bytes!
+  guid: Bytes! # bytes32
+  srcEid: BigInt! # uint32
+  toAddress: Bytes! # address
+  amountReceivedLD: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

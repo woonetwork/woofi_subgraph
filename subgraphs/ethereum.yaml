@@ -112,3 +112,26 @@ dataSources:
           handler: handleWooCCRouterV2WooCrossSwapOnDstChain_1
           receipt: true
       file: ../src/mappings/wooCrossChainRouter/index.ts
+  - kind: ethereum
+    name: WooTokenOFTAdapter
+    network: mainnet
+    source:
+      address: "0xAd6cA80Fe4D3c54f6433fF725d744772AaE87711"
+      abi: WooTokenOFTAdapter
+      startBlock: 19769079
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - OFTReceived
+        - OFTSent
+      abis:
+        - name: WooTokenOFTAdapter
+          file: ../abis/WooTokenOFTAdapter.json
+      eventHandlers:
+        - event: OFTReceived(indexed bytes32,uint32,indexed address,uint256)
+          handler: handleOFTReceived
+        - event: OFTSent(indexed bytes32,uint32,indexed address,uint256,uint256)
+          handler: handleOFTSent
+      file: ../src/mappings/wooTokenOFT/index.ts

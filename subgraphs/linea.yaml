@@ -225,3 +225,26 @@ dataSources:
           handler: handleWooPPV2WooSwap_1
           receipt: true
       file: ../src/mappings/wooPP/index.ts
+  - kind: ethereum
+    name: WooTokenOFT
+    network: linea
+    source:
+      address: "0xf3df0a31ec5ea438150987805e841f960b9471b6"
+      abi: WooTokenOFT
+      startBlock: 12834637
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - OFTReceived
+        - OFTSent
+      abis:
+        - name: WooTokenOFT
+          file: ./abis/WooTokenOFT.json
+      eventHandlers:
+        - event: OFTReceived(indexed bytes32,uint32,indexed address,uint256)
+          handler: handleOFTReceived
+        - event: OFTSent(indexed bytes32,uint32,indexed address,uint256,uint256)
+          handler: handleOFTSent
+      file: ./src/mappings/wooTokenOFT/index.ts

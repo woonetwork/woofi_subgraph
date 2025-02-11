@@ -241,10 +241,10 @@ dataSources:
         - OFTSent
       abis:
         - name: WooTokenOFT
-          file: ./abis/WooTokenOFT.json
+          file: ../abis/WooTokenOFT.json
       eventHandlers:
         - event: OFTReceived(indexed bytes32,uint32,indexed address,uint256)
           handler: handleOFTReceived
         - event: OFTSent(indexed bytes32,uint32,indexed address,uint256,uint256)
           handler: handleOFTSent
-      file: ./src/mappings/wooTokenOFT/index.ts
+      file: ../src/mappings/wooTokenOFT/index.ts

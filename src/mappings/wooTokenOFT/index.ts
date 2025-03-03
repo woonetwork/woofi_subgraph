@@ -9,9 +9,8 @@ import {
 import { Bytes } from "@graphprotocol/graph-ts"
 
 export function handleOFTReceived(event: OFTReceivedEvent): void {
-  let entity = new OFTReceived(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  );
+  let entityID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
+  let entity = new OFTReceived(entityID);
   entity.guid = event.params.guid.toHexString();
   entity.srcEid = event.params.srcEid;
   entity.toAddress = event.params.toAddress.toHexString();
@@ -25,9 +24,8 @@ export function handleOFTReceived(event: OFTReceivedEvent): void {
 }
 
 export function handleOFTSent(event: OFTSentEvent): void {
-  let entity = new OFTSent(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  );
+  let entityID = event.transaction.hash.toHexString().concat("-").concat(event.logIndex.toString());
+  let entity = new OFTSent(entityID);
   entity.guid = event.params.guid.toHexString();
   entity.dstEid = event.params.dstEid;
   entity.fromAddress = event.params.fromAddress.toHexString();

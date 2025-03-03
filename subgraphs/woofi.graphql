@@ -354,7 +354,7 @@ type StargateBridgeSendMsg @entity {
 }
 
 type OFTSent @entity(immutable: true) {
-  id: Bytes!
+  id: ID!
   guid: String! # bytes32
   dstEid: BigInt! # uint32
   fromAddress: String! # address
@@ -366,7 +366,7 @@ type OFTSent @entity(immutable: true) {
 }
 
 type OFTReceived @entity(immutable: true) {
-  id: Bytes!
+  id: ID!
   guid: String! # bytes32
   srcEid: BigInt! # uint32
   toAddress: String! # address

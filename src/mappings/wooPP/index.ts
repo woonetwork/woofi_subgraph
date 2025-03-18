@@ -8,6 +8,8 @@ import { WooSwap as WooPPV1WooSwap_3 } from "../../../generated/WooPPV1_3/WooPPV
 import { WooSwap as WooPPV2WooSwap_1 } from "../../../generated/WooPPV2_1/WooPPV2";
 import { WooSwap as WooPPV2WooSwap_2 } from "../../../generated/WooPPV2_2/WooPPV2";
 import { WooSwap as WooPPV2WooSwap_3 } from "../../../generated/WooPPV2_3/WooPPV2";
+import { WooSwap as WooPPV2WooSwap_4 } from "../../../generated/WooPPV2_3/WooPPV2";
+
 
 import { calVolumeUSDForWooPP } from "../../helpers";
 import {
@@ -21,6 +23,7 @@ import {
     updateOrderSource,
     updateWooSwapHash,
     updateHourRebate,
+    
 } from "./update";
 import { createToken, createWooSwapHash } from "../../create";
 import { updateTokenPrice } from "../../update";
@@ -54,6 +57,15 @@ export function handleWooPPV2WooSwap_1(event: WooPPV2WooSwap_1): void {
     handleWooPPV2WooSwapRebateTo(event, event.params.swapFee, event.params.rebateTo);
 }
 
+export function handleWooPPV2WooSwap_4(event: WooPPV2WooSwap_4): void {
+    handleWooSwap(
+        event, event.params.fromToken, event.params.fromAmount,
+        event.params.toToken, event.params.toAmount, event.params.from,
+        event.params.to, event.params.rebateTo, event.params.swapVol, event.params.swapFee
+    );
+    handleWooPPV2WooSwapRebateTo_v4(event, event.params.swapFee, event.params.rebateTo);
+}
+
 function handleWooPPV2WooSwapRebateTo(
     event: ethereum.Event,
     swapFee: BigInt,
@@ -62,6 +74,16 @@ function handleWooPPV2WooSwapRebateTo(
     // WooPPV2 collect rebate fee off-chain, therefore it will be calculated in SubGraph
     let rebateFee = swapFee.times(BigInt.fromI32(20)).div(BigInt.fromI32(100));
     updateHourRebate(event, swapFee, rebateFee, rebateToAddress);
+}
+
+function handleWooPPV2WooSwapRebateTo_v4(
+    event: ethereum.Event,
+    swapFee: BigInt,
+    rebateToAddress: Bytes
+): void {
+    // WooPPV2 collect rebate fee off-chain, therefore it will be calculated in SubGraph
+    let rebateFee = swapFee.times(BigInt.fromI32(20)).div(BigInt.fromI32(100));
+    updateHourRebate_v4(event, swapFee, rebateFee, rebateToAddress);
 }
 
 export function handleWooPPV1WooSwap_3(event: WooPPV1WooSwap_3): void {

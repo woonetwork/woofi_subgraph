@@ -20,6 +20,7 @@ import {
     CrossChainSrcOrderHistory,
     CrossChainDstOrderHistory,
     HourRebate,
+    HourRebate_v4,
     StargateBridgeSendMsg,
 } from "../generated/schema";
 import {
@@ -456,6 +457,25 @@ export function createHourRebate(event: ethereum.Event, rebateToAddress: Bytes):
     let entityID = rebateToAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString());
 
     let entity = HourRebate.load(entityID);
+    if (entity === null) {
+        entity = new HourRebate(entityID);
+        entity.timestamp = BigInt.fromI32(hourUTCTimestamp);
+        entity.swapFee = BI_0;
+        entity.rebateFee = BI_0;
+        entity.wooSwaps = BI_0;
+        entity.updatedAt = event.block.timestamp;
+        entity.save();
+    }
+
+    return entity as HourRebate;
+}
+
+export function createHourRebate_v4(event: ethereum.Event, rebateToAddress: Bytes): HourRebate {
+    let hourID = event.block.timestamp.toI32() / 3600;
+    let hourUTCTimestamp = hourID * 3600;
+    let entityID = rebateToAddress.toHexString().concat("-").concat(BigInt.fromI32(hourID).toString());
+
+    let entity = HourRebate_v4.load(entityID);
     if (entity === null) {
         entity = new HourRebate(entityID);
         entity.timestamp = BigInt.fromI32(hourUTCTimestamp);

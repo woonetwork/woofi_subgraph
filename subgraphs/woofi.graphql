@@ -342,6 +342,21 @@ type HourRebate @entity {
     updatedAt: BigInt
 }
 
+type HourRebate_v4 @entity {
+    "hour rebate id"
+    id: ID!
+    "timestamp(start of hour)"
+    timestamp: BigInt!
+    "swap fee"
+    swapFee: BigInt!
+    "rebate fee"
+    rebateFee: BigInt!
+    "WooSwap numbers"
+    wooSwaps: BigInt!
+    "updated at"
+    updatedAt: BigInt
+}
+
 type StargateBridgeSendMsg @entity {
     "Stargate Bridge SendMsg txn hash"
     id: ID!

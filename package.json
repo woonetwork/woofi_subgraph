@@ -10,6 +10,10 @@
     "codegen_optimism": "graph codegen subgraphs/optimism.yaml",
     "codegen_ethereum": "graph codegen subgraphs/ethereum.yaml",
     "codegen_zksync": "graph codegen subgraphs/zksync.yaml",
+    "codegen_linea": "graph codegen subgraphs/linea.yaml",
+    "codegen_base": "graph codegen subgraphs/base.yaml",
+    "codegen_mantle": "graph codegen subgraphs/mantle.yaml",
+    "codegen_sonic": "graph codegen subgraphs/sonic.yaml",
 
     "build_bsc": "graph build subgraphs/bsc.yaml",
     "build_avax": "graph build subgraphs/avax.yaml",
@@ -19,6 +23,10 @@
     "build_optimism": "graph build subgraphs/optimism.yaml",
     "build_ethereum": "graph build subgraphs/ethereum.yaml",
     "build_zksync": "graph build subgraphs/zksync.yaml",
+    "build_linea": "graph build subgraphs/linea.yaml",
+    "build_base": "graph build subgraphs/base.yaml",
+    "build_mantle": "graph build subgraphs/mantle.yaml",
+    "build_sonic": "graph build subgraphs/sonic.yaml",
 
     "deploy_studio_bsc_production": "cp ./src/multichain/bsc.ts ./src/constants.ts && graph codegen subgraphs/bsc.yaml && graph deploy --studio woofi-bsc subgraphs/bsc.yaml",
     "deploy_studio_bsc_staging": "cp ./src/multichain/bsc.ts ./src/constants.ts && graph codegen subgraphs/bsc.yaml && graph deploy --studio woofi-bsc-staging subgraphs/bsc.yaml",

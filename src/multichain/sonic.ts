@@ -28,6 +28,7 @@ export const WOO_ROUTER_SOURCES: string[] = [
 
 export const WOO_PP_SOURCES: string[] = [
     "0xed9e3f98bbed560e66b89aac922e29d4596a9642",  // WooPPV2
+    "0x5520385bfcf07ec87c4c53a7d8d65595dff69fa4",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();

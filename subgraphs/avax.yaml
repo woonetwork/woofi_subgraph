@@ -372,6 +372,29 @@ dataSources:
           receipt: true
       file: ../src/mappings/wooRouter/index.ts
   - kind: ethereum/contract
+    name: WooPPV2_3
+    network: avalanche
+    source:
+      address: "0x5520385bFcf07Ec87C4c53A7d8d65595Dff69FA4"
+      abi: WooPPV2
+      startBlock: 58948840
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - WooSwap
+      abis:
+        - name: WooPPV2
+          file: ../abis/WooPPV2_1.json
+        - name: ERC20
+          file: ../abis/ERC20.json
+      eventHandlers:
+        - event: WooSwap(indexed address,indexed address,uint256,uint256,address,indexed address,address,uint256,uint256)
+          handler: handleWooPPV2WooSwap_3
+          receipt: true
+      file: ../src/mappings/wooPP/index.ts
+  - kind: ethereum/contract
     name: WooPPV2_2
     network: avalanche
     source:

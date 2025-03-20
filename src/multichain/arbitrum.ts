@@ -39,6 +39,7 @@ export const WOO_PP_SOURCES: string[] = [
     "0x1f79f8a65e02f8a137ce7f79c038cc44332df448",  // WooPPV2
     "0xeff23b4be1091b53205e35f3afcd9c7182bf3062",  // WooPPV2
     "0xed9e3f98bbed560e66b89aac922e29d4596a9642",  // WooPPV2
+    "0x5520385bfcf07ec87c4c53a7d8d65595dff69fa4",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();

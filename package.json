@@ -14,6 +14,8 @@
     "codegen_base": "graph codegen subgraphs/base.yaml",
     "codegen_mantle": "graph codegen subgraphs/mantle.yaml",
     "codegen_sonic": "graph codegen subgraphs/sonic.yaml",
+    "codegen_berachain": "graph codegen subgraphs/berachain.yaml",
+
 
     "build_bsc": "graph build subgraphs/bsc.yaml",
     "build_avax": "graph build subgraphs/avax.yaml",
@@ -27,6 +29,7 @@
     "build_base": "graph build subgraphs/base.yaml",
     "build_mantle": "graph build subgraphs/mantle.yaml",
     "build_sonic": "graph build subgraphs/sonic.yaml",
+    "build_berachain": "graph build subgraphs/berachain.yaml",
 
     "deploy_studio_bsc_production": "cp ./src/multichain/bsc.ts ./src/constants.ts && graph codegen subgraphs/bsc.yaml && graph deploy --studio woofi-bsc subgraphs/bsc.yaml",
     "deploy_studio_bsc_staging": "cp ./src/multichain/bsc.ts ./src/constants.ts && graph codegen subgraphs/bsc.yaml && graph deploy --studio woofi-bsc-staging subgraphs/bsc.yaml",
@@ -130,7 +133,12 @@
     "deploy_studio_sonic_production": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic subgraphs/sonic.yaml",
     "deploy_studio_sonic_staging": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic-staging subgraphs/sonic.yaml",
     "deploy_studio_sonic_testing": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic-testing subgraphs/sonic.yaml",
-    "deploy_studio_sonic_dev": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic-dev subgraphs/sonic.yaml"
+    "deploy_studio_sonic_dev": "cp ./src/multichain/sonic.ts ./src/constants.ts && graph codegen subgraphs/sonic.yaml && graph deploy --studio woofi-sonic-dev subgraphs/sonic.yaml",
+
+    "deploy_studio_berachain_production": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain subgraphs/berachain.yaml",
+    "deploy_studio_berachain_staging": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain-staging subgraphs/berachain.yaml",
+    "deploy_studio_berachain_testing": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain-testing subgraphs/berachain.yaml",
+    "deploy_studio_berachain_dev": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain-dev subgraphs/berachain.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.27.0",

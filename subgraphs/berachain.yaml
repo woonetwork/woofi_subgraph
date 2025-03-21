@@ -10,7 +10,7 @@ dataSources:
     source:
       address: "0x4c4AF8DBc524681930a27b2F1Af5bcC8062E6fB7"
       abi: WooRouterV2
-      startBlock: 2622291
+      startBlock: 2496347
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -33,7 +33,7 @@ dataSources:
     source:
       address: "0x5520385bFcf07Ec87C4c53A7d8d65595Dff69FA4"
       abi: WooPPV2
-      startBlock: 2622291
+      startBlock: 2495466
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

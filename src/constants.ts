@@ -28,7 +28,6 @@ export const WOO_ROUTER_SOURCES: string[] = [
 
 export const WOO_PP_SOURCES: string[] = [
     "0xed9e3f98bbed560e66b89aac922e29d4596a9642",  // WooPPV2
-    "0x5520385bfcf07ec87c4c53a7d8d65595dff69fa4",  // WooPPV2
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
@@ -47,9 +46,7 @@ export const ONE_INCH_REBATE_ADDRESSES: string[] = [];
 
 export const DODO_REBATE_ADDRESSES: string[] = [];
 
-export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [
-    "0x922164bbbd36acf9e854acbbf32facc949fcaeef",
-];
+export const OPEN_OCEAN_REBATE_ADDRESSES: string[] = [];
 
 export const METAMASK_REBATE_ADDRESSES: string[] = [];
 
@@ -67,9 +64,7 @@ export const TRANSIT_SWAP_REBATE_ADDRESSES: string[] = [];
 
 export const ZERO_X_REBATE_ADDRESSES: string[] = [];
 
-export const ODOS_REBATE_ADDRESSES: string[] = [
-    "0x9bcfd3910761115bf2aeb7d4019b5f48fe52ef12",
-];
+export const ODOS_REBATE_ADDRESSES: string[] = [];
 
 export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [];
 
@@ -91,17 +86,11 @@ export const KALM_REBATE_ADDRESSES: string[] = [];
 
 export const UNIZEN_REBATE_ADDRESSES: string[] = [];
 
-export const KYBER_SWAP_REBATE_ADDRESSES: string[] = [
-    "0x4f82e73edb06d29ff62c91ec8f5ff06571bdeb29",
-];
+export const KYBER_SWAP_REBATE_ADDRESSES: string[] = [];
 
 export const ONE_DELTA_REBATE_ADDRESSES: string[] = [];
 
 export const EISEN_REBATE_ADDRESSES: string[] = [];
-
-export const HYPERSONIC_REBATE_ADDRESSES: string[] = [
-    "0xc0ffee3865121adca7e0b3428a5d1ce53942c005",
-];
 
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
@@ -130,7 +119,6 @@ export let REBATE_ADDRESSES: string[][] = [
     KYBER_SWAP_REBATE_ADDRESSES,  // 23: KyberSwap
     ONE_DELTA_REBATE_ADDRESSES,  // 24: 1delta
     EISEN_REBATE_ADDRESSES,  // 25: Eisen
-    HYPERSONIC_REBATE_ADDRESSES,  // 26: Hypersonic
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

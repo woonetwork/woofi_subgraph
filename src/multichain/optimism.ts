@@ -43,6 +43,7 @@ export const WOO_PP_SOURCES: string[] = [
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[1]);  // USDC.e
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[1], STABLE_TOKENS[2]);  // USDC
+WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[2], STABLE_TOKENS[2]);  // USDC
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];
 

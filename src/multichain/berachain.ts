@@ -86,7 +86,9 @@ export const KALM_REBATE_ADDRESSES: string[] = [];
 
 export const UNIZEN_REBATE_ADDRESSES: string[] = [];
 
-export const KYBER_SWAP_REBATE_ADDRESSES: string[] = [];
+export const KYBER_SWAP_REBATE_ADDRESSES: string[] = [
+    "0x4f82e73edb06d29ff62c91ec8f5ff06571bdeb29",
+];
 
 export const ONE_DELTA_REBATE_ADDRESSES: string[] = [];
 

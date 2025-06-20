@@ -70,6 +70,7 @@ export const ZERO_X_REBATE_ADDRESSES: string[] = [];
 
 export const ODOS_REBATE_ADDRESSES: string[] = [
     "0x9bcfd3910761115bf2aeb7d4019b5f48fe52ef12",
+    "0x6cc5e417a1cd4498c4b947eeda6e91a99e9287a8",
 ];
 
 export const HERA_FINANCE_REBATE_ADDRESSES: string[] = [];

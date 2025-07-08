@@ -103,7 +103,16 @@
     "deploy_studio_berachain_production": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain subgraphs/berachain.yaml",
     "deploy_studio_berachain_staging": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain-staging subgraphs/berachain.yaml",
     "deploy_studio_berachain_testing": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain-testing subgraphs/berachain.yaml",
-    "deploy_studio_berachain_bi": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain-bi subgraphs/berachain.yaml"
+    "deploy_studio_berachain_bi": "cp ./src/multichain/berachain.ts ./src/constants.ts && graph codegen subgraphs/berachain.yaml && graph deploy --studio woofi-berachain-bi subgraphs/berachain.yaml",
+
+    "create_local_hyperevm_production": "graph create woonetwork/woofi-hyperevm --node http://127.0.0.1:8020",
+    "create_local_hyperevm_staging": "graph create woonetwork/woofi-hyperevm-staging --node http://127.0.0.1:8020",
+    "create_local_hyperevm_testing": "graph create woonetwork/woofi-hyperevm-testing --node http://127.0.0.1:8020",
+    "create_local_hyperevm_bi": "graph create woonetwork/woofi-hyperevm-bi --node http://127.0.0.1:8020",
+    "deploy_local_hyperevm_production": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm subgraphs/hyperevm.yaml",
+    "deploy_local_hyperevm_staging": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm-staging subgraphs/hyperevm.yaml",
+    "deploy_local_hyperevm_testing": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm-testing subgraphs/hyperevm.yaml",
+    "deploy_local_hyperevm_bi": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm-bi subgraphs/hyperevm.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.27.0",

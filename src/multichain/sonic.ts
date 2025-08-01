@@ -105,6 +105,10 @@ export const HYPERSONIC_REBATE_ADDRESSES: string[] = [
     "0xc0ffee3865121adca7e0b3428a5d1ce53942c005",
 ];
 
+export const MAGPIE_REBATE_ADDRESSES: string[] = [
+    "0xeeed1d103b6d628dc07e1b1d997ef2ee307fe2ff",
+];
+
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
     ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
@@ -133,6 +137,7 @@ export let REBATE_ADDRESSES: string[][] = [
     ONE_DELTA_REBATE_ADDRESSES,  // 24: 1delta
     EISEN_REBATE_ADDRESSES,  // 25: Eisen
     HYPERSONIC_REBATE_ADDRESSES,  // 26: Hypersonic
+    MAGPIE_REBATE_ADDRESSES,  // 27: Magpie
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

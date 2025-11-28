@@ -112,7 +112,12 @@
     "deploy_local_hyperevm_production": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm subgraphs/hyperevm.yaml",
     "deploy_local_hyperevm_staging": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm-staging subgraphs/hyperevm.yaml",
     "deploy_local_hyperevm_testing": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm-testing subgraphs/hyperevm.yaml",
-    "deploy_local_hyperevm_bi": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm-bi subgraphs/hyperevm.yaml"
+    "deploy_local_hyperevm_bi": "cp ./src/multichain/hyperevm.ts ./src/constants.ts && graph codegen subgraphs/hyperevm.yaml && graph deploy --ipfs https://ipfs.network.thegraph.com/ipfs/ --node http://127.0.0.1:8020 woonetwork/woofi-hyperevm-bi subgraphs/hyperevm.yaml",
+
+    "deploy_studio_monad_production": "cp ./src/multichain/monad.ts ./src/constants.ts && graph codegen subgraphs/monad.yaml && graph deploy --studio woofi-monad subgraphs/monad.yaml",
+    "deploy_studio_monad_staging": "cp ./src/multichain/monad.ts ./src/constants.ts && graph codegen subgraphs/monad.yaml && graph deploy --studio woofi-monad-staging subgraphs/monad.yaml",
+    "deploy_studio_monad_testing": "cp ./src/multichain/monad.ts ./src/constants.ts && graph codegen subgraphs/monad.yaml && graph deploy --studio woofi-monad-testing subgraphs/monad.yaml",
+    "deploy_studio_monad_bi": "cp ./src/multichain/monad.ts ./src/constants.ts && graph codegen subgraphs/monad.yaml && graph deploy --studio woofi-monad-bi subgraphs/monad.yaml"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.27.0",

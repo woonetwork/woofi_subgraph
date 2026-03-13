@@ -135,6 +135,10 @@ export const EISEN_REBATE_ADDRESSES: string[] = [];
 
 export const HYPERSONIC_REBATE_ADDRESSES: string[] = [];
 
+export const GLUEX_REBATE_ADDRESSES: string[] = [];
+
+export const BITGET_REBATE_ADDRESSES: string[] = [];
+
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
     ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
@@ -163,6 +167,8 @@ export let REBATE_ADDRESSES: string[][] = [
     ONE_DELTA_REBATE_ADDRESSES,  // 24: 1delta
     EISEN_REBATE_ADDRESSES,  // 25: Eisen
     HYPERSONIC_REBATE_ADDRESSES,  // 26: Hypersonic
+    GLUEX_REBATE_ADDRESSES,  // 27: GlueX
+    BITGET_REBATE_ADDRESSES,  // 28: Bitget
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

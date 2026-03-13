@@ -173,6 +173,10 @@ export const GLUEX_REBATE_ADDRESSES: string[] = [
     "0x3cffef055725974e32a660a617fc999b67e9196e",
 ];
 
+export const BITGET_REBATE_ADDRESSES: string[] = [
+    "0x31b07ce347f2fa1c53a800067382582f82fbad07",
+];
+
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi
     ONE_INCH_REBATE_ADDRESSES,  // 1: 1inch
@@ -202,6 +206,7 @@ export let REBATE_ADDRESSES: string[][] = [
     EISEN_REBATE_ADDRESSES,  // 25: Eisen
     HYPERSONIC_REBATE_ADDRESSES,  // 26: Hypersonic
     GLUEX_REBATE_ADDRESSES,  // 27: GlueX
+    BITGET_REBATE_ADDRESSES,  // 28: Bitget
 ];
 
 export const GLOBAL_VARIABLE_ID = "0";

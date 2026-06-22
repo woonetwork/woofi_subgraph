@@ -170,7 +170,9 @@ export const GLUEX_REBATE_ADDRESSES: string[] = [
     "0x3cffef055725974e32a660a617fc999b67e9196e",
 ];
 
-export const BITGET_REBATE_ADDRESSES: string[] = [];
+export const BITGET_REBATE_ADDRESSES: string[] = [
+    "0x54fd5b27df3bd64556611deff6527d38fe6cf548",
+];
 
 export let REBATE_ADDRESSES: string[][] = [
     WOOFI_REBATE_ADDRESSES,  // 0: WOOFi

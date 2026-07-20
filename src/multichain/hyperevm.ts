@@ -19,6 +19,7 @@ export const WRAPPED = "0x5555555555555555555555555555555555555555";
 
 export const STABLE_TOKENS: string[] = [
     "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb",  // USDT0
+    "0xb88339cb7199b77e23db6e890353e22632ba630f",  // USDC
 ];
 
 // Contract Name as Variable Name
@@ -31,6 +32,7 @@ export const WOO_PP_SOURCES: string[] = [
 ];
 
 export let WOO_PP_QUOTE_TOKENS = new TypedMap<string, string>();
+// Initial quote token; WooPP switched to USDC at block 40938690.
 WOO_PP_QUOTE_TOKENS.set(WOO_PP_SOURCES[0], STABLE_TOKENS[0]);  // USDT0
 
 export const WOO_VAULT_MANAGER_SOURCES: string[] = [];

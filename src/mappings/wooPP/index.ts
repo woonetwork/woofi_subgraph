@@ -1,4 +1,4 @@
-import { ethereum, BigInt, Bytes } from "@graphprotocol/graph-ts";
+import { ethereum, BigInt, Bytes, dataSource } from "@graphprotocol/graph-ts";
 import { WooSwapHash } from "../../../generated/schema";
 import { WooSwap as WooPPV1WooSwap_0 } from "../../../generated/WooPPV1_0/WooPPV1";
 import { WooSwap as WooPPV1WooSwap_1 } from "../../../generated/WooPPV1_1/WooPPV1";
@@ -25,8 +25,21 @@ import {
 } from "./update";
 import { createToken, createWooSwapHash } from "../../create";
 import { updateTokenPrice } from "../../update";
-import { BI_18, WOO_PP_QUOTE_TOKENS } from "../../constants";
+import { BI_18, STABLE_TOKENS, WOO_PP_QUOTE_TOKENS, WOO_PP_SOURCES } from "../../constants";
 import { exponentToBigInt } from "../../utils";
+
+function getWooPPQuoteTokenAddress(event: ethereum.Event, wooPPAddressString: string): Bytes {
+    let quoteTokenAddressString = WOO_PP_QUOTE_TOKENS.get(wooPPAddressString) as string;
+    if (
+        dataSource.network() == "hyperevm"
+        && wooPPAddressString == WOO_PP_SOURCES[0]
+        && event.block.number.ge(BigInt.fromI32(40938690))
+    ) {
+        quoteTokenAddressString = STABLE_TOKENS[1];  // USDC
+    }
+
+    return Bytes.fromHexString(quoteTokenAddressString) as Bytes;
+}
 
 export function handleWooPPV2WooSwap_4(event: WooPPV2WooSwap_4): void {
     handleWooSwap(
@@ -121,7 +134,7 @@ function handleWooSwap(
     // always update token price first
     let volumeUSD: BigInt;
     let wooPPAddressString = event.address.toHexString();
-    let quoteTokenAddress = Bytes.fromHexString(WOO_PP_QUOTE_TOKENS.get(wooPPAddressString) as string) as Bytes;
+    let quoteTokenAddress = getWooPPQuoteTokenAddress(event, wooPPAddressString);
     if (swapVol !== null && swapFee !== null) {
         // WooPPV2 is able to swap Base to Base
         let quoteToken = createToken(event, quoteTokenAddress);
